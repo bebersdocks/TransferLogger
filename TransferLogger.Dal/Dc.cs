@@ -9,10 +9,14 @@ namespace TransferLogger.Dal
 {
     public partial class Dc : LinqToDB.Data.DataConnection
     {
-        public ITable<Organization> Organizations => this.GetTable<Organization>();
-        public ITable<Course>       Courses       => this.GetTable<Course>();
-        public ITable<Student>      Students      => this.GetTable<Student>();
-        public ITable<Transfer>     Transfers     => this.GetTable<Transfer>();
+        public ITable<Organization>          Organizations          => this.GetTable<Organization>();
+        public ITable<Program>               Programs               => this.GetTable<Program>();
+        public ITable<Course>                Courses                => this.GetTable<Course>();
+        public ITable<Student>               Students               => this.GetTable<Student>();
+        public ITable<Transfer>              Transfers              => this.GetTable<Transfer>();
+        public ITable<TransferCourse>        TransferCourses        => this.GetTable<TransferCourse>();
+        public ITable<TransferExcelLocation> TransferExcelLocations => this.GetTable<TransferExcelLocation>();
+
 
         // This value can be anything - it is just internal identifier for configuration.
         private const string defaultConfigurationStr = "TransferLogger";
@@ -48,9 +52,12 @@ namespace TransferLogger.Dal
             }
 
             createTable(Organizations);
+            createTable(Programs);
             createTable(Courses);
             createTable(Students);
             createTable(Transfers);
+            createTable(TransferCourses);
+            createTable(TransferExcelLocations);
         }
     }
 }
