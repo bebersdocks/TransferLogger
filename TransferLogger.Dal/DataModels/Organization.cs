@@ -2,6 +2,8 @@
 
 using LinqToDB.Mapping;
 
+using TransferLogger.Dal.Definitions;
+
 namespace TransferLogger.Dal.DataModels
 {
     // If you have existing db with data - add new types only to the end.
@@ -18,6 +20,7 @@ namespace TransferLogger.Dal.DataModels
         [PrimaryKey, Identity] public string           OrganizationId { get; set; }
         [Column, NotNull]      public OrganizationType Type           { get; set; }
         [Column, NotNull]      public string           Name           { get; set; }
+        [Column, NotNull]      public Country          Country        { get; set; }
 
         #region Associations 
 
