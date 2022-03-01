@@ -2,15 +2,19 @@
 {
     public class DbSettings
     {
-        public string Username { get; set; }
-        public string Password { get; set; }
-        public string Server   { get; set; }
-        public int    Port     { get; set; }
-        public string Database { get; set; }
+        public string Username     { get; set; }
+        public string Password     { get; set; }
+        public string Server       { get; set; }
+        public int    Port         { get; set; }
+        public string Database     { get; set; }
+        public string ProviderName { get; set; }
 
         public override string ToString()
         {
-            return $"Server={Server};Port={Port};Database={Database};User Id={Username};Password={Password};CommandTimeout=20";
+            if (string.Equals(ProviderName, LinqToDB.ProviderName.SqlServer))
+                return $"User Id={Username};Password={Password};Server={Server};Database={Database};Connect Timeout=20";
+            else
+                return $"User Id={Username};Password={Password};Server={Server};Port={Port};Database={Database};CommandTimeout=20";
         }
     }
 }

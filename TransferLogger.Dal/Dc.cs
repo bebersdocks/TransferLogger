@@ -29,7 +29,7 @@ namespace TransferLogger.Dal
         {
             var connStr = dbSettings.ToString();
 
-            var dataProvider = GetDataProvider(ProviderName.PostgreSQL, connStr);
+            var dataProvider = GetDataProvider(dbSettings.ProviderName, connStr);
 
             if (dataProvider == null)
                 throw new Exception("Unable to get data provider.");
@@ -45,7 +45,7 @@ namespace TransferLogger.Dal
 
             void createTable<T>(ITable<T> table)
             {
-                if (!dbSchema.Tables.Any(i => i.TableName == table.TableName))
+                if (!dbSchema.Tables.Any(t => t.TableName == table.TableName))
                 {
                     this.CreateTable<T>();
                 }
