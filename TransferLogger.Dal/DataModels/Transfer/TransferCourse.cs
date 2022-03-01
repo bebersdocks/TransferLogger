@@ -8,6 +8,7 @@ namespace TransferLogger.Dal.DataModels
         NotMatched = 1,
     }
 
+    [Table]
     public class TransferCourse
     {
         [Column, NotNull]  public int           TransferId { get; set; }

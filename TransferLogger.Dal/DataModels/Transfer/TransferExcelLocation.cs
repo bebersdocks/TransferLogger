@@ -2,6 +2,7 @@
 
 namespace TransferLogger.Dal.DataModels
 {
+    [Table]
     public class TransferExcelLocation
     {
         [Column, NotNull] public int    TransferId { get; set; }

@@ -1,6 +1,6 @@
 ﻿namespace TransferLogger.Dal.Definitions
 {
-    public enum StudyLevel
+    public enum DegreeLevel
     {
         Bachelor = 0,
         Master   = 1,
