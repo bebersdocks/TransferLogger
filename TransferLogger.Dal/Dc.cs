@@ -4,19 +4,20 @@ using System.Linq;
 using LinqToDB;
 
 using TransferLogger.Dal.DataModels;
+using TransferLogger.Dal.DataModels.Transfer;
 
 namespace TransferLogger.Dal
 {
     public partial class Dc : LinqToDB.Data.DataConnection
     {
-        public ITable<Organization>          Organizations          => this.GetTable<Organization>();
-        public ITable<Program>               Programs               => this.GetTable<Program>();
-        public ITable<Course>                Courses                => this.GetTable<Course>();
-        public ITable<Instructor>            Instructors            => this.GetTable<Instructor>();
-        public ITable<Student>               Students               => this.GetTable<Student>();
-        public ITable<Transfer>              Transfers              => this.GetTable<Transfer>();
-        public ITable<TransferCourse>        TransferCourses        => this.GetTable<TransferCourse>();
-        public ITable<TransferExcelLocation> TransferExcelLocations => this.GetTable<TransferExcelLocation>();
+        public ITable<Organization>             Organizations             => this.GetTable<Organization>();
+        public ITable<Program>                  Programs                  => this.GetTable<Program>();
+        public ITable<Course>                   Courses                   => this.GetTable<Course>();
+        public ITable<Instructor>               Instructors               => this.GetTable<Instructor>();
+        public ITable<Student>                  Students                  => this.GetTable<Student>();
+        public ITable<Application>              Applications              => this.GetTable<Application>();
+        public ITable<ApplicationCourse>        ApplicationCourses        => this.GetTable<ApplicationCourse>();
+        public ITable<ApplicationExcelLocation> ApplicationExcelLocations => this.GetTable<ApplicationExcelLocation>();
 
 
         // This value can be anything - it is just internal identifier for configuration.
@@ -57,9 +58,9 @@ namespace TransferLogger.Dal
             createTable(Courses);
             createTable(Instructors);
             createTable(Students);
-            createTable(Transfers);
-            createTable(TransferCourses);
-            createTable(TransferExcelLocations);
+            createTable(Applications);
+            createTable(ApplicationCourses);
+            createTable(ApplicationExcelLocations);
         }
     }
 }
