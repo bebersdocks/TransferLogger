@@ -12,6 +12,7 @@ namespace TransferLogger.Dal
         public ITable<Organization>          Organizations          => this.GetTable<Organization>();
         public ITable<Program>               Programs               => this.GetTable<Program>();
         public ITable<Course>                Courses                => this.GetTable<Course>();
+        public ITable<Instructor>            Instructors            => this.GetTable<Instructor>();
         public ITable<Student>               Students               => this.GetTable<Student>();
         public ITable<Transfer>              Transfers              => this.GetTable<Transfer>();
         public ITable<TransferCourse>        TransferCourses        => this.GetTable<TransferCourse>();
@@ -54,6 +55,7 @@ namespace TransferLogger.Dal
             createTable(Organizations);
             createTable(Programs);
             createTable(Courses);
+            createTable(Instructors);
             createTable(Students);
             createTable(Transfers);
             createTable(TransferCourses);
