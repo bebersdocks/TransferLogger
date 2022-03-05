@@ -6,11 +6,13 @@ namespace TransferLogger.Dal.DataModels
     public class Course
     {
         [PrimaryKey, Identity] public int    CourseId       { get; set; }
-        [Column, NotNull]      public string Code           { get; set; }
+        [Column, NotNull]      public string CourseCode     { get; set; }
         [Column, NotNull]      public int    OrganizationId { get; set; }
         [Column, Nullable]     public int    ProgramId      { get; set; }
         [Column, Nullable]     public string Name           { get; set; }
         [Column, Nullable]     public string Description    { get; set; }
+        [Column, Nullable]     public int    Credits        { get; set; }
+        [Column, Nullable]     public int    WeeklyHours    { get; set; }
 
         #region Associations
 

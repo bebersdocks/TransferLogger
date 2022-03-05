@@ -11,11 +11,13 @@ namespace TransferLogger.Dal.DataModels.Transfer
     [Table]
     public class ApplicationCourse
     {
-        [Column, NotNull]  public int           ApplicationId { get; set; }
-        [Column, NotNull]  public int           CourseId      { get; set; }
-        [Column, NotNull]  public int           InstructorId  { get; set; }
-        [Column, Nullable] public CourseStatus? Status        { get; set; }
-        [Column, Nullable] public string        Comment       { get; set; }
+        [Column, NotNull]  public int           ApplicationId   { get; set; }
+        [Column, NotNull]  public int           CourseId        { get; set; }
+        [Column, Nullable] public int?          MatchedCourseId { get; set; }
+        [Column, NotNull]  public int           InstructorId    { get; set; }
+        [Column, Nullable] public CourseStatus? Status          { get; set; }
+        [Column, Nullable] public string        Comment         { get; set; }
+        [Column, NotNull]  public string        Grade           { get; set; }
 
         #region Associations 
 

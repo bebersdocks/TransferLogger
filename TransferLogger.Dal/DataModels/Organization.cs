@@ -18,10 +18,11 @@ namespace TransferLogger.Dal.DataModels
     [Table]
     public class Organization
     {
-        [PrimaryKey, Identity] public int              OrganizationId { get; set; }
-        [Column, NotNull]      public OrganizationType Type           { get; set; }
-        [Column, NotNull]      public string           Name           { get; set; }
-        [Column, NotNull]      public Country          Country        { get; set; }
+        [PrimaryKey, Identity] public int              OrganizationId   { get; set; }
+        [Column, NotNull]      public OrganizationType OrganizationType { get; set; }
+        [Column, NotNull]      public string           Name             { get; set; }
+        [Column, NotNull]      public Country          Country          { get; set; }
+        [Column, Nullable]     public string           Url              { get; set; }
 
         #region Associations 
 
