@@ -5,7 +5,9 @@ VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TransferLogger.Dal", "TransferLogger.Dal\TransferLogger.Dal.csproj", "{A18B744C-894F-4ADF-8C83-095F480E7BBB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransferLogger.BusinessLogic", "TransferLogger.BusinessLogic\TransferLogger.BusinessLogic.csproj", "{6B62EE9B-420B-4456-9AE4-DD73F11C4444}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TransferLogger.BusinessLogic", "TransferLogger.BusinessLogic\TransferLogger.BusinessLogic.csproj", "{6B62EE9B-420B-4456-9AE4-DD73F11C4444}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TransferLogger.Ui", "TransferLogger.Ui\TransferLogger.Ui.csproj", "{3EF1BBA2-956B-472E-9FBB-208CAD4908AD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{6B62EE9B-420B-4456-9AE4-DD73F11C4444}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B62EE9B-420B-4456-9AE4-DD73F11C4444}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B62EE9B-420B-4456-9AE4-DD73F11C4444}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EF1BBA2-956B-472E-9FBB-208CAD4908AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EF1BBA2-956B-472E-9FBB-208CAD4908AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EF1BBA2-956B-472E-9FBB-208CAD4908AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EF1BBA2-956B-472E-9FBB-208CAD4908AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
