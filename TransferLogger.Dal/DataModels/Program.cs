@@ -7,11 +7,11 @@ namespace TransferLogger.Dal.DataModels
     [Table]
     public class Program
     {
-        [PrimaryKey, Identity] public int         ProgramId      { get; set; }
-        [Column, NotNull]      public int         OrganizationId { get; set; }
-        [Column, NotNull]      public string      Name           { get; set; }
-        [Column, NotNull]      public DegreeLevel DegreeLevel    { get; set; }
-        [Column, NotNull]      public int         Year           { get; set; }
+        [PrimaryKey, Identity] public int    ProgramId      { get; set; }
+        [Column, NotNull]      public int    OrganizationId { get; set; }
+        [Column, NotNull]      public string Name           { get; set; }
+        [Column, NotNull]      public Cycle  Cycle          { get; set; }
+        [Column, NotNull]      public int    Year           { get; set; }
 
         #region Associations 
 
