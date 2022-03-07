@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this._pnlMain = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -40,7 +43,15 @@
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this._pnlInfo = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this._lApplications = new System.Windows.Forms.Label();
             this._gridApps = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Student = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Organization = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Courses = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SubmittedAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -56,8 +67,9 @@
             // 
             // splitContainer1
             // 
-            this.splitContainer1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.splitContainer1.BackColor = System.Drawing.Color.GhostWhite;
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.IsSplitterFixed = true;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
@@ -71,29 +83,32 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer3);
-            this.splitContainer1.Size = new System.Drawing.Size(1027, 616);
-            this.splitContainer1.SplitterDistance = 150;
+            this.splitContainer1.Size = new System.Drawing.Size(1176, 650);
+            this.splitContainer1.SplitterDistance = 158;
             this.splitContainer1.TabIndex = 0;
             // 
             // _pnlMain
             // 
+            this._pnlMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this._pnlMain.BackColor = System.Drawing.Color.White;
             this._pnlMain.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this._pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this._pnlMain.Location = new System.Drawing.Point(0, 24);
             this._pnlMain.Name = "_pnlMain";
-            this._pnlMain.Size = new System.Drawing.Size(1027, 126);
+            this._pnlMain.Size = new System.Drawing.Size(1176, 134);
             this._pnlMain.TabIndex = 1;
             // 
             // menuStrip1
             // 
-            this.menuStrip1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.menuStrip1.BackColor = System.Drawing.Color.GhostWhite;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.studentsToolStripMenuItem,
             this.studentsToolStripMenuItem1,
             this.instructorsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1027, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1176, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -139,8 +154,9 @@
             // 
             // splitContainer3
             // 
-            this.splitContainer3.BackColor = System.Drawing.Color.Transparent;
+            this.splitContainer3.BackColor = System.Drawing.Color.GhostWhite;
             this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer3.IsSplitterFixed = true;
             this.splitContainer3.Location = new System.Drawing.Point(0, 0);
             this.splitContainer3.Name = "splitContainer3";
             // 
@@ -151,8 +167,8 @@
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.panel1);
-            this.splitContainer3.Size = new System.Drawing.Size(1027, 462);
-            this.splitContainer3.SplitterDistance = 209;
+            this.splitContainer3.Size = new System.Drawing.Size(1176, 488);
+            this.splitContainer3.SplitterDistance = 239;
             this.splitContainer3.TabIndex = 0;
             // 
             // _pnlInfo
@@ -162,41 +178,149 @@
             this._pnlInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this._pnlInfo.Location = new System.Drawing.Point(0, 0);
             this._pnlInfo.Name = "_pnlInfo";
-            this._pnlInfo.Size = new System.Drawing.Size(209, 462);
+            this._pnlInfo.Size = new System.Drawing.Size(239, 488);
             this._pnlInfo.TabIndex = 1;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this._lApplications);
             this.panel1.Controls.Add(this._gridApps);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(814, 462);
+            this.panel1.Size = new System.Drawing.Size(933, 488);
             this.panel1.TabIndex = 0;
+            // 
+            // _lApplications
+            // 
+            this._lApplications.BackColor = System.Drawing.Color.AliceBlue;
+            this._lApplications.Dock = System.Windows.Forms.DockStyle.Top;
+            this._lApplications.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this._lApplications.Location = new System.Drawing.Point(0, 0);
+            this._lApplications.Name = "_lApplications";
+            this._lApplications.Size = new System.Drawing.Size(929, 17);
+            this._lApplications.TabIndex = 1;
+            this._lApplications.Text = "Applications";
+            this._lApplications.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // _gridApps
             // 
+            this._gridApps.AllowUserToAddRows = false;
+            this._gridApps.AllowUserToDeleteRows = false;
+            this._gridApps.AllowUserToOrderColumns = true;
+            this._gridApps.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this._gridApps.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this._gridApps.BackgroundColor = System.Drawing.Color.White;
             this._gridApps.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this._gridApps.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.AliceBlue;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.AliceBlue;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this._gridApps.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this._gridApps.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this._gridApps.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._gridApps.Location = new System.Drawing.Point(0, 0);
+            this._gridApps.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
+            this.Status,
+            this.Student,
+            this.Organization,
+            this.Courses,
+            this.Date,
+            this.SubmittedAt});
+            this._gridApps.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this._gridApps.DefaultCellStyle = dataGridViewCellStyle2;
+            this._gridApps.EnableHeadersVisualStyles = false;
+            this._gridApps.Location = new System.Drawing.Point(-2, 18);
+            this._gridApps.MultiSelect = false;
             this._gridApps.Name = "_gridApps";
+            this._gridApps.ReadOnly = true;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this._gridApps.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this._gridApps.RowHeadersVisible = false;
             this._gridApps.RowTemplate.Height = 25;
-            this._gridApps.Size = new System.Drawing.Size(810, 458);
+            this._gridApps.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this._gridApps.Size = new System.Drawing.Size(933, 464);
             this._gridApps.TabIndex = 0;
+            // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "ApplicationId";
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            // 
+            // Status
+            // 
+            this.Status.DataPropertyName = "ApplicationStatus";
+            this.Status.HeaderText = "Status";
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
+            // 
+            // Student
+            // 
+            this.Student.DataPropertyName = "Student";
+            this.Student.HeaderText = "Student";
+            this.Student.Name = "Student";
+            this.Student.ReadOnly = true;
+            // 
+            // Organization
+            // 
+            this.Organization.DataPropertyName = "Organization";
+            this.Organization.HeaderText = "Organization";
+            this.Organization.Name = "Organization";
+            this.Organization.ReadOnly = true;
+            // 
+            // Courses
+            // 
+            this.Courses.DataPropertyName = "CoursesCount";
+            this.Courses.HeaderText = "Courses";
+            this.Courses.Name = "Courses";
+            this.Courses.ReadOnly = true;
+            // 
+            // Date
+            // 
+            this.Date.DataPropertyName = "CreatedAt";
+            this.Date.HeaderText = "Date";
+            this.Date.Name = "Date";
+            this.Date.ReadOnly = true;
+            // 
+            // SubmittedAt
+            // 
+            this.SubmittedAt.DataPropertyName = "SubmittedAt";
+            this.SubmittedAt.HeaderText = "Submission Date";
+            this.SubmittedAt.Name = "SubmittedAt";
+            this.SubmittedAt.ReadOnly = true;
             // 
             // ApplicationsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1027, 616);
+            this.ClientSize = new System.Drawing.Size(1176, 650);
             this.Controls.Add(this.splitContainer1);
             this.Name = "ApplicationsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "TransfersForm";
+            this.Text = "Transfer Logger";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -229,5 +353,13 @@
         private ToolStripMenuItem coursesToolStripMenuItem1;
         private ToolStripMenuItem studentsToolStripMenuItem1;
         private ToolStripMenuItem instructorsToolStripMenuItem;
+        private Label _lApplications;
+        private DataGridViewTextBoxColumn ID;
+        private DataGridViewTextBoxColumn Status;
+        private DataGridViewTextBoxColumn Student;
+        private DataGridViewTextBoxColumn Organization;
+        private DataGridViewTextBoxColumn Courses;
+        private DataGridViewTextBoxColumn Date;
+        private DataGridViewTextBoxColumn SubmittedAt;
     }
 }
