@@ -21,6 +21,7 @@ namespace TransferLogger.Dal.DataModels
         [PrimaryKey, Identity] public int              OrganizationId   { get; set; }
         [Column, NotNull]      public OrganizationType OrganizationType { get; set; }
         [Column, NotNull]      public string           Name             { get; set; }
+        [Column, Nullable]     public string           Description      { get; set; }
         [Column, NotNull]      public Country          Country          { get; set; }
         [Column, Nullable]     public string           Url              { get; set; }
 
