@@ -1,4 +1,5 @@
 ﻿using TransferLogger.BusinessLogic;
+using TransferLogger.BusinessLogic.Utils;
 
 namespace TransferLogger.Ui.Controls
 {
@@ -15,28 +16,24 @@ namespace TransferLogger.Ui.Controls
 
     public static class TlDropDownListExtensions
     {
-        public static void FillLookups(this TlDropDownList dropDownList, IEnumerable<Lookup> items)
+        public static void FillLookups<T>(this TlDropDownList dropDownList, IEnumerable<Lookup> items, T? selectedValue = default)
         {
             dropDownList.ValueMember   = nameof(Lookup.Value);
             dropDownList.DisplayMember = nameof(Lookup.DisplayName);
             dropDownList.DataSource    = items.ToList();
+
+            if (selectedValue != null)
+                dropDownList.SelectedValue = Convert.ToInt32(selectedValue);
         }
 
         public static void FillLookups<T>(this TlDropDownList dropDownList, IEnumerable<T> items, Func<T, Lookup> getLookup)
         {
-            dropDownList.FillLookups(items.Select(i => getLookup(i)));
+            dropDownList.FillLookups<T>(items.Select(i => getLookup(i)));
         }
 
         public static void FillLookups<T>(this TlDropDownList dropDownList, T? selectedValue = default) where T : Enum
         {
-            var items = Enum.GetValues(typeof(T))
-                .Cast<T>()
-                .Select(e => new Lookup(Convert.ToInt32(e), e.ToString()));
-
-            dropDownList.FillLookups(items);
-
-            if (selectedValue != null)
-                dropDownList.SelectedValue = Convert.ToInt32(selectedValue);
+            dropDownList.FillLookups(EnumUtils.GetLookups<T>(), selectedValue);
         }
     }
 }
