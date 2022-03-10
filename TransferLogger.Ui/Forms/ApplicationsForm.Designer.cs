@@ -28,23 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this._splitContainerTop = new System.Windows.Forms.SplitContainer();
             this._pnlMain = new System.Windows.Forms.Panel();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.studentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.organizationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.programsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.coursesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.studentsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.instructorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this._menu = new System.Windows.Forms.MenuStrip();
+            this._menuOrganization = new System.Windows.Forms.ToolStripMenuItem();
+            this._menuItemOrganizations = new System.Windows.Forms.ToolStripMenuItem();
+            this._menuItemPrograms = new System.Windows.Forms.ToolStripMenuItem();
+            this._menuItemCourses = new System.Windows.Forms.ToolStripMenuItem();
+            this._menuItemStudents = new System.Windows.Forms.ToolStripMenuItem();
+            this._menuItemInstructors = new System.Windows.Forms.ToolStripMenuItem();
+            this._splitContainerBottom = new System.Windows.Forms.SplitContainer();
             this._pnlInfo = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this._pnlApplications = new System.Windows.Forms.Panel();
             this._lApplications = new System.Windows.Forms.Label();
-            this._gridApps = new System.Windows.Forms.DataGridView();
+            this._gridApps = new TransferLogger.Ui.Controls.TlDataGrid();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Student = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,40 +49,40 @@
             this.Courses = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SubmittedAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.Panel2.SuspendLayout();
-            this.splitContainer1.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
-            this.splitContainer3.Panel1.SuspendLayout();
-            this.splitContainer3.Panel2.SuspendLayout();
-            this.splitContainer3.SuspendLayout();
-            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._splitContainerTop)).BeginInit();
+            this._splitContainerTop.Panel1.SuspendLayout();
+            this._splitContainerTop.Panel2.SuspendLayout();
+            this._splitContainerTop.SuspendLayout();
+            this._menu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._splitContainerBottom)).BeginInit();
+            this._splitContainerBottom.Panel1.SuspendLayout();
+            this._splitContainerBottom.Panel2.SuspendLayout();
+            this._splitContainerBottom.SuspendLayout();
+            this._pnlApplications.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._gridApps)).BeginInit();
             this.SuspendLayout();
             // 
-            // splitContainer1
+            // _splitContainerTop
             // 
-            this.splitContainer1.BackColor = System.Drawing.Color.GhostWhite;
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.IsSplitterFixed = true;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Name = "splitContainer1";
-            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            this._splitContainerTop.BackColor = System.Drawing.Color.GhostWhite;
+            this._splitContainerTop.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._splitContainerTop.IsSplitterFixed = true;
+            this._splitContainerTop.Location = new System.Drawing.Point(0, 0);
+            this._splitContainerTop.Name = "_splitContainerTop";
+            this._splitContainerTop.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
-            // splitContainer1.Panel1
+            // _splitContainerTop.Panel1
             // 
-            this.splitContainer1.Panel1.BackColor = System.Drawing.Color.White;
-            this.splitContainer1.Panel1.Controls.Add(this._pnlMain);
-            this.splitContainer1.Panel1.Controls.Add(this.menuStrip1);
+            this._splitContainerTop.Panel1.BackColor = System.Drawing.Color.White;
+            this._splitContainerTop.Panel1.Controls.Add(this._pnlMain);
+            this._splitContainerTop.Panel1.Controls.Add(this._menu);
             // 
-            // splitContainer1.Panel2
+            // _splitContainerTop.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.splitContainer3);
-            this.splitContainer1.Size = new System.Drawing.Size(1176, 650);
-            this.splitContainer1.SplitterDistance = 158;
-            this.splitContainer1.TabIndex = 0;
+            this._splitContainerTop.Panel2.Controls.Add(this._splitContainerBottom);
+            this._splitContainerTop.Size = new System.Drawing.Size(1176, 650);
+            this._splitContainerTop.SplitterDistance = 158;
+            this._splitContainerTop.TabIndex = 0;
             // 
             // _pnlMain
             // 
@@ -99,77 +96,77 @@
             this._pnlMain.Size = new System.Drawing.Size(1176, 134);
             this._pnlMain.TabIndex = 1;
             // 
-            // menuStrip1
+            // _menu
             // 
-            this.menuStrip1.BackColor = System.Drawing.Color.GhostWhite;
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.studentsToolStripMenuItem,
-            this.studentsToolStripMenuItem1,
-            this.instructorsToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1176, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
+            this._menu.BackColor = System.Drawing.Color.GhostWhite;
+            this._menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this._menuOrganization,
+            this._menuItemStudents,
+            this._menuItemInstructors});
+            this._menu.Location = new System.Drawing.Point(0, 0);
+            this._menu.Name = "_menu";
+            this._menu.Size = new System.Drawing.Size(1176, 24);
+            this._menu.TabIndex = 0;
+            this._menu.Text = "_menuStrip";
             // 
-            // studentsToolStripMenuItem
+            // _menuOrganization
             // 
-            this.studentsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.organizationsToolStripMenuItem,
-            this.programsToolStripMenuItem,
-            this.coursesToolStripMenuItem1});
-            this.studentsToolStripMenuItem.Name = "studentsToolStripMenuItem";
-            this.studentsToolStripMenuItem.Size = new System.Drawing.Size(87, 20);
-            this.studentsToolStripMenuItem.Text = "Organization";
+            this._menuOrganization.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this._menuItemOrganizations,
+            this._menuItemPrograms,
+            this._menuItemCourses});
+            this._menuOrganization.Name = "_menuOrganization";
+            this._menuOrganization.Size = new System.Drawing.Size(87, 20);
+            this._menuOrganization.Text = "Organization";
             // 
-            // organizationsToolStripMenuItem
+            // _menuItemOrganizations
             // 
-            this.organizationsToolStripMenuItem.Name = "organizationsToolStripMenuItem";
-            this.organizationsToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
-            this.organizationsToolStripMenuItem.Text = "Organizations";
+            this._menuItemOrganizations.Name = "_menuItemOrganizations";
+            this._menuItemOrganizations.Size = new System.Drawing.Size(180, 22);
+            this._menuItemOrganizations.Text = "Organizations";
             // 
-            // programsToolStripMenuItem
+            // _menuItemPrograms
             // 
-            this.programsToolStripMenuItem.Name = "programsToolStripMenuItem";
-            this.programsToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
-            this.programsToolStripMenuItem.Text = "Programs";
+            this._menuItemPrograms.Name = "_menuItemPrograms";
+            this._menuItemPrograms.Size = new System.Drawing.Size(180, 22);
+            this._menuItemPrograms.Text = "Programs";
             // 
-            // coursesToolStripMenuItem1
+            // _menuItemCourses
             // 
-            this.coursesToolStripMenuItem1.Name = "coursesToolStripMenuItem1";
-            this.coursesToolStripMenuItem1.Size = new System.Drawing.Size(147, 22);
-            this.coursesToolStripMenuItem1.Text = "Courses";
+            this._menuItemCourses.Name = "_menuItemCourses";
+            this._menuItemCourses.Size = new System.Drawing.Size(180, 22);
+            this._menuItemCourses.Text = "Courses";
             // 
-            // studentsToolStripMenuItem1
+            // _menuItemStudents
             // 
-            this.studentsToolStripMenuItem1.Name = "studentsToolStripMenuItem1";
-            this.studentsToolStripMenuItem1.Size = new System.Drawing.Size(65, 20);
-            this.studentsToolStripMenuItem1.Text = "Students";
+            this._menuItemStudents.Name = "_menuItemStudents";
+            this._menuItemStudents.Size = new System.Drawing.Size(65, 20);
+            this._menuItemStudents.Text = "Students";
             // 
-            // instructorsToolStripMenuItem
+            // _menuItemInstructors
             // 
-            this.instructorsToolStripMenuItem.Name = "instructorsToolStripMenuItem";
-            this.instructorsToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
-            this.instructorsToolStripMenuItem.Text = "Instructors";
+            this._menuItemInstructors.Name = "_menuItemInstructors";
+            this._menuItemInstructors.Size = new System.Drawing.Size(75, 20);
+            this._menuItemInstructors.Text = "Instructors";
             // 
-            // splitContainer3
+            // _splitContainerBottom
             // 
-            this.splitContainer3.BackColor = System.Drawing.Color.GhostWhite;
-            this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer3.IsSplitterFixed = true;
-            this.splitContainer3.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer3.Name = "splitContainer3";
+            this._splitContainerBottom.BackColor = System.Drawing.Color.GhostWhite;
+            this._splitContainerBottom.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._splitContainerBottom.IsSplitterFixed = true;
+            this._splitContainerBottom.Location = new System.Drawing.Point(0, 0);
+            this._splitContainerBottom.Name = "_splitContainerBottom";
             // 
-            // splitContainer3.Panel1
+            // _splitContainerBottom.Panel1
             // 
-            this.splitContainer3.Panel1.Controls.Add(this._pnlInfo);
+            this._splitContainerBottom.Panel1.Controls.Add(this._pnlInfo);
             // 
-            // splitContainer3.Panel2
+            // _splitContainerBottom.Panel2
             // 
-            this.splitContainer3.Panel2.Controls.Add(this.panel1);
-            this.splitContainer3.Size = new System.Drawing.Size(1176, 488);
-            this.splitContainer3.SplitterDistance = 239;
-            this.splitContainer3.TabIndex = 0;
+            this._splitContainerBottom.Panel2.Controls.Add(this._pnlApplications);
+            this._splitContainerBottom.Size = new System.Drawing.Size(1176, 488);
+            this._splitContainerBottom.SplitterDistance = 239;
+            this._splitContainerBottom.TabIndex = 0;
             // 
             // _pnlInfo
             // 
@@ -181,17 +178,17 @@
             this._pnlInfo.Size = new System.Drawing.Size(239, 488);
             this._pnlInfo.TabIndex = 1;
             // 
-            // panel1
+            // _pnlApplications
             // 
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this._lApplications);
-            this.panel1.Controls.Add(this._gridApps);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(933, 488);
-            this.panel1.TabIndex = 0;
+            this._pnlApplications.BackColor = System.Drawing.Color.Transparent;
+            this._pnlApplications.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this._pnlApplications.Controls.Add(this._lApplications);
+            this._pnlApplications.Controls.Add(this._gridApps);
+            this._pnlApplications.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._pnlApplications.Location = new System.Drawing.Point(0, 0);
+            this._pnlApplications.Name = "_pnlApplications";
+            this._pnlApplications.Size = new System.Drawing.Size(933, 488);
+            this._pnlApplications.TabIndex = 0;
             // 
             // _lApplications
             // 
@@ -207,26 +204,6 @@
             // 
             // _gridApps
             // 
-            this._gridApps.AllowUserToAddRows = false;
-            this._gridApps.AllowUserToDeleteRows = false;
-            this._gridApps.AllowUserToOrderColumns = true;
-            this._gridApps.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this._gridApps.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this._gridApps.BackgroundColor = System.Drawing.Color.White;
-            this._gridApps.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this._gridApps.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.AliceBlue;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.AliceBlue;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this._gridApps.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this._gridApps.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this._gridApps.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
             this.Status,
@@ -235,33 +212,9 @@
             this.Courses,
             this.Date,
             this.SubmittedAt});
-            this._gridApps.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this._gridApps.DefaultCellStyle = dataGridViewCellStyle2;
-            this._gridApps.EnableHeadersVisualStyles = false;
             this._gridApps.Location = new System.Drawing.Point(-2, 18);
-            this._gridApps.MultiSelect = false;
             this._gridApps.Name = "_gridApps";
-            this._gridApps.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this._gridApps.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this._gridApps.RowHeadersVisible = false;
-            this._gridApps.RowTemplate.Height = 25;
-            this._gridApps.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this._gridApps.Size = new System.Drawing.Size(933, 464);
-            this._gridApps.TabIndex = 0;
             // 
             // ID
             // 
@@ -317,22 +270,22 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1176, 650);
-            this.Controls.Add(this.splitContainer1);
+            this.Controls.Add(this._splitContainerTop);
             this.Name = "ApplicationsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Transfer Logger";
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel1.PerformLayout();
-            this.splitContainer1.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-            this.splitContainer1.ResumeLayout(false);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
-            this.splitContainer3.Panel1.ResumeLayout(false);
-            this.splitContainer3.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
-            this.splitContainer3.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
+            this._splitContainerTop.Panel1.ResumeLayout(false);
+            this._splitContainerTop.Panel1.PerformLayout();
+            this._splitContainerTop.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this._splitContainerTop)).EndInit();
+            this._splitContainerTop.ResumeLayout(false);
+            this._menu.ResumeLayout(false);
+            this._menu.PerformLayout();
+            this._splitContainerBottom.Panel1.ResumeLayout(false);
+            this._splitContainerBottom.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this._splitContainerBottom)).EndInit();
+            this._splitContainerBottom.ResumeLayout(false);
+            this._pnlApplications.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this._gridApps)).EndInit();
             this.ResumeLayout(false);
 
@@ -340,19 +293,19 @@
 
         #endregion
 
-        private SplitContainer splitContainer1;
-        private SplitContainer splitContainer3;
+        private SplitContainer _splitContainerTop;
+        private SplitContainer _splitContainerBottom;
         private Panel _pnlInfo;
-        private Panel panel1;
-        private MenuStrip menuStrip1;
-        private DataGridView _gridApps;
+        private Panel _pnlApplications;
+        private MenuStrip _menu;
+        private TransferLogger.Ui.Controls.TlDataGrid _gridApps;
         private Panel _pnlMain;
-        private ToolStripMenuItem studentsToolStripMenuItem;
-        private ToolStripMenuItem organizationsToolStripMenuItem;
-        private ToolStripMenuItem programsToolStripMenuItem;
-        private ToolStripMenuItem coursesToolStripMenuItem1;
-        private ToolStripMenuItem studentsToolStripMenuItem1;
-        private ToolStripMenuItem instructorsToolStripMenuItem;
+        private ToolStripMenuItem _menuOrganization;
+        private ToolStripMenuItem _menuItemOrganizations;
+        private ToolStripMenuItem _menuItemPrograms;
+        private ToolStripMenuItem _menuItemCourses;
+        private ToolStripMenuItem _menuItemStudents;
+        private ToolStripMenuItem _menuItemInstructors;
         private Label _lApplications;
         private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn Status;
