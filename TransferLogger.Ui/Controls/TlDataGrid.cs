@@ -62,12 +62,30 @@
             RowHeadersVisible         = false;
             RowTemplate.Height        = 25;
             SelectionMode             = DataGridViewSelectionMode.FullRowSelect;
-            TabIndex                  = 0;
 
             ColumnHeadersDefaultCellStyle = GetColumnsHeaderDefaultStyle();
             ColumnHeadersHeightSizeMode   = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DefaultCellStyle              = GetDefaultCellStyle();
             RowHeadersDefaultCellStyle    = GetRowHeadersDefaultCellStyle();
+        }
+
+        public bool SelectRow<T>(Func<T, bool> select)
+        {
+            ClearSelection();
+
+            foreach (var rowObj in Rows)
+            {
+                if (rowObj is DataGridViewRow row && row.DataBoundItem is T obj && select(obj))
+                {
+                    row.Selected = true;
+
+                    CurrentCell = row.Cells[0];
+
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }
