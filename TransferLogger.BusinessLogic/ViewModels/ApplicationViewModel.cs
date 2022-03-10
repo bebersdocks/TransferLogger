@@ -18,12 +18,12 @@ namespace TransferLogger.BusinessLogic.ViewModels
 
         public ApplicationViewModel() {}
 
-        public ApplicationViewModel(Application app, Student student, Organization org)
+        public ApplicationViewModel(Application app, Student student, Organization organization)
         {
             ApplicationId     = app.ApplicationId;
             ApplicationStatus = app.ApplicationStatus.ToString();
             Student           = student.DisplayString;
-            Organization      = org.Name;
+            Organization      = organization.Name;
             CoursesCount      = app.Courses.Count();
             CreatedAt         = app.CreatedAt;
             SubmittedAt       = app.SubmittedAt;

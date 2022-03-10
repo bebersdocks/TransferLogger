@@ -74,7 +74,7 @@
             this._btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnCancel.ForeColor = System.Drawing.Color.Black;
             this._btnCancel.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            this._btnCancel.Location = new System.Drawing.Point(294, 305);
+            this._btnCancel.Location = new System.Drawing.Point(292, 298);
             this._btnCancel.MaximumSize = new System.Drawing.Size(0, 28);
             this._btnCancel.MinimumSize = new System.Drawing.Size(0, 28);
             this._btnCancel.Name = "_btnCancel";
@@ -95,7 +95,7 @@
             this._btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnOk.ForeColor = System.Drawing.Color.Black;
             this._btnOk.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            this._btnOk.Location = new System.Drawing.Point(375, 305);
+            this._btnOk.Location = new System.Drawing.Point(373, 298);
             this._btnOk.MaximumSize = new System.Drawing.Size(0, 28);
             this._btnOk.MinimumSize = new System.Drawing.Size(0, 28);
             this._btnOk.Name = "_btnOk";
@@ -210,7 +210,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(462, 354);
+            this.ClientSize = new System.Drawing.Size(460, 338);
             this.Controls.Add(this._btnSelectCountry);
             this.Controls.Add(this._lCountry);
             this.Controls.Add(this._cbCountries);

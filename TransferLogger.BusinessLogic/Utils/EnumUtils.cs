@@ -10,18 +10,25 @@ namespace TransferLogger.BusinessLogic.Utils
     {
         public static T GetAttribute<T>(this Enum value) where T : Attribute
         {
-            var enumType = value.GetType();
-            var name = Enum.GetName(enumType, value);
+            var memberInfo = value.GetType()
+                .GetMember(value.ToString())
+                .FirstOrDefault();
 
-            return enumType.GetField(name)
-                .GetCustomAttributes(false)
-                .OfType<T>()
-                .SingleOrDefault();
+            if (memberInfo != null)
+            {
+                return memberInfo.GetCustomAttributes(typeof(T), false)
+                    .Cast<T>()
+                    .FirstOrDefault();
+            }
+
+            return null;
         }
 
         public static string GetDisplayName(this Enum value)
         {
-            if (value.GetAttribute<StringValueAttribute>() is StringValueAttribute strValueAttr)
+            if (!Enum.IsDefined(value.GetType(), value))
+                return string.Empty;
+            else if (value.GetAttribute<StringValueAttribute>() is StringValueAttribute strValueAttr)
                 return strValueAttr.Value;
             else
                 return value.ToString();
