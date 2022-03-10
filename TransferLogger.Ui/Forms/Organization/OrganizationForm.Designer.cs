@@ -38,6 +38,9 @@
             this._tbUrl = new TransferLogger.Ui.Controls.TlTextBox();
             this._tbDescription = new TransferLogger.Ui.Controls.TlTextBox();
             this._lDescription = new System.Windows.Forms.Label();
+            this._cbCountries = new TransferLogger.Ui.Controls.TlDropDownList();
+            this._lCountry = new System.Windows.Forms.Label();
+            this._btnSelectCountry = new TransferLogger.Ui.Controls.TlButton();
             this.SuspendLayout();
             // 
             // _lName
@@ -54,7 +57,7 @@
             // 
             this._lUrl.AutoSize = true;
             this._lUrl.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lUrl.Location = new System.Drawing.Point(21, 161);
+            this._lUrl.Location = new System.Drawing.Point(25, 199);
             this._lUrl.Name = "_lUrl";
             this._lUrl.Size = new System.Drawing.Size(34, 17);
             this._lUrl.TabIndex = 2;
@@ -71,12 +74,12 @@
             this._btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnCancel.ForeColor = System.Drawing.Color.Black;
             this._btnCancel.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            this._btnCancel.Location = new System.Drawing.Point(288, 281);
+            this._btnCancel.Location = new System.Drawing.Point(294, 305);
             this._btnCancel.MaximumSize = new System.Drawing.Size(0, 28);
             this._btnCancel.MinimumSize = new System.Drawing.Size(0, 28);
             this._btnCancel.Name = "_btnCancel";
             this._btnCancel.Size = new System.Drawing.Size(75, 28);
-            this._btnCancel.TabIndex = 7;
+            this._btnCancel.TabIndex = 6;
             this._btnCancel.TabStop = false;
             this._btnCancel.Text = "Cancel";
             this._btnCancel.UseVisualStyleBackColor = false;
@@ -92,12 +95,12 @@
             this._btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnOk.ForeColor = System.Drawing.Color.Black;
             this._btnOk.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            this._btnOk.Location = new System.Drawing.Point(369, 281);
+            this._btnOk.Location = new System.Drawing.Point(375, 305);
             this._btnOk.MaximumSize = new System.Drawing.Size(0, 28);
             this._btnOk.MinimumSize = new System.Drawing.Size(0, 28);
             this._btnOk.Name = "_btnOk";
             this._btnOk.Size = new System.Drawing.Size(75, 28);
-            this._btnOk.TabIndex = 8;
+            this._btnOk.TabIndex = 7;
             this._btnOk.TabStop = false;
             this._btnOk.Text = "Ok";
             this._btnOk.UseVisualStyleBackColor = false;
@@ -120,7 +123,7 @@
             this._cbOrganizationTypes.Location = new System.Drawing.Point(106, 116);
             this._cbOrganizationTypes.Name = "_cbOrganizationTypes";
             this._cbOrganizationTypes.Size = new System.Drawing.Size(325, 25);
-            this._cbOrganizationTypes.TabIndex = 17;
+            this._cbOrganizationTypes.TabIndex = 2;
             // 
             // _tbName
             // 
@@ -130,17 +133,17 @@
             this._tbName.Location = new System.Drawing.Point(106, 35);
             this._tbName.Name = "_tbName";
             this._tbName.Size = new System.Drawing.Size(325, 25);
-            this._tbName.TabIndex = 15;
+            this._tbName.TabIndex = 0;
             // 
             // _tbUrl
             // 
             this._tbUrl.BackColor = System.Drawing.Color.GhostWhite;
             this._tbUrl.BoxWidth = 325;
             this._tbUrl.ForeColor = System.Drawing.Color.Black;
-            this._tbUrl.Location = new System.Drawing.Point(106, 158);
+            this._tbUrl.Location = new System.Drawing.Point(106, 196);
             this._tbUrl.Name = "_tbUrl";
             this._tbUrl.Size = new System.Drawing.Size(325, 25);
-            this._tbUrl.TabIndex = 18;
+            this._tbUrl.TabIndex = 5;
             // 
             // _tbDescription
             // 
@@ -150,7 +153,7 @@
             this._tbDescription.Location = new System.Drawing.Point(106, 75);
             this._tbDescription.Name = "_tbDescription";
             this._tbDescription.Size = new System.Drawing.Size(325, 25);
-            this._tbDescription.TabIndex = 16;
+            this._tbDescription.TabIndex = 1;
             // 
             // _lDescription
             // 
@@ -162,12 +165,55 @@
             this._lDescription.TabIndex = 18;
             this._lDescription.Text = "Description:";
             // 
+            // _cbCountries
+            // 
+            this._cbCountries.BackColor = System.Drawing.Color.GhostWhite;
+            this._cbCountries.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this._cbCountries.FormattingEnabled = true;
+            this._cbCountries.Location = new System.Drawing.Point(106, 156);
+            this._cbCountries.Name = "_cbCountries";
+            this._cbCountries.Size = new System.Drawing.Size(285, 25);
+            this._cbCountries.TabIndex = 3;
+            // 
+            // _lCountry
+            // 
+            this._lCountry.AutoSize = true;
+            this._lCountry.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this._lCountry.Location = new System.Drawing.Point(21, 159);
+            this._lCountry.Name = "_lCountry";
+            this._lCountry.Size = new System.Drawing.Size(56, 17);
+            this._lCountry.TabIndex = 20;
+            this._lCountry.Text = "Country:";
+            // 
+            // _btnSelectCountry
+            // 
+            this._btnSelectCountry.AutoSize = true;
+            this._btnSelectCountry.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
+            this._btnSelectCountry.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
+            this._btnSelectCountry.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
+            this._btnSelectCountry.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this._btnSelectCountry.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._btnSelectCountry.ForeColor = System.Drawing.Color.Black;
+            this._btnSelectCountry.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this._btnSelectCountry.Location = new System.Drawing.Point(396, 156);
+            this._btnSelectCountry.MaximumSize = new System.Drawing.Size(0, 25);
+            this._btnSelectCountry.MinimumSize = new System.Drawing.Size(0, 25);
+            this._btnSelectCountry.Name = "_btnSelectCountry";
+            this._btnSelectCountry.Size = new System.Drawing.Size(34, 25);
+            this._btnSelectCountry.TabIndex = 4;
+            this._btnSelectCountry.TabStop = false;
+            this._btnSelectCountry.Text = "...";
+            this._btnSelectCountry.UseVisualStyleBackColor = false;
+            // 
             // OrganizationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(467, 335);
+            this.ClientSize = new System.Drawing.Size(462, 354);
+            this.Controls.Add(this._btnSelectCountry);
+            this.Controls.Add(this._lCountry);
+            this.Controls.Add(this._cbCountries);
             this.Controls.Add(this._lDescription);
             this.Controls.Add(this._tbDescription);
             this.Controls.Add(this._tbUrl);
@@ -199,5 +245,8 @@
         private Controls.TlTextBox _tbUrl;
         private Controls.TlTextBox _tbDescription;
         private Label _lDescription;
+        private Controls.TlDropDownList _cbCountries;
+        private Label _lCountry;
+        private Controls.TlButton _btnSelectCountry;
     }
 }
