@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this._splitContainer = new TransferLogger.Ui.Controls.TlSplitContainer();
             this._btnSelectCountry = new TransferLogger.Ui.Controls.TlButton();
             this._cbCountries = new TransferLogger.Ui.Controls.TlDropDownList();
@@ -43,8 +43,8 @@
             this._btnEdit = new TransferLogger.Ui.Controls.TlButton();
             this._btnAdd = new TransferLogger.Ui.Controls.TlButton();
             this._lOrganizations = new System.Windows.Forms.Label();
-            this._gridOrganizations = new TransferLogger.Ui.Controls.TlDataGrid();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._grid = new TransferLogger.Ui.Controls.TlDataGrid();
+            this.OrganizationId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OrganizationName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,7 +54,7 @@
             this._splitContainer.Panel1.SuspendLayout();
             this._splitContainer.Panel2.SuspendLayout();
             this._splitContainer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this._gridOrganizations)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._grid)).BeginInit();
             this.SuspendLayout();
             // 
             // _splitContainer
@@ -87,9 +87,9 @@
             // 
             this._splitContainer.Panel2.BackColor = System.Drawing.Color.White;
             this._splitContainer.Panel2.Controls.Add(this._lOrganizations);
-            this._splitContainer.Panel2.Controls.Add(this._gridOrganizations);
-            this._splitContainer.Size = new System.Drawing.Size(1069, 637);
-            this._splitContainer.SplitterDistance = 106;
+            this._splitContainer.Panel2.Controls.Add(this._grid);
+            this._splitContainer.Size = new System.Drawing.Size(1069, 636);
+            this._splitContainer.SplitterDistance = 105;
             this._splitContainer.TabIndex = 5;
             // 
             // _btnSelectCountry
@@ -107,7 +107,7 @@
             this._btnSelectCountry.MinimumSize = new System.Drawing.Size(0, 23);
             this._btnSelectCountry.Name = "_btnSelectCountry";
             this._btnSelectCountry.Size = new System.Drawing.Size(28, 23);
-            this._btnSelectCountry.TabIndex = 23;
+            this._btnSelectCountry.TabIndex = 3;
             this._btnSelectCountry.TabStop = false;
             this._btnSelectCountry.Text = "...";
             this._btnSelectCountry.UseVisualStyleBackColor = false;
@@ -120,7 +120,7 @@
             this._cbCountries.Location = new System.Drawing.Point(506, 17);
             this._cbCountries.Name = "_cbCountries";
             this._cbCountries.Size = new System.Drawing.Size(285, 23);
-            this._cbCountries.TabIndex = 22;
+            this._cbCountries.TabIndex = 2;
             // 
             // _lCountry
             // 
@@ -140,7 +140,7 @@
             this._cbOrganizationTypes.Location = new System.Drawing.Point(81, 59);
             this._cbOrganizationTypes.Name = "_cbOrganizationTypes";
             this._cbOrganizationTypes.Size = new System.Drawing.Size(325, 23);
-            this._cbOrganizationTypes.TabIndex = 15;
+            this._cbOrganizationTypes.TabIndex = 1;
             // 
             // _lOrganizationType
             // 
@@ -189,7 +189,7 @@
             this._btnDelete.Location = new System.Drawing.Point(1013, 53);
             this._btnDelete.Name = "_btnDelete";
             this._btnDelete.Size = new System.Drawing.Size(32, 32);
-            this._btnDelete.TabIndex = 8;
+            this._btnDelete.TabIndex = 6;
             this._btnDelete.TabStop = false;
             this._btnDelete.UseVisualStyleBackColor = false;
             // 
@@ -210,7 +210,7 @@
             this._btnEdit.Location = new System.Drawing.Point(975, 53);
             this._btnEdit.Name = "_btnEdit";
             this._btnEdit.Size = new System.Drawing.Size(32, 32);
-            this._btnEdit.TabIndex = 7;
+            this._btnEdit.TabIndex = 5;
             this._btnEdit.TabStop = false;
             this._btnEdit.UseVisualStyleBackColor = false;
             // 
@@ -231,7 +231,7 @@
             this._btnAdd.Location = new System.Drawing.Point(937, 53);
             this._btnAdd.Name = "_btnAdd";
             this._btnAdd.Size = new System.Drawing.Size(32, 32);
-            this._btnAdd.TabIndex = 6;
+            this._btnAdd.TabIndex = 4;
             this._btnAdd.TabStop = false;
             this._btnAdd.UseVisualStyleBackColor = false;
             // 
@@ -247,70 +247,70 @@
             this._lOrganizations.Text = "Organizations";
             this._lOrganizations.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // _gridOrganizations
+            // _grid
             // 
-            this._gridOrganizations.AllowUserToAddRows = false;
-            this._gridOrganizations.AllowUserToDeleteRows = false;
-            this._gridOrganizations.AllowUserToOrderColumns = true;
-            this._gridOrganizations.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this._grid.AllowUserToAddRows = false;
+            this._grid.AllowUserToDeleteRows = false;
+            this._grid.AllowUserToOrderColumns = true;
+            this._grid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this._gridOrganizations.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this._gridOrganizations.BackgroundColor = System.Drawing.Color.White;
-            this._gridOrganizations.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this._gridOrganizations.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.AliceBlue;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.AliceBlue;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this._gridOrganizations.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this._gridOrganizations.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this._gridOrganizations.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ID,
+            this._grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this._grid.BackgroundColor = System.Drawing.Color.White;
+            this._grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this._grid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.AliceBlue;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.AliceBlue;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this._grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this._grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this._grid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.OrganizationId,
             this.OrganizationName,
             this.Description,
             this.Type,
             this.Country,
             this.URL});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this._gridOrganizations.DefaultCellStyle = dataGridViewCellStyle5;
-            this._gridOrganizations.EnableHeadersVisualStyles = false;
-            this._gridOrganizations.Location = new System.Drawing.Point(-2, 21);
-            this._gridOrganizations.MultiSelect = false;
-            this._gridOrganizations.Name = "_gridOrganizations";
-            this._gridOrganizations.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this._gridOrganizations.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this._gridOrganizations.RowHeadersVisible = false;
-            this._gridOrganizations.RowTemplate.Height = 25;
-            this._gridOrganizations.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this._gridOrganizations.Size = new System.Drawing.Size(1069, 500);
-            this._gridOrganizations.TabIndex = 0;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this._grid.DefaultCellStyle = dataGridViewCellStyle8;
+            this._grid.EnableHeadersVisualStyles = false;
+            this._grid.Location = new System.Drawing.Point(-2, 21);
+            this._grid.MultiSelect = false;
+            this._grid.Name = "_grid";
+            this._grid.ReadOnly = true;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this._grid.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            this._grid.RowHeadersVisible = false;
+            this._grid.RowTemplate.Height = 25;
+            this._grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this._grid.Size = new System.Drawing.Size(1069, 500);
+            this._grid.TabIndex = 7;
             // 
-            // ID
+            // OrganizationId
             // 
-            this.ID.DataPropertyName = "OrganizationId";
-            this.ID.FillWeight = 50F;
-            this.ID.HeaderText = "ID";
-            this.ID.MinimumWidth = 75;
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
+            this.OrganizationId.DataPropertyName = "OrganizationId";
+            this.OrganizationId.FillWeight = 50F;
+            this.OrganizationId.HeaderText = "ID";
+            this.OrganizationId.MinimumWidth = 75;
+            this.OrganizationId.Name = "OrganizationId";
+            this.OrganizationId.ReadOnly = true;
             // 
             // OrganizationName
             // 
@@ -358,8 +358,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1069, 637);
+            this.ClientSize = new System.Drawing.Size(1069, 636);
             this.Controls.Add(this._splitContainer);
+            this.MinimumSize = new System.Drawing.Size(1085, 675);
             this.Name = "OrganizationsForms";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Organizations";
@@ -368,16 +369,16 @@
             this._splitContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this._splitContainer)).EndInit();
             this._splitContainer.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this._gridOrganizations)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._grid)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private Controls.TlDataGrid _gridOrganizations;
+        private Controls.TlDataGrid _grid;
         private Controls.TlSplitContainer _splitContainer;
         private Label _lOrganizations;
-        private DataGridViewTextBoxColumn ID;
+        private DataGridViewTextBoxColumn OrganizationId;
         private DataGridViewTextBoxColumn OrganizationName;
         private DataGridViewTextBoxColumn Description;
         private DataGridViewTextBoxColumn Type;

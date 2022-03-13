@@ -8,14 +8,13 @@ using TransferLogger.Ui.Controls;
 using TransferLogger.Ui.Utils;
 
 using Lookup = TransferLogger.BusinessLogic.Lookup;
-using Org    = TransferLogger.Dal.DataModels.Organization;
 
 namespace TransferLogger.Ui.Forms.Organization
 {
     public partial class OrganizationForm : Form
     {
-        private readonly Org _organization;
-        private readonly List<Lookup> _countries;
+        private readonly Dal.DataModels.Organization _organization;
+        private readonly List<Lookup>                _countries;
 
         public OrganizationForm(int organizationId = 0)
         {
@@ -78,19 +77,19 @@ namespace TransferLogger.Ui.Forms.Organization
         {
             if (string.IsNullOrEmpty(_tbName.Text))
             {
-                this.ShowValidationMsg($"Name can't be empty.");
+                this.ShowValidationMsg($"{_lName.Text} can't be empty.");
                 return;
             }
 
             if (_cbOrganizationTypes.SelectedValue is null)
             {
-                this.ShowValidationMsg($"You have to specify organization type.");
+                this.ShowValidationMsg($"You have to specify {_lOrganizationType.Text}.");
                 return;
             }
 
             if (_cbCountries.SelectedValue is null)
             {
-                this.ShowValidationMsg($"You have to specify country.");
+                this.ShowValidationMsg($"You have to specify {_lCountry.Text}.");
                 return;
             }
 

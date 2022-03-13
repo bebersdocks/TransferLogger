@@ -46,7 +46,7 @@ namespace TransferLogger.Ui.Forms.Organization
             if (_cbCountries.SelectedValue != null)
                 query = query.Where(o => o.Country == (Country)_cbCountries.SelectedValue);
 
-            _gridOrganizations.DataSource = query
+            _grid.DataSource = query
                 .Select(o => new OrganizationViewModel(o))
                 .ToList();
         }
@@ -59,9 +59,9 @@ namespace TransferLogger.Ui.Forms.Organization
 
             _btnSelectCountry.Click += _btnSelectCountry_Click;
 
-            _gridOrganizations.DoubleClick += (s, e) => InsertOrReplaceOrganization();
-            _btnAdd.Click                  += (s, e) => InsertOrReplaceOrganization(true);
-            _btnEdit.Click                 += (s, e) => InsertOrReplaceOrganization();
+            _grid.DoubleClick += (s, e) => InsertOrReplaceOrganization();
+            _btnAdd.Click     += (s, e) => InsertOrReplaceOrganization(true);
+            _btnEdit.Click    += (s, e) => InsertOrReplaceOrganization();
 
             _btnDelete.Click += _btnDelete_Click;
         }
@@ -80,7 +80,7 @@ namespace TransferLogger.Ui.Forms.Organization
         {
             var organizationId = 0;
 
-            if (_gridOrganizations.CurrentRow?.DataBoundItem is OrganizationViewModel orgViewModel)
+            if (_grid.CurrentRow?.DataBoundItem is OrganizationViewModel orgViewModel)
             {
                 organizationId = orgViewModel.OrganizationId;
             }
@@ -98,12 +98,12 @@ namespace TransferLogger.Ui.Forms.Organization
             }
 
             if (organizationId != 0)
-                _gridOrganizations.SelectRow<OrganizationViewModel>(o => o.OrganizationId == organizationId);
+                _grid.SelectRow<OrganizationViewModel>(o => o.OrganizationId == organizationId);
         }
 
         private void _btnDelete_Click(object? sender, EventArgs e)
         {
-            if (_gridOrganizations.CurrentRow?.DataBoundItem is OrganizationViewModel orgViewModel)
+            if (_grid.CurrentRow?.DataBoundItem is OrganizationViewModel orgViewModel)
             {
                 using var dc = new Dc();
 

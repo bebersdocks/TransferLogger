@@ -74,7 +74,7 @@
             this._btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnCancel.ForeColor = System.Drawing.Color.Black;
             this._btnCancel.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            this._btnCancel.Location = new System.Drawing.Point(288, 285);
+            this._btnCancel.Location = new System.Drawing.Point(286, 286);
             this._btnCancel.MaximumSize = new System.Drawing.Size(0, 28);
             this._btnCancel.MinimumSize = new System.Drawing.Size(0, 28);
             this._btnCancel.Name = "_btnCancel";
@@ -95,7 +95,7 @@
             this._btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnOk.ForeColor = System.Drawing.Color.Black;
             this._btnOk.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            this._btnOk.Location = new System.Drawing.Point(369, 285);
+            this._btnOk.Location = new System.Drawing.Point(367, 286);
             this._btnOk.MaximumSize = new System.Drawing.Size(0, 28);
             this._btnOk.MinimumSize = new System.Drawing.Size(0, 28);
             this._btnOk.Name = "_btnOk";
@@ -117,42 +117,50 @@
             // 
             // _cbOrganizationTypes
             // 
+            this._cbOrganizationTypes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this._cbOrganizationTypes.BackColor = System.Drawing.Color.GhostWhite;
             this._cbOrganizationTypes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._cbOrganizationTypes.FormattingEnabled = true;
             this._cbOrganizationTypes.Location = new System.Drawing.Point(106, 101);
             this._cbOrganizationTypes.Name = "_cbOrganizationTypes";
-            this._cbOrganizationTypes.Size = new System.Drawing.Size(325, 25);
+            this._cbOrganizationTypes.Size = new System.Drawing.Size(323, 25);
             this._cbOrganizationTypes.TabIndex = 2;
             // 
             // _tbName
             // 
+            this._tbName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this._tbName.BackColor = System.Drawing.Color.GhostWhite;
             this._tbName.BoxWidth = 325;
             this._tbName.ForeColor = System.Drawing.Color.Black;
             this._tbName.Location = new System.Drawing.Point(106, 21);
             this._tbName.Name = "_tbName";
-            this._tbName.Size = new System.Drawing.Size(325, 25);
+            this._tbName.Size = new System.Drawing.Size(323, 25);
             this._tbName.TabIndex = 0;
             // 
             // _tbUrl
             // 
+            this._tbUrl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this._tbUrl.BackColor = System.Drawing.Color.GhostWhite;
             this._tbUrl.BoxWidth = 325;
             this._tbUrl.ForeColor = System.Drawing.Color.Black;
             this._tbUrl.Location = new System.Drawing.Point(105, 181);
             this._tbUrl.Name = "_tbUrl";
-            this._tbUrl.Size = new System.Drawing.Size(325, 25);
+            this._tbUrl.Size = new System.Drawing.Size(323, 25);
             this._tbUrl.TabIndex = 5;
             // 
             // _tbDescription
             // 
+            this._tbDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this._tbDescription.BackColor = System.Drawing.Color.GhostWhite;
             this._tbDescription.BoxWidth = 325;
             this._tbDescription.ForeColor = System.Drawing.Color.Black;
             this._tbDescription.Location = new System.Drawing.Point(106, 61);
             this._tbDescription.Name = "_tbDescription";
-            this._tbDescription.Size = new System.Drawing.Size(325, 25);
+            this._tbDescription.Size = new System.Drawing.Size(323, 25);
             this._tbDescription.TabIndex = 1;
             // 
             // _lDescription
@@ -167,12 +175,14 @@
             // 
             // _cbCountries
             // 
+            this._cbCountries.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this._cbCountries.BackColor = System.Drawing.Color.GhostWhite;
             this._cbCountries.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._cbCountries.FormattingEnabled = true;
             this._cbCountries.Location = new System.Drawing.Point(105, 141);
             this._cbCountries.Name = "_cbCountries";
-            this._cbCountries.Size = new System.Drawing.Size(285, 25);
+            this._cbCountries.Size = new System.Drawing.Size(283, 25);
             this._cbCountries.TabIndex = 3;
             // 
             // _lCountry
@@ -187,6 +197,7 @@
             // 
             // _btnSelectCountry
             // 
+            this._btnSelectCountry.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this._btnSelectCountry.AutoSize = true;
             this._btnSelectCountry.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
             this._btnSelectCountry.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
@@ -210,7 +221,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(456, 325);
+            this.ClientSize = new System.Drawing.Size(454, 326);
             this.Controls.Add(this._btnSelectCountry);
             this.Controls.Add(this._lCountry);
             this.Controls.Add(this._cbCountries);
@@ -225,6 +236,7 @@
             this.Controls.Add(this._lUrl);
             this.Controls.Add(this._lName);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.MinimumSize = new System.Drawing.Size(470, 365);
             this.Name = "OrganizationForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Organization";
