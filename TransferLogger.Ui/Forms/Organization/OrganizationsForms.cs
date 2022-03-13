@@ -6,6 +6,7 @@ using TransferLogger.Dal;
 using TransferLogger.Dal.DataModels;
 using TransferLogger.Dal.Definitions;
 using TransferLogger.Ui.Controls;
+using TransferLogger.Ui.Utils;
 
 using Lookup = TransferLogger.BusinessLogic.Lookup;
 
@@ -59,9 +60,9 @@ namespace TransferLogger.Ui.Forms.Organization
 
             _btnSelectCountry.Click += _btnSelectCountry_Click;
 
-            _grid.DoubleClick += (s, e) => InsertOrReplaceOrganization();
-            _btnAdd.Click     += (s, e) => InsertOrReplaceOrganization(true);
-            _btnEdit.Click    += (s, e) => InsertOrReplaceOrganization();
+            _grid.DoubleClick += (s, e) => InsertOrReplace();
+            _btnAdd.Click     += (s, e) => InsertOrReplace(true);
+            _btnEdit.Click    += (s, e) => InsertOrReplace();
 
             _btnDelete.Click += _btnDelete_Click;
         }
@@ -76,29 +77,9 @@ namespace TransferLogger.Ui.Forms.Organization
             }
         }
 
-        private void InsertOrReplaceOrganization(bool isNew = false)
+        private void InsertOrReplace(bool isNew = false)
         {
-            var organizationId = 0;
-
-            if (_grid.CurrentRow?.DataBoundItem is OrganizationViewModel orgViewModel)
-            {
-                organizationId = orgViewModel.OrganizationId;
-            }
-
-            if (!isNew && organizationId == 0)
-            {
-                return;
-            }
-
-            using var form = new OrganizationForm(isNew ? 0 : organizationId);
-
-            if (form.ShowDialog() == DialogResult.OK)
-            {
-                SetData();
-            }
-
-            if (organizationId != 0)
-                _grid.SelectRow<OrganizationViewModel>(o => o.OrganizationId == organizationId);
+            FormUtils.InsertOrReplace(_grid, organizationId => new OrganizationForm(organizationId), () => SetData(), isNew);
         }
 
         private void _btnDelete_Click(object? sender, EventArgs e)

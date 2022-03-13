@@ -241,7 +241,7 @@
             this.MinimumSize = new System.Drawing.Size(470, 365);
             this.Name = "OrganizationForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Organization";
+            this.Text = "New Organization";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -69,6 +69,27 @@
             RowHeadersDefaultCellStyle    = GetRowHeadersDefaultCellStyle();
         }
 
+        public bool SelectRow(int index)
+        {
+            ClearSelection();
+
+            for (var i = 0; i < Rows.Count; i++)
+            {
+                if (i == index)
+                {
+                    var row = Rows[i];
+
+                    row.Selected = true;
+
+                    CurrentCell = row.Cells[0];
+
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         public bool SelectRow<T>(Func<T, bool> select)
         {
             ClearSelection();

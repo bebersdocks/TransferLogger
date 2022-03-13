@@ -65,7 +65,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this._splitContainer.BackColor = System.Drawing.Color.GhostWhite;
             this._splitContainer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this._splitContainer.IsSplitterFixed = true;
             this._splitContainer.Location = new System.Drawing.Point(0, 0);
             this._splitContainer.Name = "_splitContainer";
             this._splitContainer.Orientation = System.Windows.Forms.Orientation.Horizontal;
@@ -90,7 +89,7 @@
             this._splitContainer.Panel2.Controls.Add(this._lOrganizations);
             this._splitContainer.Panel2.Controls.Add(this._grid);
             this._splitContainer.Size = new System.Drawing.Size(1069, 636);
-            this._splitContainer.SplitterDistance = 105;
+            this._splitContainer.SplitterDistance = 99;
             this._splitContainer.TabIndex = 5;
             // 
             // _btnSelectCountry
@@ -187,7 +186,7 @@
             this._btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnDelete.ForeColor = System.Drawing.Color.Black;
             this._btnDelete.HoverColor = System.Drawing.Color.Transparent;
-            this._btnDelete.Location = new System.Drawing.Point(1013, 53);
+            this._btnDelete.Location = new System.Drawing.Point(1013, 12);
             this._btnDelete.Name = "_btnDelete";
             this._btnDelete.Size = new System.Drawing.Size(32, 32);
             this._btnDelete.TabIndex = 6;
@@ -208,7 +207,7 @@
             this._btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnEdit.ForeColor = System.Drawing.Color.Black;
             this._btnEdit.HoverColor = System.Drawing.Color.Transparent;
-            this._btnEdit.Location = new System.Drawing.Point(975, 53);
+            this._btnEdit.Location = new System.Drawing.Point(975, 12);
             this._btnEdit.Name = "_btnEdit";
             this._btnEdit.Size = new System.Drawing.Size(32, 32);
             this._btnEdit.TabIndex = 5;
@@ -229,7 +228,7 @@
             this._btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnAdd.ForeColor = System.Drawing.Color.Black;
             this._btnAdd.HoverColor = System.Drawing.Color.Transparent;
-            this._btnAdd.Location = new System.Drawing.Point(937, 53);
+            this._btnAdd.Location = new System.Drawing.Point(937, 12);
             this._btnAdd.Name = "_btnAdd";
             this._btnAdd.Size = new System.Drawing.Size(32, 32);
             this._btnAdd.TabIndex = 4;
@@ -301,7 +300,7 @@
             this._grid.RowHeadersVisible = false;
             this._grid.RowTemplate.Height = 25;
             this._grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this._grid.Size = new System.Drawing.Size(1069, 500);
+            this._grid.Size = new System.Drawing.Size(1069, 506);
             this._grid.TabIndex = 7;
             // 
             // OrganizationId

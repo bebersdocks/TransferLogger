@@ -2,6 +2,7 @@
 
 using TransferLogger.BusinessLogic.ViewModels;
 using TransferLogger.Dal;
+using TransferLogger.Ui.Utils;
 
 namespace TransferLogger.Ui.Forms.Student
 {
@@ -37,36 +38,16 @@ namespace TransferLogger.Ui.Forms.Student
             _tbSearchName.TextChanged += (s, e) => SetData();
             _tbRef.TextChanged        += (s, e) => SetData();
 
-            _grid.DoubleClick += (s, e) => InsertOrReplaceStudent();
-            _btnAdd.Click     += (s, e) => InsertOrReplaceStudent(true);
-            _btnEdit.Click    += (s, e) => InsertOrReplaceStudent();
+            _grid.DoubleClick += (s, e) => InsertOrReplace();
+            _btnAdd.Click     += (s, e) => InsertOrReplace(true);
+            _btnEdit.Click    += (s, e) => InsertOrReplace();
 
             _btnDelete.Click += _btnDelete_Click;
         }
 
-        private void InsertOrReplaceStudent(bool isNew = false)
+        private void InsertOrReplace(bool isNew = false)
         {
-            var studentId = 0;
-
-            if (_grid.CurrentRow?.DataBoundItem is StudentViewModel studentViewModel)
-            {
-                studentId = studentViewModel.StudentId;
-            }
-
-            if (!isNew && studentId == 0)
-            {
-                return;
-            }
-
-            using var form = new StudentForm(isNew ? 0 : studentId);
-
-            if (form.ShowDialog() == DialogResult.OK)
-            {
-                SetData();
-            }
-
-            if (studentId != 0)
-                _grid.SelectRow<StudentViewModel>(o => o.StudentId == studentId);
+            FormUtils.InsertOrReplace(_grid, studentId => new StudentForm(studentId), () => SetData(), isNew);
         }
 
         private void _btnDelete_Click(object? sender, EventArgs e)
@@ -76,7 +57,7 @@ namespace TransferLogger.Ui.Forms.Student
                 using var dc = new Dc();
 
                 dc.Students
-                    .Where(o => o.StudentId == studentViewModel.StudentId)
+                    .Where(s => s.StudentId == studentViewModel.StudentId)
                     .Delete();
 
                 SetData();

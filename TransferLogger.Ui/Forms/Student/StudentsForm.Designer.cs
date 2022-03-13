@@ -286,6 +286,7 @@
             // IdNumber
             // 
             this.IdNumber.DataPropertyName = "IdNumber";
+            this.IdNumber.FillWeight = 95F;
             this.IdNumber.HeaderText = "ID Number";
             this.IdNumber.MinimumWidth = 60;
             this.IdNumber.Name = "IdNumber";
@@ -302,8 +303,9 @@
             // Email
             // 
             this.Email.DataPropertyName = "Email";
+            this.Email.FillWeight = 105F;
             this.Email.HeaderText = "Email";
-            this.Email.MinimumWidth = 90;
+            this.Email.MinimumWidth = 215;
             this.Email.Name = "Email";
             this.Email.ReadOnly = true;
             // 
