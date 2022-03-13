@@ -1,5 +1,6 @@
 ﻿using TransferLogger.BusinessLogic.ViewModels;
 using TransferLogger.Dal;
+using TransferLogger.Ui.Forms.Instructor;
 using TransferLogger.Ui.Forms.Organization;
 using TransferLogger.Ui.Forms.Student;
 
@@ -31,6 +32,7 @@ namespace TransferLogger.Ui.Forms
 
         private void SetEvents()
         {
+            _menuItemInstructors.Click   += (s, e) => ShowForm(() => new InstructorsForm());
             _menuItemOrganizations.Click += (s, e) => ShowForm(() => new OrganizationsForms());
             _menuItemStudents.Click      += (s, e) => ShowForm(() => new StudentsForm());
         }
