@@ -53,12 +53,12 @@ namespace TransferLogger.Ui.Forms.Student
 
         private void _btnDelete_Click(object? sender, EventArgs e)
         {
-            if (_grid.CurrentRow?.DataBoundItem is StudentViewModel studentViewModel)
+            if (_grid.CurrentRow?.DataBoundItem is IIdentifiable viewModel)
             {
                 using var dc = new Dc();
 
                 dc.Students
-                    .Where(s => s.StudentId == studentViewModel.StudentId)
+                    .Where(s => s.StudentId == viewModel.Id)
                     .Delete();
 
                 SetData();

@@ -1,5 +1,6 @@
 ﻿using LinqToDB;
 
+using TransferLogger.BusinessLogic.Intefaces;
 using TransferLogger.BusinessLogic.ViewModels;
 using TransferLogger.BusinessLogic.Utils;
 using TransferLogger.Dal;
@@ -84,12 +85,12 @@ namespace TransferLogger.Ui.Forms.Organization
 
         private void _btnDelete_Click(object? sender, EventArgs e)
         {
-            if (_grid.CurrentRow?.DataBoundItem is OrganizationViewModel orgViewModel)
+            if (_grid.CurrentRow?.DataBoundItem is IIdentifiable viewModel)
             {
                 using var dc = new Dc();
 
                 dc.Organizations
-                    .Where(o => o.OrganizationId == orgViewModel.OrganizationId)
+                    .Where(o => o.OrganizationId == viewModel.Id)
                     .Delete();
 
                 SetData();
