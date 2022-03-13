@@ -31,6 +31,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StudentsForm));
             this._splitContainer = new TransferLogger.Ui.Controls.TlSplitContainer();
             this._lRef = new System.Windows.Forms.Label();
             this._tbRef = new TransferLogger.Ui.Controls.TlTextBox();
@@ -312,6 +313,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1069, 636);
             this.Controls.Add(this._splitContainer);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1085, 675);
             this.Name = "StudentsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

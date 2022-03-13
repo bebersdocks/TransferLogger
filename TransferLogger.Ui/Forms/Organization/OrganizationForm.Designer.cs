@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrganizationForm));
             this._lName = new System.Windows.Forms.Label();
             this._lUrl = new System.Windows.Forms.Label();
             this._btnCancel = new TransferLogger.Ui.Controls.TlButton();
@@ -236,6 +237,7 @@
             this.Controls.Add(this._lUrl);
             this.Controls.Add(this._lName);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(470, 365);
             this.Name = "OrganizationForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
