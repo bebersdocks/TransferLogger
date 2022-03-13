@@ -1,8 +1,9 @@
-﻿using TransferLogger.Dal.DataModels;
+﻿using TransferLogger.BusinessLogic.Intefaces;
+using TransferLogger.Dal.DataModels;
 
 namespace TransferLogger.BusinessLogic.ViewModels
 {
-    public class StudentViewModel
+    public class StudentViewModel : IIdentifiable
     {
         public int    StudentId { get; set; }
         public string Reference { get; set; }
@@ -10,6 +11,10 @@ namespace TransferLogger.BusinessLogic.ViewModels
         public string IdNumber  { get; set; }
         public string Phone     { get; set; }
         public string Email     { get; set; }
+
+        public int Id => StudentId;
+
+        public StudentViewModel() {}
 
         public StudentViewModel(Student student)
         {

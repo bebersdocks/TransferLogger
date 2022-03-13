@@ -1,9 +1,10 @@
-﻿using TransferLogger.BusinessLogic.Utils;
+﻿using TransferLogger.BusinessLogic.Intefaces;
+using TransferLogger.BusinessLogic.Utils;
 using TransferLogger.Dal.DataModels;
 
 namespace TransferLogger.BusinessLogic.ViewModels
 {
-    public class OrganizationViewModel
+    public class OrganizationViewModel : IIdentifiable
     {
         public int    OrganizationId { get; set; }
         public string Type           { get; set; }
@@ -11,6 +12,8 @@ namespace TransferLogger.BusinessLogic.ViewModels
         public string Description    { get; set; }
         public string Country        { get; set; }
         public string Url            { get; set; }
+
+        public int Id => OrganizationId;
 
         public OrganizationViewModel() {}
 

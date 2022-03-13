@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Linq;
 
+using TransferLogger.BusinessLogic.Intefaces;
 using TransferLogger.Dal.DataModels;
 using TransferLogger.Dal.DataModels.Transfer;
 
 namespace TransferLogger.BusinessLogic.ViewModels
 {
-    public class ApplicationViewModel
+    public class ApplicationViewModel : IIdentifiable
     {
         public int       ApplicationId     { get; set; }
         public string    ApplicationStatus { get; set; }
@@ -15,6 +16,8 @@ namespace TransferLogger.BusinessLogic.ViewModels
         public int       CoursesCount      { get; set; }
         public DateTime  CreatedAt         { get; set; }
         public DateTime? SubmittedAt       { get; set; }
+
+        public int Id => ApplicationId;
 
         public ApplicationViewModel() {}
 
