@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using TransferLogger.BusinessLogic.ViewModels;
+using TransferLogger.Dal;
+using TransferLogger.Ui.Forms.Organization;
+using TransferLogger.Ui.Forms.Student;
+
+using static TransferLogger.Ui.Utils.FormUtils;
 
 namespace TransferLogger.Ui.Forms
 {
@@ -15,11 +12,27 @@ namespace TransferLogger.Ui.Forms
         public ApplicationsForm()
         {
             InitializeComponent();
+
+            SetData();
+            SetEvents();
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
+        public void SetData()
         {
+            using var dc = new Dc();
 
+            var apps = new List<ApplicationViewModel>();
+
+            apps.Add(new ApplicationViewModel() { ApplicationId = 5, ApplicationStatus = "Processed", CreatedAt = DateTime.Today });
+            apps.Add(new ApplicationViewModel() { ApplicationId = 6, ApplicationStatus = "Processed", Student = "Arseniy Mak" });
+
+            _grid.DataSource = apps;
+        }
+
+        private void SetEvents()
+        {
+            _menuItemOrganizations.Click += (s, e) => ShowForm(() => new OrganizationsForms());
+            _menuItemStudents.Click      += (s, e) => ShowForm(() => new StudentsForm());
         }
     }
 }

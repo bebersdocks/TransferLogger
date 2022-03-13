@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this._splitContainerTop = new TransferLogger.Ui.Controls.TlSplitContainer();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            this._splitContainerForm = new TransferLogger.Ui.Controls.TlSplitContainer();
             this._pnlMain = new System.Windows.Forms.Panel();
             this._menu = new System.Windows.Forms.MenuStrip();
             this._menuOrganization = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,7 +44,7 @@
             this._pnlInfo = new System.Windows.Forms.Panel();
             this._pnlApplications = new System.Windows.Forms.Panel();
             this._lApplications = new System.Windows.Forms.Label();
-            this._gridApps = new TransferLogger.Ui.Controls.TlDataGrid();
+            this._grid = new TransferLogger.Ui.Controls.TlDataGrid();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Student = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,41 +52,41 @@
             this.Courses = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SubmittedAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this._splitContainerTop)).BeginInit();
-            this._splitContainerTop.Panel1.SuspendLayout();
-            this._splitContainerTop.Panel2.SuspendLayout();
-            this._splitContainerTop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._splitContainerForm)).BeginInit();
+            this._splitContainerForm.Panel1.SuspendLayout();
+            this._splitContainerForm.Panel2.SuspendLayout();
+            this._splitContainerForm.SuspendLayout();
             this._menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._splitContainerBottom)).BeginInit();
             this._splitContainerBottom.Panel1.SuspendLayout();
             this._splitContainerBottom.Panel2.SuspendLayout();
             this._splitContainerBottom.SuspendLayout();
             this._pnlApplications.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this._gridApps)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._grid)).BeginInit();
             this.SuspendLayout();
             // 
-            // _splitContainerTop
+            // _splitContainerForm
             // 
-            this._splitContainerTop.BackColor = System.Drawing.Color.GhostWhite;
-            this._splitContainerTop.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this._splitContainerTop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._splitContainerTop.IsSplitterFixed = true;
-            this._splitContainerTop.Location = new System.Drawing.Point(0, 0);
-            this._splitContainerTop.Name = "_splitContainerTop";
-            this._splitContainerTop.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            this._splitContainerForm.BackColor = System.Drawing.Color.GhostWhite;
+            this._splitContainerForm.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this._splitContainerForm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._splitContainerForm.IsSplitterFixed = true;
+            this._splitContainerForm.Location = new System.Drawing.Point(0, 0);
+            this._splitContainerForm.Name = "_splitContainerForm";
+            this._splitContainerForm.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
-            // _splitContainerTop.Panel1
+            // _splitContainerForm.Panel1
             // 
-            this._splitContainerTop.Panel1.BackColor = System.Drawing.Color.White;
-            this._splitContainerTop.Panel1.Controls.Add(this._pnlMain);
-            this._splitContainerTop.Panel1.Controls.Add(this._menu);
+            this._splitContainerForm.Panel1.BackColor = System.Drawing.Color.White;
+            this._splitContainerForm.Panel1.Controls.Add(this._pnlMain);
+            this._splitContainerForm.Panel1.Controls.Add(this._menu);
             // 
-            // _splitContainerTop.Panel2
+            // _splitContainerForm.Panel2
             // 
-            this._splitContainerTop.Panel2.Controls.Add(this._splitContainerBottom);
-            this._splitContainerTop.Size = new System.Drawing.Size(1176, 650);
-            this._splitContainerTop.SplitterDistance = 158;
-            this._splitContainerTop.TabIndex = 5;
+            this._splitContainerForm.Panel2.Controls.Add(this._splitContainerBottom);
+            this._splitContainerForm.Size = new System.Drawing.Size(1176, 650);
+            this._splitContainerForm.SplitterDistance = 158;
+            this._splitContainerForm.TabIndex = 5;
             // 
             // _pnlMain
             // 
@@ -182,7 +182,7 @@
             // 
             this._pnlApplications.BackColor = System.Drawing.Color.White;
             this._pnlApplications.Controls.Add(this._lApplications);
-            this._pnlApplications.Controls.Add(this._gridApps);
+            this._pnlApplications.Controls.Add(this._grid);
             this._pnlApplications.Dock = System.Windows.Forms.DockStyle.Fill;
             this._pnlApplications.Location = new System.Drawing.Point(0, 0);
             this._pnlApplications.Name = "_pnlApplications";
@@ -196,34 +196,34 @@
             this._lApplications.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._lApplications.Location = new System.Drawing.Point(0, 0);
             this._lApplications.Name = "_lApplications";
-            this._lApplications.Size = new System.Drawing.Size(930, 17);
+            this._lApplications.Size = new System.Drawing.Size(930, 20);
             this._lApplications.TabIndex = 1;
             this._lApplications.Text = "Applications";
             this._lApplications.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // _gridApps
+            // _grid
             // 
-            this._gridApps.AllowUserToAddRows = false;
-            this._gridApps.AllowUserToDeleteRows = false;
-            this._gridApps.AllowUserToOrderColumns = true;
-            this._gridApps.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this._grid.AllowUserToAddRows = false;
+            this._grid.AllowUserToDeleteRows = false;
+            this._grid.AllowUserToOrderColumns = true;
+            this._grid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this._gridApps.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this._gridApps.BackgroundColor = System.Drawing.Color.White;
-            this._gridApps.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this._gridApps.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.AliceBlue;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.AliceBlue;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this._gridApps.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this._gridApps.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this._gridApps.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this._grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this._grid.BackgroundColor = System.Drawing.Color.White;
+            this._grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this._grid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.AliceBlue;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.AliceBlue;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this._grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this._grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this._grid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
             this.Status,
             this.Student,
@@ -231,31 +231,31 @@
             this.Courses,
             this.Date,
             this.SubmittedAt});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this._gridApps.DefaultCellStyle = dataGridViewCellStyle2;
-            this._gridApps.EnableHeadersVisualStyles = false;
-            this._gridApps.Location = new System.Drawing.Point(-6, 18);
-            this._gridApps.MultiSelect = false;
-            this._gridApps.Name = "_gridApps";
-            this._gridApps.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this._gridApps.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this._gridApps.RowHeadersVisible = false;
-            this._gridApps.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this._gridApps.Size = new System.Drawing.Size(941, 470);
-            this._gridApps.TabIndex = 0;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this._grid.DefaultCellStyle = dataGridViewCellStyle5;
+            this._grid.EnableHeadersVisualStyles = false;
+            this._grid.Location = new System.Drawing.Point(-6, 21);
+            this._grid.MultiSelect = false;
+            this._grid.Name = "_grid";
+            this._grid.ReadOnly = true;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this._grid.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this._grid.RowHeadersVisible = false;
+            this._grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this._grid.Size = new System.Drawing.Size(941, 470);
+            this._grid.TabIndex = 0;
             // 
             // ID
             // 
@@ -311,15 +311,15 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1176, 650);
-            this.Controls.Add(this._splitContainerTop);
+            this.Controls.Add(this._splitContainerForm);
             this.Name = "ApplicationsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Transfer Logger";
-            this._splitContainerTop.Panel1.ResumeLayout(false);
-            this._splitContainerTop.Panel1.PerformLayout();
-            this._splitContainerTop.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this._splitContainerTop)).EndInit();
-            this._splitContainerTop.ResumeLayout(false);
+            this._splitContainerForm.Panel1.ResumeLayout(false);
+            this._splitContainerForm.Panel1.PerformLayout();
+            this._splitContainerForm.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this._splitContainerForm)).EndInit();
+            this._splitContainerForm.ResumeLayout(false);
             this._menu.ResumeLayout(false);
             this._menu.PerformLayout();
             this._splitContainerBottom.Panel1.ResumeLayout(false);
@@ -327,19 +327,19 @@
             ((System.ComponentModel.ISupportInitialize)(this._splitContainerBottom)).EndInit();
             this._splitContainerBottom.ResumeLayout(false);
             this._pnlApplications.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this._gridApps)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._grid)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private TransferLogger.Ui.Controls.TlSplitContainer _splitContainerTop;
+        private TransferLogger.Ui.Controls.TlSplitContainer _splitContainerForm;
         private TransferLogger.Ui.Controls.TlSplitContainer _splitContainerBottom;
         private Panel _pnlInfo;
         private Panel _pnlApplications;
         private MenuStrip _menu;
-        private TransferLogger.Ui.Controls.TlDataGrid _gridApps;
+        private TransferLogger.Ui.Controls.TlDataGrid _grid;
         private Panel _pnlMain;
         private ToolStripMenuItem _menuOrganization;
         private ToolStripMenuItem _menuItemOrganizations;
