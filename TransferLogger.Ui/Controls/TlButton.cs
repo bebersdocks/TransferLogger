@@ -16,8 +16,6 @@
             Cursor      = Cursors.Hand;
             FlatStyle   = FlatStyle.Flat;
             ForeColor   = Color.Black;
-            MaximumSize = new Size(0, 28);
-            MinimumSize = new Size(0, 28);
             TabStop     = false;
             TextAlign   = ContentAlignment.MiddleCenter;
 

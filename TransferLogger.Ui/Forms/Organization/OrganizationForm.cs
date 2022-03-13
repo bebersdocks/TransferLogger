@@ -5,6 +5,7 @@ using TransferLogger.Dal;
 using TransferLogger.Dal.DataModels;
 using TransferLogger.Dal.Definitions;
 using TransferLogger.Ui.Controls;
+using TransferLogger.Ui.Utils;
 
 using Lookup = TransferLogger.BusinessLogic.Lookup;
 using Org    = TransferLogger.Dal.DataModels.Organization;
@@ -44,7 +45,7 @@ namespace TransferLogger.Ui.Forms.Organization
             }
             else
             {
-                _cbCountries.FillLookups<Country>(_countries);
+                _cbCountries.FillLookups<Country>(_countries, Country.CY);
                 _cbOrganizationTypes.FillLookups(OrganizationType.University);
             }
         }
@@ -75,6 +76,24 @@ namespace TransferLogger.Ui.Forms.Organization
 
         private void _btnOk_Click(object? sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(_tbName.Text))
+            {
+                this.ShowValidationMsg($"Name can't be empty.");
+                return;
+            }
+
+            if (_cbOrganizationTypes.SelectedValue is null)
+            {
+                this.ShowValidationMsg($"You have to specify organization type.");
+                return;
+            }
+
+            if (_cbCountries.SelectedValue is null)
+            {
+                this.ShowValidationMsg($"You have to specify country.");
+                return;
+            }
+
             _organization.Name             = _tbName.Text;
             _organization.Description      = _tbDescription.Text;
             _organization.OrganizationType = (OrganizationType)_cbOrganizationTypes.SelectedValue;

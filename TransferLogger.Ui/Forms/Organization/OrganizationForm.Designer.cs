@@ -47,7 +47,7 @@
             // 
             this._lName.AutoSize = true;
             this._lName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lName.Location = new System.Drawing.Point(21, 38);
+            this._lName.Location = new System.Drawing.Point(21, 24);
             this._lName.Name = "_lName";
             this._lName.Size = new System.Drawing.Size(46, 17);
             this._lName.TabIndex = 0;
@@ -57,7 +57,7 @@
             // 
             this._lUrl.AutoSize = true;
             this._lUrl.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lUrl.Location = new System.Drawing.Point(25, 199);
+            this._lUrl.Location = new System.Drawing.Point(25, 184);
             this._lUrl.Name = "_lUrl";
             this._lUrl.Size = new System.Drawing.Size(34, 17);
             this._lUrl.TabIndex = 2;
@@ -74,7 +74,7 @@
             this._btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnCancel.ForeColor = System.Drawing.Color.Black;
             this._btnCancel.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            this._btnCancel.Location = new System.Drawing.Point(292, 298);
+            this._btnCancel.Location = new System.Drawing.Point(288, 285);
             this._btnCancel.MaximumSize = new System.Drawing.Size(0, 28);
             this._btnCancel.MinimumSize = new System.Drawing.Size(0, 28);
             this._btnCancel.Name = "_btnCancel";
@@ -95,7 +95,7 @@
             this._btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnOk.ForeColor = System.Drawing.Color.Black;
             this._btnOk.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            this._btnOk.Location = new System.Drawing.Point(373, 298);
+            this._btnOk.Location = new System.Drawing.Point(369, 285);
             this._btnOk.MaximumSize = new System.Drawing.Size(0, 28);
             this._btnOk.MinimumSize = new System.Drawing.Size(0, 28);
             this._btnOk.Name = "_btnOk";
@@ -109,7 +109,7 @@
             // 
             this._lOrganizationType.AutoSize = true;
             this._lOrganizationType.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lOrganizationType.Location = new System.Drawing.Point(21, 119);
+            this._lOrganizationType.Location = new System.Drawing.Point(21, 104);
             this._lOrganizationType.Name = "_lOrganizationType";
             this._lOrganizationType.Size = new System.Drawing.Size(38, 17);
             this._lOrganizationType.TabIndex = 13;
@@ -120,7 +120,7 @@
             this._cbOrganizationTypes.BackColor = System.Drawing.Color.GhostWhite;
             this._cbOrganizationTypes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._cbOrganizationTypes.FormattingEnabled = true;
-            this._cbOrganizationTypes.Location = new System.Drawing.Point(106, 116);
+            this._cbOrganizationTypes.Location = new System.Drawing.Point(106, 101);
             this._cbOrganizationTypes.Name = "_cbOrganizationTypes";
             this._cbOrganizationTypes.Size = new System.Drawing.Size(325, 25);
             this._cbOrganizationTypes.TabIndex = 2;
@@ -130,7 +130,7 @@
             this._tbName.BackColor = System.Drawing.Color.GhostWhite;
             this._tbName.BoxWidth = 325;
             this._tbName.ForeColor = System.Drawing.Color.Black;
-            this._tbName.Location = new System.Drawing.Point(106, 35);
+            this._tbName.Location = new System.Drawing.Point(106, 21);
             this._tbName.Name = "_tbName";
             this._tbName.Size = new System.Drawing.Size(325, 25);
             this._tbName.TabIndex = 0;
@@ -140,7 +140,7 @@
             this._tbUrl.BackColor = System.Drawing.Color.GhostWhite;
             this._tbUrl.BoxWidth = 325;
             this._tbUrl.ForeColor = System.Drawing.Color.Black;
-            this._tbUrl.Location = new System.Drawing.Point(106, 196);
+            this._tbUrl.Location = new System.Drawing.Point(105, 181);
             this._tbUrl.Name = "_tbUrl";
             this._tbUrl.Size = new System.Drawing.Size(325, 25);
             this._tbUrl.TabIndex = 5;
@@ -150,7 +150,7 @@
             this._tbDescription.BackColor = System.Drawing.Color.GhostWhite;
             this._tbDescription.BoxWidth = 325;
             this._tbDescription.ForeColor = System.Drawing.Color.Black;
-            this._tbDescription.Location = new System.Drawing.Point(106, 75);
+            this._tbDescription.Location = new System.Drawing.Point(106, 61);
             this._tbDescription.Name = "_tbDescription";
             this._tbDescription.Size = new System.Drawing.Size(325, 25);
             this._tbDescription.TabIndex = 1;
@@ -159,7 +159,7 @@
             // 
             this._lDescription.AutoSize = true;
             this._lDescription.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lDescription.Location = new System.Drawing.Point(21, 78);
+            this._lDescription.Location = new System.Drawing.Point(21, 64);
             this._lDescription.Name = "_lDescription";
             this._lDescription.Size = new System.Drawing.Size(77, 17);
             this._lDescription.TabIndex = 18;
@@ -170,7 +170,7 @@
             this._cbCountries.BackColor = System.Drawing.Color.GhostWhite;
             this._cbCountries.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._cbCountries.FormattingEnabled = true;
-            this._cbCountries.Location = new System.Drawing.Point(106, 156);
+            this._cbCountries.Location = new System.Drawing.Point(105, 141);
             this._cbCountries.Name = "_cbCountries";
             this._cbCountries.Size = new System.Drawing.Size(285, 25);
             this._cbCountries.TabIndex = 3;
@@ -179,7 +179,7 @@
             // 
             this._lCountry.AutoSize = true;
             this._lCountry.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lCountry.Location = new System.Drawing.Point(21, 159);
+            this._lCountry.Location = new System.Drawing.Point(21, 144);
             this._lCountry.Name = "_lCountry";
             this._lCountry.Size = new System.Drawing.Size(56, 17);
             this._lCountry.TabIndex = 20;
@@ -195,7 +195,7 @@
             this._btnSelectCountry.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnSelectCountry.ForeColor = System.Drawing.Color.Black;
             this._btnSelectCountry.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            this._btnSelectCountry.Location = new System.Drawing.Point(396, 156);
+            this._btnSelectCountry.Location = new System.Drawing.Point(396, 141);
             this._btnSelectCountry.MaximumSize = new System.Drawing.Size(0, 25);
             this._btnSelectCountry.MinimumSize = new System.Drawing.Size(0, 25);
             this._btnSelectCountry.Name = "_btnSelectCountry";
@@ -210,7 +210,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(460, 338);
+            this.ClientSize = new System.Drawing.Size(456, 325);
             this.Controls.Add(this._btnSelectCountry);
             this.Controls.Add(this._lCountry);
             this.Controls.Add(this._cbCountries);
