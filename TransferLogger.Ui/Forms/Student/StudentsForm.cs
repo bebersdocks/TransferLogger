@@ -1,5 +1,6 @@
 ﻿using LinqToDB;
 
+using TransferLogger.BusinessLogic.Intefaces;
 using TransferLogger.BusinessLogic.ViewModels;
 using TransferLogger.Dal;
 using TransferLogger.Ui.Utils;
@@ -23,7 +24,7 @@ namespace TransferLogger.Ui.Forms.Student
             var query = dc.Students.AsQueryable();
 
             if (!string.IsNullOrEmpty(_tbSearchName.Text))
-                query = query.Where(s => s.Name.Contains(_tbSearchName.Text, StringComparison.OrdinalIgnoreCase) || s.Surname.Contains(_tbSearchName.Text, StringComparison.OrdinalIgnoreCase));
+                query = query.Where(s => $"{s.Name} {s.Middle} {s.Surname}".Contains(_tbSearchName.Text, StringComparison.OrdinalIgnoreCase));
 
             if (!string.IsNullOrEmpty(_tbRef.Text))
                 query = query.Where(s => s.Reference.Contains(_tbRef.Text, StringComparison.OrdinalIgnoreCase));

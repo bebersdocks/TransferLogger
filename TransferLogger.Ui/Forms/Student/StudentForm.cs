@@ -25,12 +25,13 @@ namespace TransferLogger.Ui.Forms.Student
         {
             if (_student.StudentId > 0)
             {
-                _tbName.Text     = _student.Name;
-                _tbSurname.Text  = _student.Surname;
-                _tbRef.Text      = _student.Reference;
-                _tbIdNumber.Text = _student.IdNumber;
-                _tbPhone.Text    = _student.Phone;
-                _tbEmail.Text    = _student.Email;
+                _tbName.Text       = _student.Name;
+                _tbMiddle.Text     = _student.Middle;
+                _tbSurname.Text    = _student.Surname;
+                _tbRef.Text        = _student.Reference;
+                _tbDocumentNo.Text = _student.DocumentNo;
+                _tbPhone.Text      = _student.Phone;
+                _tbEmail.Text      = _student.Email;
 
                 Text = $"{_student.DisplayString} (Id: {_student.StudentId})";
             }
@@ -63,18 +64,19 @@ namespace TransferLogger.Ui.Forms.Student
                 return;
             }
 
-            if (string.IsNullOrEmpty(_tbIdNumber.Text))
+            if (string.IsNullOrEmpty(_tbDocumentNo.Text))
             {
-                this.ShowValidationMsg($"{_lIdNumber.Text} can't be empty.");
+                this.ShowValidationMsg($"{_lDocumentNo.Text} can't be empty.");
                 return;
             }
 
-            _student.Reference = _tbRef.Text;
-            _student.Name      = _tbName.Text;
-            _student.Surname   = _tbSurname.Text;
-            _student.IdNumber  = _tbIdNumber.Text;
-            _student.Phone     = _tbPhone.Text;
-            _student.Email     = _tbEmail.Text;
+            _student.Reference  = _tbRef.Text;
+            _student.Name       = _tbName.Text;
+            _student.Middle     = _tbMiddle.Text;
+            _student.Surname    = _tbSurname.Text;
+            _student.DocumentNo = _tbDocumentNo.Text;
+            _student.Phone      = _tbPhone.Text;
+            _student.Email      = _tbEmail.Text;
 
             using var dc = new Dc();
 

@@ -45,7 +45,7 @@
             this.StudentId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StudentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Reference = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DocumentNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this._splitContainer)).BeginInit();
@@ -228,7 +228,7 @@
             this.StudentId,
             this.StudentName,
             this.Reference,
-            this.IdNumber,
+            this.DocumentNo,
             this.Phone,
             this.Email});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -283,14 +283,14 @@
             this.Reference.Name = "Reference";
             this.Reference.ReadOnly = true;
             // 
-            // IdNumber
+            // DocumentNo
             // 
-            this.IdNumber.DataPropertyName = "IdNumber";
-            this.IdNumber.FillWeight = 95F;
-            this.IdNumber.HeaderText = "ID Number";
-            this.IdNumber.MinimumWidth = 60;
-            this.IdNumber.Name = "IdNumber";
-            this.IdNumber.ReadOnly = true;
+            this.DocumentNo.DataPropertyName = "DocumentNo";
+            this.DocumentNo.FillWeight = 95F;
+            this.DocumentNo.HeaderText = "Document";
+            this.DocumentNo.MinimumWidth = 60;
+            this.DocumentNo.Name = "DocumentNo";
+            this.DocumentNo.ReadOnly = true;
             // 
             // Phone
             // 
@@ -344,7 +344,7 @@
         private DataGridViewTextBoxColumn StudentId;
         private DataGridViewTextBoxColumn StudentName;
         private DataGridViewTextBoxColumn Reference;
-        private DataGridViewTextBoxColumn IdNumber;
+        private DataGridViewTextBoxColumn DocumentNo;
         private DataGridViewTextBoxColumn Phone;
         private DataGridViewTextBoxColumn Email;
     }

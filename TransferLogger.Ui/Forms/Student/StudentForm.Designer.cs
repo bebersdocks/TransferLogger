@@ -33,8 +33,8 @@
             this._btnCancel = new TransferLogger.Ui.Controls.TlButton();
             this._btnOk = new TransferLogger.Ui.Controls.TlButton();
             this._tbName = new TransferLogger.Ui.Controls.TlTextBox();
-            this._tbIdNumber = new TransferLogger.Ui.Controls.TlTextBox();
-            this._lIdNumber = new System.Windows.Forms.Label();
+            this._tbDocumentNo = new TransferLogger.Ui.Controls.TlTextBox();
+            this._lDocumentNo = new System.Windows.Forms.Label();
             this._lSurname = new System.Windows.Forms.Label();
             this._tbSurname = new TransferLogger.Ui.Controls.TlTextBox();
             this._tbRef = new TransferLogger.Ui.Controls.TlTextBox();
@@ -43,6 +43,8 @@
             this._tbPhone = new TransferLogger.Ui.Controls.TlTextBox();
             this._tbEmail = new TransferLogger.Ui.Controls.TlTextBox();
             this._lEmail = new System.Windows.Forms.Label();
+            this._tbMiddle = new TransferLogger.Ui.Controls.TlTextBox();
+            this._lMiddle = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // _lName
@@ -66,12 +68,12 @@
             this._btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnCancel.ForeColor = System.Drawing.Color.Black;
             this._btnCancel.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            this._btnCancel.Location = new System.Drawing.Point(287, 286);
+            this._btnCancel.Location = new System.Drawing.Point(301, 331);
             this._btnCancel.MaximumSize = new System.Drawing.Size(0, 28);
             this._btnCancel.MinimumSize = new System.Drawing.Size(0, 28);
             this._btnCancel.Name = "_btnCancel";
             this._btnCancel.Size = new System.Drawing.Size(75, 28);
-            this._btnCancel.TabIndex = 6;
+            this._btnCancel.TabIndex = 7;
             this._btnCancel.TabStop = false;
             this._btnCancel.Text = "Cancel";
             this._btnCancel.UseVisualStyleBackColor = false;
@@ -87,12 +89,12 @@
             this._btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnOk.ForeColor = System.Drawing.Color.Black;
             this._btnOk.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            this._btnOk.Location = new System.Drawing.Point(368, 286);
+            this._btnOk.Location = new System.Drawing.Point(382, 331);
             this._btnOk.MaximumSize = new System.Drawing.Size(0, 28);
             this._btnOk.MinimumSize = new System.Drawing.Size(0, 28);
             this._btnOk.Name = "_btnOk";
             this._btnOk.Size = new System.Drawing.Size(75, 28);
-            this._btnOk.TabIndex = 7;
+            this._btnOk.TabIndex = 8;
             this._btnOk.TabStop = false;
             this._btnOk.Text = "Ok";
             this._btnOk.UseVisualStyleBackColor = false;
@@ -104,38 +106,38 @@
             this._tbName.BackColor = System.Drawing.Color.GhostWhite;
             this._tbName.BoxWidth = 325;
             this._tbName.ForeColor = System.Drawing.Color.Black;
-            this._tbName.Location = new System.Drawing.Point(106, 21);
+            this._tbName.Location = new System.Drawing.Point(118, 21);
             this._tbName.Name = "_tbName";
             this._tbName.Size = new System.Drawing.Size(325, 25);
             this._tbName.TabIndex = 0;
             // 
-            // _tbIdNumber
+            // _tbDocumentNo
             // 
-            this._tbIdNumber.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this._tbDocumentNo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this._tbIdNumber.BackColor = System.Drawing.Color.GhostWhite;
-            this._tbIdNumber.BoxWidth = 325;
-            this._tbIdNumber.ForeColor = System.Drawing.Color.Black;
-            this._tbIdNumber.Location = new System.Drawing.Point(106, 142);
-            this._tbIdNumber.Name = "_tbIdNumber";
-            this._tbIdNumber.Size = new System.Drawing.Size(325, 25);
-            this._tbIdNumber.TabIndex = 3;
+            this._tbDocumentNo.BackColor = System.Drawing.Color.GhostWhite;
+            this._tbDocumentNo.BoxWidth = 325;
+            this._tbDocumentNo.ForeColor = System.Drawing.Color.Black;
+            this._tbDocumentNo.Location = new System.Drawing.Point(118, 171);
+            this._tbDocumentNo.Name = "_tbDocumentNo";
+            this._tbDocumentNo.Size = new System.Drawing.Size(325, 25);
+            this._tbDocumentNo.TabIndex = 4;
             // 
-            // _lIdNumber
+            // _lDocumentNo
             // 
-            this._lIdNumber.AutoSize = true;
-            this._lIdNumber.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lIdNumber.Location = new System.Drawing.Point(21, 145);
-            this._lIdNumber.Name = "_lIdNumber";
-            this._lIdNumber.Size = new System.Drawing.Size(75, 17);
-            this._lIdNumber.TabIndex = 18;
-            this._lIdNumber.Text = "ID Number:";
+            this._lDocumentNo.AutoSize = true;
+            this._lDocumentNo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this._lDocumentNo.Location = new System.Drawing.Point(20, 174);
+            this._lDocumentNo.Name = "_lDocumentNo";
+            this._lDocumentNo.Size = new System.Drawing.Size(92, 17);
+            this._lDocumentNo.TabIndex = 18;
+            this._lDocumentNo.Text = "Document No:";
             // 
             // _lSurname
             // 
             this._lSurname.AutoSize = true;
             this._lSurname.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lSurname.Location = new System.Drawing.Point(21, 64);
+            this._lSurname.Location = new System.Drawing.Point(21, 97);
             this._lSurname.Name = "_lSurname";
             this._lSurname.Size = new System.Drawing.Size(62, 17);
             this._lSurname.TabIndex = 19;
@@ -148,10 +150,10 @@
             this._tbSurname.BackColor = System.Drawing.Color.GhostWhite;
             this._tbSurname.BoxWidth = 325;
             this._tbSurname.ForeColor = System.Drawing.Color.Black;
-            this._tbSurname.Location = new System.Drawing.Point(106, 61);
+            this._tbSurname.Location = new System.Drawing.Point(118, 94);
             this._tbSurname.Name = "_tbSurname";
             this._tbSurname.Size = new System.Drawing.Size(325, 25);
-            this._tbSurname.TabIndex = 1;
+            this._tbSurname.TabIndex = 2;
             // 
             // _tbRef
             // 
@@ -160,16 +162,16 @@
             this._tbRef.BackColor = System.Drawing.Color.GhostWhite;
             this._tbRef.BoxWidth = 325;
             this._tbRef.ForeColor = System.Drawing.Color.Black;
-            this._tbRef.Location = new System.Drawing.Point(106, 102);
+            this._tbRef.Location = new System.Drawing.Point(118, 132);
             this._tbRef.Name = "_tbRef";
             this._tbRef.Size = new System.Drawing.Size(325, 25);
-            this._tbRef.TabIndex = 2;
+            this._tbRef.TabIndex = 3;
             // 
             // _lRef
             // 
             this._lRef.AutoSize = true;
             this._lRef.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lRef.Location = new System.Drawing.Point(21, 105);
+            this._lRef.Location = new System.Drawing.Point(21, 135);
             this._lRef.Name = "_lRef";
             this._lRef.Size = new System.Drawing.Size(69, 17);
             this._lRef.TabIndex = 22;
@@ -179,7 +181,7 @@
             // 
             this._lPhone.AutoSize = true;
             this._lPhone.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lPhone.Location = new System.Drawing.Point(21, 183);
+            this._lPhone.Location = new System.Drawing.Point(21, 211);
             this._lPhone.Name = "_lPhone";
             this._lPhone.Size = new System.Drawing.Size(47, 17);
             this._lPhone.TabIndex = 23;
@@ -192,10 +194,10 @@
             this._tbPhone.BackColor = System.Drawing.Color.GhostWhite;
             this._tbPhone.BoxWidth = 325;
             this._tbPhone.ForeColor = System.Drawing.Color.Black;
-            this._tbPhone.Location = new System.Drawing.Point(106, 180);
+            this._tbPhone.Location = new System.Drawing.Point(118, 208);
             this._tbPhone.Name = "_tbPhone";
             this._tbPhone.Size = new System.Drawing.Size(325, 25);
-            this._tbPhone.TabIndex = 4;
+            this._tbPhone.TabIndex = 5;
             // 
             // _tbEmail
             // 
@@ -204,27 +206,51 @@
             this._tbEmail.BackColor = System.Drawing.Color.GhostWhite;
             this._tbEmail.BoxWidth = 325;
             this._tbEmail.ForeColor = System.Drawing.Color.Black;
-            this._tbEmail.Location = new System.Drawing.Point(106, 220);
+            this._tbEmail.Location = new System.Drawing.Point(118, 243);
             this._tbEmail.Name = "_tbEmail";
             this._tbEmail.Size = new System.Drawing.Size(325, 25);
-            this._tbEmail.TabIndex = 5;
+            this._tbEmail.TabIndex = 6;
             // 
             // _lEmail
             // 
             this._lEmail.AutoSize = true;
             this._lEmail.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lEmail.Location = new System.Drawing.Point(21, 223);
+            this._lEmail.Location = new System.Drawing.Point(21, 246);
             this._lEmail.Name = "_lEmail";
             this._lEmail.Size = new System.Drawing.Size(42, 17);
             this._lEmail.TabIndex = 26;
             this._lEmail.Text = "Email:";
+            // 
+            // _tbMiddle
+            // 
+            this._tbMiddle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this._tbMiddle.BackColor = System.Drawing.Color.GhostWhite;
+            this._tbMiddle.BoxWidth = 325;
+            this._tbMiddle.ForeColor = System.Drawing.Color.Black;
+            this._tbMiddle.Location = new System.Drawing.Point(118, 56);
+            this._tbMiddle.Name = "_tbMiddle";
+            this._tbMiddle.Size = new System.Drawing.Size(325, 25);
+            this._tbMiddle.TabIndex = 1;
+            // 
+            // _lMiddle
+            // 
+            this._lMiddle.AutoSize = true;
+            this._lMiddle.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this._lMiddle.Location = new System.Drawing.Point(21, 59);
+            this._lMiddle.Name = "_lMiddle";
+            this._lMiddle.Size = new System.Drawing.Size(52, 17);
+            this._lMiddle.TabIndex = 28;
+            this._lMiddle.Text = "Middle:";
             // 
             // StudentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(455, 326);
+            this.ClientSize = new System.Drawing.Size(469, 371);
+            this.Controls.Add(this._lMiddle);
+            this.Controls.Add(this._tbMiddle);
             this.Controls.Add(this._lEmail);
             this.Controls.Add(this._tbEmail);
             this.Controls.Add(this._tbPhone);
@@ -233,15 +259,15 @@
             this.Controls.Add(this._tbRef);
             this.Controls.Add(this._tbSurname);
             this.Controls.Add(this._lSurname);
-            this.Controls.Add(this._lIdNumber);
-            this.Controls.Add(this._tbIdNumber);
+            this.Controls.Add(this._lDocumentNo);
+            this.Controls.Add(this._tbDocumentNo);
             this.Controls.Add(this._tbName);
             this.Controls.Add(this._btnOk);
             this.Controls.Add(this._btnCancel);
             this.Controls.Add(this._lName);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(470, 365);
+            this.MinimumSize = new System.Drawing.Size(485, 410);
             this.Name = "StudentForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "New Student";
@@ -256,8 +282,8 @@
         private Controls.TlButton _btnCancel;
         private Controls.TlButton _btnOk;
         private Controls.TlTextBox _tbName;
-        private Controls.TlTextBox _tbIdNumber;
-        private Label _lIdNumber;
+        private Controls.TlTextBox _tbDocumentNo;
+        private Label _lDocumentNo;
         private Label _lSurname;
         private Controls.TlTextBox _tbSurname;
         private Controls.TlTextBox _tbRef;
@@ -266,5 +292,7 @@
         private Controls.TlTextBox _tbPhone;
         private Controls.TlTextBox _tbEmail;
         private Label _lEmail;
+        private Controls.TlTextBox _tbMiddle;
+        private Label _lMiddle;
     }
 }
