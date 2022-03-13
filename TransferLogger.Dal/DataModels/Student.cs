@@ -9,6 +9,7 @@ namespace TransferLogger.Dal.DataModels
         [Column, Nullable]     public string Reference { get; set; }
         [Column, NotNull]      public string Name      { get; set; }
         [Column, NotNull]      public string Surname   { get; set; }
+        [Column, NotNull]      public string IdNumber  { get; set; }
         [Column, Nullable]     public string Phone     { get; set; }
         [Column, Nullable]     public string Email     { get; set; }
 
