@@ -32,28 +32,29 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LookupSelectionForm));
-            this._gridLookups = new TransferLogger.Ui.Controls.TlDataGrid();
+            this._grid = new TransferLogger.Ui.Controls.TlDataGrid();
             this.Value = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DisplayName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._tbSearchLookup = new TransferLogger.Ui.Controls.TlTextBox();
             this._btnOk = new TransferLogger.Ui.Controls.TlButton();
             this._btnCancel = new TransferLogger.Ui.Controls.TlButton();
-            ((System.ComponentModel.ISupportInitialize)(this._gridLookups)).BeginInit();
+            this._btnClear = new TransferLogger.Ui.Controls.TlButton();
+            ((System.ComponentModel.ISupportInitialize)(this._grid)).BeginInit();
             this.SuspendLayout();
             // 
-            // _gridLookups
+            // _grid
             // 
-            this._gridLookups.AllowUserToAddRows = false;
-            this._gridLookups.AllowUserToDeleteRows = false;
-            this._gridLookups.AllowUserToOrderColumns = true;
-            this._gridLookups.AllowUserToResizeRows = false;
-            this._gridLookups.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this._grid.AllowUserToAddRows = false;
+            this._grid.AllowUserToDeleteRows = false;
+            this._grid.AllowUserToOrderColumns = true;
+            this._grid.AllowUserToResizeRows = false;
+            this._grid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this._gridLookups.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this._gridLookups.BackgroundColor = System.Drawing.Color.White;
-            this._gridLookups.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this._gridLookups.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            this._grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this._grid.BackgroundColor = System.Drawing.Color.White;
+            this._grid.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this._grid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.AliceBlue;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -62,9 +63,9 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.AliceBlue;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this._gridLookups.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this._gridLookups.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this._gridLookups.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this._grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this._grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this._grid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Value,
             this.DisplayName});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -74,12 +75,12 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this._gridLookups.DefaultCellStyle = dataGridViewCellStyle2;
-            this._gridLookups.EnableHeadersVisualStyles = false;
-            this._gridLookups.Location = new System.Drawing.Point(0, 21);
-            this._gridLookups.MultiSelect = false;
-            this._gridLookups.Name = "_gridLookups";
-            this._gridLookups.ReadOnly = true;
+            this._grid.DefaultCellStyle = dataGridViewCellStyle2;
+            this._grid.EnableHeadersVisualStyles = false;
+            this._grid.Location = new System.Drawing.Point(0, 21);
+            this._grid.MultiSelect = false;
+            this._grid.Name = "_grid";
+            this._grid.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -87,11 +88,11 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this._gridLookups.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this._gridLookups.RowHeadersVisible = false;
-            this._gridLookups.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this._gridLookups.Size = new System.Drawing.Size(473, 387);
-            this._gridLookups.TabIndex = 1;
+            this._grid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this._grid.RowHeadersVisible = false;
+            this._grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this._grid.Size = new System.Drawing.Size(473, 387);
+            this._grid.TabIndex = 4;
             // 
             // Value
             // 
@@ -138,7 +139,7 @@
             this._btnOk.MinimumSize = new System.Drawing.Size(0, 28);
             this._btnOk.Name = "_btnOk";
             this._btnOk.Size = new System.Drawing.Size(80, 28);
-            this._btnOk.TabIndex = 2;
+            this._btnOk.TabIndex = 1;
             this._btnOk.TabStop = false;
             this._btnOk.Text = "Ok";
             this._btnOk.UseVisualStyleBackColor = false;
@@ -159,10 +160,31 @@
             this._btnCancel.MinimumSize = new System.Drawing.Size(0, 28);
             this._btnCancel.Name = "_btnCancel";
             this._btnCancel.Size = new System.Drawing.Size(80, 28);
-            this._btnCancel.TabIndex = 3;
+            this._btnCancel.TabIndex = 2;
             this._btnCancel.TabStop = false;
             this._btnCancel.Text = "Cancel";
             this._btnCancel.UseVisualStyleBackColor = false;
+            // 
+            // _btnClear
+            // 
+            this._btnClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this._btnClear.AutoSize = true;
+            this._btnClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
+            this._btnClear.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
+            this._btnClear.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
+            this._btnClear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this._btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._btnClear.ForeColor = System.Drawing.Color.Black;
+            this._btnClear.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this._btnClear.Location = new System.Drawing.Point(12, 424);
+            this._btnClear.MaximumSize = new System.Drawing.Size(0, 28);
+            this._btnClear.MinimumSize = new System.Drawing.Size(0, 28);
+            this._btnClear.Name = "_btnClear";
+            this._btnClear.Size = new System.Drawing.Size(80, 28);
+            this._btnClear.TabIndex = 3;
+            this._btnClear.TabStop = false;
+            this._btnClear.Text = "Clear";
+            this._btnClear.UseVisualStyleBackColor = false;
             // 
             // LookupSelectionForm
             // 
@@ -170,15 +192,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(473, 464);
+            this.Controls.Add(this._btnClear);
             this.Controls.Add(this._btnCancel);
             this.Controls.Add(this._btnOk);
             this.Controls.Add(this._tbSearchLookup);
-            this.Controls.Add(this._gridLookups);
+            this.Controls.Add(this._grid);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LookupSelectionForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LookupSelectionForm";
-            ((System.ComponentModel.ISupportInitialize)(this._gridLookups)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._grid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -186,11 +209,12 @@
 
         #endregion
 
-        private Controls.TlDataGrid _gridLookups;
+        private Controls.TlDataGrid _grid;
         private Controls.TlTextBox _tbSearchLookup;
         private Controls.TlButton _btnOk;
         private Controls.TlButton _btnCancel;
         private DataGridViewTextBoxColumn Value;
         private DataGridViewTextBoxColumn DisplayName;
+        private Controls.TlButton _btnClear;
     }
 }
