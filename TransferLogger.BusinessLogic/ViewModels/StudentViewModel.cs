@@ -5,12 +5,12 @@ namespace TransferLogger.BusinessLogic.ViewModels
 {
     public class StudentViewModel : IIdentifiable
     {
-        public int    StudentId { get; set; }
-        public string Reference { get; set; }
-        public string Name      { get; set; }
-        public string IdNumber  { get; set; }
-        public string Phone     { get; set; }
-        public string Email     { get; set; }
+        public int    StudentId  { get; set; }
+        public string Reference  { get; set; }
+        public string Name       { get; set; }
+        public string DocumentNo { get; set; }
+        public string Phone      { get; set; }
+        public string Email      { get; set; }
 
         public int Id => StudentId;
 
@@ -18,12 +18,12 @@ namespace TransferLogger.BusinessLogic.ViewModels
 
         public StudentViewModel(Student student)
         {
-            StudentId = student.StudentId;
-            Reference = student.Reference;
-            Name      = student.DisplayString;
-            IdNumber  = student.IdNumber;
-            Phone     = student.Phone;
-            Email     = student.Email;
+            StudentId  = student.StudentId;
+            Reference  = student.Reference;
+            Name       = student.DisplayString;
+            DocumentNo = student.DocumentNo;
+            Phone      = student.Phone;
+            Email      = student.Email;
         }
     }
 }
