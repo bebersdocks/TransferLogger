@@ -58,7 +58,7 @@
             // 
             this._lUrl.AutoSize = true;
             this._lUrl.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lUrl.Location = new System.Drawing.Point(25, 184);
+            this._lUrl.Location = new System.Drawing.Point(21, 184);
             this._lUrl.Name = "_lUrl";
             this._lUrl.Size = new System.Drawing.Size(34, 17);
             this._lUrl.TabIndex = 2;

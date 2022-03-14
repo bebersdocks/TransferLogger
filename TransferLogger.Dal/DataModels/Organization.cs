@@ -25,6 +25,8 @@ namespace TransferLogger.Dal.DataModels
         [Column, NotNull]      public Country          Country          { get; set; }
         [Column, Nullable]     public string           Url              { get; set; }
 
+        [NotColumn] public string DisplayString => $"{Name} {Description}".Trim();
+
         #region Associations 
 
         [Association(ThisKey = nameof(OrganizationId), OtherKey = nameof(OrganizationId), Relationship = Relationship.OneToMany)]

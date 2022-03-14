@@ -2,6 +2,7 @@
 using TransferLogger.Dal;
 using TransferLogger.Ui.Forms.Instructor;
 using TransferLogger.Ui.Forms.Organization;
+using TransferLogger.Ui.Forms.Program;
 using TransferLogger.Ui.Forms.Student;
 
 using static TransferLogger.Ui.Utils.FormUtils;
@@ -34,6 +35,7 @@ namespace TransferLogger.Ui.Forms
         {
             _menuItemInstructors.Click   += (s, e) => ShowForm(() => new InstructorsForm());
             _menuItemOrganizations.Click += (s, e) => ShowForm(() => new OrganizationsForm());
+            _menuItemPrograms.Click      += (s, e) => ShowForm(() => new ProgramsForm());
             _menuItemStudents.Click      += (s, e) => ShowForm(() => new StudentsForm());
         }
     }

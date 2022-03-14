@@ -15,7 +15,7 @@ namespace TransferLogger.Ui.Forms.Student
 
             using var dc = new Dc();
 
-            _student = dc.Students.FirstOrDefault(o => o.StudentId == studentId) ?? new();
+            _student = dc.Students.FirstOrDefault(s => s.StudentId == studentId) ?? new();
 
             SetData();
             SetEvents();
