@@ -1,6 +1,6 @@
 ﻿namespace TransferLogger.Ui.Forms.Organization
 {
-    partial class OrganizationsForms
+    partial class OrganizationsForm
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrganizationsForms));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrganizationsForm));
             this._splitContainer = new TransferLogger.Ui.Controls.TlSplitContainer();
             this._btnSelectCountry = new TransferLogger.Ui.Controls.TlButton();
             this._cbCountries = new TransferLogger.Ui.Controls.TlDropDownList();

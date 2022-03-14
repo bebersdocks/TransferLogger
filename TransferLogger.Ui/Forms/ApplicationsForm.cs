@@ -33,7 +33,7 @@ namespace TransferLogger.Ui.Forms
         private void SetEvents()
         {
             _menuItemInstructors.Click   += (s, e) => ShowForm(() => new InstructorsForm());
-            _menuItemOrganizations.Click += (s, e) => ShowForm(() => new OrganizationsForms());
+            _menuItemOrganizations.Click += (s, e) => ShowForm(() => new OrganizationsForm());
             _menuItemStudents.Click      += (s, e) => ShowForm(() => new StudentsForm());
         }
     }

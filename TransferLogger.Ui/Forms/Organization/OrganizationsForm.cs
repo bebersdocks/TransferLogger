@@ -13,11 +13,11 @@ using Lookup = TransferLogger.BusinessLogic.Lookup;
 
 namespace TransferLogger.Ui.Forms.Organization
 {
-    public partial class OrganizationsForms : Form
+    public partial class OrganizationsForm : Form
     {
         private readonly List<Lookup> _countries;
 
-        public OrganizationsForms()
+        public OrganizationsForm()
         {
             InitializeComponent();
 
