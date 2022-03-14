@@ -130,7 +130,7 @@
             this._btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this._btnDelete.AutoSize = true;
             this._btnDelete.BackColor = System.Drawing.Color.Transparent;
-            this._btnDelete.BackgroundImage = global::TransferLogger.Ui.Properties.Resources.trash;
+            this._btnDelete.BackgroundImage = global::TransferLogger.Ui.Properties.Resources.delete;
             this._btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this._btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this._btnDelete.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
