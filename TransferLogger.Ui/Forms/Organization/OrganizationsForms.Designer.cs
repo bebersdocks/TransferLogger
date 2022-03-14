@@ -65,6 +65,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this._splitContainer.BackColor = System.Drawing.Color.GhostWhite;
             this._splitContainer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this._splitContainer.IsSplitterFixed = true;
             this._splitContainer.Location = new System.Drawing.Point(0, 0);
             this._splitContainer.Name = "_splitContainer";
             this._splitContainer.Orientation = System.Windows.Forms.Orientation.Horizontal;
@@ -166,6 +167,7 @@
             // 
             this._tbSearchName.BackColor = System.Drawing.Color.GhostWhite;
             this._tbSearchName.BoxWidth = 325;
+            this._tbSearchName.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._tbSearchName.ForeColor = System.Drawing.Color.Black;
             this._tbSearchName.Location = new System.Drawing.Point(81, 17);
             this._tbSearchName.Name = "_tbSearchName";
@@ -239,7 +241,7 @@
             // 
             this._lOrganizations.BackColor = System.Drawing.Color.AliceBlue;
             this._lOrganizations.Dock = System.Windows.Forms.DockStyle.Top;
-            this._lOrganizations.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this._lOrganizations.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._lOrganizations.Location = new System.Drawing.Point(0, 0);
             this._lOrganizations.Name = "_lOrganizations";
             this._lOrganizations.Size = new System.Drawing.Size(1065, 20);
@@ -261,7 +263,7 @@
             this._grid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.AliceBlue;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.AliceBlue;
@@ -289,7 +291,7 @@
             this._grid.MultiSelect = false;
             this._grid.Name = "_grid";
             this._grid.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;

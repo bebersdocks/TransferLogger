@@ -8,7 +8,7 @@
             {
                 Alignment          = DataGridViewContentAlignment.MiddleCenter,
                 BackColor          = Color.AliceBlue,
-                Font               = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point),
+                Font               = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point),
                 ForeColor          = Color.Black,
                 Padding            = new Padding(0, 5, 0, 5),
                 SelectionBackColor = Color.AliceBlue,
@@ -35,7 +35,7 @@
         {
             return new DataGridViewCellStyle
             {
-                Alignment          = DataGridViewContentAlignment.MiddleLeft,
+                Alignment          = DataGridViewContentAlignment.MiddleCenter,
                 BackColor          = Color.White,
                 Font               = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point),
                 ForeColor          = SystemColors.WindowText,
@@ -51,6 +51,7 @@
             AllowUserToDeleteRows     = false;
             AllowUserToOrderColumns   = true;
             Anchor                    = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            AutoGenerateColumns       = false;
             AutoSizeColumnsMode       = DataGridViewAutoSizeColumnsMode.Fill;
             BackgroundColor           = Color.White;
             BorderStyle               = BorderStyle.None;
