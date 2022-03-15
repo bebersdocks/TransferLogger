@@ -1,6 +1,8 @@
 ﻿using System;
 using System.IO;
 
+using Newtonsoft.Json;
+
 using TransferLogger.Dal;
 
 namespace TransferLogger.BusinessLogic
@@ -13,7 +15,11 @@ namespace TransferLogger.BusinessLogic
         {
             var path = Path.Combine(Environment.CurrentDirectory, "appsettings.json");
 
-            return FileUtils.ReadJson<AppSettings>(path);
+            using StreamReader file = File.OpenText(path);
+
+            var json = file.ReadToEnd();
+
+            return JsonConvert.DeserializeObject<AppSettings>(json);
         }
     }
 }
