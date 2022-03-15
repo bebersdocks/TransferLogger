@@ -12,9 +12,10 @@ namespace TransferLogger.Ui.Controls
             set { _hoverColor = value; Invalidate(); }
         }
 
+        public override Font Font => new("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+
         public TlButton()
         {
-            AutoSize    = true;
             BackColor   = Color.FromArgb(250, 250, 255);
             Cursor      = Cursors.Hand;
             FlatStyle   = FlatStyle.Flat;

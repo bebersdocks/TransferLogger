@@ -33,15 +33,15 @@ namespace TransferLogger.Ui.Forms.Program
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProgramForm));
             this._lName = new System.Windows.Forms.Label();
             this._lYear = new System.Windows.Forms.Label();
-            this._btnCancel = new TransferLogger.Ui.Controls.TlButton();
-            this._btnOk = new TransferLogger.Ui.Controls.TlButton();
             this._lOrganization = new System.Windows.Forms.Label();
             this._cbOrganizations = new TransferLogger.Ui.Controls.TlDropDownList();
             this._tbName = new TransferLogger.Ui.Controls.TlTextBox();
             this._cbCycle = new TransferLogger.Ui.Controls.TlDropDownList();
             this._lCycle = new System.Windows.Forms.Label();
-            this._btnSelectOrganization = new TransferLogger.Ui.Controls.TlButton();
             this._numericYear = new System.Windows.Forms.NumericUpDown();
+            this._btnOk = new TransferLogger.Ui.Controls.TlButton();
+            this._btnCancel = new TransferLogger.Ui.Controls.TlButton();
+            this._btnSelectOrganization = new TransferLogger.Ui.Controls.TlButton();
             ((System.ComponentModel.ISupportInitialize)(this._numericYear)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,48 +65,6 @@ namespace TransferLogger.Ui.Forms.Program
             this._lYear.TabIndex = 2;
             this._lYear.Text = "Year:";
             // 
-            // _btnCancel
-            // 
-            this._btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this._btnCancel.AutoSize = true;
-            this._btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
-            this._btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
-            this._btnCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
-            this._btnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            this._btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._btnCancel.ForeColor = System.Drawing.Color.Black;
-            this._btnCancel.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            this._btnCancel.Location = new System.Drawing.Point(296, 236);
-            this._btnCancel.MaximumSize = new System.Drawing.Size(0, 28);
-            this._btnCancel.MinimumSize = new System.Drawing.Size(0, 28);
-            this._btnCancel.Name = "_btnCancel";
-            this._btnCancel.Size = new System.Drawing.Size(75, 28);
-            this._btnCancel.TabIndex = 6;
-            this._btnCancel.TabStop = false;
-            this._btnCancel.Text = "Cancel";
-            this._btnCancel.UseVisualStyleBackColor = false;
-            // 
-            // _btnOk
-            // 
-            this._btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this._btnOk.AutoSize = true;
-            this._btnOk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
-            this._btnOk.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
-            this._btnOk.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
-            this._btnOk.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            this._btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._btnOk.ForeColor = System.Drawing.Color.Black;
-            this._btnOk.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            this._btnOk.Location = new System.Drawing.Point(377, 236);
-            this._btnOk.MaximumSize = new System.Drawing.Size(0, 28);
-            this._btnOk.MinimumSize = new System.Drawing.Size(0, 28);
-            this._btnOk.Name = "_btnOk";
-            this._btnOk.Size = new System.Drawing.Size(75, 28);
-            this._btnOk.TabIndex = 7;
-            this._btnOk.TabStop = false;
-            this._btnOk.Text = "Ok";
-            this._btnOk.UseVisualStyleBackColor = false;
-            // 
             // _lOrganization
             // 
             this._lOrganization.AutoSize = true;
@@ -126,7 +84,7 @@ namespace TransferLogger.Ui.Forms.Program
             this._cbOrganizations.FormattingEnabled = true;
             this._cbOrganizations.Location = new System.Drawing.Point(117, 60);
             this._cbOrganizations.Name = "_cbOrganizations";
-            this._cbOrganizations.Size = new System.Drawing.Size(285, 25);
+            this._cbOrganizations.Size = new System.Drawing.Size(291, 25);
             this._cbOrganizations.TabIndex = 2;
             // 
             // _tbName
@@ -163,27 +121,6 @@ namespace TransferLogger.Ui.Forms.Program
             this._lCycle.TabIndex = 20;
             this._lCycle.Text = "Cycle:";
             // 
-            // _btnSelectOrganization
-            // 
-            this._btnSelectOrganization.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this._btnSelectOrganization.AutoSize = true;
-            this._btnSelectOrganization.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
-            this._btnSelectOrganization.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
-            this._btnSelectOrganization.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
-            this._btnSelectOrganization.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            this._btnSelectOrganization.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._btnSelectOrganization.ForeColor = System.Drawing.Color.Black;
-            this._btnSelectOrganization.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            this._btnSelectOrganization.Location = new System.Drawing.Point(408, 60);
-            this._btnSelectOrganization.MaximumSize = new System.Drawing.Size(0, 25);
-            this._btnSelectOrganization.MinimumSize = new System.Drawing.Size(0, 25);
-            this._btnSelectOrganization.Name = "_btnSelectOrganization";
-            this._btnSelectOrganization.Size = new System.Drawing.Size(34, 25);
-            this._btnSelectOrganization.TabIndex = 4;
-            this._btnSelectOrganization.TabStop = false;
-            this._btnSelectOrganization.Text = "...";
-            this._btnSelectOrganization.UseVisualStyleBackColor = false;
-            // 
             // _numericYear
             // 
             this._numericYear.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -209,21 +146,77 @@ namespace TransferLogger.Ui.Forms.Program
             0,
             0});
             // 
+            // _btnOk
+            // 
+            this._btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this._btnOk.AutoSize = true;
+            this._btnOk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
+            this._btnOk.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
+            this._btnOk.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
+            this._btnOk.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this._btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._btnOk.ForeColor = System.Drawing.Color.Black;
+            this._btnOk.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this._btnOk.Location = new System.Drawing.Point(367, 235);
+            this._btnOk.Name = "_btnOk";
+            this._btnOk.Size = new System.Drawing.Size(75, 29);
+            this._btnOk.TabIndex = 22;
+            this._btnOk.TabStop = false;
+            this._btnOk.Text = "Ok";
+            this._btnOk.UseVisualStyleBackColor = false;
+            // 
+            // _btnCancel
+            // 
+            this._btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this._btnCancel.AutoSize = true;
+            this._btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
+            this._btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
+            this._btnCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
+            this._btnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this._btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._btnCancel.ForeColor = System.Drawing.Color.Black;
+            this._btnCancel.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this._btnCancel.Location = new System.Drawing.Point(286, 235);
+            this._btnCancel.Name = "_btnCancel";
+            this._btnCancel.Size = new System.Drawing.Size(75, 29);
+            this._btnCancel.TabIndex = 23;
+            this._btnCancel.TabStop = false;
+            this._btnCancel.Text = "Cancel";
+            this._btnCancel.UseVisualStyleBackColor = false;
+            // 
+            // _btnSelectOrganization
+            // 
+            this._btnSelectOrganization.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this._btnSelectOrganization.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
+            this._btnSelectOrganization.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
+            this._btnSelectOrganization.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
+            this._btnSelectOrganization.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this._btnSelectOrganization.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._btnSelectOrganization.ForeColor = System.Drawing.Color.Black;
+            this._btnSelectOrganization.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this._btnSelectOrganization.Location = new System.Drawing.Point(414, 60);
+            this._btnSelectOrganization.Name = "_btnSelectOrganization";
+            this._btnSelectOrganization.Size = new System.Drawing.Size(28, 25);
+            this._btnSelectOrganization.TabIndex = 24;
+            this._btnSelectOrganization.TabStop = false;
+            this._btnSelectOrganization.Text = "...";
+            this._btnSelectOrganization.UseVisualStyleBackColor = false;
+            // 
             // ProgramForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(464, 276);
-            this.Controls.Add(this._numericYear);
             this.Controls.Add(this._btnSelectOrganization);
+            this.Controls.Add(this._btnCancel);
+            this.Controls.Add(this._btnOk);
+            this.Controls.Add(this._numericYear);
             this.Controls.Add(this._lCycle);
             this.Controls.Add(this._cbCycle);
             this.Controls.Add(this._tbName);
             this.Controls.Add(this._cbOrganizations);
             this.Controls.Add(this._lOrganization);
-            this.Controls.Add(this._btnOk);
-            this.Controls.Add(this._btnCancel);
             this.Controls.Add(this._lYear);
             this.Controls.Add(this._lName);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -231,7 +224,7 @@ namespace TransferLogger.Ui.Forms.Program
             this.MinimumSize = new System.Drawing.Size(480, 315);
             this.Name = "ProgramForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "New Organization";
+            this.Text = "New Program";
             ((System.ComponentModel.ISupportInitialize)(this._numericYear)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -242,14 +235,14 @@ namespace TransferLogger.Ui.Forms.Program
 
         private Label _lName;
         private Label _lYear;
-        private Controls.TlButton _btnCancel;
-        private Controls.TlButton _btnOk;
         private Label _lOrganization;
         private Controls.TlDropDownList _cbOrganizations;
         private Controls.TlTextBox _tbName;
         private Controls.TlDropDownList _cbCycle;
         private Label _lCycle;
-        private Controls.TlButton _btnSelectOrganization;
         private NumericUpDown _numericYear;
+        private Controls.TlButton _btnOk;
+        private Controls.TlButton _btnCancel;
+        private Controls.TlButton _btnSelectOrganization;
     }
 }
