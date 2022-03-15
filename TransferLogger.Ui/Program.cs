@@ -12,11 +12,11 @@ namespace TransferLogger.Ui
         [STAThread]
         static void Main()
         {
-#if NET6_0_OR_GREATER
-            ApplicationConfiguration.Initialize();
-#else
+#if NET5_0
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+#else
+            ApplicationConfiguration.Initialize();
 #endif
 
             var appSettings = AppSettings.Read();
@@ -25,7 +25,7 @@ namespace TransferLogger.Ui
 
             using var dc = new Dc();
 
-            dc.CreateTables();
+            dc.CreateOrUpdateDb();
 
             Application.Run(new ApplicationsForm());
         }
