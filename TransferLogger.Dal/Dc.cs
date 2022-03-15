@@ -5,6 +5,7 @@ using LinqToDB;
 
 using TransferLogger.Dal.DataModels;
 using TransferLogger.Dal.DataModels.Transfer;
+using TranfserLogger.Dal.Utils;
 
 namespace TransferLogger.Dal
 {
@@ -18,7 +19,7 @@ namespace TransferLogger.Dal
         public ITable<Application>              Applications              => this.GetTable<Application>();
         public ITable<ApplicationCourse>        ApplicationCourses        => this.GetTable<ApplicationCourse>();
         public ITable<ApplicationExcelLocation> ApplicationExcelLocations => this.GetTable<ApplicationExcelLocation>();
-
+        public ITable<DbInfo>                   DbInfos                   => this.GetTable<DbInfo>();
 
         // This value can be anything - it is just internal identifier for configuration.
         private const string defaultConfigurationStr = "TransferLogger";
@@ -32,14 +33,36 @@ namespace TransferLogger.Dal
             var connStr = dbSettings.ToString();
 
             var dataProvider = GetDataProvider(dbSettings.ProviderName, connStr);
-
             if (dataProvider == null)
                 throw new Exception("Unable to get data provider.");
 
             AddConfiguration(defaultConfigurationStr, connStr, dataProvider);
         }
 
-        public void CreateTables()
+        public void CreateOrUpdateDb()
+        {
+            if (DataProvider.Name.Contains(ProviderName.SqlServer))
+            {
+                using var tr = BeginTransaction();
+
+                foreach (var dbScript in EmbeddedResources.DbScripts)
+                {
+                    var sql = EmbeddedResources.GetDbResourceStr(ProviderName.SqlServer, dbScript);
+
+                    Command.CommandText = sql;
+
+                    ExecuteNonQuery(Command);
+                }
+
+                tr.Commit();
+            }
+            else
+            {
+                CreateTables();
+            }
+        }
+
+        private void CreateTables()
         {
             var schemaProvider = DataProvider.GetSchemaProvider();
 
@@ -50,6 +73,11 @@ namespace TransferLogger.Dal
                 if (!dbSchema.Tables.Any(t => t.TableName == table.TableName))
                 {
                     this.CreateTable<T>();
+
+                    if (typeof(T) == typeof(DbInfo))
+                    {
+                        DbInfos.Insert(() => new DbInfo { Version = 1.000M, UpdatedAt = DateTime.UtcNow });
+                    }
                 }
             }
 
@@ -61,6 +89,7 @@ namespace TransferLogger.Dal
             createTable(Applications);
             createTable(ApplicationCourses);
             createTable(ApplicationExcelLocations);
+            createTable(DbInfos);
         }
     }
 }
