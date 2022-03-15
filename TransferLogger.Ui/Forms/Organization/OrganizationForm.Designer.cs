@@ -1,4 +1,6 @@
-﻿namespace TransferLogger.Ui.Forms.Organization
+﻿using System.Windows.Forms;
+
+namespace TransferLogger.Ui.Forms.Organization
 {
     partial class OrganizationForm
     {

@@ -1,4 +1,6 @@
-﻿namespace TransferLogger.Ui.Forms.Program
+﻿using System.Windows.Forms;
+
+namespace TransferLogger.Ui.Forms.Program
 {
     partial class ProgramsForm
     {
@@ -136,7 +138,7 @@
             this._cbCycles.BackColor = System.Drawing.Color.GhostWhite;
             this._cbCycles.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._cbCycles.FormattingEnabled = true;
-            this._cbCycles.Location = new System.Drawing.Point(81, 59);
+            this._cbCycles.Location = new System.Drawing.Point(81, 54);
             this._cbCycles.Name = "_cbCycles";
             this._cbCycles.Size = new System.Drawing.Size(325, 23);
             this._cbCycles.TabIndex = 1;
@@ -145,7 +147,7 @@
             // 
             this._lCycle.AutoSize = true;
             this._lCycle.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lCycle.Location = new System.Drawing.Point(19, 60);
+            this._lCycle.Location = new System.Drawing.Point(19, 55);
             this._lCycle.Name = "_lCycle";
             this._lCycle.Size = new System.Drawing.Size(41, 17);
             this._lCycle.TabIndex = 14;

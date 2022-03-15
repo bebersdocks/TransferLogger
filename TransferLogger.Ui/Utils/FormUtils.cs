@@ -1,4 +1,7 @@
-﻿using TransferLogger.BusinessLogic.Intefaces;
+﻿using System;
+using System.Windows.Forms;
+
+using TransferLogger.BusinessLogic.Intefaces;
 using TransferLogger.Ui.Controls;
 
 namespace TransferLogger.Ui.Utils

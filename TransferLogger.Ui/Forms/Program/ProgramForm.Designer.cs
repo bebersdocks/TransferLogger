@@ -1,4 +1,6 @@
-﻿namespace TransferLogger.Ui.Forms.Program
+﻿using System.Windows.Forms;
+
+namespace TransferLogger.Ui.Forms.Program
 {
     partial class ProgramForm
     {

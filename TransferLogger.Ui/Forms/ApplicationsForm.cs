@@ -1,4 +1,8 @@
-﻿using TransferLogger.BusinessLogic.ViewModels;
+﻿using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
+
+using TransferLogger.BusinessLogic.ViewModels;
 using TransferLogger.Dal;
 using TransferLogger.Ui.Forms.Instructor;
 using TransferLogger.Ui.Forms.Organization;

@@ -1,4 +1,9 @@
-﻿using TransferLogger.BusinessLogic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Forms;
+
+using TransferLogger.BusinessLogic;
 
 namespace TransferLogger.Ui.Forms
 {

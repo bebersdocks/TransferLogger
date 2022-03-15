@@ -1,4 +1,6 @@
-﻿namespace TransferLogger.Ui.Forms.Instructor
+﻿using System.Windows.Forms;
+
+namespace TransferLogger.Ui.Forms.Instructor
 {
     partial class InstructorsForm
     {

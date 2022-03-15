@@ -1,4 +1,8 @@
-﻿using LinqToDB;
+﻿using System;
+using System.Linq;
+using System.Windows.Forms;
+
+using LinqToDB;
 
 using TransferLogger.BusinessLogic.Intefaces;
 using TransferLogger.BusinessLogic.ViewModels;

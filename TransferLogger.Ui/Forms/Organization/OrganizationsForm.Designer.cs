@@ -1,4 +1,6 @@
-﻿namespace TransferLogger.Ui.Forms.Organization
+﻿using System.Windows.Forms;
+
+namespace TransferLogger.Ui.Forms.Organization
 {
     partial class OrganizationsForm
     {
@@ -138,7 +140,7 @@
             this._cbOrganizationTypes.BackColor = System.Drawing.Color.GhostWhite;
             this._cbOrganizationTypes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._cbOrganizationTypes.FormattingEnabled = true;
-            this._cbOrganizationTypes.Location = new System.Drawing.Point(81, 59);
+            this._cbOrganizationTypes.Location = new System.Drawing.Point(81, 54);
             this._cbOrganizationTypes.Name = "_cbOrganizationTypes";
             this._cbOrganizationTypes.Size = new System.Drawing.Size(325, 23);
             this._cbOrganizationTypes.TabIndex = 1;
@@ -147,7 +149,7 @@
             // 
             this._lOrganizationType.AutoSize = true;
             this._lOrganizationType.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lOrganizationType.Location = new System.Drawing.Point(19, 60);
+            this._lOrganizationType.Location = new System.Drawing.Point(19, 55);
             this._lOrganizationType.Name = "_lOrganizationType";
             this._lOrganizationType.Size = new System.Drawing.Size(38, 17);
             this._lOrganizationType.TabIndex = 14;

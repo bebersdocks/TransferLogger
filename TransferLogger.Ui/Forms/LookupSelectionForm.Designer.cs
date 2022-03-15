@@ -1,4 +1,6 @@
-﻿namespace TransferLogger.Ui.Forms
+﻿using System.Windows.Forms;
+
+namespace TransferLogger.Ui.Forms
 {
     partial class LookupSelectionForm
     {
@@ -91,7 +93,7 @@
             this._grid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this._grid.RowHeadersVisible = false;
             this._grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this._grid.Size = new System.Drawing.Size(473, 387);
+            this._grid.Size = new System.Drawing.Size(474, 384);
             this._grid.TabIndex = 4;
             // 
             // Value
@@ -120,7 +122,7 @@
             this._tbSearchLookup.ForeColor = System.Drawing.Color.Black;
             this._tbSearchLookup.Location = new System.Drawing.Point(0, 0);
             this._tbSearchLookup.Name = "_tbSearchLookup";
-            this._tbSearchLookup.Size = new System.Drawing.Size(473, 23);
+            this._tbSearchLookup.Size = new System.Drawing.Size(474, 23);
             this._tbSearchLookup.TabIndex = 0;
             // 
             // _btnOk
@@ -134,7 +136,7 @@
             this._btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnOk.ForeColor = System.Drawing.Color.Black;
             this._btnOk.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            this._btnOk.Location = new System.Drawing.Point(381, 424);
+            this._btnOk.Location = new System.Drawing.Point(382, 421);
             this._btnOk.MaximumSize = new System.Drawing.Size(0, 28);
             this._btnOk.MinimumSize = new System.Drawing.Size(0, 28);
             this._btnOk.Name = "_btnOk";
@@ -155,7 +157,7 @@
             this._btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnCancel.ForeColor = System.Drawing.Color.Black;
             this._btnCancel.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            this._btnCancel.Location = new System.Drawing.Point(295, 424);
+            this._btnCancel.Location = new System.Drawing.Point(296, 421);
             this._btnCancel.MaximumSize = new System.Drawing.Size(0, 28);
             this._btnCancel.MinimumSize = new System.Drawing.Size(0, 28);
             this._btnCancel.Name = "_btnCancel";
@@ -176,7 +178,7 @@
             this._btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnClear.ForeColor = System.Drawing.Color.Black;
             this._btnClear.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            this._btnClear.Location = new System.Drawing.Point(12, 424);
+            this._btnClear.Location = new System.Drawing.Point(13, 421);
             this._btnClear.MaximumSize = new System.Drawing.Size(0, 28);
             this._btnClear.MinimumSize = new System.Drawing.Size(0, 28);
             this._btnClear.Name = "_btnClear";
@@ -191,13 +193,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(473, 464);
+            this.ClientSize = new System.Drawing.Size(474, 461);
             this.Controls.Add(this._btnClear);
             this.Controls.Add(this._btnCancel);
             this.Controls.Add(this._btnOk);
             this.Controls.Add(this._tbSearchLookup);
             this.Controls.Add(this._grid);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(490, 500);
             this.Name = "LookupSelectionForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LookupSelectionForm";

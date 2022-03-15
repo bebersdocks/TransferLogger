@@ -5,7 +5,7 @@
 		<TargetFramework>net6.0-windows</TargetFramework>
 		<Nullable>enable</Nullable>
 		<UseWindowsForms>true</UseWindowsForms>
-		<ImplicitUsings>enable</ImplicitUsings>
+		<ImplicitUsings>disable</ImplicitUsings>
 		<ApplicationIcon>Resources\Icons\icon.ico</ApplicationIcon>
 	</PropertyGroup>
 
@@ -36,10 +36,10 @@
 			<SubType>Form</SubType>
 		</Compile>
 		<Compile Update="Forms\Program\ProgramForm.cs">
-		  <SubType>Form</SubType>
+			<SubType>Form</SubType>
 		</Compile>
 		<Compile Update="Forms\Program\ProgramsForm.cs">
-		  <SubType>Form</SubType>
+			<SubType>Form</SubType>
 		</Compile>
 		<Compile Update="Forms\Student\StudentForm.cs">
 			<SubType>Form</SubType>
