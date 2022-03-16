@@ -38,11 +38,11 @@ namespace TransferLogger.Ui.Forms
 
         private void SetEvents()
         {
+            _miCourses.Click       += (s, e) => ShowForm(() => new CoursesForm());
+            _miInstructors.Click   += (s, e) => ShowForm(() => new InstructorsForm());
             _miOrganizations.Click += (s, e) => ShowForm(() => new OrganizationsForm());
             _miPrograms.Click      += (s, e) => ShowForm(() => new ProgramsForm());
-            _miCourses.Click += (s, e) => ShowForm(() => new CoursesForm());
             _miStudents.Click      += (s, e) => ShowForm(() => new StudentsForm());
-            _miInstructors.Click += (s, e) => ShowForm(() => new InstructorsForm());
         }
     }
 }
