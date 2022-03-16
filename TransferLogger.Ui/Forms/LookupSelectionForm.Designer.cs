@@ -39,8 +39,8 @@ namespace TransferLogger.Ui.Forms
             this.DisplayName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._tbSearchLookup = new TransferLogger.Ui.Controls.TlTextBox();
             this._btnOk = new TransferLogger.Ui.Controls.TlButton();
-            this._btnCancel = new TransferLogger.Ui.Controls.TlButton();
             this._btnClear = new TransferLogger.Ui.Controls.TlButton();
+            this._btnCancel = new TransferLogger.Ui.Controls.TlButton();
             ((System.ComponentModel.ISupportInitialize)(this._grid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -128,7 +128,6 @@ namespace TransferLogger.Ui.Forms
             // _btnOk
             // 
             this._btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this._btnOk.AutoSize = true;
             this._btnOk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
             this._btnOk.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
             this._btnOk.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
@@ -136,41 +135,17 @@ namespace TransferLogger.Ui.Forms
             this._btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnOk.ForeColor = System.Drawing.Color.Black;
             this._btnOk.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            this._btnOk.Location = new System.Drawing.Point(382, 421);
-            this._btnOk.MaximumSize = new System.Drawing.Size(0, 28);
-            this._btnOk.MinimumSize = new System.Drawing.Size(0, 28);
+            this._btnOk.Location = new System.Drawing.Point(387, 420);
             this._btnOk.Name = "_btnOk";
-            this._btnOk.Size = new System.Drawing.Size(80, 28);
-            this._btnOk.TabIndex = 1;
+            this._btnOk.Size = new System.Drawing.Size(75, 29);
+            this._btnOk.TabIndex = 5;
             this._btnOk.TabStop = false;
             this._btnOk.Text = "Ok";
             this._btnOk.UseVisualStyleBackColor = false;
             // 
-            // _btnCancel
-            // 
-            this._btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this._btnCancel.AutoSize = true;
-            this._btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
-            this._btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
-            this._btnCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
-            this._btnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            this._btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._btnCancel.ForeColor = System.Drawing.Color.Black;
-            this._btnCancel.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            this._btnCancel.Location = new System.Drawing.Point(296, 421);
-            this._btnCancel.MaximumSize = new System.Drawing.Size(0, 28);
-            this._btnCancel.MinimumSize = new System.Drawing.Size(0, 28);
-            this._btnCancel.Name = "_btnCancel";
-            this._btnCancel.Size = new System.Drawing.Size(80, 28);
-            this._btnCancel.TabIndex = 2;
-            this._btnCancel.TabStop = false;
-            this._btnCancel.Text = "Cancel";
-            this._btnCancel.UseVisualStyleBackColor = false;
-            // 
             // _btnClear
             // 
             this._btnClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this._btnClear.AutoSize = true;
             this._btnClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
             this._btnClear.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
             this._btnClear.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
@@ -178,15 +153,31 @@ namespace TransferLogger.Ui.Forms
             this._btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnClear.ForeColor = System.Drawing.Color.Black;
             this._btnClear.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            this._btnClear.Location = new System.Drawing.Point(13, 421);
-            this._btnClear.MaximumSize = new System.Drawing.Size(0, 28);
-            this._btnClear.MinimumSize = new System.Drawing.Size(0, 28);
+            this._btnClear.Location = new System.Drawing.Point(12, 420);
             this._btnClear.Name = "_btnClear";
-            this._btnClear.Size = new System.Drawing.Size(80, 28);
-            this._btnClear.TabIndex = 3;
+            this._btnClear.Size = new System.Drawing.Size(75, 29);
+            this._btnClear.TabIndex = 7;
             this._btnClear.TabStop = false;
             this._btnClear.Text = "Clear";
             this._btnClear.UseVisualStyleBackColor = false;
+            // 
+            // _btnCancel
+            // 
+            this._btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this._btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
+            this._btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
+            this._btnCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
+            this._btnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this._btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._btnCancel.ForeColor = System.Drawing.Color.Black;
+            this._btnCancel.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this._btnCancel.Location = new System.Drawing.Point(306, 420);
+            this._btnCancel.Name = "_btnCancel";
+            this._btnCancel.Size = new System.Drawing.Size(75, 29);
+            this._btnCancel.TabIndex = 6;
+            this._btnCancel.TabStop = false;
+            this._btnCancel.Text = "Cancel";
+            this._btnCancel.UseVisualStyleBackColor = false;
             // 
             // LookupSelectionForm
             // 
@@ -194,8 +185,8 @@ namespace TransferLogger.Ui.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(474, 461);
-            this.Controls.Add(this._btnClear);
             this.Controls.Add(this._btnCancel);
+            this.Controls.Add(this._btnClear);
             this.Controls.Add(this._btnOk);
             this.Controls.Add(this._tbSearchLookup);
             this.Controls.Add(this._grid);
@@ -214,10 +205,10 @@ namespace TransferLogger.Ui.Forms
 
         private Controls.TlDataGrid _grid;
         private Controls.TlTextBox _tbSearchLookup;
-        private Controls.TlButton _btnOk;
-        private Controls.TlButton _btnCancel;
         private DataGridViewTextBoxColumn Value;
         private DataGridViewTextBoxColumn DisplayName;
+        private Controls.TlButton _btnOk;
         private Controls.TlButton _btnClear;
+        private Controls.TlButton _btnCancel;
     }
 }
