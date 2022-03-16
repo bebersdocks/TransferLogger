@@ -4,5 +4,6 @@
     {
         Bachelor = 0,
         Master   = 1,
+        Phd      = 2
     }
 }
