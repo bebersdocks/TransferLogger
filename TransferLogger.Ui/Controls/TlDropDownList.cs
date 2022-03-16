@@ -30,6 +30,13 @@ namespace TransferLogger.Ui.Controls
             dropDownList.SelectedIndex = -1;
         }
 
+        public static void FillLookups<T>(this TlDropDownList dropDownList, IEnumerable<Lookup> items, int selectedValue)
+        {
+            dropDownList.FillLookups<T>(items);
+
+            dropDownList.SelectedValue = selectedValue;
+        }
+
         public static void FillLookups<T>(this TlDropDownList dropDownList, IEnumerable<Lookup> items, T selectedValue)
         {
             dropDownList.FillLookups<T>(items);

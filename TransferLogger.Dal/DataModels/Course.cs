@@ -14,6 +14,9 @@ namespace TransferLogger.Dal.DataModels
         [Column, Nullable]     public int    Credits        { get; set; }
         [Column, Nullable]     public int    WeeklyHours    { get; set; }
 
+        [NotColumn]
+        public string DisplayString => $"{CourseCode} - {Name}";
+
         #region Associations
 
         [Association(ThisKey = nameof(OrganizationId), OtherKey = nameof(OrganizationId), Relationship = Relationship.ManyToOne, CanBeNull = false)]

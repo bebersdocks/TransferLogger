@@ -30,19 +30,19 @@ namespace TransferLogger.Ui.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ApplicationsForm));
             this._splitContainerForm = new TransferLogger.Ui.Controls.TlSplitContainer();
             this._pnlMain = new System.Windows.Forms.Panel();
             this._menu = new System.Windows.Forms.MenuStrip();
             this._menuOrganization = new System.Windows.Forms.ToolStripMenuItem();
-            this._menuItemOrganizations = new System.Windows.Forms.ToolStripMenuItem();
-            this._menuItemPrograms = new System.Windows.Forms.ToolStripMenuItem();
-            this._menuItemCourses = new System.Windows.Forms.ToolStripMenuItem();
-            this._menuItemStudents = new System.Windows.Forms.ToolStripMenuItem();
-            this._menuItemInstructors = new System.Windows.Forms.ToolStripMenuItem();
+            this._miOrganizations = new System.Windows.Forms.ToolStripMenuItem();
+            this._miPrograms = new System.Windows.Forms.ToolStripMenuItem();
+            this._miCourses = new System.Windows.Forms.ToolStripMenuItem();
+            this._miStudents = new System.Windows.Forms.ToolStripMenuItem();
+            this._miInstructors = new System.Windows.Forms.ToolStripMenuItem();
             this._splitContainerBottom = new TransferLogger.Ui.Controls.TlSplitContainer();
             this._pnlInfo = new System.Windows.Forms.Panel();
             this._pnlApplications = new System.Windows.Forms.Panel();
@@ -105,8 +105,8 @@ namespace TransferLogger.Ui.Forms
             this._menu.BackColor = System.Drawing.Color.GhostWhite;
             this._menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this._menuOrganization,
-            this._menuItemStudents,
-            this._menuItemInstructors});
+            this._miStudents,
+            this._miInstructors});
             this._menu.Location = new System.Drawing.Point(0, 0);
             this._menu.Name = "_menu";
             this._menu.Size = new System.Drawing.Size(1172, 24);
@@ -116,42 +116,42 @@ namespace TransferLogger.Ui.Forms
             // _menuOrganization
             // 
             this._menuOrganization.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this._menuItemOrganizations,
-            this._menuItemPrograms,
-            this._menuItemCourses});
+            this._miOrganizations,
+            this._miPrograms,
+            this._miCourses});
             this._menuOrganization.Name = "_menuOrganization";
             this._menuOrganization.Size = new System.Drawing.Size(87, 20);
             this._menuOrganization.Text = "Organization";
             // 
-            // _menuItemOrganizations
+            // _miOrganizations
             // 
-            this._menuItemOrganizations.Name = "_menuItemOrganizations";
-            this._menuItemOrganizations.Size = new System.Drawing.Size(147, 22);
-            this._menuItemOrganizations.Text = "Organizations";
+            this._miOrganizations.Name = "_miOrganizations";
+            this._miOrganizations.Size = new System.Drawing.Size(180, 22);
+            this._miOrganizations.Text = "Organizations";
             // 
-            // _menuItemPrograms
+            // _miPrograms
             // 
-            this._menuItemPrograms.Name = "_menuItemPrograms";
-            this._menuItemPrograms.Size = new System.Drawing.Size(147, 22);
-            this._menuItemPrograms.Text = "Programs";
+            this._miPrograms.Name = "_miPrograms";
+            this._miPrograms.Size = new System.Drawing.Size(180, 22);
+            this._miPrograms.Text = "Programs";
             // 
-            // _menuItemCourses
+            // _miCourses
             // 
-            this._menuItemCourses.Name = "_menuItemCourses";
-            this._menuItemCourses.Size = new System.Drawing.Size(147, 22);
-            this._menuItemCourses.Text = "Courses";
+            this._miCourses.Name = "_miCourses";
+            this._miCourses.Size = new System.Drawing.Size(180, 22);
+            this._miCourses.Text = "Courses";
             // 
-            // _menuItemStudents
+            // _miStudents
             // 
-            this._menuItemStudents.Name = "_menuItemStudents";
-            this._menuItemStudents.Size = new System.Drawing.Size(65, 20);
-            this._menuItemStudents.Text = "Students";
+            this._miStudents.Name = "_miStudents";
+            this._miStudents.Size = new System.Drawing.Size(65, 20);
+            this._miStudents.Text = "Students";
             // 
-            // _menuItemInstructors
+            // _miInstructors
             // 
-            this._menuItemInstructors.Name = "_menuItemInstructors";
-            this._menuItemInstructors.Size = new System.Drawing.Size(75, 20);
-            this._menuItemInstructors.Text = "Instructors";
+            this._miInstructors.Name = "_miInstructors";
+            this._miInstructors.Size = new System.Drawing.Size(75, 20);
+            this._miInstructors.Text = "Instructors";
             // 
             // _splitContainerBottom
             // 
@@ -216,15 +216,15 @@ namespace TransferLogger.Ui.Forms
             this._grid.BackgroundColor = System.Drawing.Color.White;
             this._grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this._grid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.AliceBlue;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.AliceBlue;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this._grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.AliceBlue;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.AliceBlue;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this._grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this._grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this._grid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ApplicationId,
@@ -234,27 +234,27 @@ namespace TransferLogger.Ui.Forms
             this.Courses,
             this.Date,
             this.SubmittedAt});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this._grid.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this._grid.DefaultCellStyle = dataGridViewCellStyle5;
             this._grid.EnableHeadersVisualStyles = false;
             this._grid.Location = new System.Drawing.Point(-6, 21);
             this._grid.MultiSelect = false;
             this._grid.Name = "_grid";
             this._grid.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this._grid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this._grid.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this._grid.RowHeadersVisible = false;
             this._grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this._grid.Size = new System.Drawing.Size(941, 470);
@@ -346,11 +346,11 @@ namespace TransferLogger.Ui.Forms
         private TransferLogger.Ui.Controls.TlDataGrid _grid;
         private Panel _pnlMain;
         private ToolStripMenuItem _menuOrganization;
-        private ToolStripMenuItem _menuItemOrganizations;
-        private ToolStripMenuItem _menuItemPrograms;
-        private ToolStripMenuItem _menuItemCourses;
-        private ToolStripMenuItem _menuItemStudents;
-        private ToolStripMenuItem _menuItemInstructors;
+        private ToolStripMenuItem _miOrganizations;
+        private ToolStripMenuItem _miPrograms;
+        private ToolStripMenuItem _miCourses;
+        private ToolStripMenuItem _miStudents;
+        private ToolStripMenuItem _miInstructors;
         private Label _lApplications;
         private DataGridViewTextBoxColumn ApplicationId;
         private DataGridViewTextBoxColumn Status;

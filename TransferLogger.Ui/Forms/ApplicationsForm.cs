@@ -4,6 +4,7 @@ using System.Windows.Forms;
 
 using TransferLogger.BusinessLogic.ViewModels;
 using TransferLogger.Dal;
+using TransferLogger.Ui.Forms.Course;
 using TransferLogger.Ui.Forms.Instructor;
 using TransferLogger.Ui.Forms.Organization;
 using TransferLogger.Ui.Forms.Program;
@@ -37,10 +38,11 @@ namespace TransferLogger.Ui.Forms
 
         private void SetEvents()
         {
-            _menuItemInstructors.Click   += (s, e) => ShowForm(() => new InstructorsForm());
-            _menuItemOrganizations.Click += (s, e) => ShowForm(() => new OrganizationsForm());
-            _menuItemPrograms.Click      += (s, e) => ShowForm(() => new ProgramsForm());
-            _menuItemStudents.Click      += (s, e) => ShowForm(() => new StudentsForm());
+            _miOrganizations.Click += (s, e) => ShowForm(() => new OrganizationsForm());
+            _miPrograms.Click      += (s, e) => ShowForm(() => new ProgramsForm());
+            _miCourses.Click += (s, e) => ShowForm(() => new CoursesForm());
+            _miStudents.Click      += (s, e) => ShowForm(() => new StudentsForm());
+            _miInstructors.Click += (s, e) => ShowForm(() => new InstructorsForm());
         }
     }
 }

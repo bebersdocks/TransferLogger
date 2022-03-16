@@ -25,7 +25,8 @@ namespace TransferLogger.Dal.DataModels
         [Column, NotNull]      public Country          Country          { get; set; }
         [Column, Nullable]     public string           Url              { get; set; }
 
-        [NotColumn] public string DisplayString => $"{Name} {Description}".Trim();
+        [NotColumn]
+        public string DisplayString => string.IsNullOrEmpty(Description) ? Name : $"{Name} - {Description}";
 
         #region Associations 
 

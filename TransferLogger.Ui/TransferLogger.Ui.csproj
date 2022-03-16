@@ -29,6 +29,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<Compile Update="Forms\Course\CourseForm.cs">
+			<SubType>Form</SubType>
+		</Compile>
+		<Compile Update="Forms\Course\CoursesForm.cs">
+			<SubType>Form</SubType>
+		</Compile>
 		<Compile Update="Forms\Instructor\InstructorForm.cs">
 			<SubType>Form</SubType>
 		</Compile>

@@ -13,7 +13,7 @@ namespace TransferLogger.Dal.DataModels
         [Column, NotNull]      public Cycle  Cycle          { get; set; }
         [Column, NotNull]      public int    Year           { get; set; }
 
-        #region Associations 
+        #region Associations
 
         [Association(ThisKey = nameof(OrganizationId), OtherKey = nameof(OrganizationId), Relationship = Relationship.ManyToOne, CanBeNull = false)]
         public Organization Organization { get; set; }
