@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace TransferLogger.Ui.Forms
+namespace TransferLogger.Ui.Forms.Tranfser
 {
     partial class ApplicationsForm
     {

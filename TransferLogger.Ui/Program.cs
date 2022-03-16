@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 using TransferLogger.BusinessLogic;
 using TransferLogger.Dal;
-using TransferLogger.Ui.Forms;
+using TransferLogger.Ui.Forms.Tranfser;
 
 namespace TransferLogger.Ui
 {

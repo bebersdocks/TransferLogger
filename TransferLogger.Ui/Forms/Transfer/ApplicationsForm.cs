@@ -12,7 +12,7 @@ using TransferLogger.Ui.Forms.Student;
 
 using static TransferLogger.Ui.Utils.FormUtils;
 
-namespace TransferLogger.Ui.Forms
+namespace TransferLogger.Ui.Forms.Tranfser
 {
     public partial class ApplicationsForm : Form
     {
