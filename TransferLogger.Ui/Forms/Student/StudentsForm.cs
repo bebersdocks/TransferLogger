@@ -52,7 +52,7 @@ namespace TransferLogger.Ui.Forms.Student
 
         private void InsertOrReplace(bool isNew = false)
         {
-            FormUtils.InsertOrReplace(_grid, studentId => new StudentForm(studentId), () => SetData(), isNew);
+            FormUtils.InsertOrReplace(_grid, id => new StudentForm(id), () => SetData(), isNew);
         }
 
         private void _btnDelete_Click(object? sender, EventArgs e)

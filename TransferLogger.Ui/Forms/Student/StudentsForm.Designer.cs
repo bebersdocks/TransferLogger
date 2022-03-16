@@ -44,7 +44,7 @@ namespace TransferLogger.Ui.Forms.Student
             this._btnAdd = new TransferLogger.Ui.Controls.TlButton();
             this._lStudents = new System.Windows.Forms.Label();
             this._grid = new TransferLogger.Ui.Controls.TlDataGrid();
-            this.StudentId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StudentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Reference = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DocumentNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -227,7 +227,7 @@ namespace TransferLogger.Ui.Forms.Student
             this._grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this._grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this._grid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.StudentId,
+            this.Id,
             this.StudentName,
             this.Reference,
             this.DocumentNo,
@@ -262,11 +262,11 @@ namespace TransferLogger.Ui.Forms.Student
             // 
             // StudentId
             // 
-            this.StudentId.DataPropertyName = "StudentId";
-            this.StudentId.HeaderText = "ID";
-            this.StudentId.MinimumWidth = 25;
-            this.StudentId.Name = "StudentId";
-            this.StudentId.ReadOnly = true;
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "ID";
+            this.Id.MinimumWidth = 25;
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
             // 
             // StudentName
             // 
@@ -343,7 +343,7 @@ namespace TransferLogger.Ui.Forms.Student
         private Label _lSearchName;
         private Label _lRef;
         private Controls.TlTextBox _tbRef;
-        private DataGridViewTextBoxColumn StudentId;
+        private DataGridViewTextBoxColumn Id;
         private DataGridViewTextBoxColumn StudentName;
         private DataGridViewTextBoxColumn Reference;
         private DataGridViewTextBoxColumn DocumentNo;

@@ -85,7 +85,7 @@ namespace TransferLogger.Ui.Forms.Organization
 
         private void InsertOrReplace(bool isNew = false)
         {
-            FormUtils.InsertOrReplace(_grid, organizationId => new OrganizationForm(organizationId), () => SetData(), isNew);
+            FormUtils.InsertOrReplace(_grid, id => new OrganizationForm(id), () => SetData(), isNew);
         }
 
         private void _btnDelete_Click(object? sender, EventArgs e)

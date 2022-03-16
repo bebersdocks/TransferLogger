@@ -30,8 +30,8 @@ namespace TransferLogger.Ui.Forms
 
             var apps = new List<ApplicationViewModel>();
 
-            apps.Add(new ApplicationViewModel() { ApplicationId = 5, ApplicationStatus = "Processed", CreatedAt = DateTime.Today });
-            apps.Add(new ApplicationViewModel() { ApplicationId = 6, ApplicationStatus = "Processed", Student = "Arseniy Mak" });
+            apps.Add(new ApplicationViewModel() { Id = 5, Status = "Processed", CreatedAt = DateTime.Today });
+            apps.Add(new ApplicationViewModel() { Id = 6, Status = "Processed", Student = "Arseniy Mak" });
 
             _grid.DataSource = apps;
         }

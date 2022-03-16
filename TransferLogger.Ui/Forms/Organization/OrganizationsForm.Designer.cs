@@ -47,7 +47,7 @@ namespace TransferLogger.Ui.Forms.Organization
             this._btnAdd = new TransferLogger.Ui.Controls.TlButton();
             this._lOrganizations = new System.Windows.Forms.Label();
             this._grid = new TransferLogger.Ui.Controls.TlDataGrid();
-            this.OrganizationId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OrganizationName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -274,7 +274,7 @@ namespace TransferLogger.Ui.Forms.Organization
             this._grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this._grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this._grid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.OrganizationId,
+            this.Id,
             this.OrganizationName,
             this.Description,
             this.Type,
@@ -309,12 +309,12 @@ namespace TransferLogger.Ui.Forms.Organization
             // 
             // OrganizationId
             // 
-            this.OrganizationId.DataPropertyName = "OrganizationId";
-            this.OrganizationId.FillWeight = 50F;
-            this.OrganizationId.HeaderText = "ID";
-            this.OrganizationId.MinimumWidth = 75;
-            this.OrganizationId.Name = "OrganizationId";
-            this.OrganizationId.ReadOnly = true;
+            this.Id.DataPropertyName = "Id";
+            this.Id.FillWeight = 50F;
+            this.Id.HeaderText = "ID";
+            this.Id.MinimumWidth = 75;
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
             // 
             // OrganizationName
             // 
@@ -383,7 +383,7 @@ namespace TransferLogger.Ui.Forms.Organization
         private Controls.TlDataGrid _grid;
         private Controls.TlSplitContainer _splitContainer;
         private Label _lOrganizations;
-        private DataGridViewTextBoxColumn OrganizationId;
+        private DataGridViewTextBoxColumn Id;
         private DataGridViewTextBoxColumn OrganizationName;
         private DataGridViewTextBoxColumn Description;
         private DataGridViewTextBoxColumn Type;

@@ -44,7 +44,7 @@ namespace TransferLogger.Ui.Forms.Instructor
             this._btnAdd = new TransferLogger.Ui.Controls.TlButton();
             this._lInstructor = new System.Windows.Forms.Label();
             this._grid = new TransferLogger.Ui.Controls.TlDataGrid();
-            this.InstructorId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.InstructorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -225,7 +225,7 @@ namespace TransferLogger.Ui.Forms.Instructor
             this._grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this._grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this._grid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.InstructorId,
+            this.Id,
             this.InstructorName,
             this.Phone,
             this.Email});
@@ -258,11 +258,11 @@ namespace TransferLogger.Ui.Forms.Instructor
             // 
             // InstructorId
             // 
-            this.InstructorId.DataPropertyName = "InstructorId";
-            this.InstructorId.HeaderText = "ID";
-            this.InstructorId.MinimumWidth = 25;
-            this.InstructorId.Name = "InstructorId";
-            this.InstructorId.ReadOnly = true;
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "ID";
+            this.Id.MinimumWidth = 25;
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
             // 
             // InstructorName
             // 
@@ -322,7 +322,7 @@ namespace TransferLogger.Ui.Forms.Instructor
         private Label _lSearchName;
         private Label _lEmail;
         private Controls.TlTextBox _tbEmail;
-        private DataGridViewTextBoxColumn InstructorId;
+        private DataGridViewTextBoxColumn Id;
         private DataGridViewTextBoxColumn InstructorName;
         private DataGridViewTextBoxColumn Phone;
         private DataGridViewTextBoxColumn Email;
