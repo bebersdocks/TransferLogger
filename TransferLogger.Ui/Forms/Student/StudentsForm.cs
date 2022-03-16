@@ -4,9 +4,9 @@ using System.Windows.Forms;
 
 using LinqToDB;
 
-using TransferLogger.BusinessLogic.Intefaces;
 using TransferLogger.BusinessLogic.ViewModels;
 using TransferLogger.Dal;
+using TransferLogger.Ui.Forms.Dialogs;
 using TransferLogger.Ui.Utils;
 
 namespace TransferLogger.Ui.Forms.Student
@@ -57,15 +57,22 @@ namespace TransferLogger.Ui.Forms.Student
 
         private void _btnDelete_Click(object? sender, EventArgs e)
         {
-            if (_grid.CurrentRow?.DataBoundItem is IIdentifiable viewModel)
+            if (_grid.CurrentRow?.DataBoundItem is StudentViewModel viewModel)
             {
-                using var dc = new Dc();
+                using var confirmDlg = new ConfirmDialog(
+                    "Confirm Deletion",
+                    $"Are you sure you want to delete {viewModel.Name} (Id: {viewModel.Id})?");
 
-                dc.Students
-                    .Where(s => s.StudentId == viewModel.Id)
-                    .Delete();
+                if (confirmDlg.ShowDialog() == DialogResult.OK)
+                {
+                    using var dc = new Dc();
 
-                SetData();
+                    dc.Students
+                        .Where(s => s.StudentId == viewModel.Id)
+                        .Delete();
+
+                    SetData();
+                }
             }
         }
     }

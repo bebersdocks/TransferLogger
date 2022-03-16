@@ -5,11 +5,11 @@ using System.Windows.Forms;
 
 using LinqToDB;
 
-using TransferLogger.BusinessLogic.Intefaces;
 using TransferLogger.BusinessLogic.ViewModels;
 using TransferLogger.Dal;
 using TransferLogger.Dal.Definitions;
 using TransferLogger.Ui.Controls;
+using TransferLogger.Ui.Forms.Dialogs;
 using TransferLogger.Ui.Utils;
 
 using Lookup = TransferLogger.BusinessLogic.Lookup;
@@ -92,15 +92,22 @@ namespace TransferLogger.Ui.Forms.Program
 
         private void _btnDelete_Click(object? sender, EventArgs e)
         {
-            if (_grid.CurrentRow?.DataBoundItem is IIdentifiable viewModel)
+            if (_grid.CurrentRow?.DataBoundItem is ProgramViewModel viewModel)
             {
-                using var dc = new Dc();
+                using var confirmDlg = new ConfirmDialog(
+                    "Confirm Deletion",
+                    $"Are you sure you want to delete {viewModel.Name} [{viewModel.Cycle}] (Id: {viewModel.Id})?");
 
-                dc.Programs
-                    .Where(p => p.ProgramId == viewModel.Id)
-                    .Delete();
+                if (confirmDlg.ShowDialog() == DialogResult.OK)
+                {
+                    using var dc = new Dc();
 
-                SetData();
+                    dc.Programs
+                        .Where(p => p.ProgramId == viewModel.Id)
+                        .Delete();
+
+                    SetData();
+                }
             }
         }
     }

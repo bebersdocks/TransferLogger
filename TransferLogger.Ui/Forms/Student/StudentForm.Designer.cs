@@ -214,9 +214,9 @@ namespace TransferLogger.Ui.Forms.Student
             this._btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnOk.ForeColor = System.Drawing.Color.Black;
             this._btnOk.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            this._btnOk.Location = new System.Drawing.Point(368, 332);
+            this._btnOk.Location = new System.Drawing.Point(368, 330);
             this._btnOk.Name = "_btnOk";
-            this._btnOk.Size = new System.Drawing.Size(75, 27);
+            this._btnOk.Size = new System.Drawing.Size(75, 29);
             this._btnOk.TabIndex = 29;
             this._btnOk.TabStop = false;
             this._btnOk.Text = "Ok";
@@ -233,9 +233,9 @@ namespace TransferLogger.Ui.Forms.Student
             this._btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnCancel.ForeColor = System.Drawing.Color.Black;
             this._btnCancel.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            this._btnCancel.Location = new System.Drawing.Point(287, 332);
+            this._btnCancel.Location = new System.Drawing.Point(287, 330);
             this._btnCancel.Name = "_btnCancel";
-            this._btnCancel.Size = new System.Drawing.Size(75, 27);
+            this._btnCancel.Size = new System.Drawing.Size(75, 29);
             this._btnCancel.TabIndex = 30;
             this._btnCancel.TabStop = false;
             this._btnCancel.Text = "Cancel";
