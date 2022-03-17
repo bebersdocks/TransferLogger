@@ -15,11 +15,6 @@ namespace TransferLogger.Ui.Utils
             form.ShowDialog();
         }
 
-        public static void ShowValidationMsg(this Form form, string msg)
-        {
-            MessageBox.Show(form, msg, "Validation error");
-        }
-
         public static void InsertOrReplace(TlDataGrid grid, Func<int, Form> getForm, Action setData, bool isNew = false)
         {
             var itemId = 0;

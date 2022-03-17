@@ -10,7 +10,7 @@ using TransferLogger.Dal;
 using TransferLogger.Dal.DataModels;
 using TransferLogger.Dal.Definitions;
 using TransferLogger.Ui.Controls;
-using TransferLogger.Ui.Utils;
+using TransferLogger.Ui.Forms.Dialogs;
 
 using Lookup = TransferLogger.BusinessLogic.Lookup;
 
@@ -82,19 +82,20 @@ namespace TransferLogger.Ui.Forms.Organization
         {
             if (string.IsNullOrEmpty(_tbName.Text))
             {
-                this.ShowValidationMsg($"{_lName.Text} can't be empty.");
+                MessageDialog.Show($"Name can't be empty.");
+                _tbName.Focus();
                 return;
             }
 
             if (_cbOrganizationTypes.SelectedValue is null)
             {
-                this.ShowValidationMsg($"You have to specify {_lOrganizationType.Text}.");
+                MessageDialog.Show($"You have to specify organization.");
                 return;
             }
 
             if (_cbCountries.SelectedValue is null)
             {
-                this.ShowValidationMsg($"You have to specify {_lCountry.Text}.");
+                MessageDialog.Show($"You have to specify country.");
                 return;
             }
 

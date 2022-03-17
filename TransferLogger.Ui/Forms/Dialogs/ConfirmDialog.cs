@@ -23,7 +23,6 @@ namespace TransferLogger.Ui.Forms.Dialogs
             _btnConfirm.Click += _btnConfirm_Click;
         }
 
-
         private void _btnAbort_Click(object? sender, EventArgs e)
         {
             DialogResult = DialogResult.Abort;
@@ -37,6 +36,5 @@ namespace TransferLogger.Ui.Forms.Dialogs
 
             Close();
         }
-
     }
 }

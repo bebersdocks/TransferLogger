@@ -5,7 +5,7 @@ using System.Windows.Forms;
 using LinqToDB;
 
 using TransferLogger.Dal;
-using TransferLogger.Ui.Utils;
+using TransferLogger.Ui.Forms.Dialogs;
 
 namespace TransferLogger.Ui.Forms.Instructor
 {
@@ -56,19 +56,22 @@ namespace TransferLogger.Ui.Forms.Instructor
         {
             if (string.IsNullOrEmpty(_tbName.Text))
             {
-                this.ShowValidationMsg($"{_lName.Text} can't be empty.");
+                MessageDialog.Show($"Name can't be empty.");
+                _tbName.Focus();
                 return;
             }
 
             if (string.IsNullOrEmpty(_tbSurname.Text))
             {
-                this.ShowValidationMsg($"{_lSurname.Text} can't be empty.");
+                MessageDialog.Show($"Surname can't be empty.");
+                _tbSurname.Focus();
                 return;
             }
 
             if (string.IsNullOrEmpty(_tbEmail.Text))
             {
-                this.ShowValidationMsg($"{_lEmail.Text} can't be empty.");
+                MessageDialog.Show($"Email can't be empty.");
+                _tbEmail.Focus();
                 return;
             }
 

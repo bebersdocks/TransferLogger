@@ -9,7 +9,7 @@ using TransferLogger.BusinessLogic;
 using TransferLogger.Dal;
 using TransferLogger.Dal.Definitions;
 using TransferLogger.Ui.Controls;
-using TransferLogger.Ui.Utils;
+using TransferLogger.Ui.Forms.Dialogs;
 
 using Lookup = TransferLogger.BusinessLogic.Lookup;
 
@@ -126,27 +126,27 @@ namespace TransferLogger.Ui.Forms.Course
         {
             if (string.IsNullOrEmpty(_tbCode.Text))
             {
-                this.ShowValidationMsg($"Code can't be empty.");
+                MessageDialog.Show($"Code can't be empty.");
                 _tbCode.Focus();
                 return;
             }
 
             if (string.IsNullOrEmpty(_tbName.Text))
             {
-                this.ShowValidationMsg($"Name can't be empty.");
+                MessageDialog.Show($"Name can't be empty.");
                 _tbName.Focus();
                 return;
             }
 
             if (_cbOrganizations.SelectedValue is null)
             {
-                this.ShowValidationMsg($"You have to select organization.");
+                MessageDialog.Show($"You have to select organization.");
                 return;
             }
 
             if (_cbPrograms.SelectedValue is null)
             {
-                this.ShowValidationMsg($"You have to select program.");
+                MessageDialog.Show($"You have to select program.");
                 return;
             }
 
