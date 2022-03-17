@@ -32,6 +32,7 @@ namespace TransferLogger.Ui.Forms.Course
                 .ToList();
 
             SetData();
+            SetPrograms();
             SetEvents();
         }
 
@@ -41,7 +42,7 @@ namespace TransferLogger.Ui.Forms.Course
                 _cbOrganizations.FillLookups<Lookup>(_organizations);
 
             if (_cbCycles.Items.Count == 0)
-                _cbCycles.FillLookups(Dal.Definitions.Cycle.Bachelor);
+                _cbCycles.FillLookups<Dal.Definitions.Cycle>();
 
             using var dc = new Dc();
 
@@ -53,22 +54,23 @@ namespace TransferLogger.Ui.Forms.Course
             if (_cbOrganizations.SelectedValue != null)
                 query = query.Where(c => c.OrganizationId == (int)_cbOrganizations.SelectedValue);
 
+            if (_cbCycles.SelectedValue != null)
+                query = query.Where(c => c.Program.Cycle == (Cycle)_cbCycles.SelectedValue);
+
             if (_cbPrograms.SelectedValue != null)
                 query = query.Where(c => c.ProgramId == (int)_cbPrograms.SelectedValue);
 
             _grid.DataSource = query
                 .Select(c => new CourseViewModel(c, c.Program, c.Organization))
                 .ToList();
-
-            SetPrograms();
         }
 
         private void SetPrograms()
         {
-            var programs = LookupServices.GetPrograms((int?)_cbOrganizations.SelectedValue ?? 0, (Cycle)_cbCycles.SelectedValue);
+            var programs = LookupServices.GetPrograms(_cbOrganizations.SelectedValue, _cbCycles.SelectedValue);
             if (programs.Any())
             {
-                _cbPrograms.FillLookups<Lookup>(programs);
+                _cbPrograms.FillLookups<Lookup>(programs, (int?)_cbPrograms.SelectedValue ?? -1);
                 _cbPrograms.Enabled = _btnSelectProgram.Enabled = true;
             }
             else
@@ -80,10 +82,11 @@ namespace TransferLogger.Ui.Forms.Course
 
         private void SetEvents()
         {
-            _tbSearchName.TextChanged             += (s, e) => SetData();
-            _cbOrganizations.SelectedValueChanged += (s, e) => SetData();
-            _cbCycles.SelectedValueChanged        += (s, e) => SetData();
-            _cbPrograms.SelectedValueChanged      += (s, e) => SetData();
+            _tbSearchName.TextChanged             += OnValuesChanges;
+            _cbOrganizations.SelectedValueChanged += OnValuesChanges;
+            _cbCycles.SelectedValueChanged        += OnValuesChanges;
+
+            _cbPrograms.SelectedValueChanged += (s, e) => SetData();
 
             _btnSelectOrganization.Click += _btnSelectOrganization_Click;
             _btnSelectProgram.Click      += _btnSelectProgram_Click;
@@ -93,6 +96,12 @@ namespace TransferLogger.Ui.Forms.Course
             _btnEdit.Click    += (s, e) => InsertOrReplace();
 
             _btnDelete.Click += _btnDelete_Click;
+        }
+
+        private void OnValuesChanges(object? sender, EventArgs e)
+        {
+            SetData();
+            SetPrograms();
         }
 
         private void _btnSelectOrganization_Click(object? sender, EventArgs e)
@@ -107,7 +116,7 @@ namespace TransferLogger.Ui.Forms.Course
 
         private void _btnSelectProgram_Click(object? sender, EventArgs e)
         {
-            var programs = LookupServices.GetPrograms((int?)_cbOrganizations.SelectedValue ?? 0, (Cycle)_cbCycles.SelectedValue);
+            var programs = LookupServices.GetPrograms(_cbOrganizations.SelectedValue, _cbCycles.SelectedValue);
             using var form = new LookupSelectionForm("Select Program", programs, _cbPrograms.SelectedValue);
 
             if (form.ShowDialog() == DialogResult.OK && form.SelectedValue.HasValue)

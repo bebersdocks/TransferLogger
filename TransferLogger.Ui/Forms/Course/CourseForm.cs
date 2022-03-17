@@ -9,6 +9,7 @@ using TransferLogger.BusinessLogic;
 using TransferLogger.Dal;
 using TransferLogger.Dal.Definitions;
 using TransferLogger.Ui.Controls;
+using TransferLogger.Ui.Utils;
 
 using Lookup = TransferLogger.BusinessLogic.Lookup;
 
@@ -34,6 +35,7 @@ namespace TransferLogger.Ui.Forms.Course
                 .ToList();
 
             SetData();
+            SetPrograms();
             SetEvents();
         }
 
@@ -51,14 +53,12 @@ namespace TransferLogger.Ui.Forms.Course
             }
 
             _cbCycles.FillLookups(_course.Program?.Cycle ?? Cycle.Bachelor);
-            _cbPrograms.FillLookups<Lookup>(_organizations, _course.OrganizationId);
-
-            SetPrograms();
+            _cbOrganizations.FillLookups<Lookup>(_organizations, _course.OrganizationId);
         }
 
         private void SetPrograms()
         {
-            var programs = LookupServices.GetPrograms((int?)_cbOrganizations.SelectedValue ?? 0, (Cycle)_cbCycles.SelectedValue);
+            var programs = LookupServices.GetPrograms(_cbOrganizations.SelectedValue, _cbCycles.SelectedValue);
             if (programs.Any())
             {
                 _cbPrograms.FillLookups<Lookup>(programs, _course.ProgramId);
@@ -67,7 +67,7 @@ namespace TransferLogger.Ui.Forms.Course
             else
             {
                 _cbPrograms.DataSource = null;
-                _cbPrograms.Enabled = _btnSelectProgram.Enabled = false;
+                _cbPrograms.Enabled    = _btnSelectProgram.Enabled = false;
             }
         }
 
@@ -79,7 +79,26 @@ namespace TransferLogger.Ui.Forms.Course
             _cbCycles.SelectedValueChanged        += (s, e) => SetPrograms();
             _cbOrganizations.SelectedValueChanged += (s, e) => SetPrograms();
 
+            _numericCredits.ValueChanged     += _numeric_ValueChanged;
+            _numericWeeklyHours.ValueChanged += _numeric_ValueChanged;
+
+            _btnOk.Click     += _btnOk_Click;
             _btnCancel.Click += _btnCancel_Click;
+        }
+
+        private void _numeric_ValueChanged(object? sender, EventArgs e)
+        {
+            if (sender is NumericUpDown numericCredits)
+            {
+                if (numericCredits.Value < numericCredits.Minimum)
+                {
+                    numericCredits.Value = numericCredits.Minimum;
+                }
+                else if (numericCredits.Value > numericCredits.Maximum)
+                {
+                    numericCredits.Value = numericCredits.Maximum;
+                }
+            }
         }
 
         private void _btnSelectOrganization_Click(object? sender, EventArgs e)
@@ -94,13 +113,61 @@ namespace TransferLogger.Ui.Forms.Course
 
         private void _btnSelectProgram_Click(object? sender, EventArgs e)
         {
-            var programs = LookupServices.GetPrograms((int?)_cbOrganizations.SelectedValue ?? 0, (Cycle)_cbCycles.SelectedValue);
+            var programs = LookupServices.GetPrograms(_cbOrganizations.SelectedValue, _cbCycles.SelectedValue);
             using var form = new LookupSelectionForm("Select Program", programs, _cbPrograms.SelectedValue);
             
             if (form.ShowDialog() == DialogResult.OK && form.SelectedValue.HasValue)
             {
                 _cbPrograms.SelectedValue = form.SelectedValue.Value;
             }
+        }
+
+        private void _btnOk_Click(object? sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(_tbCode.Text))
+            {
+                this.ShowValidationMsg($"Code can't be empty.");
+                _tbCode.Focus();
+                return;
+            }
+
+            if (string.IsNullOrEmpty(_tbName.Text))
+            {
+                this.ShowValidationMsg($"Name can't be empty.");
+                _tbName.Focus();
+                return;
+            }
+
+            if (_cbOrganizations.SelectedValue is null)
+            {
+                this.ShowValidationMsg($"You have to select organization.");
+                return;
+            }
+
+            if (_cbPrograms.SelectedValue is null)
+            {
+                this.ShowValidationMsg($"You have to select program.");
+                return;
+            }
+
+            _course.CourseCode     = _tbCode.Text;
+            _course.OrganizationId = (int)_cbOrganizations.SelectedValue;
+            _course.ProgramId      = (int)_cbPrograms.SelectedValue;
+            _course.Name           = _tbName.Text;
+            _course.Description    = _tbDescription.Text;
+            _course.Credits        = Convert.ToInt32(_numericCredits.Value);
+            _course.WeeklyHours    = Convert.ToInt32(_numericWeeklyHours.Value);
+
+            using var dc = new Dc();
+
+            if (_course.CourseId == 0)
+                dc.InsertWithIdentity(_course);
+            else
+                dc.Update(_course);
+
+            DialogResult = DialogResult.OK;
+
+            Close();
         }
 
         private void _btnCancel_Click(object? sender, EventArgs e)
