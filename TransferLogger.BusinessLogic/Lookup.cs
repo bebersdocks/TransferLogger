@@ -19,16 +19,22 @@ namespace TransferLogger.BusinessLogic
     }
 
     public static class LookupServices
-    { 
-        public static List<Lookup> GetPrograms(int organizationId, Cycle cycle)
+    {
+        public static List<Lookup> GetPrograms(int? organizationId, Cycle? cycle)
         {
             if (organizationId > 0)
             {
                 using var dc = new Dc();
 
-                return dc.Programs
-                    .Where(p => p.OrganizationId == organizationId)
-                    .Where(p => p.Cycle == cycle)
+                var query = dc.Programs.AsQueryable();
+
+                if (organizationId.HasValue)
+                    query = query.Where(p => p.OrganizationId == organizationId.Value);
+
+                if (cycle.HasValue)
+                    query = query.Where(p => p.Cycle == cycle.Value);
+
+                return query
                     .Select(p => new Lookup(p.ProgramId, p.Name))
                     .ToList();
             }
@@ -36,6 +42,19 @@ namespace TransferLogger.BusinessLogic
             {
                 return new List<Lookup>();
             }
+        }
+
+        public static List<Lookup> GetPrograms(object organizationIdObj, object cycleObj)
+        {
+            int? organizationId = null;
+            if (organizationIdObj != null)
+                organizationId = (int)organizationIdObj;
+
+            Cycle? cycle = null;
+            if (cycleObj != null)
+                cycle = (Cycle)cycleObj;
+
+            return GetPrograms(organizationId, cycle);
         }
     }
 }
