@@ -51,6 +51,7 @@ namespace TransferLogger.Ui.Forms.Program
             this.ProgramName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Organization = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cycle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Year = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this._splitContainer)).BeginInit();
             this._splitContainer.Panel1.SuspendLayout();
             this._splitContainer.Panel2.SuspendLayout();
@@ -275,7 +276,8 @@ namespace TransferLogger.Ui.Forms.Program
             this.Id,
             this.ProgramName,
             this.Organization,
-            this.Cycle});
+            this.Cycle,
+            this.Year});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -303,7 +305,7 @@ namespace TransferLogger.Ui.Forms.Program
             this._grid.Size = new System.Drawing.Size(1069, 506);
             this._grid.TabIndex = 7;
             // 
-            // ProgramId
+            // Id
             // 
             this.Id.DataPropertyName = "Id";
             this.Id.FillWeight = 50F;
@@ -312,12 +314,12 @@ namespace TransferLogger.Ui.Forms.Program
             this.Id.Name = "Id";
             this.Id.ReadOnly = true;
             // 
-            // OrganizationName
+            // ProgramName
             // 
             this.ProgramName.DataPropertyName = "Name";
             this.ProgramName.FillWeight = 110F;
             this.ProgramName.HeaderText = "Name";
-            this.ProgramName.MinimumWidth = 110;
+            this.ProgramName.MinimumWidth = 300;
             this.ProgramName.Name = "ProgramName";
             this.ProgramName.ReadOnly = true;
             // 
@@ -326,17 +328,26 @@ namespace TransferLogger.Ui.Forms.Program
             this.Organization.DataPropertyName = "Organization";
             this.Organization.FillWeight = 130F;
             this.Organization.HeaderText = "Organization";
-            this.Organization.MinimumWidth = 180;
+            this.Organization.MinimumWidth = 275;
             this.Organization.Name = "Organization";
             this.Organization.ReadOnly = true;
             // 
             // Cycle
             // 
             this.Cycle.DataPropertyName = "Cycle";
-            this.Cycle.FillWeight = 74.31472F;
+            this.Cycle.FillWeight = 105F;
             this.Cycle.HeaderText = "Cycle";
+            this.Cycle.MinimumWidth = 120;
             this.Cycle.Name = "Cycle";
             this.Cycle.ReadOnly = true;
+            // 
+            // Year
+            // 
+            this.Year.DataPropertyName = "Year";
+            this.Year.HeaderText = "Year";
+            this.Year.MinimumWidth = 50;
+            this.Year.Name = "Year";
+            this.Year.ReadOnly = true;
             // 
             // ProgramsForm
             // 
@@ -377,5 +388,6 @@ namespace TransferLogger.Ui.Forms.Program
         private DataGridViewTextBoxColumn ProgramName;
         private DataGridViewTextBoxColumn Organization;
         private DataGridViewTextBoxColumn Cycle;
+        private DataGridViewTextBoxColumn Year;
     }
 }

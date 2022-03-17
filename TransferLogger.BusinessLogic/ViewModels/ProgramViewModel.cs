@@ -10,6 +10,7 @@ namespace TransferLogger.BusinessLogic.ViewModels
         public string Name         { get; set; }
         public string Organization { get; set; }
         public string Cycle        { get; set; }
+        public int    Year         { get; set; }
 
         public ProgramViewModel() {}
 
@@ -19,6 +20,7 @@ namespace TransferLogger.BusinessLogic.ViewModels
             Name         = program.Name;
             Organization = organization.DisplayString;
             Cycle        = program.Cycle.GetDisplayName();
+            Year         = program.Year;
         }
     }
 }
