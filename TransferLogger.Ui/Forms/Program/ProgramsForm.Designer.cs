@@ -148,7 +148,7 @@ namespace TransferLogger.Ui.Forms.Program
             // 
             this._lCycle.AutoSize = true;
             this._lCycle.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lCycle.Location = new System.Drawing.Point(19, 56);
+            this._lCycle.Location = new System.Drawing.Point(24, 56);
             this._lCycle.Name = "_lCycle";
             this._lCycle.Size = new System.Drawing.Size(41, 17);
             this._lCycle.TabIndex = 14;

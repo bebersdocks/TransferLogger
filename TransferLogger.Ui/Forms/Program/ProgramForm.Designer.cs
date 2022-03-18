@@ -49,7 +49,7 @@ namespace TransferLogger.Ui.Forms.Program
             // 
             this._lName.AutoSize = true;
             this._lName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lName.Location = new System.Drawing.Point(21, 24);
+            this._lName.Location = new System.Drawing.Point(61, 24);
             this._lName.Name = "_lName";
             this._lName.Size = new System.Drawing.Size(46, 17);
             this._lName.TabIndex = 0;
@@ -59,7 +59,7 @@ namespace TransferLogger.Ui.Forms.Program
             // 
             this._lYear.AutoSize = true;
             this._lYear.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lYear.Location = new System.Drawing.Point(21, 137);
+            this._lYear.Location = new System.Drawing.Point(71, 137);
             this._lYear.Name = "_lYear";
             this._lYear.Size = new System.Drawing.Size(36, 17);
             this._lYear.TabIndex = 2;
@@ -111,7 +111,7 @@ namespace TransferLogger.Ui.Forms.Program
             // 
             this._lCycle.AutoSize = true;
             this._lCycle.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lCycle.Location = new System.Drawing.Point(21, 100);
+            this._lCycle.Location = new System.Drawing.Point(66, 100);
             this._lCycle.Name = "_lCycle";
             this._lCycle.Size = new System.Drawing.Size(41, 17);
             this._lCycle.TabIndex = 20;

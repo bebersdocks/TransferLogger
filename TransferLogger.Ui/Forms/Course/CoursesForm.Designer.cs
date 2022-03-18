@@ -115,7 +115,7 @@ namespace TransferLogger.Ui.Forms.Course
             // 
             this._lCycle.AutoSize = true;
             this._lCycle.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lCycle.Location = new System.Drawing.Point(478, 19);
+            this._lCycle.Location = new System.Drawing.Point(499, 18);
             this._lCycle.Name = "_lCycle";
             this._lCycle.Size = new System.Drawing.Size(41, 17);
             this._lCycle.TabIndex = 25;
@@ -205,7 +205,7 @@ namespace TransferLogger.Ui.Forms.Course
             // 
             this._lSearchName.AutoSize = true;
             this._lSearchName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lSearchName.Location = new System.Drawing.Point(19, 19);
+            this._lSearchName.Location = new System.Drawing.Point(59, 19);
             this._lSearchName.Name = "_lSearchName";
             this._lSearchName.Size = new System.Drawing.Size(46, 17);
             this._lSearchName.TabIndex = 10;

@@ -53,7 +53,7 @@ namespace TransferLogger.Ui.Forms.Student
             // 
             this._lName.AutoSize = true;
             this._lName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lName.Location = new System.Drawing.Point(21, 24);
+            this._lName.Location = new System.Drawing.Point(66, 24);
             this._lName.Name = "_lName";
             this._lName.Size = new System.Drawing.Size(46, 17);
             this._lName.TabIndex = 0;
@@ -97,7 +97,7 @@ namespace TransferLogger.Ui.Forms.Student
             // 
             this._lSurname.AutoSize = true;
             this._lSurname.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lSurname.Location = new System.Drawing.Point(21, 97);
+            this._lSurname.Location = new System.Drawing.Point(50, 97);
             this._lSurname.Name = "_lSurname";
             this._lSurname.Size = new System.Drawing.Size(62, 17);
             this._lSurname.TabIndex = 19;
@@ -131,7 +131,7 @@ namespace TransferLogger.Ui.Forms.Student
             // 
             this._lRef.AutoSize = true;
             this._lRef.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lRef.Location = new System.Drawing.Point(21, 135);
+            this._lRef.Location = new System.Drawing.Point(43, 135);
             this._lRef.Name = "_lRef";
             this._lRef.Size = new System.Drawing.Size(69, 17);
             this._lRef.TabIndex = 22;
@@ -141,7 +141,7 @@ namespace TransferLogger.Ui.Forms.Student
             // 
             this._lPhone.AutoSize = true;
             this._lPhone.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lPhone.Location = new System.Drawing.Point(21, 214);
+            this._lPhone.Location = new System.Drawing.Point(65, 214);
             this._lPhone.Name = "_lPhone";
             this._lPhone.Size = new System.Drawing.Size(47, 17);
             this._lPhone.TabIndex = 23;
@@ -175,7 +175,7 @@ namespace TransferLogger.Ui.Forms.Student
             // 
             this._lEmail.AutoSize = true;
             this._lEmail.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lEmail.Location = new System.Drawing.Point(21, 252);
+            this._lEmail.Location = new System.Drawing.Point(70, 252);
             this._lEmail.Name = "_lEmail";
             this._lEmail.Size = new System.Drawing.Size(42, 17);
             this._lEmail.TabIndex = 26;
@@ -197,7 +197,7 @@ namespace TransferLogger.Ui.Forms.Student
             // 
             this._lMiddle.AutoSize = true;
             this._lMiddle.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lMiddle.Location = new System.Drawing.Point(21, 62);
+            this._lMiddle.Location = new System.Drawing.Point(60, 62);
             this._lMiddle.Name = "_lMiddle";
             this._lMiddle.Size = new System.Drawing.Size(52, 17);
             this._lMiddle.TabIndex = 28;

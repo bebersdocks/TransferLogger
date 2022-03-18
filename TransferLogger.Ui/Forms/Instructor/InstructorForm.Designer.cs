@@ -49,7 +49,7 @@ namespace TransferLogger.Ui.Forms.Instructor
             // 
             this._lName.AutoSize = true;
             this._lName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lName.Location = new System.Drawing.Point(21, 24);
+            this._lName.Location = new System.Drawing.Point(37, 24);
             this._lName.Name = "_lName";
             this._lName.Size = new System.Drawing.Size(46, 17);
             this._lName.TabIndex = 0;
@@ -89,7 +89,7 @@ namespace TransferLogger.Ui.Forms.Instructor
             // 
             this._lPhone.AutoSize = true;
             this._lPhone.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lPhone.Location = new System.Drawing.Point(21, 138);
+            this._lPhone.Location = new System.Drawing.Point(36, 138);
             this._lPhone.Name = "_lPhone";
             this._lPhone.Size = new System.Drawing.Size(47, 17);
             this._lPhone.TabIndex = 23;
@@ -119,7 +119,7 @@ namespace TransferLogger.Ui.Forms.Instructor
             // 
             this._lEmail.AutoSize = true;
             this._lEmail.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lEmail.Location = new System.Drawing.Point(21, 176);
+            this._lEmail.Location = new System.Drawing.Point(41, 176);
             this._lEmail.Name = "_lEmail";
             this._lEmail.Size = new System.Drawing.Size(42, 17);
             this._lEmail.TabIndex = 26;
@@ -129,7 +129,7 @@ namespace TransferLogger.Ui.Forms.Instructor
             // 
             this._lMiddle.AutoSize = true;
             this._lMiddle.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lMiddle.Location = new System.Drawing.Point(21, 62);
+            this._lMiddle.Location = new System.Drawing.Point(31, 62);
             this._lMiddle.Name = "_lMiddle";
             this._lMiddle.Size = new System.Drawing.Size(52, 17);
             this._lMiddle.TabIndex = 27;

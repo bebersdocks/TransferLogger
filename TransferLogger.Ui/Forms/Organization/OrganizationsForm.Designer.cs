@@ -149,7 +149,7 @@ namespace TransferLogger.Ui.Forms.Organization
             // 
             this._lOrganizationType.AutoSize = true;
             this._lOrganizationType.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lOrganizationType.Location = new System.Drawing.Point(19, 56);
+            this._lOrganizationType.Location = new System.Drawing.Point(27, 56);
             this._lOrganizationType.Name = "_lOrganizationType";
             this._lOrganizationType.Size = new System.Drawing.Size(38, 17);
             this._lOrganizationType.TabIndex = 14;

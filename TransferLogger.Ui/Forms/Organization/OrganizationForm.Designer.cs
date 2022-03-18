@@ -50,7 +50,7 @@ namespace TransferLogger.Ui.Forms.Organization
             // 
             this._lName.AutoSize = true;
             this._lName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lName.Location = new System.Drawing.Point(21, 24);
+            this._lName.Location = new System.Drawing.Point(51, 24);
             this._lName.Name = "_lName";
             this._lName.Size = new System.Drawing.Size(46, 17);
             this._lName.TabIndex = 0;
@@ -60,7 +60,7 @@ namespace TransferLogger.Ui.Forms.Organization
             // 
             this._lUrl.AutoSize = true;
             this._lUrl.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lUrl.Location = new System.Drawing.Point(21, 176);
+            this._lUrl.Location = new System.Drawing.Point(63, 176);
             this._lUrl.Name = "_lUrl";
             this._lUrl.Size = new System.Drawing.Size(34, 17);
             this._lUrl.TabIndex = 2;
@@ -70,7 +70,7 @@ namespace TransferLogger.Ui.Forms.Organization
             // 
             this._lOrganizationType.AutoSize = true;
             this._lOrganizationType.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lOrganizationType.Location = new System.Drawing.Point(21, 100);
+            this._lOrganizationType.Location = new System.Drawing.Point(59, 100);
             this._lOrganizationType.Name = "_lOrganizationType";
             this._lOrganizationType.Size = new System.Drawing.Size(38, 17);
             this._lOrganizationType.TabIndex = 13;
@@ -140,7 +140,7 @@ namespace TransferLogger.Ui.Forms.Organization
             // 
             this._lCountry.AutoSize = true;
             this._lCountry.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lCountry.Location = new System.Drawing.Point(21, 138);
+            this._lCountry.Location = new System.Drawing.Point(41, 138);
             this._lCountry.Name = "_lCountry";
             this._lCountry.Size = new System.Drawing.Size(56, 17);
             this._lCountry.TabIndex = 20;

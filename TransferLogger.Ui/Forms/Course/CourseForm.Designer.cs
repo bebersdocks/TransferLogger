@@ -59,7 +59,7 @@ namespace TransferLogger.Ui.Forms.Course
             // 
             this._lName.AutoSize = true;
             this._lName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lName.Location = new System.Drawing.Point(24, 62);
+            this._lName.Location = new System.Drawing.Point(64, 62);
             this._lName.Name = "_lName";
             this._lName.Size = new System.Drawing.Size(46, 17);
             this._lName.TabIndex = 0;
@@ -91,7 +91,7 @@ namespace TransferLogger.Ui.Forms.Course
             // 
             this._lDescription.AutoSize = true;
             this._lDescription.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lDescription.Location = new System.Drawing.Point(477, 100);
+            this._lDescription.Location = new System.Drawing.Point(490, 100);
             this._lDescription.Name = "_lDescription";
             this._lDescription.Size = new System.Drawing.Size(77, 17);
             this._lDescription.TabIndex = 18;
@@ -111,7 +111,7 @@ namespace TransferLogger.Ui.Forms.Course
             // 
             this._lProgram.AutoSize = true;
             this._lProgram.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lProgram.Location = new System.Drawing.Point(24, 176);
+            this._lProgram.Location = new System.Drawing.Point(48, 176);
             this._lProgram.Name = "_lProgram";
             this._lProgram.Size = new System.Drawing.Size(62, 17);
             this._lProgram.TabIndex = 20;
@@ -257,7 +257,7 @@ namespace TransferLogger.Ui.Forms.Course
             // 
             this._lCredtis.AutoSize = true;
             this._lCredtis.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lCredtis.Location = new System.Drawing.Point(477, 24);
+            this._lCredtis.Location = new System.Drawing.Point(515, 24);
             this._lCredtis.Name = "_lCredtis";
             this._lCredtis.Size = new System.Drawing.Size(52, 17);
             this._lCredtis.TabIndex = 30;
@@ -277,7 +277,7 @@ namespace TransferLogger.Ui.Forms.Course
             // 
             this._lCode.AutoSize = true;
             this._lCode.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lCode.Location = new System.Drawing.Point(24, 24);
+            this._lCode.Location = new System.Drawing.Point(68, 24);
             this._lCode.Name = "_lCode";
             this._lCode.Size = new System.Drawing.Size(42, 17);
             this._lCode.TabIndex = 33;
@@ -287,7 +287,7 @@ namespace TransferLogger.Ui.Forms.Course
             // 
             this._lCycle.AutoSize = true;
             this._lCycle.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lCycle.Location = new System.Drawing.Point(24, 138);
+            this._lCycle.Location = new System.Drawing.Point(69, 138);
             this._lCycle.Name = "_lCycle";
             this._lCycle.Size = new System.Drawing.Size(41, 17);
             this._lCycle.TabIndex = 36;
