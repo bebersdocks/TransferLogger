@@ -12,6 +12,7 @@ namespace TransferLogger.Dal.DataModels
         [Column, Nullable]     public string Phone        { get; set; }
         [Column, NotNull]      public string Email        { get; set; }
 
-        [NotColumn] public string DisplayString => $"{Name} {Middle} {Surname}".Trim();
+        [NotColumn]
+        public string DisplayString => $"{Name} {Middle} {Surname}".Trim();
     }
 }

@@ -32,7 +32,7 @@ namespace TransferLogger.BusinessLogic
                     query = query.Where(p => p.Cycle == cycle.Value);
 
                 return query
-                    .Select(p => new Lookup(p.ProgramId, p.Name))
+                    .Select(p => new Lookup(p.ProgramId, p.DisplayString))
                     .ToList();
             }
             else

@@ -21,7 +21,7 @@ namespace TransferLogger.BusinessLogic.ViewModels
             Id           = course.CourseId;
             Name         = course.DisplayString;
             Organization = organization.DisplayString;
-            Program      = program.Name;
+            Program      = program.DisplayString;
             Cycle        = program.Cycle.GetDisplayName();
             Credits      = course.Credits;
             WeeklyHours  = course.WeeklyHours;

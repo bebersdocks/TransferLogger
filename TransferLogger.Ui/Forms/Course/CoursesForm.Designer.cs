@@ -55,7 +55,6 @@ namespace TransferLogger.Ui.Forms.Course
             this.Organization = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Program = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cycle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Credits = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this._splitContainer)).BeginInit();
             this._splitContainer.Panel1.SuspendLayout();
             this._splitContainer.Panel2.SuspendLayout();
@@ -324,8 +323,7 @@ namespace TransferLogger.Ui.Forms.Course
             this.CourseName,
             this.Organization,
             this.Program,
-            this.Cycle,
-            this.Credits});
+            this.Cycle});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -383,9 +381,9 @@ namespace TransferLogger.Ui.Forms.Course
             // Program
             // 
             this.Program.DataPropertyName = "Program";
-            this.Program.FillWeight = 110F;
+            this.Program.FillWeight = 115F;
             this.Program.HeaderText = "Program";
-            this.Program.MinimumWidth = 125;
+            this.Program.MinimumWidth = 250;
             this.Program.Name = "Program";
             this.Program.ReadOnly = true;
             // 
@@ -397,15 +395,6 @@ namespace TransferLogger.Ui.Forms.Course
             this.Cycle.MinimumWidth = 40;
             this.Cycle.Name = "Cycle";
             this.Cycle.ReadOnly = true;
-            // 
-            // Credits
-            // 
-            this.Credits.DataPropertyName = "Credits";
-            this.Credits.FillWeight = 70F;
-            this.Credits.HeaderText = "Credits";
-            this.Credits.MinimumWidth = 25;
-            this.Credits.Name = "Credits";
-            this.Credits.ReadOnly = true;
             // 
             // CoursesForm
             // 
@@ -450,6 +439,5 @@ namespace TransferLogger.Ui.Forms.Course
         private DataGridViewTextBoxColumn Organization;
         private DataGridViewTextBoxColumn Program;
         private DataGridViewTextBoxColumn Cycle;
-        private DataGridViewTextBoxColumn Credits;
     }
 }
