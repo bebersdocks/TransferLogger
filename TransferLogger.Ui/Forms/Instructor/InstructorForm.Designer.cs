@@ -57,12 +57,10 @@ namespace TransferLogger.Ui.Forms.Instructor
             // 
             // _tbName
             // 
-            this._tbName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this._tbName.BackColor = System.Drawing.Color.GhostWhite;
             this._tbName.BoxWidth = 325;
             this._tbName.ForeColor = System.Drawing.Color.Black;
-            this._tbName.Location = new System.Drawing.Point(106, 21);
+            this._tbName.Location = new System.Drawing.Point(89, 21);
             this._tbName.Name = "_tbName";
             this._tbName.Size = new System.Drawing.Size(325, 25);
             this._tbName.TabIndex = 0;
@@ -71,7 +69,7 @@ namespace TransferLogger.Ui.Forms.Instructor
             // 
             this._lSurname.AutoSize = true;
             this._lSurname.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lSurname.Location = new System.Drawing.Point(21, 95);
+            this._lSurname.Location = new System.Drawing.Point(21, 100);
             this._lSurname.Name = "_lSurname";
             this._lSurname.Size = new System.Drawing.Size(62, 17);
             this._lSurname.TabIndex = 19;
@@ -79,12 +77,10 @@ namespace TransferLogger.Ui.Forms.Instructor
             // 
             // _tbSurname
             // 
-            this._tbSurname.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this._tbSurname.BackColor = System.Drawing.Color.GhostWhite;
             this._tbSurname.BoxWidth = 325;
             this._tbSurname.ForeColor = System.Drawing.Color.Black;
-            this._tbSurname.Location = new System.Drawing.Point(106, 92);
+            this._tbSurname.Location = new System.Drawing.Point(89, 97);
             this._tbSurname.Name = "_tbSurname";
             this._tbSurname.Size = new System.Drawing.Size(325, 25);
             this._tbSurname.TabIndex = 2;
@@ -93,7 +89,7 @@ namespace TransferLogger.Ui.Forms.Instructor
             // 
             this._lPhone.AutoSize = true;
             this._lPhone.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lPhone.Location = new System.Drawing.Point(21, 130);
+            this._lPhone.Location = new System.Drawing.Point(21, 138);
             this._lPhone.Name = "_lPhone";
             this._lPhone.Size = new System.Drawing.Size(47, 17);
             this._lPhone.TabIndex = 23;
@@ -101,24 +97,20 @@ namespace TransferLogger.Ui.Forms.Instructor
             // 
             // _tbPhone
             // 
-            this._tbPhone.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this._tbPhone.BackColor = System.Drawing.Color.GhostWhite;
             this._tbPhone.BoxWidth = 325;
             this._tbPhone.ForeColor = System.Drawing.Color.Black;
-            this._tbPhone.Location = new System.Drawing.Point(106, 127);
+            this._tbPhone.Location = new System.Drawing.Point(89, 135);
             this._tbPhone.Name = "_tbPhone";
             this._tbPhone.Size = new System.Drawing.Size(325, 25);
             this._tbPhone.TabIndex = 3;
             // 
             // _tbEmail
             // 
-            this._tbEmail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this._tbEmail.BackColor = System.Drawing.Color.GhostWhite;
             this._tbEmail.BoxWidth = 325;
             this._tbEmail.ForeColor = System.Drawing.Color.Black;
-            this._tbEmail.Location = new System.Drawing.Point(106, 163);
+            this._tbEmail.Location = new System.Drawing.Point(89, 173);
             this._tbEmail.Name = "_tbEmail";
             this._tbEmail.Size = new System.Drawing.Size(325, 25);
             this._tbEmail.TabIndex = 4;
@@ -127,7 +119,7 @@ namespace TransferLogger.Ui.Forms.Instructor
             // 
             this._lEmail.AutoSize = true;
             this._lEmail.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lEmail.Location = new System.Drawing.Point(21, 166);
+            this._lEmail.Location = new System.Drawing.Point(21, 176);
             this._lEmail.Name = "_lEmail";
             this._lEmail.Size = new System.Drawing.Size(42, 17);
             this._lEmail.TabIndex = 26;
@@ -137,7 +129,7 @@ namespace TransferLogger.Ui.Forms.Instructor
             // 
             this._lMiddle.AutoSize = true;
             this._lMiddle.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lMiddle.Location = new System.Drawing.Point(21, 60);
+            this._lMiddle.Location = new System.Drawing.Point(21, 62);
             this._lMiddle.Name = "_lMiddle";
             this._lMiddle.Size = new System.Drawing.Size(52, 17);
             this._lMiddle.TabIndex = 27;
@@ -145,12 +137,10 @@ namespace TransferLogger.Ui.Forms.Instructor
             // 
             // _tbMiddle
             // 
-            this._tbMiddle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this._tbMiddle.BackColor = System.Drawing.Color.GhostWhite;
             this._tbMiddle.BoxWidth = 325;
             this._tbMiddle.ForeColor = System.Drawing.Color.Black;
-            this._tbMiddle.Location = new System.Drawing.Point(106, 57);
+            this._tbMiddle.Location = new System.Drawing.Point(89, 59);
             this._tbMiddle.Name = "_tbMiddle";
             this._tbMiddle.Size = new System.Drawing.Size(325, 25);
             this._tbMiddle.TabIndex = 1;
@@ -166,7 +156,7 @@ namespace TransferLogger.Ui.Forms.Instructor
             this._btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnOk.ForeColor = System.Drawing.Color.Black;
             this._btnOk.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            this._btnOk.Location = new System.Drawing.Point(356, 241);
+            this._btnOk.Location = new System.Drawing.Point(339, 240);
             this._btnOk.Name = "_btnOk";
             this._btnOk.Size = new System.Drawing.Size(75, 29);
             this._btnOk.TabIndex = 28;
@@ -185,7 +175,7 @@ namespace TransferLogger.Ui.Forms.Instructor
             this._btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnCancel.ForeColor = System.Drawing.Color.Black;
             this._btnCancel.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            this._btnCancel.Location = new System.Drawing.Point(268, 241);
+            this._btnCancel.Location = new System.Drawing.Point(251, 240);
             this._btnCancel.Name = "_btnCancel";
             this._btnCancel.Size = new System.Drawing.Size(82, 29);
             this._btnCancel.TabIndex = 29;
@@ -198,7 +188,7 @@ namespace TransferLogger.Ui.Forms.Instructor
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(454, 281);
+            this.ClientSize = new System.Drawing.Size(444, 281);
             this.Controls.Add(this._btnCancel);
             this.Controls.Add(this._btnOk);
             this.Controls.Add(this._tbMiddle);
@@ -213,7 +203,7 @@ namespace TransferLogger.Ui.Forms.Instructor
             this.Controls.Add(this._lName);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(470, 320);
+            this.MinimumSize = new System.Drawing.Size(460, 320);
             this.Name = "InstructorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "New Instructor";

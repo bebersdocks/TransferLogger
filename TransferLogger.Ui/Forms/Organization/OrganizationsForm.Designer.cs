@@ -105,7 +105,7 @@ namespace TransferLogger.Ui.Forms.Organization
             this._btnSelectCountry.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnSelectCountry.ForeColor = System.Drawing.Color.Black;
             this._btnSelectCountry.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            this._btnSelectCountry.Location = new System.Drawing.Point(797, 17);
+            this._btnSelectCountry.Location = new System.Drawing.Point(787, 17);
             this._btnSelectCountry.MaximumSize = new System.Drawing.Size(0, 23);
             this._btnSelectCountry.MinimumSize = new System.Drawing.Size(0, 23);
             this._btnSelectCountry.Name = "_btnSelectCountry";
@@ -120,7 +120,7 @@ namespace TransferLogger.Ui.Forms.Organization
             this._cbCountries.BackColor = System.Drawing.Color.GhostWhite;
             this._cbCountries.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._cbCountries.FormattingEnabled = true;
-            this._cbCountries.Location = new System.Drawing.Point(506, 17);
+            this._cbCountries.Location = new System.Drawing.Point(496, 17);
             this._cbCountries.Name = "_cbCountries";
             this._cbCountries.Size = new System.Drawing.Size(285, 23);
             this._cbCountries.TabIndex = 2;
@@ -140,7 +140,7 @@ namespace TransferLogger.Ui.Forms.Organization
             this._cbOrganizationTypes.BackColor = System.Drawing.Color.GhostWhite;
             this._cbOrganizationTypes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._cbOrganizationTypes.FormattingEnabled = true;
-            this._cbOrganizationTypes.Location = new System.Drawing.Point(81, 54);
+            this._cbOrganizationTypes.Location = new System.Drawing.Point(71, 55);
             this._cbOrganizationTypes.Name = "_cbOrganizationTypes";
             this._cbOrganizationTypes.Size = new System.Drawing.Size(325, 23);
             this._cbOrganizationTypes.TabIndex = 1;
@@ -149,7 +149,7 @@ namespace TransferLogger.Ui.Forms.Organization
             // 
             this._lOrganizationType.AutoSize = true;
             this._lOrganizationType.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lOrganizationType.Location = new System.Drawing.Point(19, 55);
+            this._lOrganizationType.Location = new System.Drawing.Point(19, 56);
             this._lOrganizationType.Name = "_lOrganizationType";
             this._lOrganizationType.Size = new System.Drawing.Size(38, 17);
             this._lOrganizationType.TabIndex = 14;
@@ -171,7 +171,7 @@ namespace TransferLogger.Ui.Forms.Organization
             this._tbSearchName.BoxWidth = 325;
             this._tbSearchName.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._tbSearchName.ForeColor = System.Drawing.Color.Black;
-            this._tbSearchName.Location = new System.Drawing.Point(81, 17);
+            this._tbSearchName.Location = new System.Drawing.Point(71, 17);
             this._tbSearchName.Name = "_tbSearchName";
             this._tbSearchName.Size = new System.Drawing.Size(325, 23);
             this._tbSearchName.TabIndex = 0;
@@ -307,7 +307,7 @@ namespace TransferLogger.Ui.Forms.Organization
             this._grid.Size = new System.Drawing.Size(1069, 506);
             this._grid.TabIndex = 7;
             // 
-            // OrganizationId
+            // Id
             // 
             this.Id.DataPropertyName = "Id";
             this.Id.FillWeight = 50F;

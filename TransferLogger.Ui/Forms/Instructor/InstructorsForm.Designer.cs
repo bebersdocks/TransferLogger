@@ -91,7 +91,7 @@ namespace TransferLogger.Ui.Forms.Instructor
             // 
             this._lEmail.AutoSize = true;
             this._lEmail.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lEmail.Location = new System.Drawing.Point(445, 19);
+            this._lEmail.Location = new System.Drawing.Point(436, 18);
             this._lEmail.Name = "_lEmail";
             this._lEmail.Size = new System.Drawing.Size(42, 17);
             this._lEmail.TabIndex = 12;
@@ -102,7 +102,7 @@ namespace TransferLogger.Ui.Forms.Instructor
             this._tbEmail.BackColor = System.Drawing.Color.GhostWhite;
             this._tbEmail.BoxWidth = 325;
             this._tbEmail.ForeColor = System.Drawing.Color.Black;
-            this._tbEmail.Location = new System.Drawing.Point(506, 17);
+            this._tbEmail.Location = new System.Drawing.Point(484, 17);
             this._tbEmail.Name = "_tbEmail";
             this._tbEmail.Size = new System.Drawing.Size(325, 23);
             this._tbEmail.TabIndex = 1;
@@ -122,7 +122,7 @@ namespace TransferLogger.Ui.Forms.Instructor
             this._tbSearchName.BackColor = System.Drawing.Color.GhostWhite;
             this._tbSearchName.BoxWidth = 325;
             this._tbSearchName.ForeColor = System.Drawing.Color.Black;
-            this._tbSearchName.Location = new System.Drawing.Point(81, 17);
+            this._tbSearchName.Location = new System.Drawing.Point(71, 17);
             this._tbSearchName.Name = "_tbSearchName";
             this._tbSearchName.Size = new System.Drawing.Size(325, 23);
             this._tbSearchName.TabIndex = 0;
@@ -256,7 +256,7 @@ namespace TransferLogger.Ui.Forms.Instructor
             this._grid.Size = new System.Drawing.Size(1069, 549);
             this._grid.TabIndex = 0;
             // 
-            // InstructorId
+            // Id
             // 
             this.Id.DataPropertyName = "Id";
             this.Id.HeaderText = "ID";

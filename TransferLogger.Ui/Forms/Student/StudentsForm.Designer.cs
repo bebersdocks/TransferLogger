@@ -93,7 +93,7 @@ namespace TransferLogger.Ui.Forms.Student
             // 
             this._lRef.AutoSize = true;
             this._lRef.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lRef.Location = new System.Drawing.Point(445, 19);
+            this._lRef.Location = new System.Drawing.Point(434, 18);
             this._lRef.Name = "_lRef";
             this._lRef.Size = new System.Drawing.Size(69, 17);
             this._lRef.TabIndex = 12;
@@ -104,7 +104,7 @@ namespace TransferLogger.Ui.Forms.Student
             this._tbRef.BackColor = System.Drawing.Color.GhostWhite;
             this._tbRef.BoxWidth = 325;
             this._tbRef.ForeColor = System.Drawing.Color.Black;
-            this._tbRef.Location = new System.Drawing.Point(530, 17);
+            this._tbRef.Location = new System.Drawing.Point(509, 17);
             this._tbRef.Name = "_tbRef";
             this._tbRef.Size = new System.Drawing.Size(325, 23);
             this._tbRef.TabIndex = 1;
@@ -124,7 +124,7 @@ namespace TransferLogger.Ui.Forms.Student
             this._tbSearchName.BackColor = System.Drawing.Color.GhostWhite;
             this._tbSearchName.BoxWidth = 325;
             this._tbSearchName.ForeColor = System.Drawing.Color.Black;
-            this._tbSearchName.Location = new System.Drawing.Point(81, 17);
+            this._tbSearchName.Location = new System.Drawing.Point(71, 17);
             this._tbSearchName.Name = "_tbSearchName";
             this._tbSearchName.Size = new System.Drawing.Size(325, 23);
             this._tbSearchName.TabIndex = 0;
@@ -260,7 +260,7 @@ namespace TransferLogger.Ui.Forms.Student
             this._grid.Size = new System.Drawing.Size(1069, 549);
             this._grid.TabIndex = 0;
             // 
-            // StudentId
+            // Id
             // 
             this.Id.DataPropertyName = "Id";
             this.Id.HeaderText = "ID";
