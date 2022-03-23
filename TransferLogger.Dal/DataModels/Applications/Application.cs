@@ -19,6 +19,7 @@ namespace TransferLogger.Dal.DataModels.Applications
         [Column, NotNull]      public int               StudentId         { get; set; }
         [Column, NotNull]      public int               OrganizationId    { get; set; }
         [Column, NotNull]      public DateTime          CreatedAt         { get; set; }
+        [Column, Nullable]     public DateTime          UpdatedAt         { get; set; }
         [Column, Nullable]     public DateTime?         SubmittedAt       { get; set; }
 
         #region Associations 

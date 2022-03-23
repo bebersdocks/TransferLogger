@@ -6,7 +6,7 @@ using Serilog;
 using TransferLogger.BusinessLogic.Settings;
 using TransferLogger.BusinessLogic.Utils;
 using TransferLogger.Dal;
-using TransferLogger.Ui.Forms.Tranfser;
+using TransferLogger.Ui.Forms.Applications;
 
 namespace TransferLogger.Ui
 {

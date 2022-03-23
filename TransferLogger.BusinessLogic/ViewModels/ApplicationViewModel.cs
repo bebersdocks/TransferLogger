@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 using TransferLogger.BusinessLogic.Intefaces;
@@ -9,13 +10,13 @@ namespace TransferLogger.BusinessLogic.ViewModels
 {
     public class ApplicationViewModel : IIdentifiable
     {
-        public int       Id           { get; set; }
-        public string    Status       { get; set; }
-        public string    Student      { get; set; }
-        public string    Organization { get; set; }
-        public int       CoursesCount { get; set; }
-        public DateTime  CreatedAt    { get; set; }
-        public DateTime? SubmittedAt  { get; set; }
+        public int                   Id           { get; set; }
+        public string                Status       { get; set; }
+        public string                Student      { get; set; }
+        public string                Organization { get; set; }
+        public DateTime              CreatedAt    { get; set; }
+        public DateTime              UpdatedAt    { get; set; }
+        public DateTime?             SubmittedAt  { get; set; }
 
         public ApplicationViewModel() {}
 
@@ -25,7 +26,6 @@ namespace TransferLogger.BusinessLogic.ViewModels
             Status       = app.ApplicationStatus.ToString();
             Student      = student.DisplayString;
             Organization = organization.Name;
-            CoursesCount = app.Courses.Count();
             CreatedAt    = app.CreatedAt;
             SubmittedAt  = app.SubmittedAt;
         }

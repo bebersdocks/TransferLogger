@@ -71,6 +71,7 @@ CREATE TABLE Application (
 	StudentId INT NOT NULL,
 	OrganizationId INT NOT NULL,
 	CreatedAt DATETIME NOT NULL,
+	UpdatedAt DATETIME NULL,
 	SubmittedAt DATETIME NULL
 );
 

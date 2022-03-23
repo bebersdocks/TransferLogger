@@ -4,15 +4,15 @@ using System.Windows.Forms;
 
 using TransferLogger.BusinessLogic.ViewModels;
 using TransferLogger.Dal;
-using TransferLogger.Ui.Forms.Course;
-using TransferLogger.Ui.Forms.Instructor;
-using TransferLogger.Ui.Forms.Organization;
-using TransferLogger.Ui.Forms.Program;
-using TransferLogger.Ui.Forms.Student;
+using TransferLogger.Ui.Forms.Courses;
+using TransferLogger.Ui.Forms.Instructors;
+using TransferLogger.Ui.Forms.Organizations;
+using TransferLogger.Ui.Forms.Programs;
+using TransferLogger.Ui.Forms.Students;
 
 using static TransferLogger.Ui.Utils.FormUtils;
 
-namespace TransferLogger.Ui.Forms.Tranfser
+namespace TransferLogger.Ui.Forms.Applications
 {
     public partial class ApplicationsForm : Form
     {
@@ -33,7 +33,7 @@ namespace TransferLogger.Ui.Forms.Tranfser
             apps.Add(new ApplicationViewModel() { Id = 5, Status = "Processed", CreatedAt = DateTime.Today });
             apps.Add(new ApplicationViewModel() { Id = 6, Status = "Processed", Student = "Arseniy Mak" });
 
-            _grid.DataSource = apps;
+            _gridApps.DataSource = apps;
         }
 
         private void SetEvents()
