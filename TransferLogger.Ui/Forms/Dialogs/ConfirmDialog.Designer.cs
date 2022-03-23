@@ -98,7 +98,7 @@
             this.MinimumSize = new System.Drawing.Size(420, 165);
             this.Name = "ConfirmDialog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Confirm";
+            this.Text = "Confirmation";
             this.ResumeLayout(false);
             this.PerformLayout();
 

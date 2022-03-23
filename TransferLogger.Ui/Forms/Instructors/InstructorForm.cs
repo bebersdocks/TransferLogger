@@ -3,11 +3,10 @@ using System.Linq;
 using System.Net.Mail;
 using System.Windows.Forms;
 
-using LinqToDB;
-
 using TransferLogger.Dal;
 using TransferLogger.Dal.DataModels;
 using TransferLogger.Ui.Forms.Dialogs;
+using TransferLogger.Ui.Utils;
 
 namespace TransferLogger.Ui.Forms.Instructors
 {
@@ -90,16 +89,12 @@ namespace TransferLogger.Ui.Forms.Instructors
             _instructor.Phone   = _tbPhone.Text;
             _instructor.Email   = _tbEmail.Text;
 
-            using var dc = new Dc();
+            if (FormUtils.TryInsertOrReplace(_instructor, _instructor.InstructorId))
+            {
+                DialogResult = DialogResult.OK;
 
-            if (_instructor.InstructorId == 0)
-                dc.InsertWithIdentity(_instructor);
-            else
-                dc.Update(_instructor);
-
-            DialogResult = DialogResult.OK;
-
-            Close();
+                Close();
+            }
         }
     }
 }

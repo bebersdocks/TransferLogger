@@ -1,8 +1,14 @@
 ﻿using System;
 using System.Windows.Forms;
 
+using LinqToDB;
+
+using Serilog;
+
 using TransferLogger.BusinessLogic.Intefaces;
+using TransferLogger.Dal;
 using TransferLogger.Ui.Controls;
+using TransferLogger.Ui.Forms.Dialogs;
 
 namespace TransferLogger.Ui.Utils
 {
@@ -43,6 +49,29 @@ namespace TransferLogger.Ui.Utils
                 {
                     grid.SelectRow(grid.Rows.Count - 1);
                 }
+            }
+        }
+
+        public static bool TryInsertOrReplace<T>(T entity, int id = 0) where T : notnull
+        {
+            try
+            {
+                using var dc = new Dc();
+
+                if (id == 0)
+                    dc.InsertWithIdentity(entity);
+                else
+                    dc.Update(entity);
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, "failed");
+
+                ErrorDialog.Show(ex.Message, "Database Error");
+                
+                return false;
             }
         }
     }

@@ -9,6 +9,7 @@ using TransferLogger.Dal;
 using TransferLogger.Dal.Definitions;
 using TransferLogger.Ui.Controls;
 using TransferLogger.Ui.Forms.Dialogs;
+using TransferLogger.Ui.Utils;
 
 using Lookup = TransferLogger.BusinessLogic.Lookup;
 
@@ -103,16 +104,12 @@ namespace TransferLogger.Ui.Forms.Programs
             _program.Cycle          = (Cycle)_cbCycle.SelectedValue;
             _program.Year           = (int)_numericYear.Value;
 
-            using var dc = new Dc();
+            if (FormUtils.TryInsertOrReplace(_program, _program.ProgramId))
+            {
+                DialogResult = DialogResult.OK;
 
-            if (_program.ProgramId == 0)
-                dc.InsertWithIdentity(_program);
-            else
-                dc.Update(_program);
-
-            DialogResult = DialogResult.OK;
-
-            Close();
+                Close();
+            }
         }
     }
 }

@@ -11,6 +11,7 @@ using TransferLogger.Dal.DataModels;
 using TransferLogger.Dal.Definitions;
 using TransferLogger.Ui.Controls;
 using TransferLogger.Ui.Forms.Dialogs;
+using TransferLogger.Ui.Utils;
 
 using Lookup = TransferLogger.BusinessLogic.Lookup;
 
@@ -159,16 +160,12 @@ namespace TransferLogger.Ui.Forms.Courses
             _course.Credits        = Convert.ToInt32(_numericCredits.Value);
             _course.WeeklyHours    = Convert.ToInt32(_numericWeeklyHours.Value);
 
-            using var dc = new Dc();
+            if (FormUtils.TryInsertOrReplace(_course, _course.CourseId))
+            {
+                DialogResult = DialogResult.OK;
 
-            if (_course.CourseId == 0)
-                dc.InsertWithIdentity(_course);
-            else
-                dc.Update(_course);
-
-            DialogResult = DialogResult.OK;
-
-            Close();
+                Close();
+            }
         }
 
         private void _btnCancel_Click(object? sender, EventArgs e)

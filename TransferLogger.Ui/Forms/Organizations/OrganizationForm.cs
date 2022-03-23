@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
-using LinqToDB;
-
 using TransferLogger.BusinessLogic.Utils;
 using TransferLogger.Dal;
 using TransferLogger.Dal.DataModels;
 using TransferLogger.Dal.Definitions;
 using TransferLogger.Ui.Controls;
 using TransferLogger.Ui.Forms.Dialogs;
+using TransferLogger.Ui.Utils;
 
 using Lookup = TransferLogger.BusinessLogic.Lookup;
 
@@ -105,16 +104,12 @@ namespace TransferLogger.Ui.Forms.Organizations
             _organization.Country          = (Country)_cbCountries.SelectedValue;
             _organization.Url              = _tbUrl.Text;
 
-            using var dc = new Dc();
+            if (FormUtils.TryInsertOrReplace(_organization, _organization.OrganizationId))
+            {
+                DialogResult = DialogResult.OK;
 
-            if (_organization.OrganizationId == 0)
-                dc.InsertWithIdentity(_organization);
-            else
-                dc.Update(_organization);
-
-            DialogResult = DialogResult.OK;
-
-            Close();
+                Close();
+            }
         }
     }
 }

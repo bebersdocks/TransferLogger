@@ -2,10 +2,9 @@
 using System.Linq;
 using System.Windows.Forms;
 
-using LinqToDB;
-
 using TransferLogger.Dal;
 using TransferLogger.Ui.Forms.Dialogs;
+using TransferLogger.Ui.Utils;
 
 namespace TransferLogger.Ui.Forms.Students
 {
@@ -85,16 +84,12 @@ namespace TransferLogger.Ui.Forms.Students
             _student.Phone      = _tbPhone.Text;
             _student.Email      = _tbEmail.Text;
 
-            using var dc = new Dc();
+            if (FormUtils.TryInsertOrReplace(_student, _student.StudentId))
+            {
+                DialogResult = DialogResult.OK;
 
-            if (_student.StudentId == 0)
-                dc.InsertWithIdentity(_student);
-            else
-                dc.Update(_student);
-
-            DialogResult = DialogResult.OK;
-
-            Close();
+                Close();
+            }
         }
     }
 }

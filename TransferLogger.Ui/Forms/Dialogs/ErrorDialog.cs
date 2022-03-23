@@ -3,24 +3,24 @@ using System.Windows.Forms;
 
 namespace TransferLogger.Ui.Forms.Dialogs
 {
-    public partial class MessageDialog : Form
+    public partial class ErrorDialog : Form
     {
-        public MessageDialog(string message, string title)
+        public ErrorDialog(string message, string title)
         {
             InitializeComponent();
 
-            _tbMessage.Text = $"  {message}";
+            _tbError.Text = message;
 
             Text = title;
 
             SetEvents();
         }
 
-        public static void Show(string message, string title = "Validation Error")
+        public static void Show(string message, string title = "Error")
         {
-            using var messageDlg = new MessageDialog(message, title);
+            using var errorDlg = new ErrorDialog(message, title);
 
-            messageDlg.ShowDialog();
+            errorDlg.ShowDialog();
         }
 
         private void SetEvents()
