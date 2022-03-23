@@ -1,6 +1,6 @@
 ﻿using LinqToDB.Mapping;
 
-namespace TransferLogger.Dal.DataModels.Transfer
+namespace TransferLogger.Dal.DataModels.Applications
 {
     public enum CourseStatus
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using LinqToDB;
 
 using TransferLogger.Dal.DataModels;
-using TransferLogger.Dal.DataModels.Transfer;
+using TransferLogger.Dal.DataModels.Applications;
 using TranfserLogger.Dal.Utils;
 
 namespace TransferLogger.Dal

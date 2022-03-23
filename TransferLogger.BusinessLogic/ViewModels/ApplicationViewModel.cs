@@ -3,7 +3,7 @@ using System.Linq;
 
 using TransferLogger.BusinessLogic.Intefaces;
 using TransferLogger.Dal.DataModels;
-using TransferLogger.Dal.DataModels.Transfer;
+using TransferLogger.Dal.DataModels.Applications;
 
 namespace TransferLogger.BusinessLogic.ViewModels
 {
