@@ -15,6 +15,7 @@ CREATE TABLE Organization (
 );
 
 ALTER TABLE Organization ADD CONSTRAINT PK_Organization PRIMARY KEY (OrganizationId);
+ALTER TABLE Organization ADD CONSTRAINT UC_Organization UNIQUE (OrganizationType, Name, Country); 
 
 CREATE TABLE Program (
 	ProgramId INT IDENTITY(1,1) NOT NULL,
@@ -26,6 +27,7 @@ CREATE TABLE Program (
 
 ALTER TABLE Program ADD CONSTRAINT PK_Program PRIMARY KEY (ProgramId);
 ALTER TABLE Program ADD CONSTRAINT FK_ProgramOrganization FOREIGN KEY (OrganizationId) REFERENCES Organization(OrganizationId);
+ALTER TABLE Program ADD CONSTRAINT UC_Program UNIQUE (OrganizationId, Name, Cycle, Year); 
 
 CREATE TABLE Course (
 	CourseId INT IDENTITY(1,1) NOT NULL,
@@ -40,6 +42,7 @@ CREATE TABLE Course (
 
 ALTER TABLE Course ADD CONSTRAINT PK_Course PRIMARY KEY (CourseId);
 ALTER TABLE Course ADD CONSTRAINT FK_CourseOrganization FOREIGN KEY (OrganizationId) REFERENCES Organization(OrganizationId);
+ALTER TABLE Course ADD CONSTRAINT UC_Course UNIQUE (CourseCode, ProgramId); 
 
 CREATE TABLE Student (
 	StudentId INT IDENTITY(1,1) NOT NULL,
@@ -59,11 +62,12 @@ CREATE TABLE Instructor (
 	Name NVARCHAR(30) NOT NULL,
 	Middle NVARCHAR(30) NULL,
 	Surname NVARCHAR(100) NOT NULL,
-	Phone NVARCHAR(15) NULL,
+	Phone NVARCHAR(60) NULL,
 	Email NVARCHAR(100) NOT NULL
 );
 
 ALTER TABLE Instructor ADD CONSTRAINT PK_Instructor PRIMARY KEY (InstructorId);
+ALTER TABLE Instructor ADD CONSTRAINT UC_Instructor UNIQUE (Name, Surname, Email);
 
 CREATE TABLE Application (
 	ApplicationId INT IDENTITY(1,1) NOT NULL,
@@ -112,6 +116,8 @@ CREATE TABLE EmailLog (
 	ApplicationId INT NOT NULL,
 	Address NVARCHAR(100) NOT NULL,
 	Recipient NVARCHAR(100) NOT NULL,
+	Subject NVARCHAR(80) NULL,
+	Body NVARCHAR(300) NULL,
 	CreatedAt DATETIME NULL,
 	CompletedAt DATETIME NULL
 );
