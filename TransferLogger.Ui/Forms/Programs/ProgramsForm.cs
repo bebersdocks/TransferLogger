@@ -42,22 +42,7 @@ namespace TransferLogger.Ui.Forms.Programs
             if (_cbCycles.Items.Count == 0)
                 _cbCycles.FillLookups<Cycle>();
 
-            using var dc = new Dc();
-
-            var query = dc.Programs.AsQueryable();
-
-            if (!string.IsNullOrEmpty(_tbSearchName.Text))
-                query = query.Where(p => p.Name.Contains(_tbSearchName.Text, StringComparison.OrdinalIgnoreCase));
-
-            if (_cbOrganizations.SelectedValue != null)
-                query = query.Where(p => p.OrganizationId == (int)_cbOrganizations.SelectedValue);
-
-            if (_cbCycles.SelectedValue != null)
-                query = query.Where(p => p.Cycle == (Cycle)_cbCycles.SelectedValue);
-
-            _grid.DataSource = query
-                .Select(p => new ProgramViewModel(p, p.Organization))
-                .ToList();
+            _grid.DataSource = ProgramViewModel.GetList(_tbSearchName.Text, _cbOrganizations.SelectedValue, _cbCycles.SelectedValue);
         }
 
         private void SetEvents()

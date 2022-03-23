@@ -42,27 +42,9 @@ namespace TransferLogger.Ui.Forms.Courses
                 _cbOrganizations.FillLookups<Lookup>(_organizations);
 
             if (_cbCycles.Items.Count == 0)
-                _cbCycles.FillLookups<Dal.Definitions.Cycle>();
+                _cbCycles.FillLookups<Cycle>();
 
-            using var dc = new Dc();
-
-            var query = dc.Courses.AsQueryable();
-
-            if (!string.IsNullOrEmpty(_tbSearchName.Text))
-                query = query.Where(c => $"{c.CourseCode} - {c.Name}".Contains(_tbSearchName.Text, StringComparison.OrdinalIgnoreCase));
-
-            if (_cbOrganizations.SelectedValue != null)
-                query = query.Where(c => c.OrganizationId == (int)_cbOrganizations.SelectedValue);
-
-            if (_cbCycles.SelectedValue != null)
-                query = query.Where(c => c.Program.Cycle == (Cycle)_cbCycles.SelectedValue);
-
-            if (_cbPrograms.SelectedValue != null)
-                query = query.Where(c => c.ProgramId == (int)_cbPrograms.SelectedValue);
-
-            _grid.DataSource = query
-                .Select(c => new CourseViewModel(c, c.Program, c.Organization))
-                .ToList();
+            _grid.DataSource = CourseViewModel.GetList(_tbSearchName.Text, _cbOrganizations.SelectedValue, _cbCycles.SelectedValue, _cbPrograms.SelectedValue);
         }
 
         private void SetPrograms()

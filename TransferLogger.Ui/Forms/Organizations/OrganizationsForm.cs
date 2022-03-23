@@ -40,22 +40,7 @@ namespace TransferLogger.Ui.Forms.Organizations
             if (_cbCountries.Items.Count == 0)
                 _cbCountries.FillLookups<Country>(_countries);
 
-            using var dc = new Dc();
-
-            var query = dc.Organizations.AsQueryable();
-
-            if (!string.IsNullOrEmpty(_tbSearchName.Text))
-                query = query.Where(o => o.Name.Contains(_tbSearchName.Text, StringComparison.OrdinalIgnoreCase) || o.Description.Contains(_tbSearchName.Text, StringComparison.OrdinalIgnoreCase));
-
-            if (_cbOrganizationTypes.SelectedValue != null)
-                query = query.Where(o => o.OrganizationType == (OrganizationType)_cbOrganizationTypes.SelectedValue);
-
-            if (_cbCountries.SelectedValue != null)
-                query = query.Where(o => o.Country == (Country)_cbCountries.SelectedValue);
-
-            _grid.DataSource = query
-                .Select(o => new OrganizationViewModel(o))
-                .ToList();
+            _grid.DataSource =  OrganizationViewModel.GetList(_tbSearchName.Text, _cbOrganizationTypes.SelectedValue, _cbCountries.SelectedValue);
         }
 
         private void SetEvents()

@@ -1,4 +1,9 @@
-﻿using TransferLogger.BusinessLogic.Intefaces;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
+using TransferLogger.BusinessLogic.Intefaces;
+using TransferLogger.Dal;
 using TransferLogger.Dal.DataModels;
 
 namespace TransferLogger.BusinessLogic.ViewModels
@@ -22,6 +27,23 @@ namespace TransferLogger.BusinessLogic.ViewModels
             DocumentNo = student.DocumentNo;
             Phone      = student.Phone;
             Email      = student.Email;
+        }
+
+        public static List<StudentViewModel> GetList(string searchName = "", string reference = "")
+        {
+            using var dc = new Dc();
+
+            var query = dc.Students.AsQueryable();
+
+            if (!string.IsNullOrEmpty(searchName))
+                query = query.Where(s => $"{s.Name} {s.Middle} {s.Surname}".Contains(searchName, StringComparison.OrdinalIgnoreCase));
+
+            if (!string.IsNullOrEmpty(reference))
+                query = query.Where(s => s.Reference.Contains(reference, StringComparison.OrdinalIgnoreCase));
+
+            return query
+                .Select(s => new StudentViewModel(s))
+                .ToList();
         }
     }
 }

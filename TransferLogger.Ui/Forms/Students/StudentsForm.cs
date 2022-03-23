@@ -23,19 +23,7 @@ namespace TransferLogger.Ui.Forms.Students
 
         private void SetData()
         {
-            using var dc = new Dc();
-
-            var query = dc.Students.AsQueryable();
-
-            if (!string.IsNullOrEmpty(_tbSearchName.Text))
-                query = query.Where(s => $"{s.Name} {s.Middle} {s.Surname}".Contains(_tbSearchName.Text, StringComparison.OrdinalIgnoreCase));
-
-            if (!string.IsNullOrEmpty(_tbRef.Text))
-                query = query.Where(s => s.Reference.Contains(_tbRef.Text, StringComparison.OrdinalIgnoreCase));
-
-            _grid.DataSource = query
-                .Select(s => new StudentViewModel(s))
-                .ToList();
+            _grid.DataSource = StudentViewModel.GetList(_tbSearchName.Text, _tbRef.Text);
         }
 
         private void SetEvents()

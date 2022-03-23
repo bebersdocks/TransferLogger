@@ -1,6 +1,12 @@
-﻿using TransferLogger.BusinessLogic.Intefaces;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
+using TransferLogger.BusinessLogic.Intefaces;
 using TransferLogger.BusinessLogic.Utils;
+using TransferLogger.Dal;
 using TransferLogger.Dal.DataModels;
+using TransferLogger.Dal.Definitions;
 
 namespace TransferLogger.BusinessLogic.ViewModels
 {
@@ -21,6 +27,35 @@ namespace TransferLogger.BusinessLogic.ViewModels
             Organization = organization.DisplayString;
             Cycle        = program.Cycle.GetDisplayName();
             Year         = program.Year;
+        }
+
+        public static List<ProgramViewModel> GetList(string searchName = "", int organizationId = 0, Cycle? cycle = null)
+        {
+            using var dc = new Dc();
+
+            var query = dc.Programs.AsQueryable();
+
+            if (!string.IsNullOrEmpty(searchName))
+                query = query.Where(p => p.Name.Contains(searchName, StringComparison.OrdinalIgnoreCase));
+
+            if (organizationId > 0)
+                query = query.Where(p => p.OrganizationId == organizationId);
+
+            if (cycle.HasValue)
+                query = query.Where(p => p.Cycle == cycle.Value);
+
+            return query
+                .Select(p => new ProgramViewModel(p, p.Organization))
+                .ToList();
+        }
+
+        public static List<ProgramViewModel> GetList(string searchName, object organizationIdObj, object cycleObj)
+        {
+            Cycle? cycle = null;
+            if (cycleObj != null)
+                cycle = (Cycle)cycleObj;
+
+            return GetList(searchName, Convert.ToInt32(organizationIdObj), cycle);
         }
     }
 }

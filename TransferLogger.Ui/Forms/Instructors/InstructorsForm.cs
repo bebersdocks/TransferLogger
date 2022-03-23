@@ -23,19 +23,7 @@ namespace TransferLogger.Ui.Forms.Instructors
 
         private void SetData()
         {
-            using var dc = new Dc();
-
-            var query = dc.Instructors.AsQueryable();
-
-            if (!string.IsNullOrEmpty(_tbSearchName.Text))
-                query = query.Where(i => i.Name.Contains(_tbSearchName.Text, StringComparison.OrdinalIgnoreCase) || i.Surname.Contains(_tbSearchName.Text, StringComparison.OrdinalIgnoreCase));
-
-            if (!string.IsNullOrEmpty(_tbEmail.Text))
-                query = query.Where(i => i.Email.Contains(_tbEmail.Text, StringComparison.OrdinalIgnoreCase));
-
-            _grid.DataSource = query
-                .Select(i => new InstructorViewModel(i))
-                .ToList();
+            _grid.DataSource = InstructorViewModel.GetList(_tbSearchName.Text, _tbEmail.Text);
         }
 
         private void SetEvents()
