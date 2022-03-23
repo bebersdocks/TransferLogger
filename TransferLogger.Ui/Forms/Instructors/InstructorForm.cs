@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Net.Mail;
 using System.Windows.Forms;
 
 using LinqToDB;
@@ -72,6 +73,13 @@ namespace TransferLogger.Ui.Forms.Instructors
             if (string.IsNullOrEmpty(_tbEmail.Text))
             {
                 MessageDialog.Show($"Email can't be empty.");
+                _tbEmail.Focus();
+                return;
+            }
+
+            if (!MailAddress.TryCreate(_tbEmail.Text, out var _))
+            {
+                MessageDialog.Show($"Email is not valid.");
                 _tbEmail.Focus();
                 return;
             }
