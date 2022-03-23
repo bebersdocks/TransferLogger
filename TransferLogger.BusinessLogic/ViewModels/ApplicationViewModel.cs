@@ -10,13 +10,13 @@ namespace TransferLogger.BusinessLogic.ViewModels
 {
     public class ApplicationViewModel : IIdentifiable
     {
-        public int                   Id           { get; set; }
-        public string                Status       { get; set; }
-        public string                Student      { get; set; }
-        public string                Organization { get; set; }
-        public DateTime              CreatedAt    { get; set; }
-        public DateTime              UpdatedAt    { get; set; }
-        public DateTime?             SubmittedAt  { get; set; }
+        public int       Id           { get; set; }
+        public string    Status       { get; set; }
+        public string    Student      { get; set; }
+        public string    Organization { get; set; }
+        public DateTime  CreatedAt    { get; set; }
+        public DateTime? UpdatedAt    { get; set; }
+        public DateTime? CompletedAt  { get; set; }
 
         public ApplicationViewModel() {}
 
@@ -27,7 +27,8 @@ namespace TransferLogger.BusinessLogic.ViewModels
             Student      = student.DisplayString;
             Organization = organization.Name;
             CreatedAt    = app.CreatedAt;
-            SubmittedAt  = app.SubmittedAt;
+            UpdatedAt    = app.UpdatedAt;
+            CompletedAt  = app.CompletedAt;
         }
     }
 }

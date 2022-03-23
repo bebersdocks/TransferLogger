@@ -72,7 +72,7 @@ CREATE TABLE Application (
 	OrganizationId INT NOT NULL,
 	CreatedAt DATETIME NOT NULL,
 	UpdatedAt DATETIME NULL,
-	SubmittedAt DATETIME NULL
+	CompletedAt DATETIME NULL
 );
 
 ALTER TABLE Application ADD CONSTRAINT PK_Application PRIMARY KEY (ApplicationId);
@@ -105,6 +105,19 @@ CREATE TABLE DbInfo (
 	Version decimal(6,3) NOT NULL,
 	UpdatedAt DATETIME NOT NULL
 );
+
+CREATE TABLE EmailLog (
+	EmailLogId INT IDENTITY(1,1) NOT NULL,
+	EmailStatus INT NOT NULL,
+	ApplicationId INT NOT NULL,
+	Address NVARCHAR(100) NOT NULL,
+	Recipient NVARCHAR(100) NOT NULL,
+	CreatedAt DATETIME NULL,
+	CompletedAt DATETIME NULL
+);
+
+ALTER TABLE EmailLog ADD CONSTRAINT PK_EmailLog PRIMARY KEY (EmailLogId);
+ALTER TABLE EmailLog ADD CONSTRAINT FK_EmailLogApplication FOREIGN KEY (ApplicationId) REFERENCES Application(ApplicationId);
 
 INSERT INTO DbInfo (Version, UpdatedAt) VALUES (@Version,  GETUTCDATE());
 
