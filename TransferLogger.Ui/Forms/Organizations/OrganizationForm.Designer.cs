@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace TransferLogger.Ui.Forms.Organization
+namespace TransferLogger.Ui.Forms.Organizations
 {
     partial class OrganizationForm
     {

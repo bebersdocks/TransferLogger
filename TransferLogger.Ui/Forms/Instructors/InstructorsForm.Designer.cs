@@ -1,8 +1,8 @@
 ﻿using System.Windows.Forms;
 
-namespace TransferLogger.Ui.Forms.Student
+namespace TransferLogger.Ui.Forms.Instructors
 {
-    partial class StudentsForm
+    partial class InstructorsForm
     {
         /// <summary>
         /// Required designer variable.
@@ -33,21 +33,19 @@ namespace TransferLogger.Ui.Forms.Student
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StudentsForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InstructorsForm));
             this._splitContainer = new TransferLogger.Ui.Controls.TlSplitContainer();
-            this._lRef = new System.Windows.Forms.Label();
-            this._tbRef = new TransferLogger.Ui.Controls.TlTextBox();
+            this._lEmail = new System.Windows.Forms.Label();
+            this._tbEmail = new TransferLogger.Ui.Controls.TlTextBox();
             this._lSearchName = new System.Windows.Forms.Label();
             this._tbSearchName = new TransferLogger.Ui.Controls.TlTextBox();
             this._btnDelete = new TransferLogger.Ui.Controls.TlButton();
             this._btnEdit = new TransferLogger.Ui.Controls.TlButton();
             this._btnAdd = new TransferLogger.Ui.Controls.TlButton();
-            this._lStudents = new System.Windows.Forms.Label();
+            this._lInstructor = new System.Windows.Forms.Label();
             this._grid = new TransferLogger.Ui.Controls.TlDataGrid();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StudentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Reference = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DocumentNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InstructorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this._splitContainer)).BeginInit();
@@ -72,8 +70,8 @@ namespace TransferLogger.Ui.Forms.Student
             // _splitContainer.Panel1
             // 
             this._splitContainer.Panel1.BackColor = System.Drawing.Color.White;
-            this._splitContainer.Panel1.Controls.Add(this._lRef);
-            this._splitContainer.Panel1.Controls.Add(this._tbRef);
+            this._splitContainer.Panel1.Controls.Add(this._lEmail);
+            this._splitContainer.Panel1.Controls.Add(this._tbEmail);
             this._splitContainer.Panel1.Controls.Add(this._lSearchName);
             this._splitContainer.Panel1.Controls.Add(this._tbSearchName);
             this._splitContainer.Panel1.Controls.Add(this._btnDelete);
@@ -83,31 +81,31 @@ namespace TransferLogger.Ui.Forms.Student
             // _splitContainer.Panel2
             // 
             this._splitContainer.Panel2.BackColor = System.Drawing.Color.White;
-            this._splitContainer.Panel2.Controls.Add(this._lStudents);
+            this._splitContainer.Panel2.Controls.Add(this._lInstructor);
             this._splitContainer.Panel2.Controls.Add(this._grid);
             this._splitContainer.Size = new System.Drawing.Size(1069, 636);
             this._splitContainer.SplitterDistance = 56;
             this._splitContainer.TabIndex = 5;
             // 
-            // _lRef
+            // _lEmail
             // 
-            this._lRef.AutoSize = true;
-            this._lRef.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lRef.Location = new System.Drawing.Point(434, 18);
-            this._lRef.Name = "_lRef";
-            this._lRef.Size = new System.Drawing.Size(69, 17);
-            this._lRef.TabIndex = 12;
-            this._lRef.Text = "Reference:";
+            this._lEmail.AutoSize = true;
+            this._lEmail.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this._lEmail.Location = new System.Drawing.Point(436, 18);
+            this._lEmail.Name = "_lEmail";
+            this._lEmail.Size = new System.Drawing.Size(42, 17);
+            this._lEmail.TabIndex = 12;
+            this._lEmail.Text = "Email:";
             // 
-            // _tbRef
+            // _tbEmail
             // 
-            this._tbRef.BackColor = System.Drawing.Color.GhostWhite;
-            this._tbRef.BoxWidth = 325;
-            this._tbRef.ForeColor = System.Drawing.Color.Black;
-            this._tbRef.Location = new System.Drawing.Point(509, 17);
-            this._tbRef.Name = "_tbRef";
-            this._tbRef.Size = new System.Drawing.Size(325, 23);
-            this._tbRef.TabIndex = 1;
+            this._tbEmail.BackColor = System.Drawing.Color.GhostWhite;
+            this._tbEmail.BoxWidth = 325;
+            this._tbEmail.ForeColor = System.Drawing.Color.Black;
+            this._tbEmail.Location = new System.Drawing.Point(484, 17);
+            this._tbEmail.Name = "_tbEmail";
+            this._tbEmail.Size = new System.Drawing.Size(325, 23);
+            this._tbEmail.TabIndex = 1;
             // 
             // _lSearchName
             // 
@@ -192,17 +190,17 @@ namespace TransferLogger.Ui.Forms.Student
             this._btnAdd.TabStop = false;
             this._btnAdd.UseVisualStyleBackColor = false;
             // 
-            // _lStudents
+            // _lInstructor
             // 
-            this._lStudents.BackColor = System.Drawing.Color.AliceBlue;
-            this._lStudents.Dock = System.Windows.Forms.DockStyle.Top;
-            this._lStudents.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lStudents.Location = new System.Drawing.Point(0, 0);
-            this._lStudents.Name = "_lStudents";
-            this._lStudents.Size = new System.Drawing.Size(1065, 20);
-            this._lStudents.TabIndex = 2;
-            this._lStudents.Text = "Students";
-            this._lStudents.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this._lInstructor.BackColor = System.Drawing.Color.AliceBlue;
+            this._lInstructor.Dock = System.Windows.Forms.DockStyle.Top;
+            this._lInstructor.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this._lInstructor.Location = new System.Drawing.Point(0, 0);
+            this._lInstructor.Name = "_lInstructor";
+            this._lInstructor.Size = new System.Drawing.Size(1065, 20);
+            this._lInstructor.TabIndex = 2;
+            this._lInstructor.Text = "Instructors";
+            this._lInstructor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // _grid
             // 
@@ -228,9 +226,7 @@ namespace TransferLogger.Ui.Forms.Student
             this._grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this._grid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
-            this.StudentName,
-            this.Reference,
-            this.DocumentNo,
+            this.InstructorName,
             this.Phone,
             this.Email});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -268,31 +264,14 @@ namespace TransferLogger.Ui.Forms.Student
             this.Id.Name = "Id";
             this.Id.ReadOnly = true;
             // 
-            // StudentName
+            // InstructorName
             // 
-            this.StudentName.DataPropertyName = "Name";
-            this.StudentName.FillWeight = 110F;
-            this.StudentName.HeaderText = "Name";
-            this.StudentName.MinimumWidth = 250;
-            this.StudentName.Name = "StudentName";
-            this.StudentName.ReadOnly = true;
-            // 
-            // Reference
-            // 
-            this.Reference.DataPropertyName = "Reference";
-            this.Reference.HeaderText = "Reference";
-            this.Reference.MinimumWidth = 100;
-            this.Reference.Name = "Reference";
-            this.Reference.ReadOnly = true;
-            // 
-            // DocumentNo
-            // 
-            this.DocumentNo.DataPropertyName = "DocumentNo";
-            this.DocumentNo.FillWeight = 95F;
-            this.DocumentNo.HeaderText = "Document";
-            this.DocumentNo.MinimumWidth = 60;
-            this.DocumentNo.Name = "DocumentNo";
-            this.DocumentNo.ReadOnly = true;
+            this.InstructorName.DataPropertyName = "Name";
+            this.InstructorName.FillWeight = 110F;
+            this.InstructorName.HeaderText = "Name";
+            this.InstructorName.MinimumWidth = 250;
+            this.InstructorName.Name = "InstructorName";
+            this.InstructorName.ReadOnly = true;
             // 
             // Phone
             // 
@@ -311,7 +290,7 @@ namespace TransferLogger.Ui.Forms.Student
             this.Email.Name = "Email";
             this.Email.ReadOnly = true;
             // 
-            // StudentsForm
+            // InstructorsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -319,9 +298,9 @@ namespace TransferLogger.Ui.Forms.Student
             this.Controls.Add(this._splitContainer);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1085, 675);
-            this.Name = "StudentsForm";
+            this.Name = "InstructorsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Students";
+            this.Text = "Instructors";
             this._splitContainer.Panel1.ResumeLayout(false);
             this._splitContainer.Panel1.PerformLayout();
             this._splitContainer.Panel2.ResumeLayout(false);
@@ -335,18 +314,16 @@ namespace TransferLogger.Ui.Forms.Student
         #endregion
         private Controls.TlDataGrid _grid;
         private Controls.TlSplitContainer _splitContainer;
-        private Label _lStudents;
+        private Label _lInstructor;
         private Controls.TlButton _btnAdd;
         private Controls.TlButton _btnDelete;
         private Controls.TlButton _btnEdit;
         private Controls.TlTextBox _tbSearchName;
         private Label _lSearchName;
-        private Label _lRef;
-        private Controls.TlTextBox _tbRef;
+        private Label _lEmail;
+        private Controls.TlTextBox _tbEmail;
         private DataGridViewTextBoxColumn Id;
-        private DataGridViewTextBoxColumn StudentName;
-        private DataGridViewTextBoxColumn Reference;
-        private DataGridViewTextBoxColumn DocumentNo;
+        private DataGridViewTextBoxColumn InstructorName;
         private DataGridViewTextBoxColumn Phone;
         private DataGridViewTextBoxColumn Email;
     }

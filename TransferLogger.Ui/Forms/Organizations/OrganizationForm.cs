@@ -14,12 +14,12 @@ using TransferLogger.Ui.Forms.Dialogs;
 
 using Lookup = TransferLogger.BusinessLogic.Lookup;
 
-namespace TransferLogger.Ui.Forms.Organization
+namespace TransferLogger.Ui.Forms.Organizations
 {
     public partial class OrganizationForm : Form
     {
-        private readonly Dal.DataModels.Organization _organization;
-        private readonly List<Lookup>                _countries;
+        private readonly Organization _organization;
+        private readonly List<Lookup> _countries;
 
         public OrganizationForm(int organizationId = 0)
         {

@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace TransferLogger.Ui.Forms.Course
+namespace TransferLogger.Ui.Forms.Courses
 {
     partial class CourseForm
     {

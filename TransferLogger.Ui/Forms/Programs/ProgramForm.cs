@@ -12,7 +12,7 @@ using TransferLogger.Ui.Forms.Dialogs;
 
 using Lookup = TransferLogger.BusinessLogic.Lookup;
 
-namespace TransferLogger.Ui.Forms.Program
+namespace TransferLogger.Ui.Forms.Programs
 {
     public partial class ProgramForm : Form
     {

@@ -1,8 +1,8 @@
 ﻿using System.Windows.Forms;
 
-namespace TransferLogger.Ui.Forms.Course
+namespace TransferLogger.Ui.Forms.Organizations
 {
-    partial class CoursesForm
+    partial class OrganizationsForm
     {
         /// <summary>
         /// Required designer variable.
@@ -33,28 +33,26 @@ namespace TransferLogger.Ui.Forms.Course
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CoursesForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrganizationsForm));
             this._splitContainer = new TransferLogger.Ui.Controls.TlSplitContainer();
-            this._cbCycles = new TransferLogger.Ui.Controls.TlDropDownList();
-            this._lCycle = new System.Windows.Forms.Label();
-            this._btnSelectOrganization = new TransferLogger.Ui.Controls.TlButton();
-            this._cbOrganizations = new TransferLogger.Ui.Controls.TlDropDownList();
-            this._lOrganization = new System.Windows.Forms.Label();
-            this._btnSelectProgram = new TransferLogger.Ui.Controls.TlButton();
-            this._cbPrograms = new TransferLogger.Ui.Controls.TlDropDownList();
+            this._btnSelectCountry = new TransferLogger.Ui.Controls.TlButton();
+            this._cbCountries = new TransferLogger.Ui.Controls.TlDropDownList();
             this._lCountry = new System.Windows.Forms.Label();
+            this._cbOrganizationTypes = new TransferLogger.Ui.Controls.TlDropDownList();
+            this._lOrganizationType = new System.Windows.Forms.Label();
             this._lSearchName = new System.Windows.Forms.Label();
             this._tbSearchName = new TransferLogger.Ui.Controls.TlTextBox();
             this._btnDelete = new TransferLogger.Ui.Controls.TlButton();
             this._btnEdit = new TransferLogger.Ui.Controls.TlButton();
             this._btnAdd = new TransferLogger.Ui.Controls.TlButton();
-            this._lCourses = new System.Windows.Forms.Label();
+            this._lOrganizations = new System.Windows.Forms.Label();
             this._grid = new TransferLogger.Ui.Controls.TlDataGrid();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CourseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Organization = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Program = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cycle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OrganizationName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Country = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.URL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this._splitContainer)).BeginInit();
             this._splitContainer.Panel1.SuspendLayout();
             this._splitContainer.Panel2.SuspendLayout();
@@ -77,14 +75,11 @@ namespace TransferLogger.Ui.Forms.Course
             // _splitContainer.Panel1
             // 
             this._splitContainer.Panel1.BackColor = System.Drawing.Color.White;
-            this._splitContainer.Panel1.Controls.Add(this._cbCycles);
-            this._splitContainer.Panel1.Controls.Add(this._lCycle);
-            this._splitContainer.Panel1.Controls.Add(this._btnSelectOrganization);
-            this._splitContainer.Panel1.Controls.Add(this._cbOrganizations);
-            this._splitContainer.Panel1.Controls.Add(this._lOrganization);
-            this._splitContainer.Panel1.Controls.Add(this._btnSelectProgram);
-            this._splitContainer.Panel1.Controls.Add(this._cbPrograms);
+            this._splitContainer.Panel1.Controls.Add(this._btnSelectCountry);
+            this._splitContainer.Panel1.Controls.Add(this._cbCountries);
             this._splitContainer.Panel1.Controls.Add(this._lCountry);
+            this._splitContainer.Panel1.Controls.Add(this._cbOrganizationTypes);
+            this._splitContainer.Panel1.Controls.Add(this._lOrganizationType);
             this._splitContainer.Panel1.Controls.Add(this._lSearchName);
             this._splitContainer.Panel1.Controls.Add(this._tbSearchName);
             this._splitContainer.Panel1.Controls.Add(this._btnDelete);
@@ -94,117 +89,77 @@ namespace TransferLogger.Ui.Forms.Course
             // _splitContainer.Panel2
             // 
             this._splitContainer.Panel2.BackColor = System.Drawing.Color.White;
-            this._splitContainer.Panel2.Controls.Add(this._lCourses);
+            this._splitContainer.Panel2.Controls.Add(this._lOrganizations);
             this._splitContainer.Panel2.Controls.Add(this._grid);
-            this._splitContainer.Size = new System.Drawing.Size(1119, 641);
+            this._splitContainer.Size = new System.Drawing.Size(1069, 636);
             this._splitContainer.SplitterDistance = 99;
             this._splitContainer.TabIndex = 5;
             // 
-            // _cbCycles
+            // _btnSelectCountry
             // 
-            this._cbCycles.BackColor = System.Drawing.Color.GhostWhite;
-            this._cbCycles.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this._cbCycles.FormattingEnabled = true;
-            this._cbCycles.Location = new System.Drawing.Point(546, 17);
-            this._cbCycles.Name = "_cbCycles";
-            this._cbCycles.Size = new System.Drawing.Size(325, 23);
-            this._cbCycles.TabIndex = 26;
+            this._btnSelectCountry.AutoSize = true;
+            this._btnSelectCountry.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
+            this._btnSelectCountry.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
+            this._btnSelectCountry.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
+            this._btnSelectCountry.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this._btnSelectCountry.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._btnSelectCountry.ForeColor = System.Drawing.Color.Black;
+            this._btnSelectCountry.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this._btnSelectCountry.Location = new System.Drawing.Point(787, 17);
+            this._btnSelectCountry.MaximumSize = new System.Drawing.Size(0, 23);
+            this._btnSelectCountry.MinimumSize = new System.Drawing.Size(0, 23);
+            this._btnSelectCountry.Name = "_btnSelectCountry";
+            this._btnSelectCountry.Size = new System.Drawing.Size(28, 23);
+            this._btnSelectCountry.TabIndex = 3;
+            this._btnSelectCountry.TabStop = false;
+            this._btnSelectCountry.Text = "...";
+            this._btnSelectCountry.UseVisualStyleBackColor = false;
             // 
-            // _lCycle
+            // _cbCountries
             // 
-            this._lCycle.AutoSize = true;
-            this._lCycle.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lCycle.Location = new System.Drawing.Point(499, 18);
-            this._lCycle.Name = "_lCycle";
-            this._lCycle.Size = new System.Drawing.Size(41, 17);
-            this._lCycle.TabIndex = 25;
-            this._lCycle.Text = "Cycle:";
-            // 
-            // _btnSelectOrganization
-            // 
-            this._btnSelectOrganization.AutoSize = true;
-            this._btnSelectOrganization.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
-            this._btnSelectOrganization.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
-            this._btnSelectOrganization.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
-            this._btnSelectOrganization.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            this._btnSelectOrganization.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._btnSelectOrganization.ForeColor = System.Drawing.Color.Black;
-            this._btnSelectOrganization.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            this._btnSelectOrganization.Location = new System.Drawing.Point(408, 55);
-            this._btnSelectOrganization.MaximumSize = new System.Drawing.Size(0, 23);
-            this._btnSelectOrganization.MinimumSize = new System.Drawing.Size(0, 23);
-            this._btnSelectOrganization.Name = "_btnSelectOrganization";
-            this._btnSelectOrganization.Size = new System.Drawing.Size(28, 23);
-            this._btnSelectOrganization.TabIndex = 23;
-            this._btnSelectOrganization.TabStop = false;
-            this._btnSelectOrganization.Text = "...";
-            this._btnSelectOrganization.UseVisualStyleBackColor = false;
-            // 
-            // _cbOrganizations
-            // 
-            this._cbOrganizations.BackColor = System.Drawing.Color.GhostWhite;
-            this._cbOrganizations.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this._cbOrganizations.FormattingEnabled = true;
-            this._cbOrganizations.Location = new System.Drawing.Point(111, 55);
-            this._cbOrganizations.Name = "_cbOrganizations";
-            this._cbOrganizations.Size = new System.Drawing.Size(291, 23);
-            this._cbOrganizations.TabIndex = 22;
-            // 
-            // _lOrganization
-            // 
-            this._lOrganization.AutoSize = true;
-            this._lOrganization.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lOrganization.Location = new System.Drawing.Point(19, 57);
-            this._lOrganization.Name = "_lOrganization";
-            this._lOrganization.Size = new System.Drawing.Size(86, 17);
-            this._lOrganization.TabIndex = 24;
-            this._lOrganization.Text = "Organization:";
-            // 
-            // _btnSelectProgram
-            // 
-            this._btnSelectProgram.AutoSize = true;
-            this._btnSelectProgram.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
-            this._btnSelectProgram.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
-            this._btnSelectProgram.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
-            this._btnSelectProgram.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            this._btnSelectProgram.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._btnSelectProgram.ForeColor = System.Drawing.Color.Black;
-            this._btnSelectProgram.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            this._btnSelectProgram.Location = new System.Drawing.Point(843, 55);
-            this._btnSelectProgram.MaximumSize = new System.Drawing.Size(0, 23);
-            this._btnSelectProgram.MinimumSize = new System.Drawing.Size(0, 23);
-            this._btnSelectProgram.Name = "_btnSelectProgram";
-            this._btnSelectProgram.Size = new System.Drawing.Size(28, 23);
-            this._btnSelectProgram.TabIndex = 3;
-            this._btnSelectProgram.TabStop = false;
-            this._btnSelectProgram.Text = "...";
-            this._btnSelectProgram.UseVisualStyleBackColor = false;
-            // 
-            // _cbPrograms
-            // 
-            this._cbPrograms.BackColor = System.Drawing.Color.GhostWhite;
-            this._cbPrograms.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this._cbPrograms.FormattingEnabled = true;
-            this._cbPrograms.Location = new System.Drawing.Point(546, 55);
-            this._cbPrograms.Name = "_cbPrograms";
-            this._cbPrograms.Size = new System.Drawing.Size(291, 23);
-            this._cbPrograms.TabIndex = 2;
+            this._cbCountries.BackColor = System.Drawing.Color.GhostWhite;
+            this._cbCountries.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this._cbCountries.FormattingEnabled = true;
+            this._cbCountries.Location = new System.Drawing.Point(496, 17);
+            this._cbCountries.Name = "_cbCountries";
+            this._cbCountries.Size = new System.Drawing.Size(285, 23);
+            this._cbCountries.TabIndex = 2;
             // 
             // _lCountry
             // 
             this._lCountry.AutoSize = true;
             this._lCountry.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lCountry.Location = new System.Drawing.Point(478, 57);
+            this._lCountry.Location = new System.Drawing.Point(434, 18);
             this._lCountry.Name = "_lCountry";
-            this._lCountry.Size = new System.Drawing.Size(62, 17);
+            this._lCountry.Size = new System.Drawing.Size(56, 17);
             this._lCountry.TabIndex = 21;
-            this._lCountry.Text = "Program:";
+            this._lCountry.Text = "Country:";
+            // 
+            // _cbOrganizationTypes
+            // 
+            this._cbOrganizationTypes.BackColor = System.Drawing.Color.GhostWhite;
+            this._cbOrganizationTypes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this._cbOrganizationTypes.FormattingEnabled = true;
+            this._cbOrganizationTypes.Location = new System.Drawing.Point(71, 55);
+            this._cbOrganizationTypes.Name = "_cbOrganizationTypes";
+            this._cbOrganizationTypes.Size = new System.Drawing.Size(325, 23);
+            this._cbOrganizationTypes.TabIndex = 1;
+            // 
+            // _lOrganizationType
+            // 
+            this._lOrganizationType.AutoSize = true;
+            this._lOrganizationType.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this._lOrganizationType.Location = new System.Drawing.Point(27, 56);
+            this._lOrganizationType.Name = "_lOrganizationType";
+            this._lOrganizationType.Size = new System.Drawing.Size(38, 17);
+            this._lOrganizationType.TabIndex = 14;
+            this._lOrganizationType.Text = "Type:";
             // 
             // _lSearchName
             // 
             this._lSearchName.AutoSize = true;
             this._lSearchName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lSearchName.Location = new System.Drawing.Point(59, 19);
+            this._lSearchName.Location = new System.Drawing.Point(19, 19);
             this._lSearchName.Name = "_lSearchName";
             this._lSearchName.Size = new System.Drawing.Size(46, 17);
             this._lSearchName.TabIndex = 10;
@@ -216,7 +171,7 @@ namespace TransferLogger.Ui.Forms.Course
             this._tbSearchName.BoxWidth = 325;
             this._tbSearchName.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._tbSearchName.ForeColor = System.Drawing.Color.Black;
-            this._tbSearchName.Location = new System.Drawing.Point(111, 17);
+            this._tbSearchName.Location = new System.Drawing.Point(71, 17);
             this._tbSearchName.Name = "_tbSearchName";
             this._tbSearchName.Size = new System.Drawing.Size(325, 23);
             this._tbSearchName.TabIndex = 0;
@@ -235,7 +190,7 @@ namespace TransferLogger.Ui.Forms.Course
             this._btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnDelete.ForeColor = System.Drawing.Color.Black;
             this._btnDelete.HoverColor = System.Drawing.Color.Transparent;
-            this._btnDelete.Location = new System.Drawing.Point(1063, 12);
+            this._btnDelete.Location = new System.Drawing.Point(1013, 12);
             this._btnDelete.Name = "_btnDelete";
             this._btnDelete.Size = new System.Drawing.Size(32, 32);
             this._btnDelete.TabIndex = 6;
@@ -256,7 +211,7 @@ namespace TransferLogger.Ui.Forms.Course
             this._btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnEdit.ForeColor = System.Drawing.Color.Black;
             this._btnEdit.HoverColor = System.Drawing.Color.Transparent;
-            this._btnEdit.Location = new System.Drawing.Point(1025, 12);
+            this._btnEdit.Location = new System.Drawing.Point(975, 12);
             this._btnEdit.Name = "_btnEdit";
             this._btnEdit.Size = new System.Drawing.Size(32, 32);
             this._btnEdit.TabIndex = 5;
@@ -277,24 +232,24 @@ namespace TransferLogger.Ui.Forms.Course
             this._btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnAdd.ForeColor = System.Drawing.Color.Black;
             this._btnAdd.HoverColor = System.Drawing.Color.Transparent;
-            this._btnAdd.Location = new System.Drawing.Point(987, 12);
+            this._btnAdd.Location = new System.Drawing.Point(937, 12);
             this._btnAdd.Name = "_btnAdd";
             this._btnAdd.Size = new System.Drawing.Size(32, 32);
             this._btnAdd.TabIndex = 4;
             this._btnAdd.TabStop = false;
             this._btnAdd.UseVisualStyleBackColor = false;
             // 
-            // _lCourses
+            // _lOrganizations
             // 
-            this._lCourses.BackColor = System.Drawing.Color.AliceBlue;
-            this._lCourses.Dock = System.Windows.Forms.DockStyle.Top;
-            this._lCourses.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lCourses.Location = new System.Drawing.Point(0, 0);
-            this._lCourses.Name = "_lCourses";
-            this._lCourses.Size = new System.Drawing.Size(1115, 20);
-            this._lCourses.TabIndex = 2;
-            this._lCourses.Text = "Courses";
-            this._lCourses.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this._lOrganizations.BackColor = System.Drawing.Color.AliceBlue;
+            this._lOrganizations.Dock = System.Windows.Forms.DockStyle.Top;
+            this._lOrganizations.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this._lOrganizations.Location = new System.Drawing.Point(0, 0);
+            this._lOrganizations.Name = "_lOrganizations";
+            this._lOrganizations.Size = new System.Drawing.Size(1065, 20);
+            this._lOrganizations.TabIndex = 2;
+            this._lOrganizations.Text = "Organizations";
+            this._lOrganizations.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // _grid
             // 
@@ -320,10 +275,11 @@ namespace TransferLogger.Ui.Forms.Course
             this._grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this._grid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
-            this.CourseName,
-            this.Organization,
-            this.Program,
-            this.Cycle});
+            this.OrganizationName,
+            this.Description,
+            this.Type,
+            this.Country,
+            this.URL});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -348,7 +304,7 @@ namespace TransferLogger.Ui.Forms.Course
             this._grid.RowHeadersVisible = false;
             this._grid.RowTemplate.Height = 25;
             this._grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this._grid.Size = new System.Drawing.Size(1119, 511);
+            this._grid.Size = new System.Drawing.Size(1069, 506);
             this._grid.TabIndex = 7;
             // 
             // Id
@@ -360,53 +316,59 @@ namespace TransferLogger.Ui.Forms.Course
             this.Id.Name = "Id";
             this.Id.ReadOnly = true;
             // 
-            // CourseName
+            // OrganizationName
             // 
-            this.CourseName.DataPropertyName = "Name";
-            this.CourseName.FillWeight = 115F;
-            this.CourseName.HeaderText = "Name";
-            this.CourseName.MinimumWidth = 265;
-            this.CourseName.Name = "CourseName";
-            this.CourseName.ReadOnly = true;
+            this.OrganizationName.DataPropertyName = "Name";
+            this.OrganizationName.FillWeight = 110F;
+            this.OrganizationName.HeaderText = "Name";
+            this.OrganizationName.MinimumWidth = 110;
+            this.OrganizationName.Name = "OrganizationName";
+            this.OrganizationName.ReadOnly = true;
             // 
-            // Organization
+            // Description
             // 
-            this.Organization.DataPropertyName = "Organization";
-            this.Organization.FillWeight = 110F;
-            this.Organization.HeaderText = "Organization";
-            this.Organization.MinimumWidth = 125;
-            this.Organization.Name = "Organization";
-            this.Organization.ReadOnly = true;
+            this.Description.DataPropertyName = "Description";
+            this.Description.FillWeight = 130F;
+            this.Description.HeaderText = "Description";
+            this.Description.MinimumWidth = 180;
+            this.Description.Name = "Description";
+            this.Description.ReadOnly = true;
             // 
-            // Program
+            // Type
             // 
-            this.Program.DataPropertyName = "Program";
-            this.Program.FillWeight = 115F;
-            this.Program.HeaderText = "Program";
-            this.Program.MinimumWidth = 250;
-            this.Program.Name = "Program";
-            this.Program.ReadOnly = true;
+            this.Type.DataPropertyName = "Type";
+            this.Type.FillWeight = 74.31472F;
+            this.Type.HeaderText = "Type";
+            this.Type.Name = "Type";
+            this.Type.ReadOnly = true;
             // 
-            // Cycle
+            // Country
             // 
-            this.Cycle.DataPropertyName = "Cycle";
-            this.Cycle.FillWeight = 74.31472F;
-            this.Cycle.HeaderText = "Cycle";
-            this.Cycle.MinimumWidth = 40;
-            this.Cycle.Name = "Cycle";
-            this.Cycle.ReadOnly = true;
+            this.Country.DataPropertyName = "Country";
+            this.Country.FillWeight = 74.31472F;
+            this.Country.HeaderText = "Country";
+            this.Country.Name = "Country";
+            this.Country.ReadOnly = true;
             // 
-            // CoursesForm
+            // URL
+            // 
+            this.URL.DataPropertyName = "URL";
+            this.URL.FillWeight = 74.31472F;
+            this.URL.HeaderText = "URL";
+            this.URL.Name = "URL";
+            this.URL.ReadOnly = true;
+            // 
+            // OrganizationsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1119, 641);
+            this.ClientSize = new System.Drawing.Size(1069, 636);
             this.Controls.Add(this._splitContainer);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(1135, 680);
-            this.Name = "CoursesForm";
+            this.MinimumSize = new System.Drawing.Size(1085, 675);
+            this.Name = "OrganizationsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Courses";
+            this.Text = "Organizations";
             this._splitContainer.Panel1.ResumeLayout(false);
             this._splitContainer.Panel1.PerformLayout();
             this._splitContainer.Panel2.ResumeLayout(false);
@@ -420,24 +382,22 @@ namespace TransferLogger.Ui.Forms.Course
         #endregion
         private Controls.TlDataGrid _grid;
         private Controls.TlSplitContainer _splitContainer;
-        private Label _lCourses;
+        private Label _lOrganizations;
+        private DataGridViewTextBoxColumn Id;
+        private DataGridViewTextBoxColumn OrganizationName;
+        private DataGridViewTextBoxColumn Description;
+        private DataGridViewTextBoxColumn Type;
+        private DataGridViewTextBoxColumn Country;
+        private DataGridViewTextBoxColumn URL;
         private Controls.TlButton _btnAdd;
         private Controls.TlButton _btnDelete;
         private Controls.TlButton _btnEdit;
         private Controls.TlTextBox _tbSearchName;
         private Label _lSearchName;
+        private Label _lOrganizationType;
+        private Controls.TlDropDownList _cbOrganizationTypes;
         private Label _lCountry;
-        private Controls.TlDropDownList _cbPrograms;
-        private Controls.TlButton _btnSelectProgram;
-        private Controls.TlButton _btnSelectOrganization;
-        private Controls.TlDropDownList _cbOrganizations;
-        private Label _lOrganization;
-        private Controls.TlDropDownList _cbCycles;
-        private Label _lCycle;
-        private DataGridViewTextBoxColumn Id;
-        private DataGridViewTextBoxColumn CourseName;
-        private DataGridViewTextBoxColumn Organization;
-        private DataGridViewTextBoxColumn Program;
-        private DataGridViewTextBoxColumn Cycle;
+        private Controls.TlDropDownList _cbCountries;
+        private Controls.TlButton _btnSelectCountry;
     }
 }

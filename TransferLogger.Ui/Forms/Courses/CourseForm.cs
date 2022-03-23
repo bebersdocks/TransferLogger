@@ -7,18 +7,19 @@ using LinqToDB;
 
 using TransferLogger.BusinessLogic;
 using TransferLogger.Dal;
+using TransferLogger.Dal.DataModels;
 using TransferLogger.Dal.Definitions;
 using TransferLogger.Ui.Controls;
 using TransferLogger.Ui.Forms.Dialogs;
 
 using Lookup = TransferLogger.BusinessLogic.Lookup;
 
-namespace TransferLogger.Ui.Forms.Course
+namespace TransferLogger.Ui.Forms.Courses
 {
     public partial class CourseForm : Form
     {
-        private readonly Dal.DataModels.Course _course;
-        private readonly List<Lookup>          _organizations;
+        private readonly Course       _course;
+        private readonly List<Lookup> _organizations;
 
         public CourseForm(int courseId = 0)
         {

@@ -16,7 +16,7 @@ using TransferLogger.Ui.Utils;
 
 using Lookup = TransferLogger.BusinessLogic.Lookup;
 
-namespace TransferLogger.Ui.Forms.Organization
+namespace TransferLogger.Ui.Forms.Organizations
 {
     public partial class OrganizationsForm : Form
     {

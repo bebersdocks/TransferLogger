@@ -9,7 +9,7 @@ using TransferLogger.Dal;
 using TransferLogger.Ui.Forms.Dialogs;
 using TransferLogger.Ui.Utils;
 
-namespace TransferLogger.Ui.Forms.Student
+namespace TransferLogger.Ui.Forms.Students
 {
     public partial class StudentsForm : Form
     {

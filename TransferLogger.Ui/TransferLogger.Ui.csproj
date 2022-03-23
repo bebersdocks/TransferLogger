@@ -29,31 +29,31 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Compile Update="Forms\Course\CourseForm.cs">
+		<Compile Update="Forms\Courses\CourseForm.cs">
 			<SubType>Form</SubType>
 		</Compile>
-		<Compile Update="Forms\Course\CoursesForm.cs">
+		<Compile Update="Forms\Courses\CoursesForm.cs">
 			<SubType>Form</SubType>
 		</Compile>
 		<Compile Update="Forms\Dialogs\MessageDialog.cs">
 			<SubType>Form</SubType>
 		</Compile>
-		<Compile Update="Forms\Instructor\InstructorForm.cs">
+		<Compile Update="Forms\Instructors\InstructorForm.cs">
 			<SubType>Form</SubType>
 		</Compile>
-		<Compile Update="Forms\Instructor\InstructorsForm.cs">
+		<Compile Update="Forms\Instructors\InstructorsForm.cs">
 			<SubType>Form</SubType>
 		</Compile>
-		<Compile Update="Forms\Program\ProgramForm.cs">
+		<Compile Update="Forms\Programs\ProgramForm.cs">
 			<SubType>Form</SubType>
 		</Compile>
-		<Compile Update="Forms\Program\ProgramsForm.cs">
+		<Compile Update="Forms\Programs\ProgramsForm.cs">
 			<SubType>Form</SubType>
 		</Compile>
-		<Compile Update="Forms\Student\StudentForm.cs">
+		<Compile Update="Forms\Students\StudentForm.cs">
 			<SubType>Form</SubType>
 		</Compile>
-		<Compile Update="Forms\Student\StudentsForm.cs">
+		<Compile Update="Forms\Students\StudentsForm.cs">
 			<SubType>Form</SubType>
 		</Compile>
 		<Compile Update="Properties\Resources.Designer.cs">

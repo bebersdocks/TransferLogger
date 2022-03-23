@@ -5,13 +5,14 @@ using System.Windows.Forms;
 using LinqToDB;
 
 using TransferLogger.Dal;
+using TransferLogger.Dal.DataModels;
 using TransferLogger.Ui.Forms.Dialogs;
 
-namespace TransferLogger.Ui.Forms.Instructor
+namespace TransferLogger.Ui.Forms.Instructors
 {
     public partial class InstructorForm : Form
     {
-        private readonly Dal.DataModels.Instructor _instructor;
+        private readonly Instructor _instructor;
 
         public InstructorForm(int instructorId = 0)
         {

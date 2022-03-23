@@ -7,7 +7,7 @@ using LinqToDB;
 using TransferLogger.Dal;
 using TransferLogger.Ui.Forms.Dialogs;
 
-namespace TransferLogger.Ui.Forms.Student
+namespace TransferLogger.Ui.Forms.Students
 {
     public partial class StudentForm : Form
     {
