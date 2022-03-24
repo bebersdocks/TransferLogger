@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 
-namespace TranfserLogger.Dal.Utils
+namespace TransferLogger.Dal.Utils
 {
     public static class EmbeddedResources
     {
