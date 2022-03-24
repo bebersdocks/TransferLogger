@@ -16,6 +16,7 @@ namespace TransferLogger.Dal
         public ITable<Course>                   Courses                   => GetTable<Course>();
         public ITable<Instructor>               Instructors               => GetTable<Instructor>();
         public ITable<Student>                  Students                  => GetTable<Student>();
+        public ITable<ExcelLocation>            ExcelLocations            => GetTable<ExcelLocation>();
         public ITable<Application>              Applications              => GetTable<Application>();
         public ITable<ApplicationCourse>        ApplicationCourses        => GetTable<ApplicationCourse>();
         public ITable<ApplicationExcelLocation> ApplicationExcelLocations => GetTable<ApplicationExcelLocation>();
@@ -87,6 +88,7 @@ namespace TransferLogger.Dal
             createTable(Courses);
             createTable(Instructors);
             createTable(Students);
+            createTable(ExcelLocations);
             createTable(Applications);
             createTable(ApplicationCourses);
             createTable(ApplicationExcelLocations);

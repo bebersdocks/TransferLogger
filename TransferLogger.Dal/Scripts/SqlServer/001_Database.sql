@@ -69,6 +69,13 @@ CREATE TABLE Instructor (
 ALTER TABLE Instructor ADD CONSTRAINT PK_Instructor PRIMARY KEY (InstructorId);
 ALTER TABLE Instructor ADD CONSTRAINT UC_Instructor UNIQUE (Name, Surname, Email);
 
+CREATE TABLE ExcelLocation (
+	ExcelLocationId INT NOT NULL,
+	Path NVARCHAR(180) NOT NULL
+);
+
+ALTER TABLE ExcelLocation ADD CONSTRAINT PK_ExcelLocation PRIMARY KEY (ExcelLocationId);
+
 CREATE TABLE Application (
 	ApplicationId INT IDENTITY(1,1) NOT NULL,
 	ApplicationStatus INT NOT NULL,
@@ -100,10 +107,11 @@ ALTER TABLE ApplicationCourse ADD CONSTRAINT FK_ApplicationCourseInstructor FORE
 
 CREATE TABLE ApplicationExcelLocation (
 	ApplicationId INT NOT NULL,
-	Path NVARCHAR(180) NOT NULL
+	ExcelLocationId INT NOT NULL
 );
 
 ALTER TABLE ApplicationExcelLocation ADD CONSTRAINT FK_ApplicationExcelLocationApplication FOREIGN KEY (ApplicationId) REFERENCES Application(ApplicationId); 
+ALTER TABLE ApplicationExcelLocation ADD CONSTRAINT FK_ApplicationExcelLocationExcelLocation FOREIGN KEY (ExcelLocationId) REFERENCES ExcelLocation(ExcelLocationId); 
 
 CREATE TABLE DbInfo (
 	Version decimal(6,3) NOT NULL,
