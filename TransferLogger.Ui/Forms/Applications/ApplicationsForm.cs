@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-using TransferLogger.BusinessLogic.ViewModels;
-using TransferLogger.Dal;
+using TransferLogger.BusinessLogic;
+using TransferLogger.BusinessLogic.ViewModels.Applications;
+using TransferLogger.Dal.DataModels.Applications;
+using TransferLogger.Ui.Controls;
 using TransferLogger.Ui.Forms.Courses;
 using TransferLogger.Ui.Forms.Instructors;
 using TransferLogger.Ui.Forms.Organizations;
@@ -12,13 +14,20 @@ using TransferLogger.Ui.Forms.Students;
 
 using static TransferLogger.Ui.Utils.FormUtils;
 
+using Lookup = TransferLogger.BusinessLogic.Lookup;
+
 namespace TransferLogger.Ui.Forms.Applications
 {
     public partial class ApplicationsForm : Form
     {
+        private readonly List<Lookup> _organizations = LookupServices.GetOrganizations();
+
         public ApplicationsForm()
         {
             InitializeComponent();
+
+            _dtFrom.Value = DateTime.Now.AddYears(-3);
+            _dtTo.Value   = DateTime.Now;
 
             SetData();
             SetEvents();
@@ -26,14 +35,13 @@ namespace TransferLogger.Ui.Forms.Applications
 
         public void SetData()
         {
-            using var dc = new Dc();
+            if (_cbOrganizations.Items.Count == 0)
+                _cbOrganizations.FillLookups(_organizations);
 
-            var apps = new List<ApplicationViewModel>();
+            if (_cbStatuses.Items.Count == 0)
+                _cbStatuses.FillLookups<ApplicationStatus>();
 
-            apps.Add(new ApplicationViewModel() { Id = 5, Status = "Processed", CreatedAt = DateTime.Today });
-            apps.Add(new ApplicationViewModel() { Id = 6, Status = "Processed", Student = "Arseniy Mak" });
-
-            _gridApps.DataSource = apps;
+            _gridApps.DataSource = ApplicationViewModel.GetList(_tbSearchName.Text, _cbOrganizations.SelectedValue, _cbStatuses.SelectedValue, _dtFrom.Value, _dtTo.Value);
         }
 
         private void SetEvents()
@@ -43,6 +51,32 @@ namespace TransferLogger.Ui.Forms.Applications
             _miOrganizations.Click += (s, e) => ShowForm(() => new OrganizationsForm());
             _miPrograms.Click      += (s, e) => ShowForm(() => new ProgramsForm());
             _miStudents.Click      += (s, e) => ShowForm(() => new StudentsForm());
+
+            _tbSearchName.TextChanged             += (s, e) => SetData();
+            _cbOrganizations.SelectedValueChanged += (s, e) => SetData();
+            _cbStatuses.SelectedValueChanged      += (s, e) => SetData();
+
+            _btnSelectOrganization.Click += _btnSelectOrganization_Click;
+
+            _gridApps.SelectionChanged += _gridApps_SelectionChanged;
+        }
+
+        private void _btnSelectOrganization_Click(object? sender, EventArgs e)
+        {
+            using var form = new LookupSelectionForm("Select Organization", _organizations, _cbOrganizations.SelectedValue);
+
+            if (form.ShowDialog() == DialogResult.OK && form.SelectedValue.HasValue)
+            {
+                _cbOrganizations.SelectedValue = form.SelectedValue.Value;
+            }
+        }
+
+        private void _gridApps_SelectionChanged(object? sender, EventArgs e)
+        {
+            if (_gridApps.CurrentRow?.DataBoundItem is ApplicationViewModel viewModel)
+            {
+                _gridAppCourses.DataSource = viewModel.Courses;
+            }
         }
     }
 }

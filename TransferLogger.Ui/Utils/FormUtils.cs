@@ -52,16 +52,16 @@ namespace TransferLogger.Ui.Utils
             }
         }
 
-        public static bool TryInsertOrReplace<T>(T entity, int id = 0) where T : notnull
+        public static bool TryInsertOrReplace<T>(T obj, int id = 0) where T : notnull
         {
             try
             {
                 using var dc = new Dc();
 
                 if (id == 0)
-                    dc.InsertWithIdentity(entity);
+                    dc.InsertWithIdentity(obj);
                 else
-                    dc.Update(entity);
+                    dc.Update(obj);
 
                 return true;
             }
