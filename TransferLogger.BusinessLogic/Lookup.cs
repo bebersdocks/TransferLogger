@@ -20,6 +20,15 @@ namespace TransferLogger.BusinessLogic
 
     public static class LookupServices
     {
+        public static List<Lookup> GetOrganizations()
+        {
+            using var dc = new Dc();
+
+            return dc.Organizations
+                .Select(o => new Lookup(o.OrganizationId, o.DisplayString))
+                .ToList();
+        }
+
         public static List<Lookup> GetPrograms(int organizationId, Cycle? cycle)
         {
             if (organizationId > 0)

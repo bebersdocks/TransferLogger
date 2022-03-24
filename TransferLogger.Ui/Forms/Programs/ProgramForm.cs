@@ -3,22 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
-using LinqToDB;
-
+using TransferLogger.BusinessLogic;
 using TransferLogger.Dal;
 using TransferLogger.Dal.Definitions;
 using TransferLogger.Ui.Controls;
 using TransferLogger.Ui.Forms.Dialogs;
 using TransferLogger.Ui.Utils;
 
-using Lookup = TransferLogger.BusinessLogic.Lookup;
+using Lookup  = TransferLogger.BusinessLogic.Lookup;
 
 namespace TransferLogger.Ui.Forms.Programs
 {
     public partial class ProgramForm : Form
     {
         private readonly Dal.DataModels.Program _program;
-        private readonly List<Lookup>           _organizations;
+        private readonly List<Lookup>           _organizations = LookupServices.GetOrganizations();
 
         public ProgramForm(int programId = 0)
         {
@@ -27,9 +26,6 @@ namespace TransferLogger.Ui.Forms.Programs
             using var dc = new Dc();
 
             _program = dc.Programs.FirstOrDefault(p => p.ProgramId == programId) ?? new();
-            _organizations = dc.Organizations
-                .Select(o => new Lookup(o.OrganizationId, o.DisplayString))
-                .ToList();
 
             SetData();
             SetEvents();

@@ -5,6 +5,7 @@ using System.Windows.Forms;
 
 using LinqToDB;
 
+using TransferLogger.BusinessLogic;
 using TransferLogger.BusinessLogic.ViewModels;
 using TransferLogger.Dal;
 using TransferLogger.Dal.Definitions;
@@ -18,17 +19,11 @@ namespace TransferLogger.Ui.Forms.Programs
 {
     public partial class ProgramsForm : Form
     {
-        private readonly List<Lookup> _organizations;
+        private readonly List<Lookup> _organizations = LookupServices.GetOrganizations();
 
         public ProgramsForm()
         {
             InitializeComponent();
-
-            using var dc = new Dc();
-
-            _organizations = dc.Organizations
-                .Select(o => new Lookup(o.OrganizationId, o.DisplayString))
-                .ToList();
 
             SetData();
             SetEvents();

@@ -9,12 +9,12 @@ namespace TransferLogger.Ui.Forms
 {
     public partial class LookupSelectionForm : Form
     {
-        private readonly List<Lookup> _lookups;
+        private readonly IList<Lookup> _lookups;
 
         private int? _selectedValue;
         public int? SelectedValue => _selectedValue;
 
-        public LookupSelectionForm(string title, List<Lookup> lookups, object? selectedObj)
+        public LookupSelectionForm(string title, IList<Lookup> lookups, object? selectedObj)
         {
             InitializeComponent();
 

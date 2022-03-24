@@ -20,7 +20,7 @@ namespace TransferLogger.Ui.Forms.Courses
     public partial class CourseForm : Form
     {
         private readonly Course       _course;
-        private readonly List<Lookup> _organizations;
+        private readonly List<Lookup> _organizations = LookupServices.GetOrganizations();
 
         public CourseForm(int courseId = 0)
         {
@@ -31,10 +31,6 @@ namespace TransferLogger.Ui.Forms.Courses
             _course = dc.Courses
                 .LoadWith(c => c.Program)
                 .FirstOrDefault(c => c.CourseId == courseId) ?? new();
-
-            _organizations = dc.Organizations
-                .Select(o => new Lookup(o.OrganizationId, o.DisplayString))
-                .ToList();
 
             SetData();
             SetPrograms();
@@ -116,6 +112,7 @@ namespace TransferLogger.Ui.Forms.Courses
         private void _btnSelectProgram_Click(object? sender, EventArgs e)
         {
             var programs = LookupServices.GetPrograms(_cbOrganizations.SelectedValue, _cbCycles.SelectedValue);
+
             using var form = new LookupSelectionForm("Select Program", programs, _cbPrograms.SelectedValue);
             
             if (form.ShowDialog() == DialogResult.OK && form.SelectedValue.HasValue)
