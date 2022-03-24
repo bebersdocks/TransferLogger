@@ -13,7 +13,7 @@ namespace TransferLogger.Dal.DataModels
         [Column, NotNull]      public string Name       { get; set; }
         [Column, Nullable]     public string Middle     { get; set; }
         [Column, NotNull]      public string Surname    { get; set; }
-        [Column, NotNull]      public string DocumentNo { get; set; }
+        [Column, Nullable]     public string DocumentNo { get; set; }
         [Column, Nullable]     public string Phone      { get; set; }
         [Column, Nullable]     public string Email      { get; set; }
 

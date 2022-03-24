@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Linq;
+using System.Net.Mail;
 using System.Windows.Forms;
 
 using TransferLogger.Dal;
+using TransferLogger.Dal.DataModels;
 using TransferLogger.Ui.Forms.Dialogs;
 using TransferLogger.Ui.Utils;
 
@@ -10,7 +12,7 @@ namespace TransferLogger.Ui.Forms.Students
 {
     public partial class StudentForm : Form
     {
-        private readonly Dal.DataModels.Student _student;
+        private readonly Student _student;
 
         public StudentForm(int studentId = 0)
         {
@@ -69,10 +71,10 @@ namespace TransferLogger.Ui.Forms.Students
                 return;
             }
 
-            if (string.IsNullOrEmpty(_tbDocumentNo.Text))
+            if (!MailAddress.TryCreate(_tbEmail.Text, out var _))
             {
-                MessageDialog.Show($"Document number can't be empty.");
-                _tbDocumentNo.Focus();
+                MessageDialog.Show($"Email is not valid.");
+                _tbEmail.Focus();
                 return;
             }
 
