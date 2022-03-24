@@ -20,8 +20,6 @@ namespace TransferLogger.BusinessLogic.ViewModels
         public int    Credits      { get; set; }
         public int    WeeklyHours  { get; set; }
 
-        public CourseViewModel() {}
-
         public CourseViewModel(Course course, Program program, Organization organization)
         {
             Id           = course.CourseId;

@@ -19,8 +19,6 @@ namespace TransferLogger.BusinessLogic.ViewModels
         public string Country     { get; set; }
         public string Url         { get; set; }
 
-        public OrganizationViewModel() {}
-
         public OrganizationViewModel(Organization organization)
         {
             Id          = organization.OrganizationId;

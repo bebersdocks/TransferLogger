@@ -3,13 +3,15 @@ using System.Collections.Generic;
 
 using LinqToDB.Mapping;
 
+using TransferLogger.Dal.Utils;
+
 namespace TransferLogger.Dal.DataModels.Applications
 {
     public enum ApplicationStatus
     {
-        InProcess,
-        Canceled,
-        Completed
+        [StringValue("In Process")] InProcess = 0,
+        [StringValue("Canceled")]   Canceled  = 1,
+        [StringValue("Completed")]  Completed = 2
     }
 
     [Table]

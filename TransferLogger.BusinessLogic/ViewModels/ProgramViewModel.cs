@@ -18,8 +18,6 @@ namespace TransferLogger.BusinessLogic.ViewModels
         public string Cycle        { get; set; }
         public int    Year         { get; set; }
 
-        public ProgramViewModel() {}
-
         public ProgramViewModel(Program program, Organization organization)
         {
             Id           = program.ProgramId;

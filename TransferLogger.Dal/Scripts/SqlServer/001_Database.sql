@@ -88,7 +88,7 @@ CREATE TABLE ApplicationCourse (
 	CourseId INT NOT NULL,
 	MatchedCourseId INT NULL,
 	InstructorId INT NOT NULL,
-	Status INT NULL,
+	Status INT NOT NULL,
 	Comment NVARCHAR (300) NULL,
 	Grade NVARCHAR (8) NOT NULL
 );

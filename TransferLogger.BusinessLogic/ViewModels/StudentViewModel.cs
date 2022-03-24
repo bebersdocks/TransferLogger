@@ -17,8 +17,6 @@ namespace TransferLogger.BusinessLogic.ViewModels
         public string Phone      { get; set; }
         public string Email      { get; set; }
 
-        public StudentViewModel() {}
-
         public StudentViewModel(Student student)
         {
             Id         = student.StudentId;

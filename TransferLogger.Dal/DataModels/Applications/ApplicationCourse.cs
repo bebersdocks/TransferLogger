@@ -1,11 +1,14 @@
 ﻿using LinqToDB.Mapping;
 
+using TransferLogger.Dal.Utils;
+
 namespace TransferLogger.Dal.DataModels.Applications
 {
     public enum CourseStatus
     {
-        Matched    = 0,
-        NotMatched = 1,
+        [StringValue("Under Evaluation")] InProcess  = 0,
+        [StringValue("Matched")]          Matched    = 1,
+        [StringValue("Not Matched")]      NotMatched = 2
     }
 
     [Table]
@@ -15,7 +18,7 @@ namespace TransferLogger.Dal.DataModels.Applications
         [Column, NotNull]  public int           CourseId        { get; set; }
         [Column, Nullable] public int?          MatchedCourseId { get; set; }
         [Column, NotNull]  public int           InstructorId    { get; set; }
-        [Column, Nullable] public CourseStatus? Status          { get; set; }
+        [Column, Nullable] public CourseStatus  Status          { get; set; }
         [Column, Nullable] public string        Comment         { get; set; }
         [Column, NotNull]  public string        Grade           { get; set; }
 
@@ -26,6 +29,9 @@ namespace TransferLogger.Dal.DataModels.Applications
 
         [Association(ThisKey = nameof(CourseId), OtherKey = nameof(CourseId), Relationship = Relationship.ManyToOne, CanBeNull = false)]
         public Course Course { get; set; }
+
+        [Association(ThisKey = nameof(CourseId), OtherKey = nameof(CourseId), Relationship = Relationship.ManyToOne, CanBeNull = true)]
+        public Course MatchedCourse { get; set; }
 
         [Association(ThisKey = nameof(InstructorId), OtherKey = nameof(InstructorId), Relationship = Relationship.ManyToOne, CanBeNull = false)]
         public Instructor Instructor { get; set; }
