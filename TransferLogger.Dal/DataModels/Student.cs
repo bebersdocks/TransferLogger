@@ -1,4 +1,7 @@
-﻿using LinqToDB.Mapping;
+﻿using System;
+using System.Text;
+
+using LinqToDB.Mapping;
 
 namespace TransferLogger.Dal.DataModels
 {
@@ -15,6 +18,21 @@ namespace TransferLogger.Dal.DataModels
         [Column, Nullable]     public string Email      { get; set; }
 
         [NotColumn]
-        public string DisplayString => $"{Name} {Middle} {Surname}".Trim();
+        public string DisplayString
+        {
+            get
+            {
+                var sb = new StringBuilder();
+
+                sb.Append(Name);
+
+                if (!string.IsNullOrEmpty(Middle))
+                    sb.Append($" {Middle}");
+
+                sb.Append($" {Surname}");
+
+                return sb.ToString();
+            }
+        }
     }
 }
