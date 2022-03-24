@@ -32,7 +32,7 @@ namespace TransferLogger.Ui.Forms.Programs
         private void SetData()
         {
             if (_cbOrganizations.Items.Count == 0)
-                _cbOrganizations.FillLookups<Lookup>(_organizations);
+                _cbOrganizations.FillLookups(_organizations);
 
             if (_cbCycles.Items.Count == 0)
                 _cbCycles.FillLookups<Cycle>();

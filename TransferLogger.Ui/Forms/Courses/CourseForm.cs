@@ -51,7 +51,7 @@ namespace TransferLogger.Ui.Forms.Courses
             }
 
             _cbCycles.FillLookups(_course.Program?.Cycle ?? Cycle.Bachelor);
-            _cbOrganizations.FillLookups<Lookup>(_organizations, _course.OrganizationId);
+            _cbOrganizations.FillLookups(_organizations, _course.OrganizationId);
         }
 
         private void SetPrograms()
@@ -59,7 +59,7 @@ namespace TransferLogger.Ui.Forms.Courses
             var programs = LookupServices.GetPrograms(_cbOrganizations.SelectedValue, _cbCycles.SelectedValue);
             if (programs.Any())
             {
-                _cbPrograms.FillLookups<Lookup>(programs, _course.ProgramId);
+                _cbPrograms.FillLookups(programs, _course.ProgramId);
                 _cbPrograms.Enabled = _btnSelectProgram.Enabled = true;
             }
             else

@@ -10,7 +10,7 @@ using TransferLogger.Ui.Controls;
 using TransferLogger.Ui.Forms.Dialogs;
 using TransferLogger.Ui.Utils;
 
-using Lookup  = TransferLogger.BusinessLogic.Lookup;
+using Lookup = TransferLogger.BusinessLogic.Lookup;
 
 namespace TransferLogger.Ui.Forms.Programs
 {
@@ -46,7 +46,7 @@ namespace TransferLogger.Ui.Forms.Programs
             else
             {
                 _cbCycle.FillLookups(Cycle.Bachelor);
-                _cbOrganizations.FillLookups<Lookup>(_organizations);
+                _cbOrganizations.FillLookups(_organizations);
             }
         }
 

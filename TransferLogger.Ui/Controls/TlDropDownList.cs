@@ -22,7 +22,7 @@ namespace TransferLogger.Ui.Controls
 
     public static class TlDropDownListExtensions
     {
-        public static void FillLookups<T>(this TlDropDownList dropDownList, IEnumerable<Lookup> items)
+        public static void FillLookups(this TlDropDownList dropDownList, IEnumerable<Lookup> items)
         {
             dropDownList.ValueMember   = nameof(Lookup.Value);
             dropDownList.DisplayMember = nameof(Lookup.DisplayName);
@@ -30,28 +30,28 @@ namespace TransferLogger.Ui.Controls
             dropDownList.SelectedIndex = -1;
         }
 
-        public static void FillLookups<T>(this TlDropDownList dropDownList, IEnumerable<Lookup> items, int selectedValue)
+        public static void FillLookups(this TlDropDownList dropDownList, IEnumerable<Lookup> items, int selectedValue)
         {
-            dropDownList.FillLookups<T>(items);
+            dropDownList.FillLookups(items);
 
             dropDownList.SelectedValue = selectedValue;
         }
 
         public static void FillLookups<T>(this TlDropDownList dropDownList, IEnumerable<Lookup> items, T selectedValue)
         {
-            dropDownList.FillLookups<T>(items);
+            dropDownList.FillLookups(items);
 
             dropDownList.SelectedValue = Convert.ToInt32(selectedValue);
         }
 
         public static void FillLookups<T>(this TlDropDownList dropDownList, IEnumerable<T> items, Func<T, Lookup> getLookup)
         {
-            dropDownList.FillLookups<T>(items.Select(i => getLookup(i)));
+            dropDownList.FillLookups(items.Select(i => getLookup(i)));
         }
 
         public static void FillLookups<T>(this TlDropDownList dropDownList) where T : Enum
         {
-            dropDownList.FillLookups<T>(EnumUtils.GetLookups<T>());
+            dropDownList.FillLookups(EnumUtils.GetLookups<T>());
         }
 
         public static void FillLookups<T>(this TlDropDownList dropDownList, T selectedValue) where T : Enum

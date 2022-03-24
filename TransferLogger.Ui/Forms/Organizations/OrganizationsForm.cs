@@ -38,7 +38,7 @@ namespace TransferLogger.Ui.Forms.Organizations
                 _cbOrganizationTypes.FillLookups<OrganizationType>();
 
             if (_cbCountries.Items.Count == 0)
-                _cbCountries.FillLookups<Country>(_countries);
+                _cbCountries.FillLookups(_countries);
 
             _grid.DataSource =  OrganizationViewModel.GetList(_tbSearchName.Text, _cbOrganizationTypes.SelectedValue, _cbCountries.SelectedValue);
         }

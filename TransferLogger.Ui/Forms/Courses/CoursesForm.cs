@@ -33,7 +33,7 @@ namespace TransferLogger.Ui.Forms.Courses
         private void SetData()
         {
             if (_cbOrganizations.Items.Count == 0)
-                _cbOrganizations.FillLookups<Lookup>(_organizations);
+                _cbOrganizations.FillLookups(_organizations);
 
             if (_cbCycles.Items.Count == 0)
                 _cbCycles.FillLookups<Cycle>();
@@ -46,7 +46,7 @@ namespace TransferLogger.Ui.Forms.Courses
             var programs = LookupServices.GetPrograms(_cbOrganizations.SelectedValue, _cbCycles.SelectedValue);
             if (programs.Any())
             {
-                _cbPrograms.FillLookups<Lookup>(programs, (int?)_cbPrograms.SelectedValue ?? -1);
+                _cbPrograms.FillLookups(programs, (int?)_cbPrograms.SelectedValue ?? -1);
                 _cbPrograms.Enabled = _btnSelectProgram.Enabled = true;
             }
             else
