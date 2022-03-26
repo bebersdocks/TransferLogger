@@ -42,6 +42,7 @@ CREATE TABLE Course (
 
 ALTER TABLE Course ADD CONSTRAINT PK_Course PRIMARY KEY (CourseId);
 ALTER TABLE Course ADD CONSTRAINT FK_CourseOrganization FOREIGN KEY (OrganizationId) REFERENCES Organization(OrganizationId);
+ALTER TABLE Course ADD CONSTRAINT FK_CourseProgram FOREIGN KEY (ProgramId) REFERENCES Program(ProgramId);
 ALTER TABLE Course ADD CONSTRAINT UC_Course UNIQUE (CourseCode, ProgramId); 
 
 CREATE TABLE Student (
