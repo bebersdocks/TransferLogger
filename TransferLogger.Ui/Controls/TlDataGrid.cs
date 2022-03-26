@@ -62,8 +62,6 @@ namespace TransferLogger.Ui.Controls
             CellBorderStyle           = DataGridViewCellBorderStyle.Raised;
             Cursor                    = Cursors.Hand;     
             EnableHeadersVisualStyles = false;
-            MultiSelect               = false;
-            ReadOnly                  = true;
             RowHeadersVisible         = false;
             RowTemplate.Height        = 25;
             SelectionMode             = DataGridViewSelectionMode.FullRowSelect;
