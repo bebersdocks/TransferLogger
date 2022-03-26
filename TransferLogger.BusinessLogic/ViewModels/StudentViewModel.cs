@@ -33,8 +33,12 @@ namespace TransferLogger.BusinessLogic.ViewModels
 
             var query = dc.Students.AsQueryable();
 
+            searchName = searchName.Replace(" ", string.Empty);
+
             if (!string.IsNullOrEmpty(searchName))
-                query = query.Where(s => $"{s.Name} {s.Middle} {s.Surname}".Contains(searchName, StringComparison.OrdinalIgnoreCase));
+                query = query.Where(s => $"{s.Name}{s.Middle}{s.Surname}"
+                    .Replace(" ", string.Empty)
+                    .Contains(searchName, StringComparison.OrdinalIgnoreCase));
 
             if (!string.IsNullOrEmpty(reference))
                 query = query.Where(s => s.Reference.Contains(reference, StringComparison.OrdinalIgnoreCase));

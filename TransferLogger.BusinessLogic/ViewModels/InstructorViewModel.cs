@@ -29,8 +29,12 @@ namespace TransferLogger.BusinessLogic.ViewModels
 
             var query = dc.Instructors.AsQueryable();
 
+            searchName = searchName.Replace(" ", string.Empty);
+
             if (!string.IsNullOrEmpty(searchName))
-                query = query.Where(i => i.Name.Contains(searchName, StringComparison.OrdinalIgnoreCase) || i.Surname.Contains(searchName, StringComparison.OrdinalIgnoreCase));
+                query = query.Where(i => $"{i.Name}{i.Middle}{i.Surname}"
+                    .Replace(" ", string.Empty)
+                    .Contains(searchName, StringComparison.OrdinalIgnoreCase) || i.Surname.Contains(searchName, StringComparison.OrdinalIgnoreCase));
 
             if (!string.IsNullOrEmpty(email))
                 query = query.Where(i => i.Email.Contains(email, StringComparison.OrdinalIgnoreCase));
