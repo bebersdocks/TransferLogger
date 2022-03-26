@@ -24,6 +24,7 @@ namespace TransferLogger.BusinessLogic.Settings
             }
         }
 
+        public int             OrganizationId  { get; set; }
         public DbSettings      DbSettings      { get; set; }
         public LoggingSettings LoggingSettings { get; set; }
 
