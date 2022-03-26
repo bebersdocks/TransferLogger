@@ -4,6 +4,8 @@ using System.Windows.Forms;
 
 using LinqToDB;
 
+using Serilog;
+
 using TransferLogger.BusinessLogic.ViewModels;
 using TransferLogger.Dal;
 using TransferLogger.Ui.Forms.Dialogs;
@@ -53,13 +55,22 @@ namespace TransferLogger.Ui.Forms.Students
 
                 if (confirmDlg.ShowDialog() == DialogResult.OK)
                 {
-                    using var dc = new Dc();
+                    try
+                    {
+                        using var dc = new Dc();
 
-                    dc.Students
-                        .Where(s => s.StudentId == viewModel.Id)
-                        .Delete();
+                        dc.Students
+                            .Where(s => s.StudentId == viewModel.Id)
+                            .Delete();
 
-                    SetData();
+                        SetData();
+                    }
+                    catch (Exception ex)
+                    {
+                        Log.Error(ex, "failed");
+
+                        ErrorDialog.Show(ex.Message, "Database Error");
+                    }
                 }
             }
         }
