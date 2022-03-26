@@ -81,6 +81,7 @@ CREATE TABLE Application (
 	ApplicationStatus INT NOT NULL,
 	StudentId INT NOT NULL,
 	OrganizationId INT NOT NULL,
+	ExcelLocationId INT NULL,
 	CreatedAt DATETIME NOT NULL,
 	UpdatedAt DATETIME NULL,
 	CompletedAt DATETIME NULL
@@ -89,6 +90,7 @@ CREATE TABLE Application (
 ALTER TABLE Application ADD CONSTRAINT PK_Application PRIMARY KEY (ApplicationId);
 ALTER TABLE Application ADD CONSTRAINT FK_ApplicationStudent FOREIGN KEY (StudentId) REFERENCES Student(StudentId);
 ALTER TABLE Application ADD CONSTRAINT FK_ApplicationOrganization FOREIGN KEY (OrganizationId) REFERENCES Organization(OrganizationId);
+ALTER TABLE Application ADD CONSTRAINT FK_ApplicationExcelLocation FOREIGN KEY (ExcelLocationId) REFERENCES ExcelLocation(ExcelLocationId);
 
 CREATE TABLE ApplicationCourse (
 	ApplicationId INT NOT NULL,
@@ -104,14 +106,6 @@ ALTER TABLE ApplicationCourse ADD CONSTRAINT FK_ApplicationCourseApplication FOR
 ALTER TABLE ApplicationCourse ADD CONSTRAINT FK_ApplicationCourseCourse FOREIGN KEY (CourseId) REFERENCES Course(CourseId);
 ALTER TABLE ApplicationCourse ADD CONSTRAINT FK_ApplicationCourseMatchedCourse FOREIGN KEY (MatchedCourseId) REFERENCES Course(CourseId);
 ALTER TABLE ApplicationCourse ADD CONSTRAINT FK_ApplicationCourseInstructor FOREIGN KEY (InstructorId) REFERENCES Instructor(InstructorId);
-
-CREATE TABLE ApplicationExcelLocation (
-	ApplicationId INT NOT NULL,
-	ExcelLocationId INT NOT NULL
-);
-
-ALTER TABLE ApplicationExcelLocation ADD CONSTRAINT FK_ApplicationExcelLocationApplication FOREIGN KEY (ApplicationId) REFERENCES Application(ApplicationId); 
-ALTER TABLE ApplicationExcelLocation ADD CONSTRAINT FK_ApplicationExcelLocationExcelLocation FOREIGN KEY (ExcelLocationId) REFERENCES ExcelLocation(ExcelLocationId); 
 
 CREATE TABLE DbInfo (
 	Version decimal(6,3) NOT NULL,

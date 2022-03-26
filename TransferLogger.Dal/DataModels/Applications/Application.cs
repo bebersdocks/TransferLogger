@@ -21,6 +21,7 @@ namespace TransferLogger.Dal.DataModels.Applications
         [Column, NotNull]      public ApplicationStatus ApplicationStatus { get; set; }
         [Column, NotNull]      public int               StudentId         { get; set; }
         [Column, NotNull]      public int               OrganizationId    { get; set; }
+        [Column, Nullable]     public int               ExcelLocationId   { get; set; }
         [Column, NotNull]      public DateTime          CreatedAt         { get; set; }
         [Column, Nullable]     public DateTime?         UpdatedAt         { get; set; }
         [Column, Nullable]     public DateTime?         CompletedAt       { get; set; }
@@ -36,8 +37,8 @@ namespace TransferLogger.Dal.DataModels.Applications
         [Association(ThisKey = nameof(ApplicationId), OtherKey = nameof(ApplicationId), Relationship = Relationship.OneToMany)]
         public IEnumerable<ApplicationCourse> Courses { get; set; }
 
-        [Association(ThisKey = nameof(ApplicationId), OtherKey = nameof(ApplicationId), Relationship = Relationship.OneToMany)]
-        public IEnumerable<ApplicationExcelLocation> ExcelLocations { get; set; }
+        [Association(ThisKey = nameof(ExcelLocationId), OtherKey = nameof(ExcelLocationId), Relationship = Relationship.OneToOne, CanBeNull = true)]
+        public ExcelLocation ExcelLocation { get; set; }
 
         [Association(ThisKey = nameof(ApplicationId), OtherKey = nameof(ApplicationId), Relationship = Relationship.OneToMany)]
         public IEnumerable<EmailLog> EmailLogs { get; set; }
