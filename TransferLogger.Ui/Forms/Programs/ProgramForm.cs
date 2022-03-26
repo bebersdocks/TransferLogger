@@ -95,7 +95,7 @@ namespace TransferLogger.Ui.Forms.Programs
                 return;
             }
             
-            _program.Name           = _tbName.Text;
+            _program.Name           = _tbName.Text.Trim();
             _program.OrganizationId = (int)_cbOrganizations.SelectedValue;
             _program.Cycle          = (Cycle)_cbCycle.SelectedValue;
             _program.Year           = (int)_numericYear.Value;

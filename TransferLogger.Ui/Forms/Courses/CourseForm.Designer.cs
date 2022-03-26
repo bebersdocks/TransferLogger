@@ -224,6 +224,11 @@ namespace TransferLogger.Ui.Forms.Courses
             this._numericWeeklyHours.Name = "_numericWeeklyHours";
             this._numericWeeklyHours.Size = new System.Drawing.Size(325, 25);
             this._numericWeeklyHours.TabIndex = 8;
+            this._numericWeeklyHours.Value = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
             // 
             // _lWeeklyHours
             // 

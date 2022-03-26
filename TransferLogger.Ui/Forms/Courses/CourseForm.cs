@@ -149,11 +149,11 @@ namespace TransferLogger.Ui.Forms.Courses
                 return;
             }
 
-            _course.CourseCode     = _tbCode.Text;
+            _course.CourseCode     = _tbCode.Text.Trim();
             _course.OrganizationId = (int)_cbOrganizations.SelectedValue;
             _course.ProgramId      = (int)_cbPrograms.SelectedValue;
-            _course.Name           = _tbName.Text;
-            _course.Description    = _tbDescription.Text;
+            _course.Name           = _tbName.Text.Trim();
+            _course.Description    = _tbDescription.Text.Trim();
             _course.Credits        = Convert.ToInt32(_numericCredits.Value);
             _course.WeeklyHours    = Convert.ToInt32(_numericWeeklyHours.Value);
 

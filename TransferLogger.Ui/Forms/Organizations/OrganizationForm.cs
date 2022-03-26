@@ -98,11 +98,11 @@ namespace TransferLogger.Ui.Forms.Organizations
                 return;
             }
 
-            _organization.Name             = _tbName.Text;
-            _organization.Description      = _tbDescription.Text;
+            _organization.Name             = _tbName.Text.Trim();
+            _organization.Description      = _tbDescription.Text.Trim();
             _organization.OrganizationType = (OrganizationType)_cbOrganizationTypes.SelectedValue;
             _organization.Country          = (Country)_cbCountries.SelectedValue;
-            _organization.Url              = _tbUrl.Text;
+            _organization.Url              = _tbUrl.Text.Trim();
 
             if (FormUtils.TryInsertOrReplace(_organization, _organization.OrganizationId))
             {

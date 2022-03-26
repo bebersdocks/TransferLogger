@@ -83,11 +83,11 @@ namespace TransferLogger.Ui.Forms.Instructors
                 return;
             }
 
-            _instructor.Name    = _tbName.Text;
-            _instructor.Middle  = _tbMiddle.Text;
-            _instructor.Surname = _tbSurname.Text;
-            _instructor.Phone   = _tbPhone.Text;
-            _instructor.Email   = _tbEmail.Text;
+            _instructor.Name    = _tbName.Text.Trim();
+            _instructor.Middle  = _tbMiddle.Text.Trim();
+            _instructor.Surname = _tbSurname.Text.Trim();
+            _instructor.Phone   = _tbPhone.Text.Trim();
+            _instructor.Email   = _tbEmail.Text.Trim();
 
             if (FormUtils.TryInsertOrReplace(_instructor, _instructor.InstructorId))
             {

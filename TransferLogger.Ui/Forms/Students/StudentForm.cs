@@ -71,20 +71,20 @@ namespace TransferLogger.Ui.Forms.Students
                 return;
             }
 
-            if (!MailAddress.TryCreate(_tbEmail.Text, out var _))
+            if (!string.IsNullOrEmpty(_tbEmail.Text) && !MailAddress.TryCreate(_tbEmail.Text, out var _))
             {
                 MessageDialog.Show($"Email is not valid.");
                 _tbEmail.Focus();
                 return;
             }
 
-            _student.Reference  = _tbRef.Text;
-            _student.Name       = _tbName.Text;
-            _student.Middle     = _tbMiddle.Text;
-            _student.Surname    = _tbSurname.Text;
-            _student.DocumentNo = _tbDocumentNo.Text;
-            _student.Phone      = _tbPhone.Text;
-            _student.Email      = _tbEmail.Text;
+            _student.Reference  = _tbRef.Text.Trim();
+            _student.Name       = _tbName.Text.Trim();
+            _student.Middle     = _tbMiddle.Text.Trim();
+            _student.Surname    = _tbSurname.Text.Trim();
+            _student.DocumentNo = _tbDocumentNo.Text.Trim();
+            _student.Phone      = _tbPhone.Text.Trim();
+            _student.Email      = _tbEmail.Text.Trim();
 
             if (FormUtils.TryInsertOrReplace(_student, _student.StudentId))
             {
