@@ -26,7 +26,7 @@ namespace TransferLogger.Ui.Forms.Applications
         {
             InitializeComponent();
 
-            _dtFrom.Value = DateTime.Now.AddYears(-3);
+            _dtFrom.Value = DateTime.Now.AddYears(-2);
             _dtTo.Value   = DateTime.Now;
 
             SetData();
@@ -56,9 +56,20 @@ namespace TransferLogger.Ui.Forms.Applications
             _cbOrganizations.SelectedValueChanged += (s, e) => SetData();
             _cbStatuses.SelectedValueChanged      += (s, e) => SetData();
 
+            _btnAdd.Click                += _btnAdd_Click;
             _btnSelectOrganization.Click += _btnSelectOrganization_Click;
 
             _gridApps.SelectionChanged += _gridApps_SelectionChanged;
+        }
+
+        private void _btnAdd_Click(object? sender, EventArgs e)
+        {
+            using var form = new ApplicationBuilderForm();
+
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                SetData();
+            }
         }
 
         private void _btnSelectOrganization_Click(object? sender, EventArgs e)

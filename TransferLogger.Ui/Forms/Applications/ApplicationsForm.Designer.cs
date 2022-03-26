@@ -56,7 +56,7 @@ namespace TransferLogger.Ui.Forms.Applications
             this._cbOrganizations = new TransferLogger.Ui.Controls.TlDropDownList();
             this._lOrganization = new System.Windows.Forms.Label();
             this._menu = new System.Windows.Forms.MenuStrip();
-            this._menuOrganization = new System.Windows.Forms.ToolStripMenuItem();
+            this._miOrganization = new System.Windows.Forms.ToolStripMenuItem();
             this._miOrganizations = new System.Windows.Forms.ToolStripMenuItem();
             this._miPrograms = new System.Windows.Forms.ToolStripMenuItem();
             this._miCourses = new System.Windows.Forms.ToolStripMenuItem();
@@ -72,11 +72,10 @@ namespace TransferLogger.Ui.Forms.Applications
             this._lApplications = new System.Windows.Forms.Label();
             this._gridApps = new TransferLogger.Ui.Controls.TlDataGrid();
             this.ApplicationId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Student = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Organization = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Courses = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CompletedDt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this._splitContainerForm)).BeginInit();
             this._splitContainerForm.Panel1.SuspendLayout();
@@ -99,6 +98,7 @@ namespace TransferLogger.Ui.Forms.Applications
             this._splitContainerForm.BackColor = System.Drawing.Color.GhostWhite;
             this._splitContainerForm.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this._splitContainerForm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._splitContainerForm.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this._splitContainerForm.IsSplitterFixed = true;
             this._splitContainerForm.Location = new System.Drawing.Point(0, 0);
             this._splitContainerForm.Name = "_splitContainerForm";
@@ -379,7 +379,7 @@ namespace TransferLogger.Ui.Forms.Applications
             // 
             this._menu.BackColor = System.Drawing.Color.GhostWhite;
             this._menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this._menuOrganization,
+            this._miOrganization,
             this._miStudents,
             this._miInstructors});
             this._menu.Location = new System.Drawing.Point(0, 0);
@@ -388,15 +388,15 @@ namespace TransferLogger.Ui.Forms.Applications
             this._menu.TabIndex = 0;
             this._menu.Text = "_menuStrip";
             // 
-            // _menuOrganization
+            // _miOrganization
             // 
-            this._menuOrganization.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this._miOrganization.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this._miOrganizations,
             this._miPrograms,
             this._miCourses});
-            this._menuOrganization.Name = "_menuOrganization";
-            this._menuOrganization.Size = new System.Drawing.Size(87, 20);
-            this._menuOrganization.Text = "Organization";
+            this._miOrganization.Name = "_miOrganization";
+            this._miOrganization.Size = new System.Drawing.Size(87, 20);
+            this._miOrganization.Text = "Organization";
             // 
             // _miOrganizations
             // 
@@ -585,11 +585,10 @@ namespace TransferLogger.Ui.Forms.Applications
             this._gridApps.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this._gridApps.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ApplicationId,
-            this.Status,
             this.Student,
             this.Organization,
-            this.Courses,
             this.Date,
+            this.Status,
             this.CompletedDt});
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
@@ -621,48 +620,49 @@ namespace TransferLogger.Ui.Forms.Applications
             // 
             this.ApplicationId.DataPropertyName = "ApplicationId";
             this.ApplicationId.HeaderText = "ID";
+            this.ApplicationId.MinimumWidth = 75;
             this.ApplicationId.Name = "ApplicationId";
             this.ApplicationId.ReadOnly = true;
-            // 
-            // Status
-            // 
-            this.Status.DataPropertyName = "ApplicationStatus";
-            this.Status.HeaderText = "Status";
-            this.Status.Name = "Status";
-            this.Status.ReadOnly = true;
             // 
             // Student
             // 
             this.Student.DataPropertyName = "Student";
+            this.Student.FillWeight = 105F;
             this.Student.HeaderText = "Student";
+            this.Student.MinimumWidth = 200;
             this.Student.Name = "Student";
             this.Student.ReadOnly = true;
             // 
             // Organization
             // 
             this.Organization.DataPropertyName = "Organization";
+            this.Organization.FillWeight = 105F;
             this.Organization.HeaderText = "Organization";
+            this.Organization.MinimumWidth = 225;
             this.Organization.Name = "Organization";
             this.Organization.ReadOnly = true;
-            // 
-            // Courses
-            // 
-            this.Courses.DataPropertyName = "CoursesCount";
-            this.Courses.HeaderText = "Courses";
-            this.Courses.Name = "Courses";
-            this.Courses.ReadOnly = true;
             // 
             // Date
             // 
             this.Date.DataPropertyName = "CreatedAt";
             this.Date.HeaderText = "Date";
+            this.Date.MinimumWidth = 80;
             this.Date.Name = "Date";
             this.Date.ReadOnly = true;
+            // 
+            // Status
+            // 
+            this.Status.DataPropertyName = "ApplicationStatus";
+            this.Status.HeaderText = "Status";
+            this.Status.MinimumWidth = 100;
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
             // 
             // CompletedDt
             // 
             this.CompletedDt.DataPropertyName = "CompletedDt";
             this.CompletedDt.HeaderText = "Completion Date";
+            this.CompletedDt.MinimumWidth = 80;
             this.CompletedDt.Name = "CompletedDt";
             this.CompletedDt.ReadOnly = true;
             // 
@@ -707,7 +707,7 @@ namespace TransferLogger.Ui.Forms.Applications
         private MenuStrip _menu;
         private TransferLogger.Ui.Controls.TlDataGrid _gridApps;
         private Panel _pnlFilters;
-        private ToolStripMenuItem _menuOrganization;
+        private ToolStripMenuItem _miOrganization;
         private ToolStripMenuItem _miOrganizations;
         private ToolStripMenuItem _miPrograms;
         private ToolStripMenuItem _miCourses;
@@ -735,11 +735,10 @@ namespace TransferLogger.Ui.Forms.Applications
         private Controls.TlButton _btnEditLocations;
         private Controls.TlButton _btnExport;
         private DataGridViewTextBoxColumn ApplicationId;
-        private DataGridViewTextBoxColumn Status;
         private DataGridViewTextBoxColumn Student;
         private DataGridViewTextBoxColumn Organization;
-        private DataGridViewTextBoxColumn Courses;
         private DataGridViewTextBoxColumn Date;
+        private DataGridViewTextBoxColumn Status;
         private DataGridViewTextBoxColumn CompletedDt;
     }
 }

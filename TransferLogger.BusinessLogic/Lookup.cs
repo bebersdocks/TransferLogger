@@ -58,5 +58,14 @@ namespace TransferLogger.BusinessLogic
 
             return GetPrograms((int?)organizationIdObj ?? 0, cycle);
         }
+
+        public static List<Lookup> GetStudents()
+        {
+            using var dc = new Dc();
+
+            return dc.Students
+                .Select(s => new Lookup(s.StudentId, s.ExtendedDisplayString))
+                .ToList();
+        }
     }
 }
