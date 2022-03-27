@@ -5,53 +5,56 @@ using System.Windows.Forms;
 
 using TransferLogger.BusinessLogic;
 using TransferLogger.BusinessLogic.ViewModels.Courses;
-using TransferLogger.Dal.DataModels.Applications;
 using TransferLogger.Dal.Definitions;
 using TransferLogger.Ui.Forms;
-
-using Application = TransferLogger.Dal.DataModels.Applications.Application;
 
 namespace TransferLogger.Ui.Controls.Applications.Builder
 {
     public partial class ApplicationBuilder : UserControl
     {
-        private readonly HashSet<int> _selectedCourseIds = new();
+        private readonly ApplicationBuild _appBuild;
 
         private readonly List<Lookup> _students      = LookupServices.GetStudents();
-        private readonly List<Lookup> _organizations = LookupServices.GetOrganizations();
+        private readonly List<Lookup> _organizations = LookupServices.GetOrganizations(true);
 
-        public ApplicationBuilder()
+        public ApplicationBuilder(ApplicationBuild appBuild)
         {
             InitializeComponent();
 
-            SetData();
+            _appBuild = appBuild;
+
+            SetData(true);
             SetPrograms();
             SetEvents();
         }
 
-        private void SetData()
+        public void SetData(bool initial = false)
         {
             if (_cbStudents.Items.Count == 0)
-                _cbStudents.FillLookups(_students);
+                _cbStudents.FillLookups(_students, _appBuild.StudentId);
 
             if (_cbOrganizations.Items.Count == 0)
-                _cbOrganizations.FillLookups(_organizations);
+                _cbOrganizations.FillLookups(_organizations, _appBuild.OrganizationId);
 
             if (_cbCycles.Items.Count == 0)
                 _cbCycles.FillLookups<Cycle>();
 
-            _selectedCourseIds.Clear();
-            foreach (DataGridViewRow row in _gridCourses.Rows)
+            if (!initial)
             {
-                if (row.DataBoundItem is SelectableCourseViewModel viewModel && viewModel.Selected)
+                _appBuild.CourseIds.Clear();
+
+                foreach (DataGridViewRow row in _gridCourses.Rows)
                 {
-                    _selectedCourseIds.Add(viewModel.Id);
+                    if (row.DataBoundItem is SelectableCourseViewModel viewModel && viewModel.Selected)
+                    {
+                        _appBuild.CourseIds.Add(viewModel.Id);
+                    }
                 }
             }
 
             if (Convert.ToInt32(_cbOrganizations.SelectedValue) > 0)
             {
-                _gridCourses.DataSource = SelectableCourseViewModel.GetList(_selectedCourseIds, 
+                _gridCourses.DataSource = SelectableCourseViewModel.GetList(_appBuild.CourseIds, 
                     _tbSearchName.Text,
                     _cbOrganizations.SelectedValue,
                     _cbCycles.SelectedValue,
@@ -61,6 +64,9 @@ namespace TransferLogger.Ui.Controls.Applications.Builder
             {
                 _gridCourses.DataSource = null;
             }
+
+            _appBuild.StudentId      = Convert.ToInt32(_cbStudents.SelectedValue);
+            _appBuild.OrganizationId = Convert.ToInt32(_cbOrganizations.SelectedValue);
         }
 
         private void SetPrograms()
@@ -84,20 +90,23 @@ namespace TransferLogger.Ui.Controls.Applications.Builder
             _btnSelectOrganization.Click += _btnSelectOrganization_Click;
             _btnSelectProgram.Click      += _btnSelectProgram_Click;
 
-            _cbOrganizations.SelectedValueChanged += OnValuesChanges;
-            _cbCycles.SelectedValueChanged        += OnValuesChanges;
+            _cbOrganizations.SelectedValueChanged += _cbOrganizations_SelectedValueChanged;
 
-            _tbSearchName.TextChanged             += (s, e) => SetData();
-            _cbPrograms.SelectedValueChanged      += (s, e) => SetData();
+            _cbCycles.SelectedValueChanged += OnValuesChanges;
+
+            _tbSearchName.TextChanged        += (s, e) => SetData();
+            _cbPrograms.SelectedValueChanged += (s, e) => SetData();
+        }
+
+        private void _cbOrganizations_SelectedValueChanged(object? sender, EventArgs e)
+        {
+            _gridCourses.DataSource = null;
+
+            OnValuesChanges(sender, e);
         }
 
         private void OnValuesChanges(object? sender, EventArgs e)
         {
-            if (sender == _cbOrganizations)
-            {
-                _gridCourses.DataSource = null;
-            }
-
             SetData();
             SetPrograms();
         }
@@ -134,28 +143,6 @@ namespace TransferLogger.Ui.Controls.Applications.Builder
             {
                 _cbPrograms.SelectedValue = form.SelectedValue.Value;
             }
-        }
-
-        public Application Save()
-        {
-            var application = new Application();
-      
-            application.StudentId      = Convert.ToInt32(_cbStudents.SelectedValue);
-            application.OrganizationId = Convert.ToInt32(_cbOrganizations.SelectedValue);
-
-            var courses = new List<ApplicationCourse>();
-
-            foreach (DataGridViewRow selectedRow in _gridCourses.SelectedRows)
-            {
-                if (selectedRow.DataBoundItem is CourseViewModel viewModel)
-                {
-                   courses.Add(new ApplicationCourse { CourseId = viewModel.Id });
-                }
-            }
-
-            application.Courses = courses;
-
-            return application;
         }
     }
 }
