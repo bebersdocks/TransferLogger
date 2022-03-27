@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
+using TransferLogger.BusinessLogic.Settings;
 using TransferLogger.Dal;
 using TransferLogger.Dal.Definitions;
 
@@ -20,11 +21,16 @@ namespace TransferLogger.BusinessLogic
 
     public static class LookupServices
     {
-        public static List<Lookup> GetOrganizations()
+        public static List<Lookup> GetOrganizations(bool excludeOurs = false)
         {
             using var dc = new Dc();
 
-            return dc.Organizations
+            var query = dc.Organizations.AsQueryable();
+
+            if (excludeOurs)
+                query = query.Where(o => o.OrganizationId != AppSettings.Instance.OrganizationId);
+
+            return query
                 .Select(o => new Lookup(o.OrganizationId, o.DisplayString))
                 .ToList();
         }

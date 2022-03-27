@@ -20,7 +20,7 @@ namespace TransferLogger.Ui.Forms.Applications
 {
     public partial class ApplicationsForm : Form
     {
-        private readonly List<Lookup> _organizations = LookupServices.GetOrganizations();
+        private readonly List<Lookup> _organizations = LookupServices.GetOrganizations(true);
 
         public ApplicationsForm()
         {
