@@ -4,23 +4,21 @@ using System.Linq;
 using LinqToDB;
 
 using TransferLogger.Dal.DataModels;
-using TransferLogger.Dal.DataModels.Applications;
 using TransferLogger.Dal.Utils;
 
 namespace TransferLogger.Dal
 {
     public partial class Dc : LinqToDB.Data.DataConnection
     {
-        public ITable<Organization>      Organizations      => GetTable<Organization>();
-        public ITable<Program>           Programs           => GetTable<Program>();
-        public ITable<Course>            Courses            => GetTable<Course>();
-        public ITable<Instructor>        Instructors        => GetTable<Instructor>();
-        public ITable<Student>           Students           => GetTable<Student>();
-        public ITable<ExcelLocation>     ExcelLocations     => GetTable<ExcelLocation>();
-        public ITable<Application>       Applications       => GetTable<Application>();
-        public ITable<ApplicationCourse> ApplicationCourses => GetTable<ApplicationCourse>();
-        public ITable<EmailLog>          EmailLogs          => GetTable<EmailLog>();
-        public ITable<DbInfo>            DbInfos            => GetTable<DbInfo>();
+        public ITable<Organization> Organizations => GetTable<Organization>();
+        public ITable<Program>      Programs      => GetTable<Program>();
+        public ITable<Course>       Courses       => GetTable<Course>();
+        public ITable<Instructor>   Instructors   => GetTable<Instructor>();
+        public ITable<Student>      Students      => GetTable<Student>();
+        public ITable<Application>  Applications  => GetTable<Application>();
+        public ITable<Evaluation>   Evaluations   => GetTable<Evaluation>();
+        public ITable<EmailLog>     EmailLogs     => GetTable<EmailLog>();
+        public ITable<DbInfo>       DbInfos       => GetTable<DbInfo>();
 
         // This value can be anything - it is just internal identifier for configuration.
         private const string defaultConfigurationStr = "TransferLogger";
@@ -87,9 +85,8 @@ namespace TransferLogger.Dal
             createTable(Courses);
             createTable(Instructors);
             createTable(Students);
-            createTable(ExcelLocations);
             createTable(Applications);
-            createTable(ApplicationCourses);
+            createTable(Evaluations);
             createTable(EmailLogs);
             createTable(DbInfos);
         }

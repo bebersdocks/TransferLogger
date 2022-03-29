@@ -2,7 +2,6 @@
 
 using LinqToDB.Mapping;
 
-using TransferLogger.Dal.DataModels.Applications;
 using TransferLogger.Dal.Definitions;
 
 namespace TransferLogger.Dal.DataModels

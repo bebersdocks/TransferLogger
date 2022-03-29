@@ -70,19 +70,13 @@ CREATE TABLE Instructor (
 ALTER TABLE Instructor ADD CONSTRAINT PK_Instructor PRIMARY KEY (InstructorId);
 ALTER TABLE Instructor ADD CONSTRAINT UC_Instructor UNIQUE (Name, Surname, Email);
 
-CREATE TABLE ExcelLocation (
-	ExcelLocationId INT NOT NULL,
-	Path NVARCHAR(180) NOT NULL
-);
-
-ALTER TABLE ExcelLocation ADD CONSTRAINT PK_ExcelLocation PRIMARY KEY (ExcelLocationId);
-
 CREATE TABLE Application (
 	ApplicationId INT IDENTITY(1,1) NOT NULL,
 	ApplicationStatus INT NOT NULL,
 	StudentId INT NOT NULL,
-	OrganizationId INT NOT NULL,
-	ExcelLocationId INT NULL,
+	SourceOrganizationId INT NOT NULL,
+	TargetOrganizationId INT NOT NULL,
+	ExcelLocation NVARCHAR(180) NOT NULL,
 	CreatedAt DATETIME NOT NULL,
 	UpdatedAt DATETIME NULL,
 	CompletedAt DATETIME NULL
@@ -90,23 +84,24 @@ CREATE TABLE Application (
 
 ALTER TABLE Application ADD CONSTRAINT PK_Application PRIMARY KEY (ApplicationId);
 ALTER TABLE Application ADD CONSTRAINT FK_ApplicationStudent FOREIGN KEY (StudentId) REFERENCES Student(StudentId);
-ALTER TABLE Application ADD CONSTRAINT FK_ApplicationOrganization FOREIGN KEY (OrganizationId) REFERENCES Organization(OrganizationId);
-ALTER TABLE Application ADD CONSTRAINT FK_ApplicationExcelLocation FOREIGN KEY (ExcelLocationId) REFERENCES ExcelLocation(ExcelLocationId);
+ALTER TABLE Application ADD CONSTRAINT FK_ApplicationSourceOrganization FOREIGN KEY (SourceOrganizationId) REFERENCES Organization(OrganizationId);
+ALTER TABLE Application ADD CONSTRAINT FK_ApplicationTargetOrganization FOREIGN KEY (TargetOrganizationId) REFERENCES Organization(OrganizationId);
 
-CREATE TABLE ApplicationCourse (
+CREATE TABLE Evaluation (
+	EvaluationId INT NOT NULL,
 	ApplicationId INT NOT NULL,
 	CourseId INT NOT NULL,
 	MatchedCourseId INT NULL,
 	InstructorId INT NOT NULL,
 	Status INT NOT NULL,
-	Comment NVARCHAR (300) NULL,
-	Grade NVARCHAR (8) NOT NULL
+	Comment NVARCHAR (300) NULL
 );
 
-ALTER TABLE ApplicationCourse ADD CONSTRAINT FK_ApplicationCourseApplication FOREIGN KEY (ApplicationId) REFERENCES Application(ApplicationId); 
-ALTER TABLE ApplicationCourse ADD CONSTRAINT FK_ApplicationCourseCourse FOREIGN KEY (CourseId) REFERENCES Course(CourseId);
-ALTER TABLE ApplicationCourse ADD CONSTRAINT FK_ApplicationCourseMatchedCourse FOREIGN KEY (MatchedCourseId) REFERENCES Course(CourseId);
-ALTER TABLE ApplicationCourse ADD CONSTRAINT FK_ApplicationCourseInstructor FOREIGN KEY (InstructorId) REFERENCES Instructor(InstructorId);
+ALTER TABLE Evaluation ADD CONSTRAINT PK_Evaluationn PRIMARY KEY (EvaluationId);
+ALTER TABLE Evaluation ADD CONSTRAINT FK_EvaluationApplication FOREIGN KEY (ApplicationId) REFERENCES Application(ApplicationId); 
+ALTER TABLE Evaluation ADD CONSTRAINT FK_EvaluationCourse FOREIGN KEY (CourseId) REFERENCES Course(CourseId);
+ALTER TABLE Evaluation ADD CONSTRAINT FK_EvaluationMatchedCourse FOREIGN KEY (MatchedCourseId) REFERENCES Course(CourseId);
+ALTER TABLE Evaluation ADD CONSTRAINT FK_EvaluationInstructor FOREIGN KEY (InstructorId) REFERENCES Instructor(InstructorId);
 
 CREATE TABLE DbInfo (
 	Version decimal(6,3) NOT NULL,
@@ -116,7 +111,7 @@ CREATE TABLE DbInfo (
 CREATE TABLE EmailLog (
 	EmailLogId INT IDENTITY(1,1) NOT NULL,
 	EmailStatus INT NOT NULL,
-	ApplicationId INT NOT NULL,
+	EvaluationId INT NOT NULL,
 	Address NVARCHAR(100) NOT NULL,
 	Recipient NVARCHAR(100) NOT NULL,
 	Subject NVARCHAR(80) NULL,
@@ -126,7 +121,7 @@ CREATE TABLE EmailLog (
 );
 
 ALTER TABLE EmailLog ADD CONSTRAINT PK_EmailLog PRIMARY KEY (EmailLogId);
-ALTER TABLE EmailLog ADD CONSTRAINT FK_EmailLogApplication FOREIGN KEY (ApplicationId) REFERENCES Application(ApplicationId);
+ALTER TABLE EmailLog ADD CONSTRAINT FK_EmailLogEvaluation FOREIGN KEY (EvaluationId) REFERENCES Evaluation(EvaluationId);
 
 INSERT INTO DbInfo (Version, UpdatedAt) VALUES (@Version,  GETUTCDATE());
 

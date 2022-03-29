@@ -2,9 +2,9 @@
 
 using TransferLogger.Dal.Utils;
 
-namespace TransferLogger.Dal.DataModels.Applications
+namespace TransferLogger.Dal.DataModels
 {
-    public enum CourseStatus
+    public enum EvaluationStatus
     {
         [StringValue("Under Evaluation")] InProcess  = 0,
         [StringValue("Matched")]          Matched    = 1,
@@ -12,15 +12,15 @@ namespace TransferLogger.Dal.DataModels.Applications
     }
 
     [Table]
-    public class ApplicationCourse
+    public class Evaluation
     {
-        [Column, NotNull]  public int           ApplicationId   { get; set; }
-        [Column, NotNull]  public int           CourseId        { get; set; }
-        [Column, Nullable] public int?          MatchedCourseId { get; set; }
-        [Column, NotNull]  public int           InstructorId    { get; set; }
-        [Column, Nullable] public CourseStatus  Status          { get; set; }
-        [Column, Nullable] public string        Comment         { get; set; }
-        [Column, NotNull]  public string        Grade           { get; set; }
+        [Column, Identity] public int              EvaluationId    { get; set; }
+        [Column, NotNull]  public int              ApplicationId   { get; set; }
+        [Column, NotNull]  public int              CourseId        { get; set; }
+        [Column, Nullable] public int?             MatchedCourseId { get; set; }
+        [Column, NotNull]  public int              InstructorId    { get; set; }
+        [Column, Nullable] public EvaluationStatus Status          { get; set; }
+        [Column, Nullable] public string           Comment         { get; set; }
 
         #region Associations 
 
