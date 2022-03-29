@@ -1,4 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+
+using TransferLogger.Dal;
 
 namespace TransferLogger.BusinessLogic
 {
@@ -15,6 +18,13 @@ namespace TransferLogger.BusinessLogic
         {
             CourseIds             = new HashSet<int>();
             HistoricalEvaluations = new Dictionary<int, int>();
+        }
+
+        public bool AnyHistoricalEvaluations()
+        {
+            using var dc = new Dc();
+
+            return dc.Evaluations.Any(e => CourseIds.Contains(e.CourseId));
         }
     }
 }

@@ -1,9 +1,6 @@
-﻿using System.Linq;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 using TransferLogger.BusinessLogic;
-using TransferLogger.Dal;
-using TransferLogger.Dal.DataModels.Applications;
 using TransferLogger.Ui.Controls.Applications.Builder;
 
 namespace TransferLogger.Ui.Forms.Applications
@@ -19,7 +16,6 @@ namespace TransferLogger.Ui.Forms.Applications
     public partial class ApplicationBuilderForm : Form
     {
         private readonly ApplicationBuild _appBuild = new();
-        public ApplicationBuild AppBuild => _appBuild;
 
         private readonly ApplicationBuilder               _appBuilder;
         private readonly ApplicationHistoricalEvaluations _appHistoricalEvaluations;
@@ -70,16 +66,9 @@ namespace TransferLogger.Ui.Forms.Applications
                 _appCourseEvaluators.BringToFront();
         }
 
-        private bool AnyHistoricalEvaluations()
-        {
-            using var dc = new Dc();
-
-            return dc.ApplicationCourses.Any(c => _appBuild.CourseIds.Contains(c.CourseId));
-        }
-
         public void NextStep()
         {
-            if (_currentStep == BuilderStep.Main && AnyHistoricalEvaluations())
+            if (_currentStep == BuilderStep.Main && _appBuild.AnyHistoricalEvaluations())
                 SetCurrentStep(BuilderStep.HistoricalEvaluations);
             else if (_currentStep == BuilderStep.Main)
                 SetCurrentStep(BuilderStep.CoursesEvaluators);
@@ -95,7 +84,7 @@ namespace TransferLogger.Ui.Forms.Applications
         {
             if (_currentStep == BuilderStep.Confirmation)
                 SetCurrentStep(BuilderStep.CoursesEvaluators);
-            else if (_currentStep == BuilderStep.CoursesEvaluators && AnyHistoricalEvaluations())
+            else if (_currentStep == BuilderStep.CoursesEvaluators && _appBuild.AnyHistoricalEvaluations())
                 SetCurrentStep(BuilderStep.HistoricalEvaluations);
             else
                 SetCurrentStep(BuilderStep.Main);

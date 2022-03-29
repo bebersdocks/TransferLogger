@@ -6,7 +6,7 @@ using LinqToDB;
 
 using TransferLogger.BusinessLogic.Intefaces;
 using TransferLogger.Dal;
-using TransferLogger.Dal.DataModels.Applications;
+using TransferLogger.Dal.DataModels;
 
 namespace TransferLogger.BusinessLogic.ViewModels.Applications
 {
@@ -20,20 +20,20 @@ namespace TransferLogger.BusinessLogic.ViewModels.Applications
         public DateTime? UpdatedAt    { get; set; }
         public DateTime? CompletedAt  { get; set; }
 
-        public List<ApplicationCourseViewModel> Courses { get; set; }
+        public List<EvaluationViewModel> Courses { get; set; }
 
         public ApplicationViewModel(Application app)
         {
             Id           = app.ApplicationId;
             Status       = app.ApplicationStatus.ToString();
             Student      = app.Student.DisplayString;
-            Organization = app.Organization.Name;
+            Organization = app.SourceOrganization.Name;
             CreatedAt    = app.CreatedAt;
             UpdatedAt    = app.UpdatedAt;
             CompletedAt  = app.CompletedAt;
 
-            Courses = app.Courses
-                .Select(c => new ApplicationCourseViewModel(c))
+            Courses = app.Evaluations
+                .Select(e => new EvaluationViewModel(e))
                 .ToList();
         }
 
@@ -47,7 +47,7 @@ namespace TransferLogger.BusinessLogic.ViewModels.Applications
                 query = query.Where(a => $"{a.Student.Name} {a.Student.Middle} {a.Student.Middle}".Contains(studentName, StringComparison.OrdinalIgnoreCase));
 
             if (organizationId > 0)
-                query = query.Where(a => a.OrganizationId == organizationId);
+                query = query.Where(a => a.SourceOrganizationId == organizationId);
 
             if (status.HasValue)
                 query = query.Where(a => a.ApplicationStatus == status.Value);
@@ -60,8 +60,8 @@ namespace TransferLogger.BusinessLogic.ViewModels.Applications
 
             return query
                 .LoadWith(a => a.Student)
-                .LoadWith(a => a.Organization)
-                .LoadWith(a => a.Courses)
+                .LoadWith(a => a.SourceOrganization)
+                .LoadWith(a => a.Evaluations)
                 .Select(a => new ApplicationViewModel(a))
                 .ToList();
         }

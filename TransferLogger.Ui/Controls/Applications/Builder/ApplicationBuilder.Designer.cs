@@ -47,15 +47,13 @@
             this._lSearchName = new System.Windows.Forms.Label();
             this._tbSearchName = new TransferLogger.Ui.Controls.TlTextBox();
             this._lHorizontalLine = new System.Windows.Forms.Label();
-            this._pnlCourses = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this._gridCourses = new TransferLogger.Ui.Controls.TlDataGrid();
-            this.Selected = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CourseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Program = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cycle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._lCourses = new System.Windows.Forms.Label();
+            this._gridCourses = new TransferLogger.Ui.Controls.TlDataGrid();
+            this.Cycle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Program = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CourseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Selected = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this._splitContainer)).BeginInit();
             this._splitContainer.Panel1.SuspendLayout();
             this._splitContainer.Panel2.SuspendLayout();
@@ -64,8 +62,6 @@
             this._splitContainerTop.Panel1.SuspendLayout();
             this._splitContainerTop.Panel2.SuspendLayout();
             this._splitContainerTop.SuspendLayout();
-            this._pnlCourses.SuspendLayout();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._gridCourses)).BeginInit();
             this.SuspendLayout();
             // 
@@ -86,7 +82,8 @@
             // 
             // _splitContainer.Panel2
             // 
-            this._splitContainer.Panel2.Controls.Add(this._pnlCourses);
+            this._splitContainer.Panel2.Controls.Add(this._gridCourses);
+            this._splitContainer.Panel2.Controls.Add(this._lCourses);
             this._splitContainer.Size = new System.Drawing.Size(939, 605);
             this._splitContainer.SplitterDistance = 167;
             this._splitContainer.TabIndex = 3;
@@ -296,27 +293,18 @@
             this._lHorizontalLine.Size = new System.Drawing.Size(939, 1);
             this._lHorizontalLine.TabIndex = 0;
             // 
-            // _pnlCourses
+            // _lCourses
             // 
-            this._pnlCourses.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this._pnlCourses.BackColor = System.Drawing.Color.GhostWhite;
-            this._pnlCourses.Controls.Add(this.panel1);
-            this._pnlCourses.Location = new System.Drawing.Point(-2, 0);
-            this._pnlCourses.Name = "_pnlCourses";
-            this._pnlCourses.Size = new System.Drawing.Size(941, 434);
-            this._pnlCourses.TabIndex = 0;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this._gridCourses);
-            this.panel1.Controls.Add(this._lCourses);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(941, 434);
-            this.panel1.TabIndex = 0;
+            this._lCourses.BackColor = System.Drawing.Color.AliceBlue;
+            this._lCourses.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this._lCourses.Dock = System.Windows.Forms.DockStyle.Top;
+            this._lCourses.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this._lCourses.Location = new System.Drawing.Point(0, 0);
+            this._lCourses.Name = "_lCourses";
+            this._lCourses.Size = new System.Drawing.Size(939, 25);
+            this._lCourses.TabIndex = 4;
+            this._lCourses.Text = "Courses";
+            this._lCourses.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // _gridCourses
             // 
@@ -366,8 +354,42 @@
             this._gridCourses.RowHeadersVisible = false;
             this._gridCourses.RowTemplate.Height = 25;
             this._gridCourses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this._gridCourses.Size = new System.Drawing.Size(941, 409);
+            this._gridCourses.Size = new System.Drawing.Size(939, 409);
             this._gridCourses.TabIndex = 8;
+            // 
+            // Cycle
+            // 
+            this.Cycle.DataPropertyName = "Cycle";
+            this.Cycle.HeaderText = "Cycle";
+            this.Cycle.MinimumWidth = 100;
+            this.Cycle.Name = "Cycle";
+            this.Cycle.ReadOnly = true;
+            // 
+            // Program
+            // 
+            this.Program.DataPropertyName = "Program";
+            this.Program.FillWeight = 115F;
+            this.Program.HeaderText = "Program";
+            this.Program.MinimumWidth = 300;
+            this.Program.Name = "Program";
+            this.Program.ReadOnly = true;
+            // 
+            // CourseName
+            // 
+            this.CourseName.DataPropertyName = "Name";
+            this.CourseName.FillWeight = 115F;
+            this.CourseName.HeaderText = "Name";
+            this.CourseName.MinimumWidth = 300;
+            this.CourseName.Name = "CourseName";
+            this.CourseName.ReadOnly = true;
+            // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "ID";
+            this.Id.MinimumWidth = 75;
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
             // 
             // Selected
             // 
@@ -380,53 +402,6 @@
             this.Selected.Name = "Selected";
             this.Selected.TrueValue = "True";
             this.Selected.Width = 75;
-            // 
-            // Id
-            // 
-            this.Id.DataPropertyName = "Id";
-            this.Id.HeaderText = "ID";
-            this.Id.MinimumWidth = 75;
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            // 
-            // CourseName
-            // 
-            this.CourseName.DataPropertyName = "Name";
-            this.CourseName.FillWeight = 115F;
-            this.CourseName.HeaderText = "Name";
-            this.CourseName.MinimumWidth = 300;
-            this.CourseName.Name = "CourseName";
-            this.CourseName.ReadOnly = true;
-            // 
-            // Program
-            // 
-            this.Program.DataPropertyName = "Program";
-            this.Program.FillWeight = 115F;
-            this.Program.HeaderText = "Program";
-            this.Program.MinimumWidth = 300;
-            this.Program.Name = "Program";
-            this.Program.ReadOnly = true;
-            // 
-            // Cycle
-            // 
-            this.Cycle.DataPropertyName = "Cycle";
-            this.Cycle.HeaderText = "Cycle";
-            this.Cycle.MinimumWidth = 100;
-            this.Cycle.Name = "Cycle";
-            this.Cycle.ReadOnly = true;
-            // 
-            // _lCourses
-            // 
-            this._lCourses.BackColor = System.Drawing.Color.AliceBlue;
-            this._lCourses.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this._lCourses.Dock = System.Windows.Forms.DockStyle.Top;
-            this._lCourses.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lCourses.Location = new System.Drawing.Point(0, 0);
-            this._lCourses.Name = "_lCourses";
-            this._lCourses.Size = new System.Drawing.Size(941, 25);
-            this._lCourses.TabIndex = 4;
-            this._lCourses.Text = "Courses";
-            this._lCourses.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ApplicationBuilder
             // 
@@ -446,8 +421,6 @@
             this._splitContainerTop.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this._splitContainerTop)).EndInit();
             this._splitContainerTop.ResumeLayout(false);
-            this._pnlCourses.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this._gridCourses)).EndInit();
             this.ResumeLayout(false);
 
@@ -456,10 +429,7 @@
         #endregion
 
         private System.Windows.Forms.SplitContainer _splitContainer;
-        private System.Windows.Forms.Panel _pnlCourses;
         private System.Windows.Forms.Label _lCourses;
-        private TlDataGrid _gridCourses;
-        private System.Windows.Forms.Panel panel1;
         private TlSplitContainer _splitContainerTop;
         private System.Windows.Forms.Label _lHorizontalLine;
         private TlButton _btnSelectStudent;
@@ -475,6 +445,7 @@
         private System.Windows.Forms.Label _lCountry;
         private TlDropDownList _cbCycles;
         private System.Windows.Forms.Label _lCycle;
+        private TlDataGrid _gridCourses;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Selected;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn CourseName;

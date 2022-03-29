@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 using TransferLogger.BusinessLogic;
 using TransferLogger.BusinessLogic.ViewModels.Applications;
-using TransferLogger.Dal.DataModels.Applications;
+using TransferLogger.Dal.DataModels;
 using TransferLogger.Ui.Controls;
 using TransferLogger.Ui.Forms.Courses;
 using TransferLogger.Ui.Forms.Instructors;
