@@ -10,6 +10,7 @@ namespace TransferLogger.Ui.Controls.Students
     public partial class StudentControl : UserControl
     {
         private readonly Student _student;
+        public Student Student => _student;
 
         public StudentControl(Student? student = null)
         {

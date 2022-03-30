@@ -1,43 +1,27 @@
-﻿using System.Windows.Forms;
+﻿using System.Drawing;
+using System.Windows.Forms;
 
 using TransferLogger.BusinessLogic;
 using TransferLogger.Ui.Controls.Applications.Builder;
 
 namespace TransferLogger.Ui.Forms.Applications
 {
-    public enum BuilderStep
-    {
-        Main                  = 0,
-        HistoricalEvaluations = 1,
-        CoursesEvaluators     = 2,
-        Confirmation          = 3
-    }
-
     public partial class ApplicationBuilderForm : Form
     {
-        private readonly ApplicationBuild _appBuild = new();
-
-        private readonly ApplicationBuilder               _appBuilder;
-        private readonly ApplicationHistoricalEvaluations _appHistoricalEvaluations;
-        private readonly ApplicationCoursesEvaluators     _appCourseEvaluators;
+        private readonly ApplicationBuild     _appBuild;
+        private readonly SelectStudentControl _selectStudent;
 
         public ApplicationBuilderForm()
         {
             InitializeComponent();
 
-            _appBuilder               = new ApplicationBuilder(_appBuild);
-            _appHistoricalEvaluations = new ApplicationHistoricalEvaluations(_appBuild);
-            _appCourseEvaluators      = new ApplicationCoursesEvaluators();
+            _appBuild      = new ApplicationBuild();
+            _selectStudent = new SelectStudentControl();
 
-            _appBuilder.Dock               = DockStyle.Fill;
-            _appHistoricalEvaluations.Dock = DockStyle.Fill;
-            _appCourseEvaluators.Dock      = DockStyle.Fill;
+            _pnlControl.Controls.Add(_selectStudent);
 
-            _pnlControl.Controls.Add(_appBuilder);
-            _pnlControl.Controls.Add(_appHistoricalEvaluations);
-            _pnlControl.Controls.Add(_appCourseEvaluators);
+            SetCurrentStep(BuildStep.Student);
 
-            SetCurrentStep(BuilderStep.Main);
             SetEvents();
         } 
 
@@ -47,47 +31,39 @@ namespace TransferLogger.Ui.Forms.Applications
             _btnNext.Click += (s, e) => NextStep();
         }
 
-        private BuilderStep _currentStep;
-        private void SetCurrentStep(BuilderStep step)
+        private Size GetSize(BuildStep step)
         {
-            if (_currentStep == BuilderStep.Main)
-                _appBuilder.SetData();
+            return step switch
+            {
+                BuildStep.Student => new Size(615, 410),
+                _ => new Size(600, 600)
+            };
+        }
 
-            _currentStep = step;
+        private void SetCurrentStep(BuildStep step)
+        {
+            _appBuild.CurrentStep = step;
 
-            _btnBack.Visible = step != BuilderStep.Main;
-            _btnNext.Text    = step == BuilderStep.Confirmation ? "Confirm" : "Next";
+            Size = MinimumSize = GetSize(step);
 
-            if (step == BuilderStep.Main)
-                _appBuilder.BringToFront();
-            else if (step == BuilderStep.HistoricalEvaluations)
-                _appHistoricalEvaluations.BringToFront();
-            else if (step == BuilderStep.CoursesEvaluators)
-                _appCourseEvaluators.BringToFront();
+            _btnBack.Visible = step != BuildStep.Student;
+
+            if (step == BuildStep.Student)
+                _selectStudent.BringToFront();
         }
 
         public void NextStep()
         {
-            if (_currentStep == BuilderStep.Main && _appBuild.AnyHistoricalEvaluations())
-                SetCurrentStep(BuilderStep.HistoricalEvaluations);
-            else if (_currentStep == BuilderStep.Main)
-                SetCurrentStep(BuilderStep.CoursesEvaluators);
-            else if (_currentStep == BuilderStep.HistoricalEvaluations)
-                SetCurrentStep(BuilderStep.CoursesEvaluators);
-            else if (_currentStep == BuilderStep.CoursesEvaluators)
-                SetCurrentStep(BuilderStep.Confirmation);
-            else if (_currentStep == BuilderStep.Confirmation)
+            var nextStep = _appBuild.GetNextStep();
+            if (nextStep.HasValue)
+                SetCurrentStep(nextStep.Value);
+            else
                 CreateApplication();
         }
 
         public void Back()
         {
-            if (_currentStep == BuilderStep.Confirmation)
-                SetCurrentStep(BuilderStep.CoursesEvaluators);
-            else if (_currentStep == BuilderStep.CoursesEvaluators && _appBuild.AnyHistoricalEvaluations())
-                SetCurrentStep(BuilderStep.HistoricalEvaluations);
-            else
-                SetCurrentStep(BuilderStep.Main);
+            SetCurrentStep(_appBuild.GetPreviousStep());
         }
 
         public void CreateApplication()

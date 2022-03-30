@@ -76,7 +76,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this._pnlControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this._pnlControl.Location = new System.Drawing.Point(12, 12);
-            this._pnlControl.MinimumSize = new System.Drawing.Size(940, 605);
             this._pnlControl.Name = "_pnlControl";
             this._pnlControl.Size = new System.Drawing.Size(940, 605);
             this._pnlControl.TabIndex = 4;
@@ -90,7 +89,6 @@
             this.Controls.Add(this._pnlControl);
             this.Controls.Add(this._btnBack);
             this.Controls.Add(this._btnNext);
-            this.MinimumSize = new System.Drawing.Size(980, 710);
             this.Name = "ApplicationBuilderForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ApplicationBuilderForm";

@@ -47,7 +47,7 @@ namespace TransferLogger.Ui.Forms.Students
             this._btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnOk.ForeColor = System.Drawing.Color.Black;
             this._btnOk.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            this._btnOk.Location = new System.Drawing.Point(370, 300);
+            this._btnOk.Location = new System.Drawing.Point(361, 299);
             this._btnOk.Name = "_btnOk";
             this._btnOk.Size = new System.Drawing.Size(75, 29);
             this._btnOk.TabIndex = 29;
@@ -66,7 +66,7 @@ namespace TransferLogger.Ui.Forms.Students
             this._btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnCancel.ForeColor = System.Drawing.Color.Black;
             this._btnCancel.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            this._btnCancel.Location = new System.Drawing.Point(289, 300);
+            this._btnCancel.Location = new System.Drawing.Point(280, 299);
             this._btnCancel.Name = "_btnCancel";
             this._btnCancel.Size = new System.Drawing.Size(75, 29);
             this._btnCancel.TabIndex = 30;
@@ -79,9 +79,9 @@ namespace TransferLogger.Ui.Forms.Students
             this._pnl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this._pnl.Location = new System.Drawing.Point(0, 0);
+            this._pnl.Location = new System.Drawing.Point(12, 24);
             this._pnl.Name = "_pnl";
-            this._pnl.Size = new System.Drawing.Size(475, 284);
+            this._pnl.Size = new System.Drawing.Size(444, 259);
             this._pnl.TabIndex = 31;
             // 
             // StudentForm
@@ -89,13 +89,12 @@ namespace TransferLogger.Ui.Forms.Students
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(474, 341);
+            this.ClientSize = new System.Drawing.Size(468, 340);
             this.Controls.Add(this._pnl);
             this.Controls.Add(this._btnCancel);
             this.Controls.Add(this._btnOk);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(490, 380);
             this.Name = "StudentForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "New Student";
