@@ -1,18 +1,15 @@
 ﻿using System;
 using System.Linq;
-using System.Net.Mail;
 using System.Windows.Forms;
 
 using TransferLogger.Dal;
-using TransferLogger.Dal.DataModels;
-using TransferLogger.Ui.Forms.Dialogs;
-using TransferLogger.Ui.Utils;
+using TransferLogger.Ui.Controls.Students;
 
 namespace TransferLogger.Ui.Forms.Students
 {
     public partial class StudentForm : Form
     {
-        private readonly Student _student;
+        private readonly StudentControl _control;
 
         public StudentForm(int studentId = 0)
         {
@@ -20,26 +17,18 @@ namespace TransferLogger.Ui.Forms.Students
 
             using var dc = new Dc();
 
-            _student = dc.Students.FirstOrDefault(s => s.StudentId == studentId) ?? new();
+            var student = dc.Students.FirstOrDefault(s => s.StudentId == studentId);
 
-            SetData();
-            SetEvents();
-        }
+            _control = new StudentControl(student);
 
-        private void SetData()
-        {
-            if (_student.StudentId > 0)
+            _pnl.Controls.Add(_control);
+
+            if (student != null)
             {
-                _tbName.Text       = _student.Name;
-                _tbMiddle.Text     = _student.Middle;
-                _tbSurname.Text    = _student.Surname;
-                _tbRef.Text        = _student.Reference;
-                _tbDocumentNo.Text = _student.DocumentNo;
-                _tbPhone.Text      = _student.Phone;
-                _tbEmail.Text      = _student.Email;
-
-                Text = $"{_student.DisplayString} (Id: {_student.StudentId})";
+                Text = $"{student.DisplayString} (Id: {student.StudentId})";
             }
+
+            SetEvents();
         }
 
         private void SetEvents()
@@ -56,37 +45,8 @@ namespace TransferLogger.Ui.Forms.Students
         }
 
         private void _btnOk_Click(object? sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(_tbName.Text))
-            {
-                MessageDialog.Show($"Name can't be empty.");
-                _tbName.Focus();
-                return;
-            }
-
-            if (string.IsNullOrEmpty(_tbSurname.Text))
-            {
-                MessageDialog.Show($"Surname can't be empty.");
-                _tbSurname.Focus();
-                return;
-            }
-
-            if (!string.IsNullOrEmpty(_tbEmail.Text) && !MailAddress.TryCreate(_tbEmail.Text, out var _))
-            {
-                MessageDialog.Show($"Email is not valid.");
-                _tbEmail.Focus();
-                return;
-            }
-
-            _student.Reference  = _tbRef.Text.Trim();
-            _student.Name       = _tbName.Text.Trim();
-            _student.Middle     = _tbMiddle.Text.Trim();
-            _student.Surname    = _tbSurname.Text.Trim();
-            _student.DocumentNo = _tbDocumentNo.Text.Trim();
-            _student.Phone      = _tbPhone.Text.Trim();
-            _student.Email      = _tbEmail.Text.Trim();
-
-            if (FormUtils.TryInsertOrReplace(_student, _student.StudentId))
+        {       
+            if (_control.Save(out var _))
             {
                 DialogResult = DialogResult.OK;
 

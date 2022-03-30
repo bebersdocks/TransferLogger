@@ -52,14 +52,14 @@ namespace TransferLogger.Ui.Utils
             }
         }
 
-        public static bool TryInsertOrReplace<T>(T obj, int id = 0) where T : notnull
+        public static bool TryInsertOrReplace<T>(T obj, ref int id) where T : notnull
         {
             try
             {
                 using var dc = new Dc();
 
                 if (id == 0)
-                    dc.InsertWithIdentity(obj);
+                    id = dc.InsertWithInt32Identity(obj);
                 else
                     dc.Update(obj);
 
@@ -73,6 +73,11 @@ namespace TransferLogger.Ui.Utils
                 
                 return false;
             }
+        }
+
+        public static bool TryInsertOrReplace<T>(T obj, int id = 0) where T : notnull
+        {
+            return TryInsertOrReplace(obj, ref id);
         }
     }
 }
