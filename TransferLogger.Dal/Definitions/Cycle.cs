@@ -2,8 +2,8 @@
 {
     public enum Cycle
     {
-        Bachelor = 0,
-        Master   = 1,
-        Phd      = 2
+        Bachelor = 1,
+        Master   = 2,
+        Phd      = 3
     }
 }

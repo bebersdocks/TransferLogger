@@ -9,9 +9,9 @@ namespace TransferLogger.Dal.DataModels
     // If you have existing db with data - add new types only to the end.
     public enum OrganizationType
     {
-        School     = 0,
-        College    = 1,
-        University = 2,
+        School     = 1,
+        College    = 2,
+        University = 3,
     }
 
     [Table]

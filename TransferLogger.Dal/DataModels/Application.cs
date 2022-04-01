@@ -9,9 +9,9 @@ namespace TransferLogger.Dal.DataModels
 {
     public enum ApplicationStatus
     {
-        [StringValue("In Process")] InProcess = 0,
-        [StringValue("Canceled")]   Canceled  = 1,
-        [StringValue("Completed")]  Completed = 2
+        [StringValue("In Process")] InProcess = 1,
+        [StringValue("Canceled")]   Canceled  = 2,
+        [StringValue("Completed")]  Completed = 3
     }
 
     [Table]

@@ -6,9 +6,9 @@ namespace TransferLogger.Dal.DataModels
 {
     public enum EmailStatus
     {
-        Pending,
-        Error,
-        Sent
+        Pending = 1,
+        Error   = 2,
+        Sent    = 3
     }
 
     [Table]

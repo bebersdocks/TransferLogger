@@ -6,9 +6,9 @@ namespace TransferLogger.Dal.DataModels
 {
     public enum EvaluationStatus
     {
-        [StringValue("Under Evaluation")] InProcess  = 0,
-        [StringValue("Matched")]          Matched    = 1,
-        [StringValue("Not Matched")]      NotMatched = 2
+        [StringValue("Under Evaluation")] InProcess  = 1,
+        [StringValue("Matched")]          Matched    = 2,
+        [StringValue("Not Matched")]      NotMatched = 3
     }
 
     [Table]
