@@ -14,7 +14,7 @@ namespace TransferLogger.Dal.DataModels
         [Column, NotNull]      public int    Year           { get; set; }
 
         [NotColumn]
-        public string DisplayString => $"{Name} {Year}";
+        public string DisplayString => $"{Name} - {Year}";
 
         #region Associations
 
