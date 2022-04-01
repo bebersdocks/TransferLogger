@@ -10,7 +10,6 @@ namespace TransferLogger.Ui.Controls.Students
     public partial class StudentControl : UserControl
     {
         private readonly Student _student;
-        public Student Student => _student;
 
         public StudentControl(Student? student = null)
         {
@@ -37,10 +36,8 @@ namespace TransferLogger.Ui.Controls.Students
             }
         }
 
-        public bool Save(out int studentId)
+        public bool Validate()
         {
-            studentId = _student.StudentId;
-
             if (string.IsNullOrEmpty(_tbName.Text))
             {
                 MessageDialog.Show($"Name can't be empty.");
@@ -61,6 +58,13 @@ namespace TransferLogger.Ui.Controls.Students
                 _tbEmail.Focus();
                 return false;
             }
+
+            return true;
+        }
+
+        public bool Save(out int studentId)
+        {
+            studentId = _student.StudentId;
 
             _student.Reference  = _tbRef.Text.Trim();
             _student.Name       = _tbName.Text.Trim();

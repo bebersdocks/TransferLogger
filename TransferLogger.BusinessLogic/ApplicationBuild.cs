@@ -2,6 +2,7 @@
 using System.Linq;
 
 using TransferLogger.Dal;
+using TransferLogger.Dal.DataModels;
 
 namespace TransferLogger.BusinessLogic
 {
@@ -17,7 +18,7 @@ namespace TransferLogger.BusinessLogic
 
     public class ApplicationBuild
     {
-        public int       StudentId       { get; set; }
+        public Student   Student         { get; protected set; }
         public int       OrganizationId  { get; set; }
         public int       ExcelLocationId { get; set; }
         public BuildStep CurrentStep     { get; set; }
@@ -27,6 +28,8 @@ namespace TransferLogger.BusinessLogic
 
         public ApplicationBuild()
         {
+            Student = new();
+
             CourseIds             = new HashSet<int>();
             HistoricalEvaluations = new Dictionary<int, int>();
         }

@@ -1,6 +1,6 @@
-﻿namespace TransferLogger.Ui.Controls.Applications.Builder
+﻿namespace TransferLogger.Ui.Controls.Applications.Wizard
 {
-    partial class SelectStudentControl
+    partial class StudentControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -40,9 +40,9 @@
             // _pnlNewStudent
             // 
             this._pnlNewStudent.Enabled = false;
-            this._pnlNewStudent.Location = new System.Drawing.Point(111, 70);
+            this._pnlNewStudent.Location = new System.Drawing.Point(128, 86);
             this._pnlNewStudent.Name = "_pnlNewStudent";
-            this._pnlNewStudent.Size = new System.Drawing.Size(475, 287);
+            this._pnlNewStudent.Size = new System.Drawing.Size(441, 287);
             this._pnlNewStudent.TabIndex = 32;
             // 
             // _btnSelectStudent
@@ -55,7 +55,7 @@
             this._btnSelectStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnSelectStudent.ForeColor = System.Drawing.Color.Black;
             this._btnSelectStudent.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            this._btnSelectStudent.Location = new System.Drawing.Point(509, 44);
+            this._btnSelectStudent.Location = new System.Drawing.Point(526, 60);
             this._btnSelectStudent.MaximumSize = new System.Drawing.Size(0, 23);
             this._btnSelectStudent.MinimumSize = new System.Drawing.Size(0, 23);
             this._btnSelectStudent.Name = "_btnSelectStudent";
@@ -70,7 +70,7 @@
             this._cbStudents.BackColor = System.Drawing.Color.GhostWhite;
             this._cbStudents.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._cbStudents.FormattingEnabled = true;
-            this._cbStudents.Location = new System.Drawing.Point(212, 44);
+            this._cbStudents.Location = new System.Drawing.Point(229, 60);
             this._cbStudents.Name = "_cbStudents";
             this._cbStudents.Size = new System.Drawing.Size(291, 23);
             this._cbStudents.TabIndex = 33;
@@ -79,7 +79,7 @@
             // 
             this._lStudent.AutoSize = true;
             this._lStudent.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lStudent.Location = new System.Drawing.Point(151, 45);
+            this._lStudent.Location = new System.Drawing.Point(168, 61);
             this._lStudent.Name = "_lStudent";
             this._lStudent.Size = new System.Drawing.Size(55, 17);
             this._lStudent.TabIndex = 35;
@@ -90,7 +90,7 @@
             this._rbNewStudent.AutoSize = true;
             this._rbNewStudent.BackColor = System.Drawing.Color.White;
             this._rbNewStudent.ForeColor = System.Drawing.SystemColors.ControlText;
-            this._rbNewStudent.Location = new System.Drawing.Point(10, 70);
+            this._rbNewStudent.Location = new System.Drawing.Point(27, 86);
             this._rbNewStudent.Name = "_rbNewStudent";
             this._rbNewStudent.Size = new System.Drawing.Size(93, 19);
             this._rbNewStudent.TabIndex = 36;
@@ -102,7 +102,7 @@
             this._rbExistingStudent.AutoSize = true;
             this._rbExistingStudent.Checked = true;
             this._rbExistingStudent.ForeColor = System.Drawing.SystemColors.ControlText;
-            this._rbExistingStudent.Location = new System.Drawing.Point(10, 45);
+            this._rbExistingStudent.Location = new System.Drawing.Point(27, 61);
             this._rbExistingStudent.Name = "_rbExistingStudent";
             this._rbExistingStudent.Size = new System.Drawing.Size(110, 19);
             this._rbExistingStudent.TabIndex = 37;
@@ -114,13 +114,14 @@
             // 
             this._lInstructions.AutoSize = true;
             this._lInstructions.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lInstructions.Location = new System.Drawing.Point(24, 12);
+            this._lInstructions.ForeColor = System.Drawing.Color.Black;
+            this._lInstructions.Location = new System.Drawing.Point(27, 20);
             this._lInstructions.Name = "_lInstructions";
             this._lInstructions.Size = new System.Drawing.Size(324, 17);
             this._lInstructions.TabIndex = 38;
             this._lInstructions.Text = "Select existing student from the list or create new one.";
             // 
-            // SelectStudentControl
+            // StudentControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -132,8 +133,8 @@
             this.Controls.Add(this._cbStudents);
             this.Controls.Add(this._lStudent);
             this.Controls.Add(this._pnlNewStudent);
-            this.Name = "SelectStudentControl";
-            this.Size = new System.Drawing.Size(586, 359);
+            this.Name = "StudentControl";
+            this.Size = new System.Drawing.Size(569, 374);
             this.ResumeLayout(false);
             this.PerformLayout();
 

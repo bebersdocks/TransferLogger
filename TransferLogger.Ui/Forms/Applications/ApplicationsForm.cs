@@ -64,7 +64,7 @@ namespace TransferLogger.Ui.Forms.Applications
 
         private void _btnAdd_Click(object? sender, EventArgs e)
         {
-            using var form = new ApplicationBuilderForm();
+            using var form = new ApplicationWizardForm();
 
             if (form.ShowDialog() == DialogResult.OK)
             {

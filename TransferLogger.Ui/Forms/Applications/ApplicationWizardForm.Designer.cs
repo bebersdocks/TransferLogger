@@ -1,6 +1,6 @@
 ﻿namespace TransferLogger.Ui.Forms.Applications
 {
-    partial class ApplicationBuilderForm
+    partial class ApplicationWizardForm
     {
         /// <summary>
         /// Required designer variable.
@@ -43,7 +43,7 @@
             this._btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnNext.ForeColor = System.Drawing.Color.Black;
             this._btnNext.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            this._btnNext.Location = new System.Drawing.Point(877, 630);
+            this._btnNext.Location = new System.Drawing.Point(635, 483);
             this._btnNext.Name = "_btnNext";
             this._btnNext.Size = new System.Drawing.Size(75, 29);
             this._btnNext.TabIndex = 2;
@@ -61,7 +61,7 @@
             this._btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnBack.ForeColor = System.Drawing.Color.Black;
             this._btnBack.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            this._btnBack.Location = new System.Drawing.Point(796, 630);
+            this._btnBack.Location = new System.Drawing.Point(554, 483);
             this._btnBack.Name = "_btnBack";
             this._btnBack.Size = new System.Drawing.Size(75, 29);
             this._btnBack.TabIndex = 3;
@@ -74,24 +74,24 @@
             this._pnlControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this._pnlControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this._pnlControl.Location = new System.Drawing.Point(12, 12);
+            this._pnlControl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this._pnlControl.Location = new System.Drawing.Point(-3, -4);
             this._pnlControl.Name = "_pnlControl";
-            this._pnlControl.Size = new System.Drawing.Size(940, 605);
+            this._pnlControl.Size = new System.Drawing.Size(728, 474);
             this._pnlControl.TabIndex = 4;
             // 
-            // ApplicationBuilderForm
+            // ApplicationWizardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(964, 671);
+            this.ClientSize = new System.Drawing.Size(722, 524);
             this.Controls.Add(this._pnlControl);
             this.Controls.Add(this._btnBack);
             this.Controls.Add(this._btnNext);
-            this.Name = "ApplicationBuilderForm";
+            this.Name = "ApplicationWizardForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ApplicationBuilderForm";
+            this.Text = "Application Wizard";
             this.ResumeLayout(false);
 
         }

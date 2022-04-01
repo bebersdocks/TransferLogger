@@ -7,7 +7,7 @@ using LinqToDB;
 
 using Serilog;
 
-using TransferLogger.BusinessLogic.ViewModels;
+using TransferLogger.BusinessLogic.ViewModels.Organizations;
 using TransferLogger.BusinessLogic.Utils;
 using TransferLogger.Dal;
 using TransferLogger.Dal.DataModels;
@@ -22,13 +22,11 @@ namespace TransferLogger.Ui.Forms.Organizations
 {
     public partial class OrganizationsForm : Form
     {
-        private readonly List<Lookup> _countries;
+        private readonly List<Lookup> _countries = EnumUtils.GetLookups<Country>();
 
         public OrganizationsForm()
         {
             InitializeComponent();
-
-            _countries = EnumUtils.GetLookups<Country>();
 
             SetData();
             SetEvents();
