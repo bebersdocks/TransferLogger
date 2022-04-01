@@ -52,7 +52,7 @@ CREATE TABLE Student (
 	Middle NVARCHAR(30) NULL,
 	Surname NVARCHAR(100) NOT NULL,
 	DocumentNo NVARCHAR(30) NULL,
-	Phone NVARCHAR(15) NULL,
+	Phone NVARCHAR(30) NULL,
 	Email NVARCHAR(100) NULL
 );
 
@@ -63,7 +63,7 @@ CREATE TABLE Instructor (
 	Name NVARCHAR(30) NOT NULL,
 	Middle NVARCHAR(30) NULL,
 	Surname NVARCHAR(100) NOT NULL,
-	Phone NVARCHAR(60) NULL,
+	Phone NVARCHAR(30) NULL,
 	Email NVARCHAR(100) NOT NULL
 );
 
@@ -97,7 +97,7 @@ CREATE TABLE Evaluation (
 	Comment NVARCHAR (300) NULL
 );
 
-ALTER TABLE Evaluation ADD CONSTRAINT PK_Evaluationn PRIMARY KEY (EvaluationId);
+ALTER TABLE Evaluation ADD CONSTRAINT PK_Evaluation PRIMARY KEY (EvaluationId);
 ALTER TABLE Evaluation ADD CONSTRAINT FK_EvaluationApplication FOREIGN KEY (ApplicationId) REFERENCES Application(ApplicationId); 
 ALTER TABLE Evaluation ADD CONSTRAINT FK_EvaluationCourse FOREIGN KEY (CourseId) REFERENCES Course(CourseId);
 ALTER TABLE Evaluation ADD CONSTRAINT FK_EvaluationMatchedCourse FOREIGN KEY (MatchedCourseId) REFERENCES Course(CourseId);
