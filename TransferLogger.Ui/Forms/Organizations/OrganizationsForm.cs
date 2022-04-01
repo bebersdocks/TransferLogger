@@ -87,7 +87,7 @@ namespace TransferLogger.Ui.Forms.Organizations
             {
                 using var confirmDlg = new ConfirmDialog(
                     "Confirm Deletion",
-                    $"Are you sure you want to delete {viewModel.Name} - {viewModel.Description} (Id: {viewModel.Id})?");
+                    $"Are you sure you want to delete {viewModel.Name} (Id: {viewModel.Id})?");
 
                 if (confirmDlg.ShowDialog() == DialogResult.OK)
                 {

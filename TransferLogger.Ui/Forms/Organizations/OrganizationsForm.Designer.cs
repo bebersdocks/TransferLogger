@@ -49,7 +49,6 @@ namespace TransferLogger.Ui.Forms.Organizations
             this._grid = new TransferLogger.Ui.Controls.TlDataGrid();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OrganizationName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Country = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.URL = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -276,7 +275,6 @@ namespace TransferLogger.Ui.Forms.Organizations
             this._grid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
             this.OrganizationName,
-            this.Description,
             this.Type,
             this.Country,
             this.URL});
@@ -321,18 +319,9 @@ namespace TransferLogger.Ui.Forms.Organizations
             this.OrganizationName.DataPropertyName = "Name";
             this.OrganizationName.FillWeight = 110F;
             this.OrganizationName.HeaderText = "Name";
-            this.OrganizationName.MinimumWidth = 110;
+            this.OrganizationName.MinimumWidth = 325;
             this.OrganizationName.Name = "OrganizationName";
             this.OrganizationName.ReadOnly = true;
-            // 
-            // Description
-            // 
-            this.Description.DataPropertyName = "Description";
-            this.Description.FillWeight = 130F;
-            this.Description.HeaderText = "Description";
-            this.Description.MinimumWidth = 180;
-            this.Description.Name = "Description";
-            this.Description.ReadOnly = true;
             // 
             // Type
             // 
@@ -383,12 +372,6 @@ namespace TransferLogger.Ui.Forms.Organizations
         private Controls.TlDataGrid _grid;
         private Controls.TlSplitContainer _splitContainer;
         private Label _lOrganizations;
-        private DataGridViewTextBoxColumn Id;
-        private DataGridViewTextBoxColumn OrganizationName;
-        private DataGridViewTextBoxColumn Description;
-        private DataGridViewTextBoxColumn Type;
-        private DataGridViewTextBoxColumn Country;
-        private DataGridViewTextBoxColumn URL;
         private Controls.TlButton _btnAdd;
         private Controls.TlButton _btnDelete;
         private Controls.TlButton _btnEdit;
@@ -399,5 +382,10 @@ namespace TransferLogger.Ui.Forms.Organizations
         private Label _lCountry;
         private Controls.TlDropDownList _cbCountries;
         private Controls.TlButton _btnSelectCountry;
+        private DataGridViewTextBoxColumn Id;
+        private DataGridViewTextBoxColumn OrganizationName;
+        private DataGridViewTextBoxColumn Type;
+        private DataGridViewTextBoxColumn Country;
+        private DataGridViewTextBoxColumn URL;
     }
 }

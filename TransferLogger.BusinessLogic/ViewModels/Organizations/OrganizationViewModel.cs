@@ -15,7 +15,6 @@ namespace TransferLogger.BusinessLogic.ViewModels.Organizations
         public int    Id          { get; set; }
         public string Type        { get; set; }
         public string Name        { get; set; }
-        public string Description { get; set; }
         public string Country     { get; set; }
         public string Url         { get; set; }
 
@@ -23,8 +22,7 @@ namespace TransferLogger.BusinessLogic.ViewModels.Organizations
         {
             Id          = organization.OrganizationId;
             Type        = organization.OrganizationType.GetDisplayName();
-            Name        = organization.Name;
-            Description = organization.Description;
+            Name        = organization.DisplayString;
             Country     = organization.Country.GetDisplayName();
             Url         = organization.Url;
         }
@@ -33,8 +31,12 @@ namespace TransferLogger.BusinessLogic.ViewModels.Organizations
         {
             var query = dc.Organizations.AsQueryable();
 
+            searchName = searchName.Replace(" ", string.Empty);
+
             if (!string.IsNullOrEmpty(searchName))
-                query = query.Where(o => o.Name.Contains(searchName, StringComparison.OrdinalIgnoreCase) || o.Description.Contains(searchName, StringComparison.OrdinalIgnoreCase));
+                query = query.Where(o => (string.IsNullOrEmpty(o.Description) ? o.Name : $"{o.Name} - {o.Description}")
+                    .Replace(" ", string.Empty)
+                    .Contains(searchName, StringComparison.OrdinalIgnoreCase));
 
             if (organizationType.HasValue)
                 query = query.Where(o => o.OrganizationType == organizationType.Value);
