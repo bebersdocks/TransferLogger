@@ -23,22 +23,25 @@ namespace TransferLogger.Ui.Forms.Courses
     {
         private readonly List<Lookup> _organizations = LookupServices.GetOrganizations();
 
-        public CoursesForm()
+        public CoursesForm(int? organizationId = null, bool organizationsLocked = false, Cycle? cycle = null)
         {
             InitializeComponent();
 
-            SetData();
+            SetData(organizationId, organizationsLocked, cycle);
             SetPrograms();
             SetEvents();
         }
 
-        private void SetData()
+        private void SetData(int? organizationId = null, bool organizationsLocked = false, Cycle? cycle = null)
         {
             if (_cbOrganizations.Items.Count == 0)
-                _cbOrganizations.FillLookups(_organizations);
+                _cbOrganizations.FillLookups(_organizations, organizationId ?? 0);
+
+            _cbOrganizations.Enabled       = !organizationsLocked;
+            _btnSelectOrganization.Enabled = !organizationsLocked;
 
             if (_cbCycles.Items.Count == 0)
-                _cbCycles.FillLookups<Cycle>();
+                _cbCycles.FillLookups<Cycle>(Convert.ToInt32(cycle));
 
             _grid.DataSource = CourseViewModel.GetList(_tbSearchName.Text, _cbOrganizations.SelectedValue, _cbCycles.SelectedValue, _cbPrograms.SelectedValue);
         }
@@ -106,7 +109,16 @@ namespace TransferLogger.Ui.Forms.Courses
 
         private void InsertOrReplace(bool isNew = false)
         {
-            FormUtils.InsertOrReplace(_grid, id => new CourseForm(id), () => SetData(), isNew);
+            var organizationId      = Convert.ToInt32(_cbOrganizations.SelectedValue);
+            var organizationsLocked = _cbOrganizations.Enabled;
+
+            var programId = Convert.ToInt32(_cbPrograms.SelectedValue);
+
+            Cycle? cycle = null;
+            if (_cbCycles.SelectedValue != null)
+                cycle = (Cycle?)_cbCycles.SelectedValue;
+
+            FormUtils.InsertOrReplace(_grid, id => new CourseForm(id, organizationId, organizationsLocked, programId, cycle), () => SetData(), isNew);
         }
 
         private void _btnDelete_Click(object? sender, EventArgs e)

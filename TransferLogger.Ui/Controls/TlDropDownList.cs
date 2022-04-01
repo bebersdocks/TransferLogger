@@ -39,14 +39,7 @@ namespace TransferLogger.Ui.Controls
 
         public static void FillLookups<T>(this TlDropDownList dropDownList, IEnumerable<Lookup> items, T selectedValue)
         {
-            dropDownList.FillLookups(items);
-
-            dropDownList.SelectedValue = Convert.ToInt32(selectedValue);
-        }
-
-        public static void FillLookups<T>(this TlDropDownList dropDownList, IEnumerable<T> items, Func<T, Lookup> getLookup)
-        {
-            dropDownList.FillLookups(items.Select(i => getLookup(i)));
+            dropDownList.FillLookups(items, Convert.ToInt32(selectedValue));
         }
 
         public static void FillLookups<T>(this TlDropDownList dropDownList) where T : Enum
@@ -54,9 +47,14 @@ namespace TransferLogger.Ui.Controls
             dropDownList.FillLookups(EnumUtils.GetLookups<T>());
         }
 
+        public static void FillLookups<T>(this TlDropDownList dropDownList, int selectedValue) where T : Enum
+        {
+            dropDownList.FillLookups(EnumUtils.GetLookups<T>(), Convert.ToInt32(selectedValue));
+        }
+
         public static void FillLookups<T>(this TlDropDownList dropDownList, T selectedValue) where T : Enum
         {
-            dropDownList.FillLookups(EnumUtils.GetLookups<T>(), selectedValue);
+            dropDownList.FillLookups<T>(Convert.ToInt32(selectedValue));
         }
     }
 }

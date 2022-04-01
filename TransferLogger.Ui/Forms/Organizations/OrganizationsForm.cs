@@ -35,24 +35,10 @@ namespace TransferLogger.Ui.Forms.Organizations
         private void SetData(OrganizationType? organizationType = null, Country? country = null)
         {
             if (_cbOrganizationTypes.Items.Count == 0)
-            {
-                _cbOrganizationTypes.FillLookups<OrganizationType>();
-
-                if (organizationType.HasValue)
-                {
-                    _cbOrganizationTypes.SelectedValue = Convert.ToInt32(organizationType.Value);
-                }
-            }
+                _cbOrganizationTypes.FillLookups<OrganizationType>(Convert.ToInt32(organizationType));
 
             if (_cbCountries.Items.Count == 0)
-            {
-                _cbCountries.FillLookups(_countries);
-
-                if (country.HasValue)
-                {
-                    _cbCountries.SelectedValue = Convert.ToInt32(country.Value);
-                }
-            }
+                _cbCountries.FillLookups(_countries, Convert.ToInt32(country));
 
             _grid.DataSource =  OrganizationViewModel.GetList(_tbSearchName.Text, _cbOrganizationTypes.SelectedValue, _cbCountries.SelectedValue);
         }
@@ -84,7 +70,15 @@ namespace TransferLogger.Ui.Forms.Organizations
 
         private void InsertOrReplace(bool isNew = false)
         {
-            FormUtils.InsertOrReplace(_grid, id => new OrganizationForm(id), () => SetData(), isNew);
+            OrganizationType? organizationType = null;
+            if (_cbOrganizationTypes.SelectedValue != null)
+                organizationType = (OrganizationType)_cbOrganizationTypes.SelectedValue;
+
+            Country? country = null;
+            if (_cbCountries.SelectedValue != null)
+                country = (Country)_cbCountries.SelectedValue;
+
+            FormUtils.InsertOrReplace(_grid, id => new OrganizationForm(id, organizationType, country), () => SetData(), isNew);
         }
 
         private void _btnDelete_Click(object? sender, EventArgs e)

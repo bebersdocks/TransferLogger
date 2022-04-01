@@ -57,28 +57,28 @@ namespace TransferLogger.Ui.Forms.Instructors
         {
             if (string.IsNullOrEmpty(_tbName.Text))
             {
-                MessageDialog.Show($"Name can't be empty.");
+                MessageDialog.Show("Name can't be empty.");
                 _tbName.Focus();
                 return;
             }
 
             if (string.IsNullOrEmpty(_tbSurname.Text))
             {
-                MessageDialog.Show($"Surname can't be empty.");
+                MessageDialog.Show("Surname can't be empty.");
                 _tbSurname.Focus();
                 return;
             }
 
             if (string.IsNullOrEmpty(_tbEmail.Text))
             {
-                MessageDialog.Show($"Email can't be empty.");
+                MessageDialog.Show("Email can't be empty.");
                 _tbEmail.Focus();
                 return;
             }
 
             if (!MailAddress.TryCreate(_tbEmail.Text, out var _))
             {
-                MessageDialog.Show($"Email is not valid.");
+                MessageDialog.Show("Email is not valid.");
                 _tbEmail.Focus();
                 return;
             }

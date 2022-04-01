@@ -18,7 +18,6 @@ namespace TransferLogger.Ui.Forms.Organizations
     public partial class OrganizationForm : Form
     {
         private readonly Organization _organization;
-
         private readonly List<Lookup> _countries = EnumUtils.GetLookups<Country>();
 
         public OrganizationForm(int organizationId = 0, OrganizationType? organizationType = null, Country? country = null)
@@ -81,20 +80,20 @@ namespace TransferLogger.Ui.Forms.Organizations
         {
             if (string.IsNullOrEmpty(_tbName.Text))
             {
-                MessageDialog.Show($"Name can't be empty.");
+                MessageDialog.Show("Name can't be empty.");
                 _tbName.Focus();
                 return;
             }
 
             if (_cbOrganizationTypes.SelectedValue is null)
             {
-                MessageDialog.Show($"You have to specify organization.");
+                MessageDialog.Show("You have to specify organization.");
                 return;
             }
 
             if (_cbCountries.SelectedValue is null)
             {
-                MessageDialog.Show($"You have to specify country.");
+                MessageDialog.Show("You have to specify country.");
                 return;
             }
 

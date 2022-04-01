@@ -22,7 +22,7 @@ namespace TransferLogger.Ui.Forms.Courses
         private readonly Course       _course;
         private readonly List<Lookup> _organizations = LookupServices.GetOrganizations();
 
-        public CourseForm(int courseId = 0)
+        public CourseForm(int courseId = 0, int? organizationId = null, bool organizationsLocked = false, int? programId = null, Cycle? cycle = null)
         {
             InitializeComponent();
 
@@ -32,12 +32,12 @@ namespace TransferLogger.Ui.Forms.Courses
                 .LoadWith(c => c.Program)
                 .FirstOrDefault(c => c.CourseId == courseId) ?? new();
 
-            SetData();
-            SetPrograms();
+            SetData(organizationId, organizationsLocked, cycle);
+            SetPrograms(programId);
             SetEvents();
         }
 
-        private void SetData()
+        private void SetData(int? organizationId = null, bool organizationsLocked = false, Cycle ? cycle = null)
         {
             if (_course.OrganizationId > 0)
             {
@@ -50,16 +50,19 @@ namespace TransferLogger.Ui.Forms.Courses
                 Text = $"{_course.CourseCode} - {_course.Name} (Id: {_course.CourseId})";
             }
 
-            _cbCycles.FillLookups(_course.Program?.Cycle ?? Cycle.Bachelor);
-            _cbOrganizations.FillLookups(_organizations, _course.OrganizationId);
+            _cbCycles.FillLookups(_course.Program?.Cycle ?? cycle ?? Cycle.Bachelor);
+            _cbOrganizations.FillLookups(_organizations, organizationId ?? _course.OrganizationId);
+
+            _cbOrganizations.Enabled       = !organizationsLocked;
+            _btnSelectOrganization.Enabled = !organizationsLocked;
         }
 
-        private void SetPrograms()
+        private void SetPrograms(int? programId = null)
         {
             var programs = LookupServices.GetPrograms(_cbOrganizations.SelectedValue, _cbCycles.SelectedValue);
             if (programs.Any())
             {
-                _cbPrograms.FillLookups(programs, _course.ProgramId);
+                _cbPrograms.FillLookups(programs, programId ?? _course.ProgramId);
                 _cbPrograms.Enabled = _btnSelectProgram.Enabled = true;
             }
             else
@@ -125,27 +128,27 @@ namespace TransferLogger.Ui.Forms.Courses
         {
             if (string.IsNullOrEmpty(_tbCode.Text))
             {
-                MessageDialog.Show($"Code can't be empty.");
+                MessageDialog.Show("Code can't be empty.");
                 _tbCode.Focus();
                 return;
             }
 
             if (string.IsNullOrEmpty(_tbName.Text))
             {
-                MessageDialog.Show($"Name can't be empty.");
+                MessageDialog.Show("Name can't be empty.");
                 _tbName.Focus();
                 return;
             }
 
             if (_cbOrganizations.SelectedValue is null)
             {
-                MessageDialog.Show($"You have to select organization.");
+                MessageDialog.Show("You have to select organization.");
                 return;
             }
 
             if (_cbPrograms.SelectedValue is null)
             {
-                MessageDialog.Show($"You have to select program.");
+                MessageDialog.Show("You have to select program.");
                 return;
             }
 

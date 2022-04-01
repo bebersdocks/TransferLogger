@@ -78,20 +78,20 @@ namespace TransferLogger.Ui.Forms.Programs
         {
             if (string.IsNullOrEmpty(_tbName.Text))
             {
-                MessageDialog.Show($"Name can't be empty.");
+                MessageDialog.Show("Name can't be empty.");
                 _tbName.Focus();
                 return;
             }
 
             if (_cbOrganizations.SelectedValue is null)
             {
-                MessageDialog.Show($"You have to select organization.");
+                MessageDialog.Show("You have to select organization.");
                 return;
             }
 
             if (_cbCycle.SelectedValue is null)
             {
-                MessageDialog.Show($"You have to specify cycle.");
+                MessageDialog.Show("You have to specify cycle.");
                 return;
             }
             
