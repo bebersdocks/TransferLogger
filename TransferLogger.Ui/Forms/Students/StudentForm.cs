@@ -46,7 +46,7 @@ namespace TransferLogger.Ui.Forms.Students
 
         private void _btnOk_Click(object? sender, EventArgs e)
         {       
-            if (_control.Validate() && _control.Save(out var _))
+            if (_control.ValidateData() && _control.Save(out var _))
             {
                 DialogResult = DialogResult.OK;
 

@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this._splitContainer = new TransferLogger.Ui.Controls.TlSplitContainer();
+            this._btnManage = new TransferLogger.Ui.Controls.TlButton();
             this._lInstructions = new System.Windows.Forms.Label();
             this._btnAdd = new TransferLogger.Ui.Controls.TlButton();
             this._btnSelectCountry = new TransferLogger.Ui.Controls.TlButton();
@@ -40,14 +41,12 @@
             this._cbOrganizationTypes = new TransferLogger.Ui.Controls.TlDropDownList();
             this._lOrganizationType = new System.Windows.Forms.Label();
             this._grid = new TransferLogger.Ui.Controls.TlDataGrid();
+            this._tbSearchName = new TransferLogger.Ui.Controls.TlTextBox();
             this.Selected = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OrganizationName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Country = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._tbSearchName = new TransferLogger.Ui.Controls.TlTextBox();
-            this._btnManage = new TransferLogger.Ui.Controls.TlButton();
             ((System.ComponentModel.ISupportInitialize)(this._splitContainer)).BeginInit();
             this._splitContainer.Panel1.SuspendLayout();
             this._splitContainer.Panel2.SuspendLayout();
@@ -85,6 +84,24 @@
             this._splitContainer.Size = new System.Drawing.Size(828, 539);
             this._splitContainer.SplitterDistance = 130;
             this._splitContainer.TabIndex = 0;
+            // 
+            // _btnManage
+            // 
+            this._btnManage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this._btnManage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
+            this._btnManage.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
+            this._btnManage.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
+            this._btnManage.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this._btnManage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._btnManage.ForeColor = System.Drawing.Color.Black;
+            this._btnManage.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this._btnManage.Location = new System.Drawing.Point(717, 83);
+            this._btnManage.Name = "_btnManage";
+            this._btnManage.Size = new System.Drawing.Size(97, 30);
+            this._btnManage.TabIndex = 40;
+            this._btnManage.TabStop = false;
+            this._btnManage.Text = "Manage";
+            this._btnManage.UseVisualStyleBackColor = false;
             // 
             // _lInstructions
             // 
@@ -183,51 +200,62 @@
             this._grid.AllowUserToResizeRows = false;
             this._grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this._grid.BackgroundColor = System.Drawing.Color.White;
-            this._grid.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this._grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this._grid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.AliceBlue;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.AliceBlue;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this._grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.AliceBlue;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.AliceBlue;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this._grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this._grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this._grid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Selected,
             this.Id,
             this.OrganizationName,
-            this.Description,
             this.Type,
             this.Country});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this._grid.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this._grid.DefaultCellStyle = dataGridViewCellStyle2;
             this._grid.Dock = System.Windows.Forms.DockStyle.Fill;
             this._grid.EnableHeadersVisualStyles = false;
             this._grid.Location = new System.Drawing.Point(0, 23);
             this._grid.MultiSelect = false;
             this._grid.Name = "_grid";
             this._grid.ReadOnly = true;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this._grid.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this._grid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this._grid.RowHeadersVisible = false;
             this._grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this._grid.Size = new System.Drawing.Size(828, 382);
             this._grid.TabIndex = 5;
+            // 
+            // _tbSearchName
+            // 
+            this._tbSearchName.BackColor = System.Drawing.Color.GhostWhite;
+            this._tbSearchName.BoxWidth = 325;
+            this._tbSearchName.Dock = System.Windows.Forms.DockStyle.Top;
+            this._tbSearchName.ForeColor = System.Drawing.Color.Black;
+            this._tbSearchName.Location = new System.Drawing.Point(0, 0);
+            this._tbSearchName.Name = "_tbSearchName";
+            this._tbSearchName.PlaceholderText = "Type here to filter organizations";
+            this._tbSearchName.Size = new System.Drawing.Size(828, 23);
+            this._tbSearchName.TabIndex = 1;
             // 
             // Selected
             // 
@@ -254,18 +282,9 @@
             this.OrganizationName.DataPropertyName = "Name";
             this.OrganizationName.FillWeight = 115F;
             this.OrganizationName.HeaderText = "Name";
-            this.OrganizationName.MinimumWidth = 140;
+            this.OrganizationName.MinimumWidth = 280;
             this.OrganizationName.Name = "OrganizationName";
             this.OrganizationName.ReadOnly = true;
-            // 
-            // Description
-            // 
-            this.Description.DataPropertyName = "Description";
-            this.Description.FillWeight = 120F;
-            this.Description.HeaderText = "Description";
-            this.Description.MinimumWidth = 200;
-            this.Description.Name = "Description";
-            this.Description.ReadOnly = true;
             // 
             // Type
             // 
@@ -282,36 +301,6 @@
             this.Country.MinimumWidth = 145;
             this.Country.Name = "Country";
             this.Country.ReadOnly = true;
-            // 
-            // _tbSearchName
-            // 
-            this._tbSearchName.BackColor = System.Drawing.Color.GhostWhite;
-            this._tbSearchName.BoxWidth = 325;
-            this._tbSearchName.Dock = System.Windows.Forms.DockStyle.Top;
-            this._tbSearchName.ForeColor = System.Drawing.Color.Black;
-            this._tbSearchName.Location = new System.Drawing.Point(0, 0);
-            this._tbSearchName.Name = "_tbSearchName";
-            this._tbSearchName.PlaceholderText = "Type here to filter organizations";
-            this._tbSearchName.Size = new System.Drawing.Size(828, 23);
-            this._tbSearchName.TabIndex = 1;
-            // 
-            // _btnManage
-            // 
-            this._btnManage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this._btnManage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
-            this._btnManage.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
-            this._btnManage.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
-            this._btnManage.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            this._btnManage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._btnManage.ForeColor = System.Drawing.Color.Black;
-            this._btnManage.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            this._btnManage.Location = new System.Drawing.Point(717, 83);
-            this._btnManage.Name = "_btnManage";
-            this._btnManage.Size = new System.Drawing.Size(97, 30);
-            this._btnManage.TabIndex = 40;
-            this._btnManage.TabStop = false;
-            this._btnManage.Text = "Manage";
-            this._btnManage.UseVisualStyleBackColor = false;
             // 
             // OrganizationControl
             // 
@@ -344,12 +333,11 @@
         private System.Windows.Forms.Label _lOrganizationType;
         private TlButton _btnAdd;
         private System.Windows.Forms.Label _lInstructions;
+        private TlButton _btnManage;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Selected;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn OrganizationName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Description;
         private System.Windows.Forms.DataGridViewTextBoxColumn Type;
         private System.Windows.Forms.DataGridViewTextBoxColumn Country;
-        private TlButton _btnManage;
     }
 }

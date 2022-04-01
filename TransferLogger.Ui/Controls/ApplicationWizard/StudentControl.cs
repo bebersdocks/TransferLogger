@@ -34,6 +34,11 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             SetEvents();
         }
 
+        public void Activate()
+        {
+            BringToFront();
+        }
+
         public void SetData()
         {
             _cbStudents.FillLookups(_students, _appBuild.Student.StudentId);
@@ -68,30 +73,27 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             }
         }
 
-        public bool IsCompleted()
+        public bool Complete()
         {
             if (_rbExistingStudent.Checked)
             {
                 if (Convert.ToInt32(_cbStudents.SelectedValue) <= 0)
                 {
-                    MessageDialog.Show($"You have to select student.");
+                    MessageDialog.Show("You have to select student.");
+
                     return false;
                 }
 
                 return true;
             }
-            else
-            {
-                return _studentControl.Validate();
-            }
-        }
-
-        public void Save()
-        {
-            if (_rbNewStudent.Checked && _studentControl.Save(out var studentId))
+            else if (_studentControl.ValidateData() && _studentControl.Save(out var studentId))
             {
                 _appBuild.Student.StudentId = studentId;
+
+                return true;
             }
+
+            return false;
         }
     }
 }

@@ -10,6 +10,7 @@ using TransferLogger.BusinessLogic.ViewModels.Organizations;
 using TransferLogger.Dal.DataModels;
 using TransferLogger.Dal.Definitions;
 using TransferLogger.Ui.Forms;
+using TransferLogger.Ui.Forms.Dialogs;
 using TransferLogger.Ui.Forms.Organizations;
 using TransferLogger.Ui.Utils;
 
@@ -31,6 +32,11 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
             SetData();
             SetEvents();
+        }
+
+        public void Activate()
+        {
+            BringToFront();
         }
 
         private void SetData()
@@ -125,16 +131,19 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             }
         }
 
-        public bool IsCompleted()
+        public bool Complete()
         {
-            return _grid.SelectedRows.Count == 1;
-        }
-
-        public void Save()
-        {
-            if (_grid.SelectedRows[0].DataBoundItem is IIdentifiable viewModel)
+            if (_grid.SelectedRows.Count == 1 && _grid.SelectedRows[0].DataBoundItem is IIdentifiable viewModel)
             {
                 _appBuild.OrganizationId = viewModel.Id;
+
+                return true;
+            }
+            else
+            {
+                MessageDialog.Show("You have to select organization.");
+
+                return false;
             }
         }
     }

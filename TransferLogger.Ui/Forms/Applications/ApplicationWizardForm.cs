@@ -22,6 +22,7 @@ namespace TransferLogger.Ui.Forms.Applications
             {
                 { BuildStep.Student, new StudentControl(_appBuild) },
                 { BuildStep.Organization, new OrganizationControl(_appBuild) },
+                { BuildStep.Courses, new CoursesControl(_appBuild) }
             };
 
             foreach (var (_, wizardControl) in _wizardControls)
@@ -43,9 +44,7 @@ namespace TransferLogger.Ui.Forms.Applications
         {
             return step switch
             {
-                BuildStep.Student      => new Size(825, 600),
-                BuildStep.Organization => new Size(825, 600),
-                _                      => new Size(600, 600)
+                _ => new Size(825, 600)
             };
         }
 
@@ -53,12 +52,10 @@ namespace TransferLogger.Ui.Forms.Applications
         {
             if (_wizardControls.TryGetValue(_appBuild.CurrentStep, out var wizardControl))
             {
-                if (forward && !wizardControl.IsCompleted())
+                if (forward && !wizardControl.Complete())
                 {
                     return;
                 }
-
-                wizardControl.Save();
             }
 
             _appBuild.CurrentStep = step;
@@ -69,7 +66,7 @@ namespace TransferLogger.Ui.Forms.Applications
 
             if (_wizardControls.TryGetValue(step, out wizardControl))
             {
-                wizardControl.BringToFront();
+                wizardControl.Activate();
 
                 CenterToScreen();
             }

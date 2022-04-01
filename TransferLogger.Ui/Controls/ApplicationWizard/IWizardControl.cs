@@ -2,8 +2,7 @@
 {
     public interface IWizardControl
     {
-        public void BringToFront();
-        public bool IsCompleted();
-        public void Save();
+        public void Activate();
+        public bool Complete();
     }
 }
