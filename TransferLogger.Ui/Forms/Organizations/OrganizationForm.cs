@@ -18,22 +18,22 @@ namespace TransferLogger.Ui.Forms.Organizations
     public partial class OrganizationForm : Form
     {
         private readonly Organization _organization;
-        private readonly List<Lookup> _countries;
 
-        public OrganizationForm(int organizationId = 0)
+        private readonly List<Lookup> _countries = EnumUtils.GetLookups<Country>();
+
+        public OrganizationForm(int organizationId = 0, OrganizationType? organizationType = null, Country? country = null)
         {
             InitializeComponent();
 
             using var dc = new Dc();
 
             _organization = dc.Organizations.FirstOrDefault(o => o.OrganizationId == organizationId) ?? new();
-            _countries    = EnumUtils.GetLookups<Country>();
 
-            SetData();
+            SetData(organizationType ?? OrganizationType.University, country ?? Country.CY);
             SetEvents();
         }
 
-        private void SetData()
+        private void SetData(OrganizationType organizationType, Country country)
         {
             if (_organization.OrganizationId > 0)
             {
@@ -48,8 +48,8 @@ namespace TransferLogger.Ui.Forms.Organizations
             }
             else
             {
-                _cbCountries.FillLookups<Country>(_countries, Country.CY);
-                _cbOrganizationTypes.FillLookups(OrganizationType.University);
+                _cbCountries.FillLookups(_countries, country);
+                _cbOrganizationTypes.FillLookups(organizationType);
             }
         }
 

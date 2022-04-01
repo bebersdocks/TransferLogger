@@ -24,21 +24,35 @@ namespace TransferLogger.Ui.Forms.Organizations
     {
         private readonly List<Lookup> _countries = EnumUtils.GetLookups<Country>();
 
-        public OrganizationsForm()
+        public OrganizationsForm(OrganizationType? organizationType = null, Country? country = null)
         {
             InitializeComponent();
 
-            SetData();
+            SetData(organizationType, country);
             SetEvents();
         }
 
-        private void SetData()
+        private void SetData(OrganizationType? organizationType = null, Country? country = null)
         {
             if (_cbOrganizationTypes.Items.Count == 0)
+            {
                 _cbOrganizationTypes.FillLookups<OrganizationType>();
 
+                if (organizationType.HasValue)
+                {
+                    _cbOrganizationTypes.SelectedValue = Convert.ToInt32(organizationType.Value);
+                }
+            }
+
             if (_cbCountries.Items.Count == 0)
+            {
                 _cbCountries.FillLookups(_countries);
+
+                if (country.HasValue)
+                {
+                    _cbCountries.SelectedValue = Convert.ToInt32(country.Value);
+                }
+            }
 
             _grid.DataSource =  OrganizationViewModel.GetList(_tbSearchName.Text, _cbOrganizationTypes.SelectedValue, _cbCountries.SelectedValue);
         }

@@ -66,6 +66,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             _cbCountries.SelectedValueChanged         += (s, e) => SetData();
 
             _btnAdd.Click           += _btnAdd_Click;
+            _btnManage.Click        += _btnManage_Click;
             _btnSelectCountry.Click += _btnSelectCountry_Click;
         }
 
@@ -85,9 +86,33 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             }
         }
 
+        private (OrganizationType? organizationType, Country? country) GetSelectedValues()
+        {
+            OrganizationType? organizationType = null;
+            if (_cbOrganizationTypes.SelectedValue != null)
+                organizationType = (OrganizationType)_cbOrganizationTypes.SelectedValue;
+
+            Country? country = null;
+            if (_cbCountries.SelectedValue != null)
+                country = (Country)_cbCountries.SelectedValue;
+
+            return (organizationType, country);
+        }
+
         private void _btnAdd_Click(object? sender, EventArgs e)
         {
-            FormUtils.InsertOrReplace(_grid, id => new OrganizationForm(id), () => SetData(), true);
+            var (organizationType, country) = GetSelectedValues();
+
+            FormUtils.InsertOrReplace(_grid, id => new OrganizationForm(id, organizationType, country), () => SetData(), true);
+        }
+
+        private void _btnManage_Click(object? sender, EventArgs e)
+        {
+            var (organizationType, country) = GetSelectedValues();
+
+            using var form = new OrganizationsForm(organizationType, country);
+
+            form.ShowDialog();
         }
 
         private void _btnSelectCountry_Click(object? sender, EventArgs e)
