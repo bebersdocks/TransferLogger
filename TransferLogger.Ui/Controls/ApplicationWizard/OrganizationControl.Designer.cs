@@ -1,4 +1,4 @@
-﻿namespace TransferLogger.Ui.Controls.Applications.Wizard
+﻿namespace TransferLogger.Ui.Controls.ApplicationWizard
 {
     partial class OrganizationControl
     {

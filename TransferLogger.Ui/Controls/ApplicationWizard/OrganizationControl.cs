@@ -13,7 +13,7 @@ using TransferLogger.Ui.Forms;
 using TransferLogger.Ui.Forms.Organizations;
 using TransferLogger.Ui.Utils;
 
-namespace TransferLogger.Ui.Controls.Applications.Wizard
+namespace TransferLogger.Ui.Controls.ApplicationWizard
 {
     public partial class OrganizationControl : UserControl, IWizardControl
     {

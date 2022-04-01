@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 
 using TransferLogger.BusinessLogic;
-using TransferLogger.Ui.Controls.Students;
 using TransferLogger.Ui.Forms;
 using TransferLogger.Ui.Forms.Dialogs;
 
-namespace TransferLogger.Ui.Controls.Applications.Wizard
+namespace TransferLogger.Ui.Controls.ApplicationWizard
 {
     public partial class StudentControl : UserControl, IWizardControl
     {
