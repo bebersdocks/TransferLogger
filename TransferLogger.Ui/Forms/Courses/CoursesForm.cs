@@ -110,13 +110,13 @@ namespace TransferLogger.Ui.Forms.Courses
         private void InsertOrReplace(bool isNew = false)
         {
             var organizationId      = Convert.ToInt32(_cbOrganizations.SelectedValue);
-            var organizationsLocked = _cbOrganizations.Enabled;
+            var organizationsLocked = !_cbOrganizations.Enabled;
 
             var programId = Convert.ToInt32(_cbPrograms.SelectedValue);
 
             Cycle? cycle = null;
             if (_cbCycles.SelectedValue != null)
-                cycle = (Cycle?)_cbCycles.SelectedValue;
+                cycle = (Cycle)_cbCycles.SelectedValue;
 
             FormUtils.InsertOrReplace(_grid, id => new CourseForm(id, organizationId, organizationsLocked, programId, cycle), () => SetData(), isNew);
         }

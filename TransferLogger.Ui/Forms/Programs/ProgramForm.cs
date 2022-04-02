@@ -10,14 +10,15 @@ using TransferLogger.Ui.Controls;
 using TransferLogger.Ui.Forms.Dialogs;
 using TransferLogger.Ui.Utils;
 
-using Lookup = TransferLogger.BusinessLogic.Lookup;
+using DalProgram = TransferLogger.Dal.DataModels.Program;
+using Lookup     = TransferLogger.BusinessLogic.Lookup;
 
 namespace TransferLogger.Ui.Forms.Programs
 {
     public partial class ProgramForm : Form
     {
-        private readonly Dal.DataModels.Program _program;
-        private readonly List<Lookup>           _organizations = LookupServices.GetOrganizations();
+        private readonly DalProgram  _program;
+        private readonly List<Lookup> _organizations = LookupServices.GetOrganizations();
 
         public ProgramForm(int programId = 0)
         {
@@ -45,6 +46,8 @@ namespace TransferLogger.Ui.Forms.Programs
             }
             else
             {
+                _numericYear.Value = DateTime.Now.Year;
+
                 _cbCycle.FillLookups(Cycle.Bachelor);
                 _cbOrganizations.FillLookups(_organizations);
             }

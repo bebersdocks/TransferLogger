@@ -33,7 +33,7 @@ namespace TransferLogger.Ui.Forms.Courses
                 .FirstOrDefault(c => c.CourseId == courseId) ?? new();
 
             SetData(organizationId, organizationsLocked, cycle);
-            SetPrograms(programId);
+            SetPrograms(_course.ProgramId > 0 ? _course.ProgramId : programId);
             SetEvents();
         }
 
@@ -47,11 +47,14 @@ namespace TransferLogger.Ui.Forms.Courses
                 _numericCredits.Value     = _course.Credits;
                 _numericWeeklyHours.Value = _course.WeeklyHours;
 
+                organizationId ??= _course.OrganizationId;
+                cycle          ??= _course.Program?.Cycle;
+
                 Text = $"{_course.CourseCode} - {_course.Name} (Id: {_course.CourseId})";
             }
 
-            _cbCycles.FillLookups(_course.Program?.Cycle ?? cycle ?? Cycle.Bachelor);
-            _cbOrganizations.FillLookups(_organizations, organizationId ?? _course.OrganizationId);
+            _cbCycles.FillLookups(cycle ?? Cycle.Bachelor);
+            _cbOrganizations.FillLookups(_organizations, organizationId);
 
             _cbOrganizations.Enabled       = !organizationsLocked;
             _btnSelectOrganization.Enabled = !organizationsLocked;
@@ -62,7 +65,7 @@ namespace TransferLogger.Ui.Forms.Courses
             var programs = LookupServices.GetPrograms(_cbOrganizations.SelectedValue, _cbCycles.SelectedValue);
             if (programs.Any())
             {
-                _cbPrograms.FillLookups(programs, programId ?? _course.ProgramId);
+                _cbPrograms.FillLookups(programs, programId);
                 _cbPrograms.Enabled = _btnSelectProgram.Enabled = true;
             }
             else

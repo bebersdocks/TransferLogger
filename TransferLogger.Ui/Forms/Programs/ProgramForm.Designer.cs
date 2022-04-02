@@ -97,8 +97,6 @@ namespace TransferLogger.Ui.Forms.Programs
             // 
             // _cbCycle
             // 
-            this._cbCycle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this._cbCycle.BackColor = System.Drawing.Color.GhostWhite;
             this._cbCycle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._cbCycle.FormattingEnabled = true;
@@ -119,8 +117,6 @@ namespace TransferLogger.Ui.Forms.Programs
             // 
             // _numericYear
             // 
-            this._numericYear.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this._numericYear.BackColor = System.Drawing.Color.GhostWhite;
             this._numericYear.Location = new System.Drawing.Point(113, 135);
             this._numericYear.Maximum = new decimal(new int[] {

@@ -104,7 +104,7 @@ namespace TransferLogger.Ui.Forms.Organizations
             this._btnSelectCountry.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnSelectCountry.ForeColor = System.Drawing.Color.Black;
             this._btnSelectCountry.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            this._btnSelectCountry.Location = new System.Drawing.Point(787, 17);
+            this._btnSelectCountry.Location = new System.Drawing.Point(793, 17);
             this._btnSelectCountry.MaximumSize = new System.Drawing.Size(0, 23);
             this._btnSelectCountry.MinimumSize = new System.Drawing.Size(0, 23);
             this._btnSelectCountry.Name = "_btnSelectCountry";
@@ -121,7 +121,7 @@ namespace TransferLogger.Ui.Forms.Organizations
             this._cbCountries.FormattingEnabled = true;
             this._cbCountries.Location = new System.Drawing.Point(496, 17);
             this._cbCountries.Name = "_cbCountries";
-            this._cbCountries.Size = new System.Drawing.Size(285, 23);
+            this._cbCountries.Size = new System.Drawing.Size(291, 23);
             this._cbCountries.TabIndex = 2;
             // 
             // _lCountry

@@ -104,7 +104,7 @@ namespace TransferLogger.Ui.Forms.Programs
             this._btnSelectOrganization.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnSelectOrganization.ForeColor = System.Drawing.Color.Black;
             this._btnSelectOrganization.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            this._btnSelectOrganization.Location = new System.Drawing.Point(817, 17);
+            this._btnSelectOrganization.Location = new System.Drawing.Point(823, 17);
             this._btnSelectOrganization.MaximumSize = new System.Drawing.Size(0, 23);
             this._btnSelectOrganization.MinimumSize = new System.Drawing.Size(0, 23);
             this._btnSelectOrganization.Name = "_btnSelectOrganization";
@@ -121,7 +121,7 @@ namespace TransferLogger.Ui.Forms.Programs
             this._cbOrganizations.FormattingEnabled = true;
             this._cbOrganizations.Location = new System.Drawing.Point(526, 17);
             this._cbOrganizations.Name = "_cbOrganizations";
-            this._cbOrganizations.Size = new System.Drawing.Size(285, 23);
+            this._cbOrganizations.Size = new System.Drawing.Size(291, 23);
             this._cbOrganizations.TabIndex = 2;
             // 
             // _lOrganization
