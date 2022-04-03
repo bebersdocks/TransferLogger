@@ -43,7 +43,7 @@
             this._btnConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnConfirm.ForeColor = System.Drawing.Color.Black;
             this._btnConfirm.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            this._btnConfirm.Location = new System.Drawing.Point(207, 84);
+            this._btnConfirm.Location = new System.Drawing.Point(127, 84);
             this._btnConfirm.Name = "_btnConfirm";
             this._btnConfirm.Size = new System.Drawing.Size(75, 29);
             this._btnConfirm.TabIndex = 1;
@@ -61,7 +61,7 @@
             this._btnAbort.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnAbort.ForeColor = System.Drawing.Color.Black;
             this._btnAbort.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            this._btnAbort.Location = new System.Drawing.Point(126, 84);
+            this._btnAbort.Location = new System.Drawing.Point(208, 84);
             this._btnAbort.Name = "_btnAbort";
             this._btnAbort.Size = new System.Drawing.Size(75, 29);
             this._btnAbort.TabIndex = 0;
