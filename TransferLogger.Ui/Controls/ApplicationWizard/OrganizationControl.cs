@@ -69,8 +69,8 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             _cbOrganizationTypes.SelectedValueChanged += (s, e) => SetData();
             _cbCountries.SelectedValueChanged         += (s, e) => SetData();
 
-            _grid.Click       += (s, e) => SetCurrentRowAsSelected();
-            _grid.DoubleClick += (s, e) => SetCurrentRowAsSelected();
+            _grid.CellClick       += (s, e) => SetCurrentRowAsSelected();
+            _grid.CellDoubleClick += (s, e) => SetCurrentRowAsSelected();
 
             _btnAdd.Click           += _btnAdd_Click;
             _btnManage.Click        += _btnManage_Click;
@@ -124,9 +124,8 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
         {
             var (organizationType, country) = GetSelectedValues();
 
-            FormUtils.InsertOrReplace(_grid, id => new OrganizationForm(id, organizationType, country), () => SetData(), true);
-
-            SetCurrentRowAsSelected();
+            if (FormUtils.InsertOrReplace(_grid, id => new OrganizationForm(id, organizationType, country), () => SetData(), true))
+                SetCurrentRowAsSelected();
         }
 
         private void _btnManage_Click(object? sender, EventArgs e)

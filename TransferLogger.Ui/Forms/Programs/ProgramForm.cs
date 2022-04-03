@@ -17,10 +17,11 @@ namespace TransferLogger.Ui.Forms.Programs
 {
     public partial class ProgramForm : Form
     {
-        private readonly DalProgram  _program;
+        private readonly DalProgram _program;
+
         private readonly List<Lookup> _organizations = LookupServices.GetOrganizations();
 
-        public ProgramForm(int programId = 0)
+        public ProgramForm(int programId = 0, int? organizationId = null, bool organizationsLocked = false, Cycle ? cycle = null)
         {
             InitializeComponent();
 
@@ -28,11 +29,11 @@ namespace TransferLogger.Ui.Forms.Programs
 
             _program = dc.Programs.FirstOrDefault(p => p.ProgramId == programId) ?? new();
 
-            SetData();
+            SetData(organizationId, organizationsLocked, cycle);
             SetEvents();
         }
 
-        private void SetData()
+        private void SetData(int? organizationId = null, bool organizationsLocked = false, Cycle? cycle = null)
         {
             if (_program.OrganizationId > 0)
             {
@@ -48,8 +49,11 @@ namespace TransferLogger.Ui.Forms.Programs
             {
                 _numericYear.Value = DateTime.Now.Year;
 
-                _cbCycle.FillLookups(Cycle.Bachelor);
-                _cbOrganizations.FillLookups(_organizations);
+                _cbCycle.FillLookups(cycle ?? Cycle.Bachelor);
+                _cbOrganizations.FillLookups(_organizations, organizationId);
+
+                _cbOrganizations.Enabled       = !organizationsLocked;
+                _btnSelectOrganization.Enabled = !organizationsLocked;
             }
         }
 

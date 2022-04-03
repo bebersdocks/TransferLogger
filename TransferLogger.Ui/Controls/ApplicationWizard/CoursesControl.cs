@@ -5,9 +5,12 @@ using System.Windows.Forms;
 
 using TransferLogger.BusinessLogic;
 using TransferLogger.BusinessLogic.ViewModels.Courses;
+using TransferLogger.Dal;
 using TransferLogger.Dal.Definitions;
 using TransferLogger.Ui.Forms;
 using TransferLogger.Ui.Forms.Courses;
+using TransferLogger.Ui.Forms.Dialogs;
+using TransferLogger.Ui.Forms.Programs;
 using TransferLogger.Ui.Utils;
 
 namespace TransferLogger.Ui.Controls.ApplicationWizard
@@ -24,42 +27,33 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
             _appBuild = appBuild;
 
-            SetData(true);
+            SetData();
             SetPrograms();
             SetEvents();
         }
 
         public void Activate()
         {
-            SetData(true);
+            SetData();
             SetPrograms();
 
             BringToFront();
         }
 
-        private void SetData(bool initial = false)
+        private void SetData()
         {
             if (_cbCycles.Items.Count == 0)
-                _cbCycles.FillLookups<Cycle>();
+                _cbCycles.FillLookups(Dal.Definitions.Cycle.Bachelor);
 
-            if (!initial)
-            {
-                _appBuild.CourseIds.Clear();
-
-                foreach (DataGridViewRow row in _grid.Rows)
-                {
-                    if (row.DataBoundItem is SelectableCourseViewModel viewModel && viewModel.Selected)
-                    {
-                        _appBuild.CourseIds.Add(viewModel.Id);
-                    }
-                }
-            }
+            _grid.SelectionChanged -= _grid_SelectionChanged;
 
             _grid.DataSource = SelectableCourseViewModel.GetList(_appBuild.CourseIds,
                 _tbSearchName.Text, 
                 _appBuild.OrganizationId, 
                 _cbCycles.SelectedValue, 
                 _cbPrograms.SelectedValue);
+
+            _grid.SelectionChanged += _grid_SelectionChanged;
         }
 
         private void SetPrograms()
@@ -82,6 +76,9 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             _tbSearchName.TextChanged        += (s, e) => SetData();
             _cbPrograms.SelectedValueChanged += (s, e) => SetData();
 
+            _grid.CellClick       += (s, e) => SetCurrentRowAsSelected();
+            _grid.CellDoubleClick += (s, e) => SetCurrentRowAsSelected();
+
             _cbCycles.SelectedValueChanged += OnValuesChanges;
 
             _btnAddCourse.Click      += _btnAddCourse_Click;
@@ -89,8 +86,39 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             _btnAddProgram.Click     += _btnAddProgram_Click;
             _btnManagePrograms.Click += _btnManagePrograms_Click;
             _btnSelectProgram.Click  += _btnSelectProgram_Click;
+        }
 
-            _grid.SelectionChanged += _grid_SelectionChanged;
+        private void UpdateSelectedRows()
+        {
+            if (_grid.DataSource is List<SelectableCourseViewModel> courses)
+            {
+                foreach (var course in courses)
+                {
+                    course.Selected = _appBuild.CourseIds.Contains(course.Id);
+                }
+
+                _grid.Refresh();
+            }
+        }
+
+        private void _grid_SelectionChanged(object? sender, EventArgs e)
+        {
+            UpdateSelectedRows();
+        }
+
+        private void SetCurrentRowAsSelected()
+        {
+            if (_grid.CurrentRow?.DataBoundItem is SelectableCourseViewModel viewModel)
+            {
+                viewModel.Selected = !viewModel.Selected;
+
+                if (viewModel.Selected)
+                    _appBuild.CourseIds.Add(viewModel.Id);
+                else
+                    _appBuild.CourseIds.Remove(viewModel.Id);
+
+                UpdateSelectedRows();
+            }
         }
 
         private void OnValuesChanges(object? sender, EventArgs e)
@@ -110,20 +138,29 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
         private void _btnAddProgram_Click(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
-        }
+            var (_, cycle) = GetSelectedValues();
 
+            if (FormUtils.InsertOrReplace(_grid, id => new ProgramForm(id, _appBuild.OrganizationId, true, cycle), () => SetData(), true))
+                SetPrograms();
+        }
 
         private void _btnManagePrograms_Click(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            var (_, cycle) = GetSelectedValues();
+
+            using var form = new ProgramsForm(_appBuild.OrganizationId, true, cycle);
+
+            form.ShowDialog();
+
+            SetPrograms();
         }
 
         private void _btnAddCourse_Click(object? sender, EventArgs e)
         {
             var (programId, cycle) = GetSelectedValues();
 
-            FormUtils.InsertOrReplace(_grid, id => new CourseForm(id, _appBuild.OrganizationId, true, programId, cycle), () => SetData(), true);
+            if (FormUtils.InsertOrReplace(_grid, id => new CourseForm(id, _appBuild.OrganizationId, true, programId, cycle), () => SetData(), true))
+                SetCurrentRowAsSelected();
         }
 
         private void _btnManageCourses_Click(object? sender, EventArgs e)
@@ -133,6 +170,17 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             using var form = new CoursesForm(_appBuild.OrganizationId, true, cycle);
 
             form.ShowDialog();
+
+            using var dc = new Dc();
+
+            var courseIds = dc.Courses
+                .Select(c => c.CourseId)
+                .ToHashSet();
+
+            // Remove courses from selection which no longer exist.
+            _appBuild.CourseIds.Intersect(courseIds);
+
+            SetData();
         }
 
         private void _btnSelectProgram_Click(object? sender, EventArgs e)
@@ -147,16 +195,15 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             }
         }
 
-        private void _grid_SelectionChanged(object? sender, EventArgs e)
-        {
-            if (_grid.DataSource is List<SelectableCourseViewModel> courses)
-            {
-                _grid.Refresh();
-            }
-        }
-
         public bool Complete()
         {
+           if (!_appBuild.CourseIds.Any())
+            {
+                MessageDialog.Show("You have to select at least 1 course.");
+
+                return false;
+            }
+
             return true;
         }
     }

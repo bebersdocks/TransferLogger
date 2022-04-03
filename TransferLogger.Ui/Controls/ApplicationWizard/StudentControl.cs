@@ -10,8 +10,8 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 {
     public partial class StudentControl : UserControl, IWizardControl
     {
-        private readonly ApplicationBuild _appBuild;
-        private readonly Students.StudentControl   _studentControl;
+        private readonly ApplicationBuild        _appBuild;
+        private readonly Students.StudentControl _studentControl;
 
         private readonly List<Lookup> _students = LookupServices.GetStudents();
 

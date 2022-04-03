@@ -21,7 +21,7 @@ namespace TransferLogger.Ui.Utils
             form.ShowDialog();
         }
 
-        public static void InsertOrReplace(TlDataGrid grid, Func<int, Form> getForm, Action setData, bool isNew = false)
+        public static bool InsertOrReplace(TlDataGrid grid, Func<int, Form> getForm, Action setData, bool isNew = false)
         {
             var itemId = 0;
 
@@ -32,7 +32,7 @@ namespace TransferLogger.Ui.Utils
 
             if (!isNew && itemId == 0)
             {
-                return;
+                return false;
             }
 
             using var form = getForm(isNew ? 0 : itemId);
@@ -49,7 +49,11 @@ namespace TransferLogger.Ui.Utils
                 {
                     grid.SelectRow(grid.Rows.Count - 1);
                 }
+
+                return true;
             }
+
+            return false;
         }
 
         public static bool TryInsertOrReplace<T>(T obj, ref int id) where T : notnull

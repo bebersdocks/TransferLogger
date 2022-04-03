@@ -35,7 +35,7 @@ namespace TransferLogger.Ui.Forms.Courses
         private void SetData(int? organizationId = null, bool organizationsLocked = false, Cycle? cycle = null)
         {
             if (_cbOrganizations.Items.Count == 0)
-                _cbOrganizations.FillLookups(_organizations, organizationId ?? 0);
+                _cbOrganizations.FillLookups(_organizations, organizationId);
 
             _cbOrganizations.Enabled       = !organizationsLocked;
             _btnSelectOrganization.Enabled = !organizationsLocked;

@@ -23,21 +23,24 @@ namespace TransferLogger.Ui.Forms.Programs
     {
         private readonly List<Lookup> _organizations = LookupServices.GetOrganizations();
 
-        public ProgramsForm()
+        public ProgramsForm(int? organizationId = null, bool organizationsLocked = false, Cycle? cycle = null)
         {
             InitializeComponent();
 
-            SetData();
+            SetData(organizationId, organizationsLocked, cycle);
             SetEvents();
         }
 
-        private void SetData()
+        private void SetData(int? organizationId = null, bool organizationsLocked = false, Cycle? cycle = null)
         {
             if (_cbOrganizations.Items.Count == 0)
-                _cbOrganizations.FillLookups(_organizations);
+                _cbOrganizations.FillLookups(_organizations, organizationId);
+
+            _cbOrganizations.Enabled       = !organizationsLocked;
+            _btnSelectOrganization.Enabled = !organizationsLocked;
 
             if (_cbCycles.Items.Count == 0)
-                _cbCycles.FillLookups<Cycle>();
+                _cbCycles.FillLookups(cycle ?? Dal.Definitions.Cycle.Bachelor);
 
             _grid.DataSource = ProgramViewModel.GetList(_tbSearchName.Text, _cbOrganizations.SelectedValue, _cbCycles.SelectedValue);
         }
@@ -69,7 +72,14 @@ namespace TransferLogger.Ui.Forms.Programs
 
         private void InsertOrReplace(bool isNew = false)
         {
-            FormUtils.InsertOrReplace(_grid, id => new ProgramForm(id), () => SetData(), isNew);
+            var organizationId      = Convert.ToInt32(_cbOrganizations.SelectedValue);
+            var organizationsLocked = !_cbOrganizations.Enabled;
+
+            Cycle? cycle = null;
+            if (_cbCycles.SelectedValue != null)
+                cycle = (Cycle)_cbCycles.SelectedValue;
+
+            FormUtils.InsertOrReplace(_grid, id => new ProgramForm(id, organizationId, organizationsLocked, cycle), () => SetData(), isNew);
         }
 
         private void _btnDelete_Click(object? sender, EventArgs e)
