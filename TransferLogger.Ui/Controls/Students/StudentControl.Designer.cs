@@ -42,6 +42,8 @@
             this._tbDocumentNo = new TransferLogger.Ui.Controls.TlTextBox();
             this._tbName = new TransferLogger.Ui.Controls.TlTextBox();
             this._lName = new System.Windows.Forms.Label();
+            this._lNameReq = new System.Windows.Forms.Label();
+            this._lSurnameReq = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // _lMiddle
@@ -191,11 +193,33 @@
             this._lName.TabIndex = 30;
             this._lName.Text = "Name:";
             // 
+            // _lNameReq
+            // 
+            this._lNameReq.AutoSize = true;
+            this._lNameReq.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this._lNameReq.Location = new System.Drawing.Point(428, 3);
+            this._lNameReq.Name = "_lNameReq";
+            this._lNameReq.Size = new System.Drawing.Size(13, 17);
+            this._lNameReq.TabIndex = 43;
+            this._lNameReq.Text = "*";
+            // 
+            // _lSurnameReq
+            // 
+            this._lSurnameReq.AutoSize = true;
+            this._lSurnameReq.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this._lSurnameReq.Location = new System.Drawing.Point(428, 65);
+            this._lSurnameReq.Name = "_lSurnameReq";
+            this._lSurnameReq.Size = new System.Drawing.Size(13, 17);
+            this._lSurnameReq.TabIndex = 44;
+            this._lSurnameReq.Text = "*";
+            // 
             // StudentControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this._lSurnameReq);
+            this.Controls.Add(this._lNameReq);
             this.Controls.Add(this._lMiddle);
             this.Controls.Add(this._tbMiddle);
             this.Controls.Add(this._lEmail);
@@ -211,7 +235,7 @@
             this.Controls.Add(this._tbName);
             this.Controls.Add(this._lName);
             this.Name = "StudentControl";
-            this.Size = new System.Drawing.Size(435, 219);
+            this.Size = new System.Drawing.Size(441, 221);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -233,5 +257,7 @@
         private TlTextBox _tbDocumentNo;
         private TlTextBox _tbName;
         private System.Windows.Forms.Label _lName;
+        private System.Windows.Forms.Label _lNameReq;
+        private System.Windows.Forms.Label _lSurnameReq;
     }
 }

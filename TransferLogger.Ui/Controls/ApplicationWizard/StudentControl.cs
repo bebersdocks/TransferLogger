@@ -39,7 +39,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             BringToFront();
         }
 
-        public void SetData()
+        private void SetData()
         {
             _cbStudents.FillLookups(_students, _appBuild.Student.StudentId);
         }
