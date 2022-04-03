@@ -3,22 +3,29 @@ using System.Windows.Forms;
 
 namespace TransferLogger.Ui.Forms.Dialogs
 {
-    public partial class ErrorDialog : Form
+    public partial class ExceptionDialog : Form
     {
-        public ErrorDialog(string message, string title)
+        public ExceptionDialog(string message, string title)
         {
             InitializeComponent();
 
-            _tbError.Text = message;
+            _tbException.Text = message;
 
             Text = title;
 
             SetEvents();
         }
 
-        public static void Show(string message, string title = "Error")
+        public static void Show(string message, string title = "Exception")
         {
-            using var errorDlg = new ErrorDialog(message, title);
+            using var errorDlg = new ExceptionDialog(message, title);
+
+            errorDlg.ShowDialog();
+        }
+
+        public static void Show(Exception ex, string title = "Exception")
+        {
+            using var errorDlg = new ExceptionDialog(ex.Message, title);
 
             errorDlg.ShowDialog();
         }

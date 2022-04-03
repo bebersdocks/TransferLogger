@@ -5,8 +5,6 @@ using System.Windows.Forms;
 
 using LinqToDB;
 
-using Serilog;
-
 using TransferLogger.BusinessLogic.ViewModels.Organizations;
 using TransferLogger.BusinessLogic.Utils;
 using TransferLogger.Dal;
@@ -91,26 +89,17 @@ namespace TransferLogger.Ui.Forms.Organizations
 
                 if (confirmDlg.ShowDialog() == DialogResult.OK)
                 {
-                    try
-                    {
-                        var index = _grid.CurrentRow.Index;
+                    var index = _grid.CurrentRow.Index;
 
-                        using var dc = new Dc();
+                    using var dc = new Dc();
 
-                        dc.Organizations
-                            .Where(o => o.OrganizationId == viewModel.Id)
-                            .Delete();
+                    dc.Organizations
+                        .Where(o => o.OrganizationId == viewModel.Id)
+                        .Delete();
 
-                        SetData();
+                    SetData();
 
-                        _grid.SelectRow(index);
-                    }
-                    catch (Exception ex)
-                    {
-                        Log.Error(ex, "failed");
-
-                        ErrorDialog.Show(ex.Message, "Database Error");
-                    }
+                    _grid.SelectRow(index);
                 }
             }
         }

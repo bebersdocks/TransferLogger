@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 using System.Windows.Forms;
 
 using Serilog;
@@ -7,6 +8,7 @@ using TransferLogger.BusinessLogic.Settings;
 using TransferLogger.BusinessLogic.Utils;
 using TransferLogger.Dal;
 using TransferLogger.Ui.Forms.Applications;
+using TransferLogger.Ui.Forms.Dialogs;
 
 namespace TransferLogger.Ui
 {
@@ -15,20 +17,20 @@ namespace TransferLogger.Ui
         [STAThread]
         static void Main()
         {
-            Log.Logger = Logging.CreateLogger(AppSettings.Instance.LoggingSettings);
-            Log.Information($"Settings have been read.");
+            try
+            {
+                Log.Logger = Logging.CreateLogger(AppSettings.Instance.LoggingSettings);
+                Log.Information($"Settings have been read.");
 
+                Application.ThreadException += new ThreadExceptionEventHandler(OnException);
 #if NET5_0
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
 #else
             ApplicationConfiguration.Initialize();
 #endif
+                Log.Information($"Application configuration has been initialized.");
 
-            Log.Information($"Application configuration has been initialized.");
-
-            try
-            {
                 Dc.CreateDefaultConfiguration(AppSettings.Instance.DbSettings);
 
                 Log.Information($"Default data configuration has been created.");
@@ -40,15 +42,23 @@ namespace TransferLogger.Ui
                 dc.CreateOrUpdateDb();
 
                 Log.Information($"Database has been restored or checked.");
+
+                Application.Run(new ApplicationsForm());
             }
-            catch (Exception ex)
+            catch (Exception ex) // handles exceptions before Application.Run()
             {
-                Log.Error(ex, "failed");
+                Log.Error($"{ex.Message}\n{ex.StackTrace}");
 
-                throw;
+                ExceptionDialog.Show(ex.Message);
             }
+        }
 
-            Application.Run(new ApplicationsForm());
+        // Handles uncaught exceptions within Application.Run()
+        private static void OnException(object sender, ThreadExceptionEventArgs t)
+        {
+            Log.Error(t.Exception, "failed");
+
+            ExceptionDialog.Show(t.Exception.Message);
         }
     }
 }
