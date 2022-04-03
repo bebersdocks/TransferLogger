@@ -5,8 +5,9 @@ using System.Windows.Forms;
 
 using TransferLogger.BusinessLogic;
 using TransferLogger.BusinessLogic.Intefaces;
-using TransferLogger.BusinessLogic.Utils;
 using TransferLogger.BusinessLogic.ViewModels.Organizations;
+using TransferLogger.BusinessLogic.Utils;
+using TransferLogger.Dal;
 using TransferLogger.Dal.DataModels;
 using TransferLogger.Dal.Definitions;
 using TransferLogger.Ui.Forms;
@@ -47,10 +48,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             if (_cbCountries.Items.Count == 0)
                 _cbCountries.FillLookups(_countries);
 
-            var selectedIds = new HashSet<int>();
-
-            if (_grid.SelectedRows.Count == 1 && _grid.SelectedRows[0].DataBoundItem is IIdentifiable viewModel)
-                selectedIds.Add(viewModel.Id);
+            var selectedIds = new HashSet<int> { _appBuild.OrganizationId };
 
             _grid.SelectionChanged -= _grid_SelectionChanged;
 
@@ -59,8 +57,8 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
                 _cbOrganizationTypes.SelectedValue, 
                 _cbCountries.SelectedValue);
 
-            if (selectedIds.Any())
-                _grid.SelectRow<IIdentifiable>(i => selectedIds.Contains(i.Id));
+            if (_appBuild.OrganizationId > 0)
+                _grid.SelectRow<IIdentifiable>(i => i.Id == _appBuild.OrganizationId);
 
             _grid.SelectionChanged += _grid_SelectionChanged;
         }
@@ -71,24 +69,41 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             _cbOrganizationTypes.SelectedValueChanged += (s, e) => SetData();
             _cbCountries.SelectedValueChanged         += (s, e) => SetData();
 
+            _grid.Click       += (s, e) => SetCurrentRowAsSelected();
+            _grid.DoubleClick += (s, e) => SetCurrentRowAsSelected();
+
             _btnAdd.Click           += _btnAdd_Click;
             _btnManage.Click        += _btnManage_Click;
             _btnSelectCountry.Click += _btnSelectCountry_Click;
         }
 
-        private void _grid_SelectionChanged(object? sender, EventArgs e)
-        {         
+        private void UpdateSelectedRow()
+        {
             if (_grid.DataSource is List<SelectableOrganizationViewModel> organizations)
             {
-                int selectedId = 0;
-
-                if (_grid.SelectedRows.Count == 1 && _grid.SelectedRows[0].DataBoundItem is IIdentifiable viewModel)
-                    selectedId = viewModel.Id;
-
                 foreach (var organization in organizations)
-                    organization.Selected = organization.Id == selectedId;
+                {
+                    organization.Selected = organization.Id == _appBuild.OrganizationId;
+                }
 
                 _grid.Refresh();
+            }
+        }
+
+        private void _grid_SelectionChanged(object? sender, EventArgs e)
+        {
+            UpdateSelectedRow();
+        }
+
+        private void SetCurrentRowAsSelected()
+        {
+            if (_grid.CurrentRow?.DataBoundItem is SelectableOrganizationViewModel viewModel)
+            {
+                viewModel.Selected = !viewModel.Selected;
+
+                _appBuild.OrganizationId = viewModel.Selected ? viewModel.Id : 0;
+
+                UpdateSelectedRow();
             }
         }
 
@@ -110,6 +125,8 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             var (organizationType, country) = GetSelectedValues();
 
             FormUtils.InsertOrReplace(_grid, id => new OrganizationForm(id, organizationType, country), () => SetData(), true);
+
+            SetCurrentRowAsSelected();
         }
 
         private void _btnManage_Click(object? sender, EventArgs e)
@@ -119,6 +136,14 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             using var form = new OrganizationsForm(organizationType, country);
 
             form.ShowDialog();
+
+            // Check if current selection was deleted.
+            using var dc = new Dc();
+
+            if (!dc.Organizations.Any(o => o.OrganizationId == _appBuild.OrganizationId))
+                _appBuild.OrganizationId = 0;
+
+            SetData();
         }
 
         private void _btnSelectCountry_Click(object? sender, EventArgs e)
@@ -133,17 +158,15 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
         public bool Complete()
         {
-            if (_grid.SelectedRows.Count == 1 && _grid.SelectedRows[0].DataBoundItem is IIdentifiable viewModel)
-            {
-                _appBuild.OrganizationId = viewModel.Id;
-
-                return true;
-            }
-            else
+            if (_appBuild.OrganizationId <= 0)
             {
                 MessageDialog.Show("You have to select organization.");
 
                 return false;
+            }
+            else
+            {
+                return true;
             }
         }
     }
