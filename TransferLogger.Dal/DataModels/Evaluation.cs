@@ -16,12 +16,12 @@ namespace TransferLogger.Dal.DataModels
     public class Evaluation
     {
         [Column, Identity] public int              EvaluationId       { get; set; }
+        [Column, NotNull]  public EvaluationStatus EvaluationStatus   { get; set; }
         [Column, NotNull]  public int              ApplicationId      { get; set; }
         [Column, NotNull]  public int              CourseId           { get; set; }
         [Column, Nullable] public int?             MatchedCourseId    { get; set; }
         [Column, NotNull]  public int              InstructorId       { get; set; }
         [Column, Nullable] public Evaluation       LinkedEvaluationId { get; set; }
-        [Column, NotNull]  public EvaluationStatus Status             { get; set; }
         [Column, Nullable] public string           Comment            { get; set; }
 
         #region Associations 

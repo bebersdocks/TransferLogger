@@ -89,12 +89,12 @@ ALTER TABLE Application ADD CONSTRAINT FK_ApplicationTargetOrganization FOREIGN 
 
 CREATE TABLE Evaluation (
 	EvaluationId INT NOT NULL,
+	EvaluationStatus INT NOT NULL,
 	ApplicationId INT NOT NULL,
 	CourseId INT NOT NULL,
 	MatchedCourseId INT NULL,
 	InstructorId INT NOT NULL,
 	LinkedEvaluationId INT NULL,
-	Status INT NOT NULL,
 	Comment NVARCHAR (300) NULL
 );
 
