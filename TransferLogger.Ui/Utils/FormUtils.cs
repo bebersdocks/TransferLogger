@@ -73,7 +73,7 @@ namespace TransferLogger.Ui.Utils
             {
                 Log.Error(ex, "failed");
 
-                ExceptionDialog.Show(ex.Message, "Database Error");
+                ErrorDialog.Show(ex.Message, "Database Error");
                 
                 return false;
             }

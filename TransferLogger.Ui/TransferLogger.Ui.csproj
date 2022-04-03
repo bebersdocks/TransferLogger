@@ -35,7 +35,7 @@
 		<Compile Update="Forms\Courses\CoursesForm.cs">
 			<SubType>Form</SubType>
 		</Compile>
-		<Compile Update="Forms\Dialogs\ExceptionDialog.cs">
+		<Compile Update="Forms\Dialogs\ErrorDialog.cs">
 			<SubType>Form</SubType>
 		</Compile>
 		<Compile Update="Forms\Dialogs\MessageDialog.cs">

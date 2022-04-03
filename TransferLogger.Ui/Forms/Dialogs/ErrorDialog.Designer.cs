@@ -1,6 +1,6 @@
 ﻿namespace TransferLogger.Ui.Forms.Dialogs
 {
-    partial class ExceptionDialog
+    partial class ErrorDialog
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this._btnOk = new TransferLogger.Ui.Controls.TlButton();
-            this._tbException = new System.Windows.Forms.RichTextBox();
+            this._tbMessage = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // _btnOk
@@ -50,29 +50,29 @@
             this._btnOk.Text = "Ok";
             this._btnOk.UseVisualStyleBackColor = false;
             // 
-            // _tbException
+            // _tbMessage
             // 
-            this._tbException.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this._tbMessage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this._tbException.BackColor = System.Drawing.Color.WhiteSmoke;
-            this._tbException.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this._tbException.Location = new System.Drawing.Point(12, 12);
-            this._tbException.Name = "_tbException";
-            this._tbException.Size = new System.Drawing.Size(392, 196);
-            this._tbException.TabIndex = 4;
-            this._tbException.Text = "";
+            this._tbMessage.BackColor = System.Drawing.Color.WhiteSmoke;
+            this._tbMessage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this._tbMessage.Location = new System.Drawing.Point(12, 12);
+            this._tbMessage.Name = "_tbMessage";
+            this._tbMessage.Size = new System.Drawing.Size(392, 196);
+            this._tbMessage.TabIndex = 4;
+            this._tbMessage.Text = "";
             // 
-            // ExceptionDialog
+            // ErrorDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(416, 262);
-            this.Controls.Add(this._tbException);
+            this.Controls.Add(this._tbMessage);
             this.Controls.Add(this._btnOk);
             this.MinimumSize = new System.Drawing.Size(400, 210);
-            this.Name = "ExceptionDialog";
+            this.Name = "ErrorDialog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Exception";
             this.ResumeLayout(false);
@@ -81,6 +81,6 @@
 
         #endregion
         private Controls.TlButton _btnOk;
-        private System.Windows.Forms.RichTextBox _tbException;
+        private System.Windows.Forms.RichTextBox _tbMessage;
     }
 }
