@@ -94,6 +94,8 @@ namespace TransferLogger.Ui.Forms.Programs
                 {
                     try
                     {
+                        var index = _grid.CurrentRow.Index;
+
                         using var dc = new Dc();
 
                         dc.Programs
@@ -101,6 +103,8 @@ namespace TransferLogger.Ui.Forms.Programs
                             .Delete();
 
                         SetData();
+
+                        _grid.SelectRow(index);
                     }
                     catch (Exception ex)
                     {

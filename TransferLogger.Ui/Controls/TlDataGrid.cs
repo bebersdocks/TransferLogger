@@ -76,6 +76,9 @@ namespace TransferLogger.Ui.Controls
         {
             ClearSelection();
 
+            if (index >= RowCount)
+                index = RowCount - 1;
+
             for (var i = 0; i < Rows.Count; i++)
             {
                 if (i == index)

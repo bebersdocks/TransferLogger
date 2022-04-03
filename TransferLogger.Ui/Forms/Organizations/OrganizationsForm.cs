@@ -93,6 +93,8 @@ namespace TransferLogger.Ui.Forms.Organizations
                 {
                     try
                     {
+                        var index = _grid.CurrentRow.Index;
+
                         using var dc = new Dc();
 
                         dc.Organizations
@@ -100,6 +102,8 @@ namespace TransferLogger.Ui.Forms.Organizations
                             .Delete();
 
                         SetData();
+
+                        _grid.SelectRow(index);
                     }
                     catch (Exception ex)
                     {

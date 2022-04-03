@@ -133,6 +133,8 @@ namespace TransferLogger.Ui.Forms.Courses
                 {
                     try
                     {
+                        var index = _grid.CurrentRow.Index;
+
                         using var dc = new Dc();
 
                         dc.Courses
@@ -140,6 +142,8 @@ namespace TransferLogger.Ui.Forms.Courses
                             .Delete();
 
                         SetData();
+
+                        _grid.SelectRow(index);
                     }
                     catch (Exception ex)
                     {

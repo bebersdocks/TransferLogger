@@ -57,6 +57,8 @@ namespace TransferLogger.Ui.Forms.Instructors
                 {
                     try
                     {
+                        var index = _grid.CurrentRow.Index;
+
                         using var dc = new Dc();
 
                         dc.Instructors
@@ -64,6 +66,8 @@ namespace TransferLogger.Ui.Forms.Instructors
                             .Delete();
 
                         SetData();
+
+                        _grid.SelectRow(index);
                     }
                     catch (Exception ex)
                     {
