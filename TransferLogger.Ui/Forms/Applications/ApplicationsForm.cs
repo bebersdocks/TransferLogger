@@ -2,14 +2,11 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-using Serilog;
-
 using TransferLogger.BusinessLogic;
 using TransferLogger.BusinessLogic.ViewModels.Applications;
 using TransferLogger.Dal.DataModels;
 using TransferLogger.Ui.Controls;
 using TransferLogger.Ui.Forms.Courses;
-using TransferLogger.Ui.Forms.Dialogs;
 using TransferLogger.Ui.Forms.Instructors;
 using TransferLogger.Ui.Forms.Organizations;
 using TransferLogger.Ui.Forms.Programs;
@@ -28,7 +25,7 @@ namespace TransferLogger.Ui.Forms.Applications
         public ApplicationsForm()
         {
             InitializeComponent();
-
+ 
             _dtFrom.Value = DateTime.Now.AddYears(-2);
             _dtTo.Value   = DateTime.Now;
 
@@ -67,20 +64,11 @@ namespace TransferLogger.Ui.Forms.Applications
 
         private void _btnAdd_Click(object? sender, EventArgs e)
         {
-            try
-            {
-                using var form = new ApplicationWizardForm();
+            using var form = new ApplicationWizardForm();
 
-                if (form.ShowDialog() == DialogResult.OK)
-                {
-                    SetData();
-                }
-            }
-            catch (Exception ex)
+            if (form.ShowDialog() == DialogResult.OK)
             {
-                Log.Error(ex, "failed");
-
-                ErrorDialog.Show(ex.Message);
+                SetData();
             }
         }
 
