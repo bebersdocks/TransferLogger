@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 
 using TransferLogger.BusinessLogic;
-using TransferLogger.BusinessLogic.ViewModels.Applications;
+using TransferLogger.BusinessLogic.ViewModels;
 using TransferLogger.Dal.DataModels;
 using TransferLogger.Ui.Controls;
 using TransferLogger.Ui.Forms.Courses;

@@ -28,8 +28,7 @@ namespace TransferLogger.BusinessLogic
 
         public ApplicationBuild()
         {
-            Student = new();
-
+            Student               = new();
             CourseIds             = new HashSet<int>();
             HistoricalEvaluations = new Dictionary<int, int>();
         }
@@ -61,6 +60,7 @@ namespace TransferLogger.BusinessLogic
                 BuildStep.Review => BuildStep.Evaluators,
                 BuildStep.Evaluators when AnyHistoricalEvaluations() => BuildStep.HistoricalEvaluations,
                 BuildStep.Evaluators => BuildStep.Courses,
+                BuildStep.HistoricalEvaluations => BuildStep.Courses,
                 BuildStep.Courses => BuildStep.Organization,
                 _ => BuildStep.Student
             };

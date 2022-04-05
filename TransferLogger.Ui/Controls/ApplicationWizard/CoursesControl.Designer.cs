@@ -93,11 +93,11 @@
             // 
             this._btnManageCourses.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this._btnManageCourses.BackColor = System.Drawing.Color.White;
-            this._btnManageCourses.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
-            this._btnManageCourses.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
-            this._btnManageCourses.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this._btnManageCourses.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
+            this._btnManageCourses.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
+            this._btnManageCourses.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
             this._btnManageCourses.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._btnManageCourses.ForeColor = System.Drawing.Color.DarkSlateBlue;
+            this._btnManageCourses.ForeColor = System.Drawing.Color.Black;
             this._btnManageCourses.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
             this._btnManageCourses.Location = new System.Drawing.Point(713, 78);
             this._btnManageCourses.Name = "_btnManageCourses";
@@ -111,11 +111,11 @@
             // 
             this._btnAddCourse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this._btnAddCourse.BackColor = System.Drawing.Color.White;
-            this._btnAddCourse.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
-            this._btnAddCourse.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
-            this._btnAddCourse.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this._btnAddCourse.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
+            this._btnAddCourse.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
+            this._btnAddCourse.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
             this._btnAddCourse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._btnAddCourse.ForeColor = System.Drawing.Color.DarkSlateBlue;
+            this._btnAddCourse.ForeColor = System.Drawing.Color.Black;
             this._btnAddCourse.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
             this._btnAddCourse.Location = new System.Drawing.Point(538, 78);
             this._btnAddCourse.Name = "_btnAddCourse";
@@ -129,11 +129,11 @@
             // 
             this._btnManagePrograms.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this._btnManagePrograms.BackColor = System.Drawing.Color.White;
-            this._btnManagePrograms.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
-            this._btnManagePrograms.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
-            this._btnManagePrograms.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this._btnManagePrograms.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
+            this._btnManagePrograms.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
+            this._btnManagePrograms.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
             this._btnManagePrograms.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._btnManagePrograms.ForeColor = System.Drawing.Color.DarkSlateBlue;
+            this._btnManagePrograms.ForeColor = System.Drawing.Color.Black;
             this._btnManagePrograms.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
             this._btnManagePrograms.Location = new System.Drawing.Point(713, 42);
             this._btnManagePrograms.Name = "_btnManagePrograms";
@@ -147,11 +147,11 @@
             // 
             this._btnAddProgram.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this._btnAddProgram.BackColor = System.Drawing.Color.White;
-            this._btnAddProgram.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
-            this._btnAddProgram.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
-            this._btnAddProgram.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this._btnAddProgram.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
+            this._btnAddProgram.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
+            this._btnAddProgram.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
             this._btnAddProgram.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._btnAddProgram.ForeColor = System.Drawing.Color.DarkSlateBlue;
+            this._btnAddProgram.ForeColor = System.Drawing.Color.Black;
             this._btnAddProgram.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
             this._btnAddProgram.Location = new System.Drawing.Point(538, 42);
             this._btnAddProgram.Name = "_btnAddProgram";

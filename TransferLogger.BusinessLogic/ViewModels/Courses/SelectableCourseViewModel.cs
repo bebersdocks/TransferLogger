@@ -37,9 +37,8 @@ namespace TransferLogger.BusinessLogic.ViewModels.Courses
                 .Where(c => !selectedIds.Contains(c.CourseId))
                 .AsEnumerable()
                 .Union(selectedCourses)
+                .OrderBy(c => c.CourseId)
                 .Select(c => new SelectableCourseViewModel(c, selectedIds.Contains(c.CourseId)))
-                .OrderByDescending(c => c.Selected)
-                .ThenBy(c => c.Id)
                 .ToList();
         }
 
