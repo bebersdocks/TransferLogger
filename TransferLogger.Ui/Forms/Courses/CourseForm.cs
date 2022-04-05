@@ -39,7 +39,7 @@ namespace TransferLogger.Ui.Forms.Courses
 
         private void SetData(int? organizationId = null, bool organizationsLocked = false, Cycle ? cycle = null)
         {
-            if (_course.OrganizationId > 0)
+            if (_course.CourseId > 0)
             {
                 _tbCode.Text              = _course.CourseCode;
                 _tbName.Text              = _course.Name;
@@ -47,8 +47,8 @@ namespace TransferLogger.Ui.Forms.Courses
                 _numericCredits.Value     = _course.Credits;
                 _numericWeeklyHours.Value = _course.WeeklyHours;
 
-                organizationId ??= _course.OrganizationId;
-                cycle          ??= _course.Program?.Cycle;
+                organizationId = _course.OrganizationId;
+                cycle          = _course.Program?.Cycle;
 
                 Text = $"{_course.CourseCode} - {_course.Name} (Id: {_course.CourseId})";
             }

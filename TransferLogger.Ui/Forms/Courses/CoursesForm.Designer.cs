@@ -365,7 +365,7 @@ namespace TransferLogger.Ui.Forms.Courses
             this.CourseName.DataPropertyName = "Name";
             this.CourseName.FillWeight = 115F;
             this.CourseName.HeaderText = "Name";
-            this.CourseName.MinimumWidth = 265;
+            this.CourseName.MinimumWidth = 335;
             this.CourseName.Name = "CourseName";
             this.CourseName.ReadOnly = true;
             // 
@@ -374,7 +374,7 @@ namespace TransferLogger.Ui.Forms.Courses
             this.Organization.DataPropertyName = "Organization";
             this.Organization.FillWeight = 110F;
             this.Organization.HeaderText = "Organization";
-            this.Organization.MinimumWidth = 125;
+            this.Organization.MinimumWidth = 150;
             this.Organization.Name = "Organization";
             this.Organization.ReadOnly = true;
             // 
@@ -392,7 +392,7 @@ namespace TransferLogger.Ui.Forms.Courses
             this.Cycle.DataPropertyName = "Cycle";
             this.Cycle.FillWeight = 74.31472F;
             this.Cycle.HeaderText = "Cycle";
-            this.Cycle.MinimumWidth = 40;
+            this.Cycle.MinimumWidth = 70;
             this.Cycle.Name = "Cycle";
             this.Cycle.ReadOnly = true;
             // 

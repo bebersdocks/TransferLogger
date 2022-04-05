@@ -35,7 +35,7 @@ namespace TransferLogger.Ui.Forms.Programs
 
         private void SetData(int? organizationId = null, bool organizationsLocked = false, Cycle? cycle = null)
         {
-            if (_program.OrganizationId > 0)
+            if (_program.ProgramId > 0)
             {
                 _tbName.Text       = _program.Name;
                 _numericYear.Value = _program.Year;
