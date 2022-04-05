@@ -59,11 +59,10 @@
             this._lEvaluations = new System.Windows.Forms.Label();
             this._grid = new TransferLogger.Ui.Controls.TlDataGrid();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Course = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MatchedCourse = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Organization = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Instructor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MatchedCourse = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this._splitContainer)).BeginInit();
             this._splitContainer.Panel1.SuspendLayout();
             this._splitContainer.Panel2.SuspendLayout();
@@ -428,11 +427,10 @@
             this._grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this._grid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
-            this.Course,
-            this.MatchedCourse,
             this.Status,
             this.Organization,
-            this.Instructor});
+            this.Instructor,
+            this.MatchedCourse});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -468,22 +466,6 @@
             this.Id.Name = "Id";
             this.Id.ReadOnly = true;
             // 
-            // Course
-            // 
-            this.Course.DataPropertyName = "Course";
-            this.Course.FillWeight = 110F;
-            this.Course.HeaderText = "Course";
-            this.Course.MinimumWidth = 140;
-            this.Course.Name = "Course";
-            this.Course.ReadOnly = true;
-            // 
-            // MatchedCourse
-            // 
-            this.MatchedCourse.HeaderText = "Matched Course";
-            this.MatchedCourse.MinimumWidth = 100;
-            this.MatchedCourse.Name = "MatchedCourse";
-            this.MatchedCourse.ReadOnly = true;
-            // 
             // Status
             // 
             this.Status.DataPropertyName = "StatusDisplayName";
@@ -508,6 +490,14 @@
             this.Instructor.MinimumWidth = 150;
             this.Instructor.Name = "Instructor";
             this.Instructor.ReadOnly = true;
+            // 
+            // MatchedCourse
+            // 
+            this.MatchedCourse.DataPropertyName = "MatchedCourse";
+            this.MatchedCourse.HeaderText = "Matched Course";
+            this.MatchedCourse.MinimumWidth = 200;
+            this.MatchedCourse.Name = "MatchedCourse";
+            this.MatchedCourse.ReadOnly = true;
             // 
             // HistoricalEvaluationsControl
             // 
@@ -559,10 +549,9 @@
         private System.Windows.Forms.Panel _pnlCourse;
         private System.Windows.Forms.Panel _pnlEvaluation;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Course;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MatchedCourse;
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         private System.Windows.Forms.DataGridViewTextBoxColumn Organization;
         private System.Windows.Forms.DataGridViewTextBoxColumn Instructor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MatchedCourse;
     }
 }

@@ -1,4 +1,6 @@
-﻿using LinqToDB.Mapping;
+﻿using System.Collections.Generic;
+
+using LinqToDB.Mapping;
 
 namespace TransferLogger.Dal.DataModels
 {
@@ -24,6 +26,9 @@ namespace TransferLogger.Dal.DataModels
 
         [Association(ThisKey = nameof(ProgramId), OtherKey = nameof(ProgramId), Relationship = Relationship.ManyToOne, CanBeNull = true)]
         public Program Program { get; set; }
+
+        [Association(ThisKey = nameof(CourseId), OtherKey = nameof(CourseId), Relationship = Relationship.OneToMany)]
+        public IEnumerable<Evaluation> Evaluations { get; set; }
 
         #endregion
     }

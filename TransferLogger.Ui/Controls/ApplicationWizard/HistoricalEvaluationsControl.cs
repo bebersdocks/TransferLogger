@@ -34,6 +34,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
             var courses = dc.Courses
                 .Where(c => _appBuild.CourseIds.Contains(c.CourseId))
+                .Where(c => c.Evaluations.Any())
                 .Select(c => new Lookup(c.CourseId, c.DisplayString))
                 .ToList();
 
