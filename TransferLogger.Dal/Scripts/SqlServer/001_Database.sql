@@ -76,7 +76,7 @@ CREATE TABLE Application (
 	StudentId INT NOT NULL,
 	SourceOrganizationId INT NOT NULL,
 	TargetOrganizationId INT NOT NULL,
-	ExcelLocation NVARCHAR(180) NOT NULL,
+	ExcelLocation NVARCHAR(180) NULL,
 	CreatedAt DATETIME NOT NULL,
 	UpdatedAt DATETIME NULL,
 	CompletedAt DATETIME NULL
