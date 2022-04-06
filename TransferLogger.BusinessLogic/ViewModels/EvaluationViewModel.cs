@@ -39,7 +39,7 @@ namespace TransferLogger.BusinessLogic.ViewModels
             StudentId         = evaluation.Application.Student.StudentId;
             Student           = evaluation.Application.Student.DisplayString;
             CourseId          = evaluation.CourseId;
-            Course            = $"{evaluation.Course.DisplayString} (Id: {evaluation.CourseId})";
+            Course            = evaluation.Course.DisplayString;
             MatchedCourseId   = evaluation.MatchedCourseId;
             MatchedCourse     = evaluation.MatchedCourse?.DisplayString ?? string.Empty;
             Organization      = evaluation.Application.SourceOrganization.DisplayString;

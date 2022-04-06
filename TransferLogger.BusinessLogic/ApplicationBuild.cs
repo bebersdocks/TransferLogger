@@ -12,7 +12,7 @@ namespace TransferLogger.BusinessLogic
         Organization          = 1,
         Courses               = 2,
         HistoricalEvaluations = 3,
-        Evaluators            = 4,
+        EvaluatorsAttachments = 4,
         Review                = 5
     }
 
@@ -47,8 +47,8 @@ namespace TransferLogger.BusinessLogic
                 BuildStep.Student => BuildStep.Organization,
                 BuildStep.Organization => BuildStep.Courses,
                 BuildStep.Courses when AnyHistoricalEvaluations() => BuildStep.HistoricalEvaluations,
-                BuildStep.Courses or BuildStep.HistoricalEvaluations => BuildStep.Evaluators,
-                BuildStep.Evaluators => BuildStep.Review,
+                BuildStep.Courses or BuildStep.HistoricalEvaluations => BuildStep.EvaluatorsAttachments,
+                BuildStep.EvaluatorsAttachments => BuildStep.Review,
                 _ => null
             };
         }
@@ -57,9 +57,9 @@ namespace TransferLogger.BusinessLogic
         {
             return CurrentStep switch
             {
-                BuildStep.Review => BuildStep.Evaluators,
-                BuildStep.Evaluators when AnyHistoricalEvaluations() => BuildStep.HistoricalEvaluations,
-                BuildStep.Evaluators => BuildStep.Courses,
+                BuildStep.Review => BuildStep.EvaluatorsAttachments,
+                BuildStep.EvaluatorsAttachments when AnyHistoricalEvaluations() => BuildStep.HistoricalEvaluations,
+                BuildStep.EvaluatorsAttachments => BuildStep.Courses,
                 BuildStep.HistoricalEvaluations => BuildStep.Courses,
                 BuildStep.Courses => BuildStep.Organization,
                 _ => BuildStep.Student
