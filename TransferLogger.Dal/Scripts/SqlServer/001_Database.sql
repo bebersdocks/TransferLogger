@@ -87,6 +87,16 @@ ALTER TABLE Application ADD CONSTRAINT FK_ApplicationStudent FOREIGN KEY (Studen
 ALTER TABLE Application ADD CONSTRAINT FK_ApplicationSourceOrganization FOREIGN KEY (SourceOrganizationId) REFERENCES Organization(OrganizationId);
 ALTER TABLE Application ADD CONSTRAINT FK_ApplicationTargetOrganization FOREIGN KEY (TargetOrganizationId) REFERENCES Organization(OrganizationId);
 
+CREATE TABLE ApplicationAttachment (
+	ApplicationAttachmentId INT IDENTITY(1,1) NOT NULL,
+	ApplicationId INT NOT NULL,
+	FileName NVARCHAR(100) NOT NULL,
+	Data VARBINARY(MAX) NOT NULL
+);
+
+ALTER TABLE ApplicationAttachment ADD CONSTRAINT PK_ApplicationAttachment PRIMARY KEY (ApplicationAttachmentId);
+ALTER TABLE ApplicationAttachment ADD CONSTRAINT FK_ApplicationAttachmentApplication FOREIGN KEY (ApplicationId) REFERENCES Application(ApplicationId);
+
 CREATE TABLE Evaluation (
 	EvaluationId INT NOT NULL,
 	EvaluationStatus INT NOT NULL,

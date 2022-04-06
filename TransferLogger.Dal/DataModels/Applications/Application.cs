@@ -5,7 +5,7 @@ using LinqToDB.Mapping;
 
 using TransferLogger.Dal.Utils;
 
-namespace TransferLogger.Dal.DataModels
+namespace TransferLogger.Dal.DataModels.Applications
 {
     public enum ApplicationStatus
     {

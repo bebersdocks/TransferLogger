@@ -7,7 +7,7 @@ using LinqToDB;
 using TransferLogger.BusinessLogic.Intefaces;
 using TransferLogger.BusinessLogic.Utils;
 using TransferLogger.Dal;
-using TransferLogger.Dal.DataModels;
+using TransferLogger.Dal.DataModels.Applications;
 
 namespace TransferLogger.BusinessLogic.ViewModels
 {
