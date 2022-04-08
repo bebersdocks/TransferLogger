@@ -32,5 +32,21 @@ namespace TransferLogger.Dal.DataModels
                 return sb.ToString();
             }
         }
+
+        [NotColumn]
+        public string ExtendedDisplayString
+        {
+            get
+            {
+                var sb = new StringBuilder(DisplayString);
+
+                if (!string.IsNullOrEmpty(Phone))
+                    sb.Append($" (Phone: {Phone})");
+                else if (!string.IsNullOrEmpty(Email))
+                    sb.Append($" (Email: {Email})");
+
+                return sb.ToString();
+            }
+        }
     }
 }

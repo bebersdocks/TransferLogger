@@ -94,7 +94,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             {
                 foreach (var course in courses)
                 {
-                    course.Selected = _appBuild.CourseIds.Contains(course.Id);
+                    course.Selected = _appBuild.Evaluations.ContainsKey(course.Id);
                 }
 
                 _grid.Refresh();
@@ -113,9 +113,21 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
                 viewModel.Selected = !viewModel.Selected;
 
                 if (viewModel.Selected)
-                    _appBuild.CourseIds.Add(viewModel.Id);
+                {
+                    if (!_appBuild.Evaluations.ContainsKey(viewModel.Id))
+                    {
+                        var newEvaluation = new ApplicationEvaluation
+                        {
+                            CourseId = viewModel.Id
+                        };
+
+                        _appBuild.Evaluations[viewModel.Id] = newEvaluation;
+                    }
+                }
                 else
-                    _appBuild.CourseIds.Remove(viewModel.Id);
+                {
+                    _appBuild.Evaluations.Remove(viewModel.Id);
+                }
 
                 UpdateSelectedRows();
             }
@@ -177,8 +189,14 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
                 .Select(c => c.CourseId)
                 .ToHashSet();
 
-            // Remove courses from selection which no longer exist.
-            _appBuild.CourseIds.Intersect(courseIds);
+            // Remove courses for evaluation which no longer exist.
+            foreach (var courseId in _appBuild.CourseIds)
+            {
+                if (!courseIds.Contains(courseId))
+                {
+                    _appBuild.Evaluations.Remove(courseId);
+                }
+            }
 
             SetData();
         }
@@ -197,7 +215,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
         public bool Complete()
         {
-           if (!_appBuild.CourseIds.Any())
+           if (!_appBuild.Evaluations.Any())
             {
                 MessageDialog.Show("You have to select at least 1 course.");
 

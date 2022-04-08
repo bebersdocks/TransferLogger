@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using LinqToDB;
-
+using TransferLogger.BusinessLogic.Intefaces;
 using TransferLogger.BusinessLogic.Settings;
 using TransferLogger.BusinessLogic.Utils;
 using TransferLogger.Dal;
@@ -11,7 +11,7 @@ using TransferLogger.Dal.DataModels;
 
 namespace TransferLogger.BusinessLogic.ViewModels
 {
-    public class EvaluationViewModel
+    public class EvaluationViewModel : IIdentifiable
     {
         public int              Id                { get; set; }
         public EvaluationStatus Status            { get; set; }
