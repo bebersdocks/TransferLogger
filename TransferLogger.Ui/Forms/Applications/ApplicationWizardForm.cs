@@ -24,7 +24,8 @@ namespace TransferLogger.Ui.Forms.Applications
                 { BuildStep.Organization, new OrganizationControl(_appBuild) },
                 { BuildStep.Courses, new CoursesControl(_appBuild) },
                 { BuildStep.HistoricalEvaluations, new HistoricalEvaluationsControl(_appBuild) },
-                { BuildStep.Evaluators, new EvaluatorsControl(_appBuild) }
+                { BuildStep.Evaluators, new EvaluatorsControl(_appBuild) },
+                { BuildStep.Attachments, new AttachmentsControl(_appBuild) }
             };
 
             foreach (var (_, wizardControl) in _wizardControls)

@@ -3,6 +3,7 @@ using System.Linq;
 
 using TransferLogger.Dal;
 using TransferLogger.Dal.DataModels;
+using TransferLogger.Dal.DataModels.Applications;
 
 namespace TransferLogger.BusinessLogic
 {
@@ -22,7 +23,7 @@ namespace TransferLogger.BusinessLogic
         public int  CourseId               { get; set; }
         public int  HistoricalEvaluationId { get; set; }
         public int  InstructorId           { get; set; }
-        public bool SendEmailNotification  { get; set; }
+        public bool SendEmailNotification  { get; set; } = true;
         public int  SuggestedCourseId      { get; set; }
     }
 
@@ -34,6 +35,7 @@ namespace TransferLogger.BusinessLogic
         public BuildStep CurrentStep    { get; set; }
 
         public Dictionary<int, ApplicationEvaluation> Evaluations { get; private set; }
+        public List<ApplicationAttachment>            Attachments { get; private set; }
 
         public HashSet<int> CourseIds => Evaluations.Keys.ToHashSet();
 
@@ -41,6 +43,7 @@ namespace TransferLogger.BusinessLogic
         {
             Student     = new();
             Evaluations = new();
+            Attachments = new();
         }
 
         public bool AnyHistoricalEvaluations()
