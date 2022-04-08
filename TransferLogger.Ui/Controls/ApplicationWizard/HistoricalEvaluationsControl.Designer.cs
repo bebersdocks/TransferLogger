@@ -372,7 +372,7 @@
             // 
             this._cbUseHistoricalEvaluation.AutoSize = true;
             this._cbUseHistoricalEvaluation.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._cbUseHistoricalEvaluation.Location = new System.Drawing.Point(497, 60);
+            this._cbUseHistoricalEvaluation.Location = new System.Drawing.Point(466, 60);
             this._cbUseHistoricalEvaluation.Name = "_cbUseHistoricalEvaluation";
             this._cbUseHistoricalEvaluation.Size = new System.Drawing.Size(168, 21);
             this._cbUseHistoricalEvaluation.TabIndex = 45;

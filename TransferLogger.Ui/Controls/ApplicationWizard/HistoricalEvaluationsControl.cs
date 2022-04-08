@@ -58,9 +58,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
                 _cbCourses.SelectedValueChanged -= _cbCourses_SelectedValueChanged;
 
-                _cbCourses.FillLookups(courses);
-
-                _cbCourses.SelectedValue = _currentCourseId;
+                _cbCourses.FillLookups(courses, _currentCourseId);
 
                 _cbCourses.SelectedValueChanged += _cbCourses_SelectedValueChanged;
 
