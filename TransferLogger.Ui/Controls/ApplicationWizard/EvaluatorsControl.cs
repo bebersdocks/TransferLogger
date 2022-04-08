@@ -8,6 +8,7 @@ using TransferLogger.BusinessLogic.Settings;
 using TransferLogger.BusinessLogic.ViewModels;
 using TransferLogger.Dal;
 using TransferLogger.Ui.Forms;
+using TransferLogger.Ui.Forms.Dialogs;
 
 namespace TransferLogger.Ui.Controls.ApplicationWizard
 {
@@ -136,8 +137,10 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
         public bool Complete()
         {
-            if (_appBuild.Evaluations.Values.Any(e => e.InstructorId <= 0))
+            if (_appBuild.Evaluations.Values.Any(e => e.InstructorId <= 0 && e.HistoricalEvaluationId <= 0))
             {
+                MessageDialog.Show("You have assign evaluators for each course.");
+
                 return false;
             }
 

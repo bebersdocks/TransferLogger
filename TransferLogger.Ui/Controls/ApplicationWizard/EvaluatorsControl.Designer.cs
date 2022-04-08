@@ -61,6 +61,7 @@
             this._splitContainer.BackColor = System.Drawing.Color.White;
             this._splitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this._splitContainer.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this._splitContainer.IsSplitterFixed = true;
             this._splitContainer.Location = new System.Drawing.Point(0, 0);
             this._splitContainer.Name = "_splitContainer";
             this._splitContainer.Orientation = System.Windows.Forms.Orientation.Horizontal;
@@ -156,7 +157,7 @@
             this._btnSelectEvaluator.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnSelectEvaluator.ForeColor = System.Drawing.Color.Black;
             this._btnSelectEvaluator.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            this._btnSelectEvaluator.Location = new System.Drawing.Point(443, 51);
+            this._btnSelectEvaluator.Location = new System.Drawing.Point(443, 50);
             this._btnSelectEvaluator.MaximumSize = new System.Drawing.Size(0, 23);
             this._btnSelectEvaluator.MinimumSize = new System.Drawing.Size(0, 23);
             this._btnSelectEvaluator.Name = "_btnSelectEvaluator";
@@ -173,9 +174,9 @@
             this._lInstructionsEvaluator.ForeColor = System.Drawing.Color.Black;
             this._lInstructionsEvaluator.Location = new System.Drawing.Point(58, 14);
             this._lInstructionsEvaluator.Name = "_lInstructionsEvaluator";
-            this._lInstructionsEvaluator.Size = new System.Drawing.Size(391, 17);
+            this._lInstructionsEvaluator.Size = new System.Drawing.Size(360, 17);
             this._lInstructionsEvaluator.TabIndex = 51;
-            this._lInstructionsEvaluator.Text = "Assign course tranfer evaluator and set suggested course (if any).";
+            this._lInstructionsEvaluator.Text = "Assign tranfer evaluators and set suggested courses (if any).";
             // 
             // _lSuggested
             // 
@@ -203,6 +204,9 @@
             this._grid.AllowUserToDeleteRows = false;
             this._grid.AllowUserToOrderColumns = true;
             this._grid.AllowUserToResizeRows = false;
+            this._grid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this._grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this._grid.BackgroundColor = System.Drawing.Color.White;
             this._grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -231,9 +235,8 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this._grid.DefaultCellStyle = dataGridViewCellStyle2;
-            this._grid.Dock = System.Windows.Forms.DockStyle.Fill;
             this._grid.EnableHeadersVisualStyles = false;
-            this._grid.Location = new System.Drawing.Point(0, 21);
+            this._grid.Location = new System.Drawing.Point(0, 20);
             this._grid.MultiSelect = false;
             this._grid.Name = "_grid";
             this._grid.ReadOnly = true;
@@ -247,7 +250,7 @@
             this._grid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this._grid.RowHeadersVisible = false;
             this._grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this._grid.Size = new System.Drawing.Size(824, 379);
+            this._grid.Size = new System.Drawing.Size(824, 378);
             this._grid.TabIndex = 12;
             // 
             // Id
@@ -272,20 +275,25 @@
             // 
             this.Evaluator.DataPropertyName = "Instructor";
             this.Evaluator.HeaderText = "Evaluator";
+            this.Evaluator.MinimumWidth = 180;
             this.Evaluator.Name = "Evaluator";
             this.Evaluator.ReadOnly = true;
             // 
             // SendEmailNotification
             // 
             this.SendEmailNotification.DataPropertyName = "SendEmailNotification";
+            this.SendEmailNotification.FillWeight = 95F;
             this.SendEmailNotification.HeaderText = "Send Email";
+            this.SendEmailNotification.MinimumWidth = 40;
             this.SendEmailNotification.Name = "SendEmailNotification";
             this.SendEmailNotification.ReadOnly = true;
             // 
             // SuggestedCourse
             // 
             this.SuggestedCourse.DataPropertyName = "SuggestedCourse";
+            this.SuggestedCourse.FillWeight = 115F;
             this.SuggestedCourse.HeaderText = "Suggested Course";
+            this.SuggestedCourse.MinimumWidth = 200;
             this.SuggestedCourse.Name = "SuggestedCourse";
             this.SuggestedCourse.ReadOnly = true;
             // 

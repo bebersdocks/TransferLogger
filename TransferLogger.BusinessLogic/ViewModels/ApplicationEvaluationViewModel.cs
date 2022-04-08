@@ -15,19 +15,16 @@ namespace TransferLogger.BusinessLogic.ViewModels
             CourseId              = evaluation.CourseId;
             SendEmailNotification = evaluation.SendEmailNotification;
         
-            Course = dc.Courses
-                .First(c => c.CourseId == evaluation.CourseId).DisplayString;
+            Course = dc.Courses.First(c => c.CourseId == evaluation.CourseId).DisplayString;
 
             if (evaluation.InstructorId > 0)
             {
-                Instructor = dc.Instructors
-                    .First(i => i.InstructorId == evaluation.InstructorId).DisplayString;
+                Instructor = dc.Instructors.First(i => i.InstructorId == evaluation.InstructorId).DisplayString;
             }
 
             if (evaluation.SuggestedCourseId > 0)
             {
-                SuggestedCourse = dc.Courses
-                    .First(c => c.CourseId == evaluation.SuggestedCourseId).DisplayString;
+                SuggestedCourse = dc.Courses.First(c => c.CourseId == evaluation.SuggestedCourseId).DisplayString;
             }
         }
     }
