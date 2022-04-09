@@ -5,6 +5,7 @@ using System.Windows.Forms;
 
 using LinqToDB;
 
+using TransferLogger.BusinessLogic.Settings;
 using TransferLogger.BusinessLogic.ViewModels.Organizations;
 using TransferLogger.BusinessLogic.Utils;
 using TransferLogger.Dal;
@@ -83,6 +84,11 @@ namespace TransferLogger.Ui.Forms.Organizations
         {
             if (_grid.CurrentRow?.DataBoundItem is OrganizationViewModel viewModel)
             {
+                if (viewModel.Id == AppSettings.Instance.OrganizationId)
+                {
+                    MessageDialog.Show("You can't delete your organization.", "Denied");
+                }
+
                 using var confirmDlg = new ConfirmDialog(
                     "Confirm Deletion",
                     $"Are you sure you want to delete {viewModel.Name} (Id: {viewModel.Id})?");
