@@ -29,7 +29,6 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
             _appBuild = appBuild;
 
-            SetData();
             SetEvents();
         }
 
@@ -83,15 +82,12 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             if (_appBuild.Evaluations.TryGetValue(_currentCourseId, out var evaluation))
             {
                 _cbEvaluators.SelectedValueChanged       -= OnValuesChanges;
-                _cbSendEmailNotification.CheckedChanged  -= OnValuesChanges;
                 _cbSuggestedCourses.SelectedValueChanged -= OnValuesChanges;
 
                 _cbEvaluators.SelectedValue       = evaluation.InstructorId;
-                _cbSendEmailNotification.Checked  = evaluation.SendEmailNotification;
                 _cbSuggestedCourses.SelectedValue = Convert.ToInt32(evaluation.SuggestedCourseId);
 
                 _cbEvaluators.SelectedValueChanged       += OnValuesChanges;
-                _cbSendEmailNotification.CheckedChanged  += OnValuesChanges;
                 _cbSuggestedCourses.SelectedValueChanged += OnValuesChanges;
             }
         }
@@ -102,8 +98,6 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
             if (sender == _cbEvaluators)
                 evaluation.InstructorId = Convert.ToInt32(_cbEvaluators.SelectedValue);
-            else if (sender == _cbSendEmailNotification)
-                evaluation.SendEmailNotification = _cbSendEmailNotification.Checked;
             else if (sender == _cbSuggestedCourses)
                 evaluation.SuggestedCourseId = Convert.ToInt32(_cbSuggestedCourses.SelectedValue);
 
@@ -139,7 +133,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
         {
             if (_appBuild.Evaluations.Values.Any(e => e.InstructorId <= 0 && e.HistoricalEvaluationId <= 0))
             {
-                MessageDialog.Show("You have assign evaluators for each course.");
+                MessageDialog.Show("You have to assign evaluators for each course.");
 
                 return false;
             }

@@ -165,6 +165,27 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             }
             else
             {
+                // Remove any courses which do not belong to current organization selection.
+                // This might occur if user selected organization, courses and then stepped back and changed organization.
+                if (_appBuild.Evaluations.Any())
+                {
+                    using var dc = new Dc();
+
+                    var courseIds = _appBuild.CourseIds;
+
+                    var courseOrganizations = dc.Courses
+                        .Where(c => courseIds.Contains(c.CourseId))
+                        .ToDictionary(c => c.CourseId, c => c.OrganizationId);
+
+                    foreach (var courseId in courseIds)
+                    {
+                        if (courseOrganizations[courseId] != _appBuild.OrganizationId)
+                        {
+                            _appBuild.Evaluations.Remove(courseId);
+                        }
+                    }
+                }
+
                 return true;
             }
         }

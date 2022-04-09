@@ -69,7 +69,6 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             if (form.ShowDialog() == DialogResult.OK && form.SelectedValue.HasValue)
             {
                 _cbStudents.SelectedValue   = form.SelectedValue.Value;
-                _appBuild.Student.StudentId = form.SelectedValue.Value;
             }
         }
 
@@ -77,7 +76,9 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
         {
             if (_rbExistingStudent.Checked)
             {
-                if (Convert.ToInt32(_cbStudents.SelectedValue) <= 0)
+                _appBuild.Student.StudentId = Convert.ToInt32(_cbStudents.SelectedValue);
+
+                if (_appBuild.Student.StudentId <= 0)
                 {
                     MessageDialog.Show("You have to select student.");
 

@@ -27,8 +27,6 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
             _appBuild = appBuild;
 
-            SetData();
-            SetPrograms();
             SetEvents();
         }
 

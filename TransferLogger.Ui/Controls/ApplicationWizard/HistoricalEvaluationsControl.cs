@@ -24,7 +24,6 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
             _appBuild = appBuild;
 
-            SetData();
             SetEvents();
         }
         public void Activate()
@@ -36,8 +35,14 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
         private void SetData()
         {
+            using var dc = new Dc();
+
+            var courses = dc.Courses
+                .Where(c => _appBuild.Evaluations.ContainsKey(c.CourseId))
+                .Where(c => c.Evaluations.Any());
+
             if (_currentCourseId <= 0 && !_appBuild.Evaluations.ContainsKey(_currentCourseId))
-                _currentCourseId = _appBuild.Evaluations.Keys.FirstOrDefault();
+                _currentCourseId = courses.FirstOrDefault()?.CourseId ?? 0;
 
             if (_currentCourseId > 0)
             {
@@ -45,20 +50,16 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
                 _cbUseHistoricalEvaluation.Checked = evaluation.HistoricalEvaluationId > 0;
 
-                using var dc = new Dc();
-
-                var courses = dc.Courses
-                    .Where(c => _appBuild.Evaluations.ContainsKey(c.CourseId))
-                    .Where(c => c.Evaluations.Any())
-                    .Select(c => new Lookup(c.CourseId, c.DisplayString))
-                    .ToList();
-
                 if (_cbStatuses.Items.Count == 0)
                     _cbStatuses.FillLookups<EvaluationStatus>();
 
                 _cbCourses.SelectedValueChanged -= _cbCourses_SelectedValueChanged;
 
-                _cbCourses.FillLookups(courses, _currentCourseId);
+                var courseLookups = courses
+                    .Select(c => new Lookup(c.CourseId, c.DisplayString))
+                    .ToList();
+
+                _cbCourses.FillLookups(courseLookups, _currentCourseId);
 
                 _cbCourses.SelectedValueChanged += _cbCourses_SelectedValueChanged;
 

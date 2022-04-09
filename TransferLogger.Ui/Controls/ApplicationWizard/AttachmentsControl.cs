@@ -27,18 +27,14 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
         public void Activate()
         {
-            SetData();
-
             BringToFront();
         }
 
         private void SetData()
         {
             _tbExcelLocation.Text = _appBuild.ExcelLocation;
-
-            _grid.DataSource = _appBuild.Attachments.ToList();
-
-            _btnView.Enabled = _appBuild.Attachments.Any();
+            _grid.DataSource      = _appBuild.Attachments.ToList();
+            _btnView.Enabled      = _appBuild.Attachments.Any();
         }
 
         private void SetEvents()
@@ -64,7 +60,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
                 if (fileName.EndsWith(".xls"))
                     fileName += ".xls";
 
-                _appBuild.ExcelLocation = _tbExcelLocation.Text = fileName;
+                _tbExcelLocation.Text = fileName;
             }
         }
 
@@ -129,7 +125,9 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
         public bool Complete()
         {
-            if (!_appBuild.ExcelLocation.EndsWith(".xls"))
+            _appBuild.ExcelLocation = _tbExcelLocation.Text;
+
+            if (!string.IsNullOrEmpty(_appBuild.ExcelLocation) && !_appBuild.ExcelLocation.EndsWith(".xls"))
                 _appBuild.ExcelLocation += ".xls";
 
             return true;

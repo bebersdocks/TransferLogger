@@ -20,11 +20,10 @@ namespace TransferLogger.BusinessLogic
 
     public class ApplicationEvaluation
     {
-        public int  CourseId               { get; set; }
-        public int  HistoricalEvaluationId { get; set; }
-        public int  InstructorId           { get; set; }
-        public bool SendEmailNotification  { get; set; } = true;
-        public int  SuggestedCourseId      { get; set; }
+        public int CourseId               { get; set; }
+        public int HistoricalEvaluationId { get; set; }
+        public int InstructorId           { get; set; }
+        public int SuggestedCourseId      { get; set; }
     }
 
     public class ApplicationBuild

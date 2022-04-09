@@ -35,19 +35,16 @@
             this._pnlEvaluator = new System.Windows.Forms.Panel();
             this._btnSelectSuggestedCourse = new TransferLogger.Ui.Controls.TlButton();
             this._cbSuggestedCourses = new TransferLogger.Ui.Controls.TlDropDownList();
-            this._cbSendEmailNotification = new System.Windows.Forms.CheckBox();
             this._lEvaluator = new System.Windows.Forms.Label();
             this._btnSelectEvaluator = new TransferLogger.Ui.Controls.TlButton();
             this._lInstructionsEvaluator = new System.Windows.Forms.Label();
             this._lSuggested = new System.Windows.Forms.Label();
             this._cbEvaluators = new TransferLogger.Ui.Controls.TlDropDownList();
             this._grid = new TransferLogger.Ui.Controls.TlDataGrid();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._lCourses = new System.Windows.Forms.Label();
             this.Course = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Evaluator = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SendEmailNotification = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.SuggestedCourse = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._lCourses = new System.Windows.Forms.Label();
+            this.SuggestedOrMatched = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this._splitContainer)).BeginInit();
             this._splitContainer.Panel1.SuspendLayout();
             this._splitContainer.Panel2.SuspendLayout();
@@ -84,7 +81,6 @@
             // 
             this._pnlEvaluator.Controls.Add(this._btnSelectSuggestedCourse);
             this._pnlEvaluator.Controls.Add(this._cbSuggestedCourses);
-            this._pnlEvaluator.Controls.Add(this._cbSendEmailNotification);
             this._pnlEvaluator.Controls.Add(this._lEvaluator);
             this._pnlEvaluator.Controls.Add(this._btnSelectEvaluator);
             this._pnlEvaluator.Controls.Add(this._lInstructionsEvaluator);
@@ -125,17 +121,6 @@
             this._cbSuggestedCourses.Name = "_cbSuggestedCourses";
             this._cbSuggestedCourses.Size = new System.Drawing.Size(291, 23);
             this._cbSuggestedCourses.TabIndex = 54;
-            // 
-            // _cbSendEmailNotification
-            // 
-            this._cbSendEmailNotification.AutoSize = true;
-            this._cbSendEmailNotification.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._cbSendEmailNotification.Location = new System.Drawing.Point(486, 53);
-            this._cbSendEmailNotification.Name = "_cbSendEmailNotification";
-            this._cbSendEmailNotification.Size = new System.Drawing.Size(159, 21);
-            this._cbSendEmailNotification.TabIndex = 52;
-            this._cbSendEmailNotification.Text = "Send email notification";
-            this._cbSendEmailNotification.UseVisualStyleBackColor = true;
             // 
             // _lEvaluator
             // 
@@ -222,11 +207,9 @@
             this._grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this._grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this._grid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Id,
             this.Course,
             this.Evaluator,
-            this.SendEmailNotification,
-            this.SuggestedCourse});
+            this.SuggestedOrMatched});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -253,14 +236,18 @@
             this._grid.Size = new System.Drawing.Size(824, 378);
             this._grid.TabIndex = 12;
             // 
-            // Id
+            // _lCourses
             // 
-            this.Id.DataPropertyName = "CourseId";
-            this.Id.FillWeight = 95F;
-            this.Id.HeaderText = "ID";
-            this.Id.MinimumWidth = 70;
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
+            this._lCourses.BackColor = System.Drawing.Color.AliceBlue;
+            this._lCourses.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this._lCourses.Dock = System.Windows.Forms.DockStyle.Top;
+            this._lCourses.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this._lCourses.Location = new System.Drawing.Point(0, 0);
+            this._lCourses.Name = "_lCourses";
+            this._lCourses.Size = new System.Drawing.Size(824, 21);
+            this._lCourses.TabIndex = 11;
+            this._lCourses.Text = "Courses";
+            this._lCourses.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Course
             // 
@@ -279,36 +266,14 @@
             this.Evaluator.Name = "Evaluator";
             this.Evaluator.ReadOnly = true;
             // 
-            // SendEmailNotification
+            // SuggestedOrMatched
             // 
-            this.SendEmailNotification.DataPropertyName = "SendEmailNotification";
-            this.SendEmailNotification.FillWeight = 95F;
-            this.SendEmailNotification.HeaderText = "Send Email";
-            this.SendEmailNotification.MinimumWidth = 40;
-            this.SendEmailNotification.Name = "SendEmailNotification";
-            this.SendEmailNotification.ReadOnly = true;
-            // 
-            // SuggestedCourse
-            // 
-            this.SuggestedCourse.DataPropertyName = "SuggestedCourse";
-            this.SuggestedCourse.FillWeight = 115F;
-            this.SuggestedCourse.HeaderText = "Suggested Course";
-            this.SuggestedCourse.MinimumWidth = 200;
-            this.SuggestedCourse.Name = "SuggestedCourse";
-            this.SuggestedCourse.ReadOnly = true;
-            // 
-            // _lCourses
-            // 
-            this._lCourses.BackColor = System.Drawing.Color.AliceBlue;
-            this._lCourses.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this._lCourses.Dock = System.Windows.Forms.DockStyle.Top;
-            this._lCourses.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lCourses.Location = new System.Drawing.Point(0, 0);
-            this._lCourses.Name = "_lCourses";
-            this._lCourses.Size = new System.Drawing.Size(824, 21);
-            this._lCourses.TabIndex = 11;
-            this._lCourses.Text = "Courses";
-            this._lCourses.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.SuggestedOrMatched.DataPropertyName = "SuggestedOrMatched";
+            this.SuggestedOrMatched.FillWeight = 115F;
+            this.SuggestedOrMatched.HeaderText = "Suggested Course";
+            this.SuggestedOrMatched.MinimumWidth = 200;
+            this.SuggestedOrMatched.Name = "SuggestedOrMatched";
+            this.SuggestedOrMatched.ReadOnly = true;
             // 
             // EvaluatorsControl
             // 
@@ -336,16 +301,13 @@
         private TlDropDownList _cbEvaluators;
         private System.Windows.Forms.Label _lEvaluator;
         private TlButton _btnSelectEvaluator;
-        private System.Windows.Forms.CheckBox _cbSendEmailNotification;
         private System.Windows.Forms.Label _lInstructionsEvaluator;
         private TlButton _btnSelectSuggestedCourse;
         private TlDropDownList _cbSuggestedCourses;
         private System.Windows.Forms.Label _lSuggested;
         private System.Windows.Forms.Panel _pnlEvaluator;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Course;
         private System.Windows.Forms.DataGridViewTextBoxColumn Evaluator;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn SendEmailNotification;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SuggestedCourse;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SuggestedOrMatched;
     }
 }
