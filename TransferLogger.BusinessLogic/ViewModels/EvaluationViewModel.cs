@@ -8,6 +8,7 @@ using TransferLogger.BusinessLogic.Settings;
 using TransferLogger.BusinessLogic.Utils;
 using TransferLogger.Dal;
 using TransferLogger.Dal.DataModels;
+using TransferLogger.Dal.DataModels.Applications;
 
 namespace TransferLogger.BusinessLogic.ViewModels
 {
@@ -21,6 +22,7 @@ namespace TransferLogger.BusinessLogic.ViewModels
         public int              StudentId         { get; set; }
         public string           Student           { get; set; }
         public int              CourseId          { get; set; }
+        public string           CourseCode        { get; set; }
         public string           Course            { get; set; }
         public string           Organization      { get; set; }
         public int?             MatchedCourseId   { get; set; }
@@ -29,24 +31,27 @@ namespace TransferLogger.BusinessLogic.ViewModels
         public string           Instructor        { get; set; }
         public string           Comment           { get; set; }
 
-        public EvaluationViewModel(Evaluation evaluation)
+        public EvaluationViewModel(Evaluation evaluation, Application app)
         {
             Id                = evaluation.EvaluationId;
             Status            = evaluation.EvaluationStatus;
             StatusDisplayName = evaluation.EvaluationStatus.GetDisplayName();
             ApplicationId     = evaluation.ApplicationId;
-            ApplicationDt     = evaluation.Application.CreatedAt.ToLocalTime();
-            StudentId         = evaluation.Application.Student.StudentId;
-            Student           = evaluation.Application.Student.DisplayString;
+            ApplicationDt     = app.CreatedAt.ToLocalTime();
+            StudentId         = app.Student.StudentId;
+            Student           = app.Student.DisplayString;
             CourseId          = evaluation.CourseId;
+            CourseCode        = evaluation.Course.CourseCode;
             Course            = evaluation.Course.DisplayString;
             MatchedCourseId   = evaluation.MatchedCourseId;
             MatchedCourse     = evaluation.MatchedCourse?.DisplayString ?? string.Empty;
-            Organization      = evaluation.Application.SourceOrganization.DisplayString;
+            Organization      = app.SourceOrganization.DisplayString;
             InstructorId      = evaluation.InstructorId;
             Instructor        = evaluation.Instructor.DisplayString;
             Comment           = evaluation.Comment;
         }
+
+        public EvaluationViewModel(Evaluation evaluation) : this(evaluation, evaluation.Application) {}
 
         private static IQueryable<Evaluation> GetQuery(Dc dc)
         {

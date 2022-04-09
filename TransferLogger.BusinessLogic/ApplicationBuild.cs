@@ -32,13 +32,13 @@ namespace TransferLogger.BusinessLogic
 
     public class ApplicationBuild
     {
-        public Student   Student        { get; private set; }
         public int       OrganizationId { get; set; }
         public string    ExcelLocation  { get; set; }
         public BuildStep CurrentStep    { get; set; }
 
-        public Dictionary<int, ApplicationEvaluation> Evaluations { get; private set; }
-        public List<ApplicationAttachment>            Attachments { get; private set; }
+        public readonly Student                                Student;
+        public readonly Dictionary<int, ApplicationEvaluation> Evaluations;
+        public readonly List<ApplicationAttachment>            Attachments;
 
         public HashSet<int> CourseIds => Evaluations.Keys.ToHashSet();
 
@@ -87,23 +87,22 @@ namespace TransferLogger.BusinessLogic
         public void Insert()
         {
             using var dc = new Dc();
-
             using var tr = dc.BeginTransaction();
 
-            var application = new Application();
+            var app = new Application();
 
-            application.ApplicationStatus    = ApplicationStatus.InProcess;
-            application.StudentId            = Student.StudentId;
-            application.SourceOrganizationId = OrganizationId;
-            application.TargetOrganizationId = AppSettings.Instance.OrganizationId;
-            application.ExcelLocation        = ExcelLocation.Trim();
-            application.CreatedAt            = DateTime.UtcNow;
+            app.ApplicationStatus    = ApplicationStatus.InProcess;
+            app.StudentId            = Student.StudentId;
+            app.SourceOrganizationId = OrganizationId;
+            app.TargetOrganizationId = AppSettings.Instance.OrganizationId;
+            app.ExcelLocation        = ExcelLocation.Trim();
+            app.CreatedAt            = DateTime.UtcNow;
 
-            var applicationId = dc.InsertWithInt32Identity(application);
+            var appId = dc.InsertWithInt32Identity(app);
 
             foreach (var attachment in Attachments)
             {
-                attachment.ApplicationId = applicationId;
+                attachment.ApplicationId = appId;
 
                 dc.InsertWithInt32Identity(attachment);
             }
@@ -112,7 +111,7 @@ namespace TransferLogger.BusinessLogic
             {
                 var newEvaluation = new Evaluation();
 
-                newEvaluation.ApplicationId = applicationId;
+                newEvaluation.ApplicationId = appId;
 
                 if (evaluation.HistoricalEvaluationId > 0)
                 {

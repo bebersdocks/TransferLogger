@@ -13,16 +13,15 @@ namespace TransferLogger.BusinessLogic.ViewModels
 {
     public class ApplicationViewModel : IIdentifiable
     {
-        public int               Id                { get; set; }
-        public ApplicationStatus Status            { get; set; }
-        public string            StatusDisplayName { get; set; }
-        public string            Student           { get; set; }
-        public string            Organization      { get; set; }
-        public DateTime          CreatedAt         { get; set; }
-        public DateTime?         UpdatedAt         { get; set; }
-        public DateTime?         CompletedAt       { get; set; }
-
-        public List<EvaluationViewModel> Courses { get; set; }
+        public int                       Id                { get; set; }
+        public ApplicationStatus         Status            { get; set; }
+        public string                    StatusDisplayName { get; set; }
+        public string                    Student           { get; set; }
+        public string                    Organization      { get; set; }
+        public DateTime                  CreatedAt         { get; set; }
+        public DateTime?                 UpdatedAt         { get; set; }
+        public DateTime?                 CompletedAt       { get; set; }
+        public List<EvaluationViewModel> Evaluations       { get; set; }
 
         public ApplicationViewModel(Application app)
         {
@@ -34,6 +33,10 @@ namespace TransferLogger.BusinessLogic.ViewModels
             CreatedAt         = app.CreatedAt.ToLocalTime();
             UpdatedAt         = app.UpdatedAt?.ToLocalTime() ?? null;
             CompletedAt       = app.CompletedAt?.ToLocalTime() ?? null;
+
+            Evaluations = app.Evaluations
+                .Select(e => new EvaluationViewModel(e, app))
+                .ToList();
         }
 
         public static List<ApplicationViewModel> GetList(string studentName = "", int organizationId = 0, ApplicationStatus? status = null, DateTime? from = null, DateTime? to = null)
@@ -43,7 +46,9 @@ namespace TransferLogger.BusinessLogic.ViewModels
             var query = dc.Applications.AsQueryable();
 
             if (!string.IsNullOrEmpty(studentName))
-                query = query.Where(a => $"{a.Student.Name} {a.Student.Middle} {a.Student.Middle}".Contains(studentName, StringComparison.OrdinalIgnoreCase));
+                query = query.Where(a => $"{a.Student.Name}{a.Student.Middle}{a.Student.Surname}"
+                    .Replace(" ", string.Empty)
+                    .Contains(studentName, StringComparison.OrdinalIgnoreCase));
 
             if (organizationId > 0)
                 query = query.Where(a => a.SourceOrganizationId == organizationId);
@@ -61,6 +66,9 @@ namespace TransferLogger.BusinessLogic.ViewModels
                 .LoadWith(a => a.Student)
                 .LoadWith(a => a.SourceOrganization)
                 .LoadWith(a => a.Evaluations)
+                .ThenLoad(e => e.Course)
+                .LoadWith(a => a.Evaluations)
+                .ThenLoad(e => e.Instructor)
                 .OrderByDescending(a => a.ApplicationId)
                 .Select(a => new ApplicationViewModel(a))
                 .ToList();

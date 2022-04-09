@@ -55,6 +55,8 @@ namespace TransferLogger.Ui.Forms.Applications
             _tbSearchName.TextChanged             += (s, e) => SetData();
             _cbOrganizations.SelectedValueChanged += (s, e) => SetData();
             _cbStatuses.SelectedValueChanged      += (s, e) => SetData();
+            _dtFrom.ValueChanged                  += (s, e) => SetData();
+            _dtTo.ValueChanged                    += (s, e) => SetData();
 
             _btnAdd.Click                += _btnAdd_Click;
             _btnSelectOrganization.Click += _btnSelectOrganization_Click;
@@ -86,7 +88,7 @@ namespace TransferLogger.Ui.Forms.Applications
         {
             if (_gridApps.CurrentRow?.DataBoundItem is ApplicationViewModel viewModel)
             {
-                _gridAppCourses.DataSource = viewModel.Courses;
+                _gridAppCourses.DataSource = viewModel.Evaluations;
             }
         }
     }
