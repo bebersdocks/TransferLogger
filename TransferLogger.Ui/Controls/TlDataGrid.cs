@@ -14,7 +14,7 @@ namespace TransferLogger.Ui.Controls
                 BackColor          = Color.AliceBlue,
                 Font               = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point),
                 ForeColor          = Color.Black,
-                Padding            = new Padding(0, 5, 0, 5),
+                Padding            = new Padding(0, 3, 0, 3),
                 SelectionBackColor = Color.AliceBlue,
                 SelectionForeColor = Color.Black,
                 WrapMode           = DataGridViewTriState.False

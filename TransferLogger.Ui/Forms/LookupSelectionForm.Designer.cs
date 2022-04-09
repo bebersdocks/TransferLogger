@@ -35,12 +35,12 @@ namespace TransferLogger.Ui.Forms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LookupSelectionForm));
             this._grid = new TransferLogger.Ui.Controls.TlDataGrid();
-            this.Value = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DisplayName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._tbSearchLookup = new TransferLogger.Ui.Controls.TlTextBox();
             this._btnOk = new TransferLogger.Ui.Controls.TlButton();
             this._btnClear = new TransferLogger.Ui.Controls.TlButton();
             this._btnCancel = new TransferLogger.Ui.Controls.TlButton();
+            this.Value = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DisplayName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this._grid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,7 +61,7 @@ namespace TransferLogger.Ui.Forms
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.AliceBlue;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.AliceBlue;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
@@ -96,24 +96,6 @@ namespace TransferLogger.Ui.Forms
             this._grid.Size = new System.Drawing.Size(474, 384);
             this._grid.TabIndex = 4;
             // 
-            // Value
-            // 
-            this.Value.DataPropertyName = "Value";
-            this.Value.FillWeight = 5.076141F;
-            this.Value.HeaderText = "Value";
-            this.Value.MinimumWidth = 90;
-            this.Value.Name = "Value";
-            this.Value.ReadOnly = true;
-            // 
-            // DisplayName
-            // 
-            this.DisplayName.DataPropertyName = "DisplayName";
-            this.DisplayName.FillWeight = 194.9239F;
-            this.DisplayName.HeaderText = "Display Name";
-            this.DisplayName.MinimumWidth = 285;
-            this.DisplayName.Name = "DisplayName";
-            this.DisplayName.ReadOnly = true;
-            // 
             // _tbSearchLookup
             // 
             this._tbSearchLookup.BackColor = System.Drawing.Color.GhostWhite;
@@ -128,7 +110,7 @@ namespace TransferLogger.Ui.Forms
             // _btnOk
             // 
             this._btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this._btnOk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
+            this._btnOk.BackColor = System.Drawing.Color.White;
             this._btnOk.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
             this._btnOk.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
             this._btnOk.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
@@ -145,7 +127,7 @@ namespace TransferLogger.Ui.Forms
             // _btnClear
             // 
             this._btnClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this._btnClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
+            this._btnClear.BackColor = System.Drawing.Color.White;
             this._btnClear.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
             this._btnClear.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
             this._btnClear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
@@ -162,7 +144,7 @@ namespace TransferLogger.Ui.Forms
             // _btnCancel
             // 
             this._btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this._btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
+            this._btnCancel.BackColor = System.Drawing.Color.White;
             this._btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
             this._btnCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
             this._btnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
@@ -175,6 +157,24 @@ namespace TransferLogger.Ui.Forms
             this._btnCancel.TabStop = false;
             this._btnCancel.Text = "Cancel";
             this._btnCancel.UseVisualStyleBackColor = false;
+            // 
+            // Value
+            // 
+            this.Value.DataPropertyName = "Value";
+            this.Value.FillWeight = 5.076141F;
+            this.Value.HeaderText = "Value";
+            this.Value.MinimumWidth = 90;
+            this.Value.Name = "Value";
+            this.Value.ReadOnly = true;
+            // 
+            // DisplayName
+            // 
+            this.DisplayName.DataPropertyName = "DisplayName";
+            this.DisplayName.FillWeight = 194.9239F;
+            this.DisplayName.HeaderText = "Display Name";
+            this.DisplayName.MinimumWidth = 360;
+            this.DisplayName.Name = "DisplayName";
+            this.DisplayName.ReadOnly = true;
             // 
             // LookupSelectionForm
             // 
@@ -202,10 +202,10 @@ namespace TransferLogger.Ui.Forms
 
         private Controls.TlDataGrid _grid;
         private Controls.TlTextBox _tbSearchLookup;
-        private DataGridViewTextBoxColumn Value;
-        private DataGridViewTextBoxColumn DisplayName;
         private Controls.TlButton _btnOk;
         private Controls.TlButton _btnClear;
         private Controls.TlButton _btnCancel;
+        private DataGridViewTextBoxColumn Value;
+        private DataGridViewTextBoxColumn DisplayName;
     }
 }
