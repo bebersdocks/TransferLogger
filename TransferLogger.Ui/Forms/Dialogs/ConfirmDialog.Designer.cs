@@ -37,12 +37,11 @@
             // 
             this._btnConfirm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this._btnConfirm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
-            this._btnConfirm.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
-            this._btnConfirm.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
-            this._btnConfirm.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this._btnConfirm.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
+            this._btnConfirm.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
+            this._btnConfirm.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
             this._btnConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnConfirm.ForeColor = System.Drawing.Color.Black;
-            this._btnConfirm.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
             this._btnConfirm.Location = new System.Drawing.Point(127, 84);
             this._btnConfirm.Name = "_btnConfirm";
             this._btnConfirm.Size = new System.Drawing.Size(75, 29);
@@ -55,12 +54,11 @@
             // 
             this._btnAbort.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this._btnAbort.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
-            this._btnAbort.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
-            this._btnAbort.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
-            this._btnAbort.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this._btnAbort.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
+            this._btnAbort.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
+            this._btnAbort.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
             this._btnAbort.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnAbort.ForeColor = System.Drawing.Color.Black;
-            this._btnAbort.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
             this._btnAbort.Location = new System.Drawing.Point(208, 84);
             this._btnAbort.Name = "_btnAbort";
             this._btnAbort.Size = new System.Drawing.Size(75, 29);

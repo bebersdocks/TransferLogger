@@ -96,12 +96,11 @@
             // 
             this._btnSelectSuggestedCourse.AutoSize = true;
             this._btnSelectSuggestedCourse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
-            this._btnSelectSuggestedCourse.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
-            this._btnSelectSuggestedCourse.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
-            this._btnSelectSuggestedCourse.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this._btnSelectSuggestedCourse.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
+            this._btnSelectSuggestedCourse.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
+            this._btnSelectSuggestedCourse.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
             this._btnSelectSuggestedCourse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnSelectSuggestedCourse.ForeColor = System.Drawing.Color.Black;
-            this._btnSelectSuggestedCourse.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
             this._btnSelectSuggestedCourse.Location = new System.Drawing.Point(443, 82);
             this._btnSelectSuggestedCourse.MaximumSize = new System.Drawing.Size(0, 23);
             this._btnSelectSuggestedCourse.MinimumSize = new System.Drawing.Size(0, 23);
@@ -136,12 +135,11 @@
             // 
             this._btnSelectEvaluator.AutoSize = true;
             this._btnSelectEvaluator.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
-            this._btnSelectEvaluator.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
-            this._btnSelectEvaluator.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
-            this._btnSelectEvaluator.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this._btnSelectEvaluator.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
+            this._btnSelectEvaluator.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
+            this._btnSelectEvaluator.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
             this._btnSelectEvaluator.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnSelectEvaluator.ForeColor = System.Drawing.Color.Black;
-            this._btnSelectEvaluator.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
             this._btnSelectEvaluator.Location = new System.Drawing.Point(443, 50);
             this._btnSelectEvaluator.MaximumSize = new System.Drawing.Size(0, 23);
             this._btnSelectEvaluator.MinimumSize = new System.Drawing.Size(0, 23);

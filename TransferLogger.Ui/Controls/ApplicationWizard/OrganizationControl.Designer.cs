@@ -93,7 +93,6 @@
             this._btnManage.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
             this._btnManage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnManage.ForeColor = System.Drawing.Color.Black;
-            this._btnManage.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
             this._btnManage.Location = new System.Drawing.Point(717, 83);
             this._btnManage.Name = "_btnManage";
             this._btnManage.Size = new System.Drawing.Size(97, 30);
@@ -122,7 +121,6 @@
             this._btnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
             this._btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnAdd.ForeColor = System.Drawing.Color.Black;
-            this._btnAdd.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
             this._btnAdd.Location = new System.Drawing.Point(542, 83);
             this._btnAdd.Name = "_btnAdd";
             this._btnAdd.Size = new System.Drawing.Size(169, 30);
@@ -135,12 +133,11 @@
             // 
             this._btnSelectCountry.AutoSize = true;
             this._btnSelectCountry.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
-            this._btnSelectCountry.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
-            this._btnSelectCountry.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
-            this._btnSelectCountry.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this._btnSelectCountry.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
+            this._btnSelectCountry.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
+            this._btnSelectCountry.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
             this._btnSelectCountry.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnSelectCountry.ForeColor = System.Drawing.Color.Black;
-            this._btnSelectCountry.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
             this._btnSelectCountry.Location = new System.Drawing.Point(381, 88);
             this._btnSelectCountry.MaximumSize = new System.Drawing.Size(0, 23);
             this._btnSelectCountry.MinimumSize = new System.Drawing.Size(0, 23);

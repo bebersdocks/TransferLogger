@@ -37,12 +37,11 @@
             // 
             this._btnNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this._btnNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
-            this._btnNext.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
-            this._btnNext.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
-            this._btnNext.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this._btnNext.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
+            this._btnNext.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
+            this._btnNext.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
             this._btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnNext.ForeColor = System.Drawing.Color.Black;
-            this._btnNext.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
             this._btnNext.Location = new System.Drawing.Point(635, 483);
             this._btnNext.Name = "_btnNext";
             this._btnNext.Size = new System.Drawing.Size(75, 29);
@@ -55,12 +54,11 @@
             // 
             this._btnBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this._btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
-            this._btnBack.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
-            this._btnBack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
-            this._btnBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this._btnBack.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
+            this._btnBack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
+            this._btnBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
             this._btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnBack.ForeColor = System.Drawing.Color.Black;
-            this._btnBack.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
             this._btnBack.Location = new System.Drawing.Point(554, 483);
             this._btnBack.Name = "_btnBack";
             this._btnBack.Size = new System.Drawing.Size(75, 29);

@@ -49,12 +49,11 @@
             // 
             this._btnSelectStudent.AutoSize = true;
             this._btnSelectStudent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
-            this._btnSelectStudent.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
-            this._btnSelectStudent.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
-            this._btnSelectStudent.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this._btnSelectStudent.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
+            this._btnSelectStudent.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
+            this._btnSelectStudent.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
             this._btnSelectStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnSelectStudent.ForeColor = System.Drawing.Color.Black;
-            this._btnSelectStudent.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
             this._btnSelectStudent.Location = new System.Drawing.Point(526, 60);
             this._btnSelectStudent.MaximumSize = new System.Drawing.Size(0, 23);
             this._btnSelectStudent.MinimumSize = new System.Drawing.Size(0, 23);

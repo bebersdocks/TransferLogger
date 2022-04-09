@@ -5,28 +5,21 @@ namespace TransferLogger.Ui.Controls
 {
     public class TlButton : Button
     {
-        private Color _hoverColor = Color.FromArgb(234, 240, 255);
-        public Color HoverColor
-        {
-            get { return _hoverColor; }
-            set { _hoverColor = value; Invalidate(); }
-        }
-
+        public override Color BackColor => Color.White;
         public override Font Font => new("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
 
         public TlButton()
         {
-            BackColor   = Color.FromArgb(250, 250, 255);
-            Cursor      = Cursors.Hand;
-            FlatStyle   = FlatStyle.Flat;
-            ForeColor   = Color.Black;
-            TabStop     = false;
-            TextAlign   = ContentAlignment.MiddleCenter;
+            Cursor    = Cursors.Hand;
+            FlatStyle = FlatStyle.Flat;
+            ForeColor = Color.Black;
+            TabStop   = false;
+            TextAlign = ContentAlignment.MiddleCenter;
 
-            FlatAppearance.BorderColor        = Color.Gainsboro;
+            FlatAppearance.BorderColor        = Color.FromArgb(204, 206, 219);
             FlatAppearance.BorderSize         = 1;
-            FlatAppearance.MouseDownBackColor = BackColor;
-            FlatAppearance.MouseOverBackColor = _hoverColor;
+            FlatAppearance.MouseDownBackColor = Color.GhostWhite;
+            FlatAppearance.MouseOverBackColor = Color.GhostWhite;
         }
     }
 }

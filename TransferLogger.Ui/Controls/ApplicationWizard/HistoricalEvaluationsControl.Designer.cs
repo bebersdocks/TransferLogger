@@ -131,7 +131,6 @@
             this._btnViewApplication.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
             this._btnViewApplication.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnViewApplication.ForeColor = System.Drawing.Color.Black;
-            this._btnViewApplication.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
             this._btnViewApplication.Location = new System.Drawing.Point(359, 144);
             this._btnViewApplication.Name = "_btnViewApplication";
             this._btnViewApplication.Size = new System.Drawing.Size(96, 25);
@@ -160,7 +159,6 @@
             this._btnViewMatchedCourse.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
             this._btnViewMatchedCourse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnViewMatchedCourse.ForeColor = System.Drawing.Color.Black;
-            this._btnViewMatchedCourse.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
             this._btnViewMatchedCourse.Location = new System.Drawing.Point(426, 81);
             this._btnViewMatchedCourse.Name = "_btnViewMatchedCourse";
             this._btnViewMatchedCourse.Size = new System.Drawing.Size(29, 25);

@@ -99,12 +99,11 @@
             this._btnExcel.BackgroundImage = global::TransferLogger.Ui.Properties.Resources.excel;
             this._btnExcel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this._btnExcel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this._btnExcel.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
-            this._btnExcel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
-            this._btnExcel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this._btnExcel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
+            this._btnExcel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
+            this._btnExcel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
             this._btnExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnExcel.ForeColor = System.Drawing.Color.Black;
-            this._btnExcel.HoverColor = System.Drawing.Color.Transparent;
             this._btnExcel.Location = new System.Drawing.Point(879, 47);
             this._btnExcel.Name = "_btnExcel";
             this._btnExcel.Size = new System.Drawing.Size(32, 32);

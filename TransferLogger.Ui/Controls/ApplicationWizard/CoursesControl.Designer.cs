@@ -97,7 +97,6 @@
             this._btnManageCourses.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
             this._btnManageCourses.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnManageCourses.ForeColor = System.Drawing.Color.Black;
-            this._btnManageCourses.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
             this._btnManageCourses.Location = new System.Drawing.Point(713, 78);
             this._btnManageCourses.Name = "_btnManageCourses";
             this._btnManageCourses.Size = new System.Drawing.Size(97, 30);
@@ -115,7 +114,6 @@
             this._btnAddCourse.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
             this._btnAddCourse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnAddCourse.ForeColor = System.Drawing.Color.Black;
-            this._btnAddCourse.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
             this._btnAddCourse.Location = new System.Drawing.Point(538, 78);
             this._btnAddCourse.Name = "_btnAddCourse";
             this._btnAddCourse.Size = new System.Drawing.Size(169, 30);
@@ -133,7 +131,6 @@
             this._btnManagePrograms.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
             this._btnManagePrograms.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnManagePrograms.ForeColor = System.Drawing.Color.Black;
-            this._btnManagePrograms.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
             this._btnManagePrograms.Location = new System.Drawing.Point(713, 42);
             this._btnManagePrograms.Name = "_btnManagePrograms";
             this._btnManagePrograms.Size = new System.Drawing.Size(97, 30);
@@ -151,7 +148,6 @@
             this._btnAddProgram.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
             this._btnAddProgram.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnAddProgram.ForeColor = System.Drawing.Color.Black;
-            this._btnAddProgram.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
             this._btnAddProgram.Location = new System.Drawing.Point(538, 42);
             this._btnAddProgram.Name = "_btnAddProgram";
             this._btnAddProgram.Size = new System.Drawing.Size(169, 30);
@@ -195,12 +191,11 @@
             // 
             this._btnSelectProgram.AutoSize = true;
             this._btnSelectProgram.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
-            this._btnSelectProgram.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
-            this._btnSelectProgram.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
-            this._btnSelectProgram.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this._btnSelectProgram.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
+            this._btnSelectProgram.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
+            this._btnSelectProgram.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
             this._btnSelectProgram.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnSelectProgram.ForeColor = System.Drawing.Color.Black;
-            this._btnSelectProgram.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
             this._btnSelectProgram.Location = new System.Drawing.Point(382, 88);
             this._btnSelectProgram.MaximumSize = new System.Drawing.Size(0, 23);
             this._btnSelectProgram.MinimumSize = new System.Drawing.Size(0, 23);
