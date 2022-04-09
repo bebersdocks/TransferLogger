@@ -19,8 +19,39 @@ namespace TransferLogger.Ui.Forms.Courses
 {
     public partial class CourseForm : Form
     {
-        private readonly Course       _course;
+        private readonly Course _course;
+
         private readonly List<Lookup> _organizations = LookupServices.GetOrganizations();
+
+        public CourseForm(int courseId)
+        {
+            InitializeComponent();
+
+            using var dc = new Dc();
+
+            _course = dc.Courses
+                .LoadWith(c => c.Program)
+                .First(c => c.CourseId == courseId);
+
+            SetData();
+            SetPrograms(_course.ProgramId);
+
+            foreach (Control control in Controls)
+            {
+                if (control is TextBox textBox)
+                {
+                    textBox.ReadOnly = true;
+                }
+                else if (control is Button button)
+                {
+                    button.Enabled = false;
+                }
+            }
+
+            _btnOk.Enabled = true;
+
+            _btnOk.Click += (s, e) => Close();
+        }
 
         public CourseForm(int courseId = 0, int? organizationId = null, bool organizationsLocked = false, int? programId = null, Cycle? cycle = null)
         {

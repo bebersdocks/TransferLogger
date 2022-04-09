@@ -53,7 +53,7 @@ namespace TransferLogger.BusinessLogic
         {
             using var dc = new Dc();
 
-            return dc.Evaluations.Any(e => Evaluations.ContainsKey(e.CourseId));
+            return dc.Evaluations.Any(e => Evaluations.ContainsKey(e.CourseId) && e.EvaluationStatus != EvaluationStatus.InProcess);
         }
 
         public BuildStep? GetNextStep()

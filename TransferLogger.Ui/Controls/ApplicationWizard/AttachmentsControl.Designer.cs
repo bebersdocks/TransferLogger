@@ -64,6 +64,7 @@
             this._tbExcelLocation.ForeColor = System.Drawing.Color.Black;
             this._tbExcelLocation.Location = new System.Drawing.Point(120, 51);
             this._tbExcelLocation.Name = "_tbExcelLocation";
+            this._tbExcelLocation.ReadOnly = true;
             this._tbExcelLocation.Size = new System.Drawing.Size(391, 25);
             this._tbExcelLocation.TabIndex = 59;
             // 
@@ -91,7 +92,7 @@
             // _btnDelete
             // 
             this._btnDelete.AutoSize = true;
-            this._btnDelete.BackColor = System.Drawing.Color.Transparent;
+            this._btnDelete.BackColor = System.Drawing.Color.White;
             this._btnDelete.BackgroundImage = global::TransferLogger.Ui.Properties.Resources.delete;
             this._btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this._btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -110,7 +111,7 @@
             // _btnAdd
             // 
             this._btnAdd.AutoSize = true;
-            this._btnAdd.BackColor = System.Drawing.Color.Transparent;
+            this._btnAdd.BackColor = System.Drawing.Color.White;
             this._btnAdd.BackgroundImage = global::TransferLogger.Ui.Properties.Resources.add;
             this._btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this._btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -155,9 +156,8 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this._grid.DefaultCellStyle = dataGridViewCellStyle2;
-            this._grid.Dock = System.Windows.Forms.DockStyle.Fill;
             this._grid.EnableHeadersVisualStyles = false;
-            this._grid.Location = new System.Drawing.Point(0, 0);
+            this._grid.Location = new System.Drawing.Point(-1, -1);
             this._grid.Name = "_grid";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
@@ -170,7 +170,7 @@
             this._grid.RowHeadersVisible = false;
             this._grid.RowTemplate.Height = 25;
             this._grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this._grid.Size = new System.Drawing.Size(389, 246);
+            this._grid.Size = new System.Drawing.Size(391, 247);
             this._grid.TabIndex = 69;
             // 
             // FileName
@@ -210,7 +210,7 @@
             // _btnView
             // 
             this._btnView.AutoSize = true;
-            this._btnView.BackColor = System.Drawing.Color.Transparent;
+            this._btnView.BackColor = System.Drawing.Color.White;
             this._btnView.BackgroundImage = global::TransferLogger.Ui.Properties.Resources.view;
             this._btnView.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this._btnView.Cursor = System.Windows.Forms.Cursors.Hand;

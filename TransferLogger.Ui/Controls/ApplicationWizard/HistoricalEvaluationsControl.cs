@@ -7,6 +7,7 @@ using TransferLogger.BusinessLogic.Intefaces;
 using TransferLogger.BusinessLogic.ViewModels;
 using TransferLogger.Dal;
 using TransferLogger.Dal.DataModels;
+using TransferLogger.Ui.Forms.Courses;
 
 namespace TransferLogger.Ui.Controls.ApplicationWizard
 {
@@ -39,7 +40,8 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
             var courses = dc.Courses
                 .Where(c => _appBuild.Evaluations.ContainsKey(c.CourseId))
-                .Where(c => c.Evaluations.Any());
+                .Where(c => c.Evaluations.Any(e => e.EvaluationStatus != EvaluationStatus.InProcess))
+                .ToList();
 
             if (_currentCourseId <= 0 && !_appBuild.Evaluations.ContainsKey(_currentCourseId))
                 _currentCourseId = courses.FirstOrDefault()?.CourseId ?? 0;
@@ -119,6 +121,8 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
         private void SetEvents()
         {
             _cbUseHistoricalEvaluation.CheckedChanged += (s, e) => SetControls();
+
+            _btnViewMatchedCourse.Click += _btnViewMatchedCourse_Click;
         }
 
         private void _cbCourses_SelectedValueChanged(object? sender, EventArgs e)
@@ -131,6 +135,13 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
         private void _grid_SelectionChanged(object? sender, EventArgs e)
         {
             SetControls();
+        }
+
+        private void _btnViewMatchedCourse_Click(object? sender, EventArgs e)
+        {
+            using var form = new CourseForm(_currentCourseId);
+
+            form.ShowDialog();
         }
 
         public bool Complete()

@@ -39,11 +39,11 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
         private void SetEvents()
         {
-            _btnBrowse.Click += _btnBrowse_Click;
-            _btnAdd.Click    += _btnAdd_Click;
-            _btnView.Click   += _btnView_Click;
-            _grid.Click      += _btnView_Click;
-            _btnDelete.Click += _btnDelete_Click;
+            _btnBrowse.Click  += _btnBrowse_Click;
+            _btnAdd.Click     += _btnAdd_Click;
+            _btnView.Click    += _btnView_Click;
+            _grid.DoubleClick += _btnView_Click;
+            _btnDelete.Click  += _btnDelete_Click;
         }
 
         private void _btnBrowse_Click(object? sender, EventArgs e)
@@ -57,10 +57,10 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             {
                 var fileName = fileDialog.FileName;
 
-                if (fileName.EndsWith(".xls"))
+                if (!fileName.EndsWith(".xls"))
                     fileName += ".xls";
 
-                _tbExcelLocation.Text = fileName;
+                _tbExcelLocation.Text = _appBuild.ExcelLocation = fileName;
             }
         }
 
@@ -125,11 +125,6 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
         public bool Complete()
         {
-            _appBuild.ExcelLocation = _tbExcelLocation.Text;
-
-            if (!string.IsNullOrEmpty(_appBuild.ExcelLocation) && !_appBuild.ExcelLocation.EndsWith(".xls"))
-                _appBuild.ExcelLocation += ".xls";
-
             return true;
         }
     }
