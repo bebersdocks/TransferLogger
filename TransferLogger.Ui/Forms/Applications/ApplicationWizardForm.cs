@@ -67,6 +67,7 @@ namespace TransferLogger.Ui.Forms.Applications
             Size = MinimumSize = GetSize(step);
 
             _btnBack.Visible = step != BuildStep.Student;
+            _btnNext.Text    = step == BuildStep.Review ? "Create" : "Next";
 
             if (_wizardControls.TryGetValue(step, out wizardControl))
             {
@@ -92,6 +93,8 @@ namespace TransferLogger.Ui.Forms.Applications
 
         private void CreateApplication()
         {
+            _appBuild.Insert();
+  
             DialogResult = DialogResult.OK;
 
             Close();

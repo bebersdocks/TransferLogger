@@ -71,12 +71,11 @@ namespace TransferLogger.Ui.Forms.Applications
             this._pnlApplications = new System.Windows.Forms.Panel();
             this._lApplications = new System.Windows.Forms.Label();
             this._gridApps = new TransferLogger.Ui.Controls.TlDataGrid();
-            this.ApplicationId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Student = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Organization = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CompletedDt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this._splitContainerForm)).BeginInit();
             this._splitContainerForm.Panel1.SuspendLayout();
             this._splitContainerForm.Panel2.SuspendLayout();
@@ -584,12 +583,11 @@ namespace TransferLogger.Ui.Forms.Applications
             this._gridApps.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this._gridApps.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this._gridApps.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ApplicationId,
+            this.Id,
             this.Student,
             this.Organization,
             this.Date,
-            this.Status,
-            this.CompletedDt});
+            this.Status});
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -616,20 +614,20 @@ namespace TransferLogger.Ui.Forms.Applications
             this._gridApps.Size = new System.Drawing.Size(989, 536);
             this._gridApps.TabIndex = 0;
             // 
-            // ApplicationId
+            // Id
             // 
-            this.ApplicationId.DataPropertyName = "ApplicationId";
-            this.ApplicationId.HeaderText = "ID";
-            this.ApplicationId.MinimumWidth = 75;
-            this.ApplicationId.Name = "ApplicationId";
-            this.ApplicationId.ReadOnly = true;
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "ID";
+            this.Id.MinimumWidth = 75;
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
             // 
             // Student
             // 
             this.Student.DataPropertyName = "Student";
             this.Student.FillWeight = 105F;
             this.Student.HeaderText = "Student";
-            this.Student.MinimumWidth = 200;
+            this.Student.MinimumWidth = 250;
             this.Student.Name = "Student";
             this.Student.ReadOnly = true;
             // 
@@ -638,7 +636,7 @@ namespace TransferLogger.Ui.Forms.Applications
             this.Organization.DataPropertyName = "Organization";
             this.Organization.FillWeight = 105F;
             this.Organization.HeaderText = "Organization";
-            this.Organization.MinimumWidth = 225;
+            this.Organization.MinimumWidth = 250;
             this.Organization.Name = "Organization";
             this.Organization.ReadOnly = true;
             // 
@@ -652,19 +650,11 @@ namespace TransferLogger.Ui.Forms.Applications
             // 
             // Status
             // 
-            this.Status.DataPropertyName = "ApplicationStatus";
+            this.Status.DataPropertyName = "StatusDisplayName";
             this.Status.HeaderText = "Status";
             this.Status.MinimumWidth = 100;
             this.Status.Name = "Status";
             this.Status.ReadOnly = true;
-            // 
-            // CompletedDt
-            // 
-            this.CompletedDt.DataPropertyName = "CompletedDt";
-            this.CompletedDt.HeaderText = "Completion Date";
-            this.CompletedDt.MinimumWidth = 80;
-            this.CompletedDt.Name = "CompletedDt";
-            this.CompletedDt.ReadOnly = true;
             // 
             // ApplicationsForm
             // 
@@ -734,11 +724,10 @@ namespace TransferLogger.Ui.Forms.Applications
         private Controls.TlButton _btnAdd;
         private Controls.TlButton _btnEditLocations;
         private Controls.TlButton _btnExport;
-        private DataGridViewTextBoxColumn ApplicationId;
+        private DataGridViewTextBoxColumn Id;
         private DataGridViewTextBoxColumn Student;
         private DataGridViewTextBoxColumn Organization;
         private DataGridViewTextBoxColumn Date;
         private DataGridViewTextBoxColumn Status;
-        private DataGridViewTextBoxColumn CompletedDt;
     }
 }

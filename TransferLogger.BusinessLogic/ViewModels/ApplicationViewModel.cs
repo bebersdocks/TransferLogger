@@ -30,10 +30,10 @@ namespace TransferLogger.BusinessLogic.ViewModels
             Status            = app.ApplicationStatus;
             StatusDisplayName = app.ApplicationStatus.GetDisplayName();
             Student           = app.Student.DisplayString;
-            Organization      = app.SourceOrganization.Name;
-            CreatedAt         = app.CreatedAt;
-            UpdatedAt         = app.UpdatedAt;
-            CompletedAt       = app.CompletedAt;
+            Organization      = app.SourceOrganization.DisplayString;
+            CreatedAt         = app.CreatedAt.ToLocalTime();
+            UpdatedAt         = app.UpdatedAt?.ToLocalTime() ?? null;
+            CompletedAt       = app.CompletedAt?.ToLocalTime() ?? null;
         }
 
         public static List<ApplicationViewModel> GetList(string studentName = "", int organizationId = 0, ApplicationStatus? status = null, DateTime? from = null, DateTime? to = null)
@@ -61,6 +61,7 @@ namespace TransferLogger.BusinessLogic.ViewModels
                 .LoadWith(a => a.Student)
                 .LoadWith(a => a.SourceOrganization)
                 .LoadWith(a => a.Evaluations)
+                .OrderByDescending(a => a.ApplicationId)
                 .Select(a => new ApplicationViewModel(a))
                 .ToList();
         }

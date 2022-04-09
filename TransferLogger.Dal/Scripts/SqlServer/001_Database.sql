@@ -98,7 +98,7 @@ ALTER TABLE ApplicationAttachment ADD CONSTRAINT PK_ApplicationAttachment PRIMAR
 ALTER TABLE ApplicationAttachment ADD CONSTRAINT FK_ApplicationAttachmentApplication FOREIGN KEY (ApplicationId) REFERENCES Application(ApplicationId);
 
 CREATE TABLE Evaluation (
-	EvaluationId INT NOT NULL,
+	EvaluationId INT IDENTITY(1,1) NOT NULL,
 	EvaluationStatus INT NOT NULL,
 	ApplicationId INT NOT NULL,
 	CourseId INT NOT NULL,

@@ -16,14 +16,14 @@ namespace TransferLogger.Dal.DataModels
     [Table]
     public class Evaluation
     {
-        [Column, Identity] public int              EvaluationId       { get; set; }
-        [Column, NotNull]  public EvaluationStatus EvaluationStatus   { get; set; }
-        [Column, NotNull]  public int              ApplicationId      { get; set; }
-        [Column, NotNull]  public int              CourseId           { get; set; }
-        [Column, Nullable] public int?             MatchedCourseId    { get; set; }
-        [Column, NotNull]  public int              InstructorId       { get; set; }
-        [Column, Nullable] public Evaluation       LinkedEvaluationId { get; set; }
-        [Column, Nullable] public string           Comment            { get; set; }
+        [PrimaryKey, Identity] public int              EvaluationId       { get; set; }
+        [Column, NotNull]      public EvaluationStatus EvaluationStatus   { get; set; }
+        [Column, NotNull]      public int              ApplicationId      { get; set; }
+        [Column, NotNull]      public int              CourseId           { get; set; }
+        [Column, Nullable]     public int?             MatchedCourseId    { get; set; }
+        [Column, NotNull]      public int              InstructorId       { get; set; }
+        [Column, Nullable]     public int?             LinkedEvaluationId { get; set; }
+        [Column, Nullable]     public string           Comment            { get; set; }
 
         #region Associations 
 
@@ -39,7 +39,7 @@ namespace TransferLogger.Dal.DataModels
         [Association(ThisKey = nameof(InstructorId), OtherKey = nameof(InstructorId), Relationship = Relationship.ManyToOne, CanBeNull = false)]
         public Instructor Instructor { get; set; }
 
-        [Association(ThisKey = nameof(LinkedEvaluationId), OtherKey = nameof(Evaluation), Relationship = Relationship.ManyToOne, CanBeNull = true)]
+        [Association(ThisKey = nameof(LinkedEvaluationId), OtherKey = nameof(EvaluationId), Relationship = Relationship.ManyToOne, CanBeNull = true)]
         public Evaluation LinkedEvaluation { get; set; }
 
         #endregion
