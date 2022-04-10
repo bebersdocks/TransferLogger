@@ -54,6 +54,8 @@ namespace TransferLogger.Ui.Forms.Organizations
             _btnAdd.Click     += (s, e) => InsertOrReplace(true);
             _btnEdit.Click    += (s, e) => InsertOrReplace();
 
+            _grid.SelectionChanged += _grid_SelectionChanged;
+
             _btnDelete.Click += _btnDelete_Click;
         }
 
@@ -80,15 +82,18 @@ namespace TransferLogger.Ui.Forms.Organizations
             FormUtils.InsertOrReplace(_grid, id => new OrganizationForm(id, organizationType, country), () => SetData(), isNew);
         }
 
+        private void _grid_SelectionChanged(object? sender, EventArgs e)
+        {
+            if (_grid.CurrentRow?.DataBoundItem is OrganizationViewModel viewModel)
+            {
+                _btnDelete.Enabled = viewModel.Id != AppSettings.Instance.OrganizationId;
+            }
+        }
+
         private void _btnDelete_Click(object? sender, EventArgs e)
         {
             if (_grid.CurrentRow?.DataBoundItem is OrganizationViewModel viewModel)
             {
-                if (viewModel.Id == AppSettings.Instance.OrganizationId)
-                {
-                    MessageDialog.Show("You can't delete your organization.", "Denied");
-                }
-
                 using var confirmDlg = new ConfirmDialog(
                     "Confirm Deletion",
                     $"Are you sure you want to delete {viewModel.Name} (Id: {viewModel.Id})?");
