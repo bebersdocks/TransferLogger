@@ -45,11 +45,11 @@
             this._cbPrograms = new TransferLogger.Ui.Controls.TlDropDownList();
             this._lCountry = new System.Windows.Forms.Label();
             this._grid = new TransferLogger.Ui.Controls.TlDataGrid();
+            this._tbSearchName = new TransferLogger.Ui.Controls.TlTextBox();
             this.Selected = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.CourseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Program = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cycle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._tbSearchName = new TransferLogger.Ui.Controls.TlTextBox();
             ((System.ComponentModel.ISupportInitialize)(this._splitContainer)).BeginInit();
             this._splitContainer.Panel1.SuspendLayout();
             this._splitContainer.Panel2.SuspendLayout();
@@ -210,7 +210,7 @@
             this._cbCycles.BackColor = System.Drawing.Color.GhostWhite;
             this._cbCycles.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._cbCycles.FormattingEnabled = true;
-            this._cbCycles.Location = new System.Drawing.Point(85, 52);
+            this._cbCycles.Location = new System.Drawing.Point(85, 50);
             this._cbCycles.Name = "_cbCycles";
             this._cbCycles.Size = new System.Drawing.Size(325, 23);
             this._cbCycles.TabIndex = 31;
@@ -219,7 +219,7 @@
             // 
             this._lCycle.AutoSize = true;
             this._lCycle.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lCycle.Location = new System.Drawing.Point(38, 53);
+            this._lCycle.Location = new System.Drawing.Point(38, 51);
             this._lCycle.Name = "_lCycle";
             this._lCycle.Size = new System.Drawing.Size(41, 17);
             this._lCycle.TabIndex = 30;
@@ -234,7 +234,7 @@
             this._btnSelectProgram.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
             this._btnSelectProgram.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnSelectProgram.ForeColor = System.Drawing.Color.Black;
-            this._btnSelectProgram.Location = new System.Drawing.Point(382, 88);
+            this._btnSelectProgram.Location = new System.Drawing.Point(382, 82);
             this._btnSelectProgram.MaximumSize = new System.Drawing.Size(0, 23);
             this._btnSelectProgram.MinimumSize = new System.Drawing.Size(0, 23);
             this._btnSelectProgram.Name = "_btnSelectProgram";
@@ -249,7 +249,7 @@
             this._cbPrograms.BackColor = System.Drawing.Color.GhostWhite;
             this._cbPrograms.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._cbPrograms.FormattingEnabled = true;
-            this._cbPrograms.Location = new System.Drawing.Point(85, 88);
+            this._cbPrograms.Location = new System.Drawing.Point(85, 82);
             this._cbPrograms.Name = "_cbPrograms";
             this._cbPrograms.Size = new System.Drawing.Size(291, 23);
             this._cbPrograms.TabIndex = 27;
@@ -258,7 +258,7 @@
             // 
             this._lCountry.AutoSize = true;
             this._lCountry.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lCountry.Location = new System.Drawing.Point(17, 90);
+            this._lCountry.Location = new System.Drawing.Point(17, 84);
             this._lCountry.Name = "_lCountry";
             this._lCountry.Size = new System.Drawing.Size(62, 17);
             this._lCountry.TabIndex = 29;
@@ -316,6 +316,18 @@
             this._grid.Size = new System.Drawing.Size(824, 370);
             this._grid.TabIndex = 10;
             // 
+            // _tbSearchName
+            // 
+            this._tbSearchName.BackColor = System.Drawing.Color.GhostWhite;
+            this._tbSearchName.BoxWidth = 325;
+            this._tbSearchName.Dock = System.Windows.Forms.DockStyle.Top;
+            this._tbSearchName.ForeColor = System.Drawing.Color.Black;
+            this._tbSearchName.Location = new System.Drawing.Point(0, 0);
+            this._tbSearchName.Name = "_tbSearchName";
+            this._tbSearchName.PlaceholderText = "Type here to filter courses";
+            this._tbSearchName.Size = new System.Drawing.Size(824, 23);
+            this._tbSearchName.TabIndex = 9;
+            // 
             // Selected
             // 
             this.Selected.DataPropertyName = "Selected";
@@ -340,7 +352,7 @@
             // 
             this.Program.DataPropertyName = "Program";
             this.Program.HeaderText = "Program";
-            this.Program.MinimumWidth = 140;
+            this.Program.MinimumWidth = 250;
             this.Program.Name = "Program";
             this.Program.ReadOnly = true;
             // 
@@ -349,21 +361,9 @@
             this.Cycle.DataPropertyName = "Cycle";
             this.Cycle.FillWeight = 90F;
             this.Cycle.HeaderText = "Cycle";
-            this.Cycle.MinimumWidth = 40;
+            this.Cycle.MinimumWidth = 75;
             this.Cycle.Name = "Cycle";
             this.Cycle.ReadOnly = true;
-            // 
-            // _tbSearchName
-            // 
-            this._tbSearchName.BackColor = System.Drawing.Color.GhostWhite;
-            this._tbSearchName.BoxWidth = 325;
-            this._tbSearchName.Dock = System.Windows.Forms.DockStyle.Top;
-            this._tbSearchName.ForeColor = System.Drawing.Color.Black;
-            this._tbSearchName.Location = new System.Drawing.Point(0, 0);
-            this._tbSearchName.Name = "_tbSearchName";
-            this._tbSearchName.PlaceholderText = "Type here to filter courses";
-            this._tbSearchName.Size = new System.Drawing.Size(824, 23);
-            this._tbSearchName.TabIndex = 9;
             // 
             // CoursesControl
             // 
@@ -398,15 +398,15 @@
         private System.Windows.Forms.Label _lInstructions;
         private TlTextBox _tbSearchName;
         private TlDataGrid _grid;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Selected;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CourseName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Program;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cycle;
         private System.Windows.Forms.GroupBox _gbManagePrograms;
         private TlButton _btnManagePrograms;
         private TlButton _btnAddProgram;
         private System.Windows.Forms.GroupBox _gbManageCourses;
         private TlButton _btnManageCourses;
         private TlButton _btnAddCourse;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Selected;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CourseName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Program;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cycle;
     }
 }

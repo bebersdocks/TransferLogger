@@ -38,10 +38,10 @@
             this._btnDelete = new TransferLogger.Ui.Controls.TlButton();
             this._btnAdd = new TransferLogger.Ui.Controls.TlButton();
             this._grid = new TransferLogger.Ui.Controls.TlDataGrid();
-            this.FileName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._pnlAttachments = new System.Windows.Forms.Panel();
             this._btnBrowse = new TransferLogger.Ui.Controls.TlButton();
             this._btnView = new TransferLogger.Ui.Controls.TlButton();
+            this.FileName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this._grid)).BeginInit();
             this._pnlAttachments.SuspendLayout();
             this.SuspendLayout();
@@ -132,6 +132,9 @@
             this._grid.AllowUserToAddRows = false;
             this._grid.AllowUserToDeleteRows = false;
             this._grid.AllowUserToOrderColumns = true;
+            this._grid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this._grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this._grid.BackgroundColor = System.Drawing.Color.White;
             this._grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -172,15 +175,6 @@
             this._grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this._grid.Size = new System.Drawing.Size(391, 247);
             this._grid.TabIndex = 69;
-            // 
-            // FileName
-            // 
-            this.FileName.DataPropertyName = "FileName";
-            this.FileName.FillWeight = 105F;
-            this.FileName.HeaderText = "FileName";
-            this.FileName.MinimumWidth = 280;
-            this.FileName.Name = "FileName";
-            this.FileName.ReadOnly = true;
             // 
             // _pnlAttachments
             // 
@@ -226,6 +220,15 @@
             this._btnView.TabStop = false;
             this._btnView.UseVisualStyleBackColor = false;
             // 
+            // FileName
+            // 
+            this.FileName.DataPropertyName = "FileName";
+            this.FileName.FillWeight = 105F;
+            this.FileName.HeaderText = "FileName";
+            this.FileName.MinimumWidth = 280;
+            this.FileName.Name = "FileName";
+            this.FileName.ReadOnly = true;
+            // 
             // AttachmentsControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -258,8 +261,8 @@
         private TlButton _btnAdd;
         private TlDataGrid _grid;
         private System.Windows.Forms.Panel _pnlAttachments;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FileName;
         private TlButton _btnBrowse;
         private TlButton _btnView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FileName;
     }
 }
