@@ -161,18 +161,17 @@ namespace TransferLogger.Ui.Forms
             // Value
             // 
             this.Value.DataPropertyName = "Value";
-            this.Value.FillWeight = 5.076141F;
             this.Value.HeaderText = "Value";
-            this.Value.MinimumWidth = 90;
+            this.Value.MinimumWidth = 140;
             this.Value.Name = "Value";
             this.Value.ReadOnly = true;
             // 
             // DisplayName
             // 
             this.DisplayName.DataPropertyName = "DisplayName";
-            this.DisplayName.FillWeight = 194.9239F;
+            this.DisplayName.FillWeight = 105F;
             this.DisplayName.HeaderText = "Display Name";
-            this.DisplayName.MinimumWidth = 360;
+            this.DisplayName.MinimumWidth = 300;
             this.DisplayName.Name = "DisplayName";
             this.DisplayName.ReadOnly = true;
             // 

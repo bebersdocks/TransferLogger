@@ -32,8 +32,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this._splitContainer = new TransferLogger.Ui.Controls.TlSplitContainer();
+            this._gbManageCourses = new System.Windows.Forms.GroupBox();
             this._btnManageCourses = new TransferLogger.Ui.Controls.TlButton();
             this._btnAddCourse = new TransferLogger.Ui.Controls.TlButton();
+            this._gbManagePrograms = new System.Windows.Forms.GroupBox();
             this._btnManagePrograms = new TransferLogger.Ui.Controls.TlButton();
             this._btnAddProgram = new TransferLogger.Ui.Controls.TlButton();
             this._lInstructions = new System.Windows.Forms.Label();
@@ -43,15 +45,17 @@
             this._cbPrograms = new TransferLogger.Ui.Controls.TlDropDownList();
             this._lCountry = new System.Windows.Forms.Label();
             this._grid = new TransferLogger.Ui.Controls.TlDataGrid();
-            this._tbSearchName = new TransferLogger.Ui.Controls.TlTextBox();
             this.Selected = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.CourseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Program = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cycle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._tbSearchName = new TransferLogger.Ui.Controls.TlTextBox();
             ((System.ComponentModel.ISupportInitialize)(this._splitContainer)).BeginInit();
             this._splitContainer.Panel1.SuspendLayout();
             this._splitContainer.Panel2.SuspendLayout();
             this._splitContainer.SuspendLayout();
+            this._gbManageCourses.SuspendLayout();
+            this._gbManagePrograms.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._grid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,10 +72,8 @@
             // _splitContainer.Panel1
             // 
             this._splitContainer.Panel1.BackColor = System.Drawing.Color.White;
-            this._splitContainer.Panel1.Controls.Add(this._btnManageCourses);
-            this._splitContainer.Panel1.Controls.Add(this._btnAddCourse);
-            this._splitContainer.Panel1.Controls.Add(this._btnManagePrograms);
-            this._splitContainer.Panel1.Controls.Add(this._btnAddProgram);
+            this._splitContainer.Panel1.Controls.Add(this._gbManageCourses);
+            this._splitContainer.Panel1.Controls.Add(this._gbManagePrograms);
             this._splitContainer.Panel1.Controls.Add(this._lInstructions);
             this._splitContainer.Panel1.Controls.Add(this._cbCycles);
             this._splitContainer.Panel1.Controls.Add(this._lCycle);
@@ -85,75 +87,111 @@
             this._splitContainer.Panel2.Controls.Add(this._grid);
             this._splitContainer.Panel2.Controls.Add(this._tbSearchName);
             this._splitContainer.Size = new System.Drawing.Size(824, 525);
-            this._splitContainer.SplitterDistance = 124;
+            this._splitContainer.SplitterDistance = 128;
             this._splitContainer.TabIndex = 0;
+            // 
+            // _gbManageCourses
+            // 
+            this._gbManageCourses.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this._gbManageCourses.Controls.Add(this._btnManageCourses);
+            this._gbManageCourses.Controls.Add(this._btnAddCourse);
+            this._gbManageCourses.Location = new System.Drawing.Point(541, 32);
+            this._gbManageCourses.Name = "_gbManageCourses";
+            this._gbManageCourses.Size = new System.Drawing.Size(130, 60);
+            this._gbManageCourses.TabIndex = 46;
+            this._gbManageCourses.TabStop = false;
+            this._gbManageCourses.Text = "Manage Courses";
             // 
             // _btnManageCourses
             // 
-            this._btnManageCourses.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this._btnManageCourses.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this._btnManageCourses.AutoSize = true;
             this._btnManageCourses.BackColor = System.Drawing.Color.White;
+            this._btnManageCourses.BackgroundImage = global::TransferLogger.Ui.Properties.Resources.grid;
+            this._btnManageCourses.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this._btnManageCourses.Cursor = System.Windows.Forms.Cursors.Hand;
             this._btnManageCourses.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
             this._btnManageCourses.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
             this._btnManageCourses.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
             this._btnManageCourses.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnManageCourses.ForeColor = System.Drawing.Color.Black;
-            this._btnManageCourses.Location = new System.Drawing.Point(713, 78);
+            this._btnManageCourses.Location = new System.Drawing.Point(46, 20);
             this._btnManageCourses.Name = "_btnManageCourses";
-            this._btnManageCourses.Size = new System.Drawing.Size(97, 30);
-            this._btnManageCourses.TabIndex = 44;
+            this._btnManageCourses.Size = new System.Drawing.Size(32, 32);
+            this._btnManageCourses.TabIndex = 7;
             this._btnManageCourses.TabStop = false;
-            this._btnManageCourses.Text = "Manage";
             this._btnManageCourses.UseVisualStyleBackColor = false;
             // 
             // _btnAddCourse
             // 
-            this._btnAddCourse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this._btnAddCourse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this._btnAddCourse.AutoSize = true;
             this._btnAddCourse.BackColor = System.Drawing.Color.White;
+            this._btnAddCourse.BackgroundImage = global::TransferLogger.Ui.Properties.Resources.add;
+            this._btnAddCourse.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this._btnAddCourse.Cursor = System.Windows.Forms.Cursors.Hand;
             this._btnAddCourse.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
             this._btnAddCourse.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
             this._btnAddCourse.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
             this._btnAddCourse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnAddCourse.ForeColor = System.Drawing.Color.Black;
-            this._btnAddCourse.Location = new System.Drawing.Point(538, 78);
+            this._btnAddCourse.Location = new System.Drawing.Point(8, 20);
             this._btnAddCourse.Name = "_btnAddCourse";
-            this._btnAddCourse.Size = new System.Drawing.Size(169, 30);
-            this._btnAddCourse.TabIndex = 43;
+            this._btnAddCourse.Size = new System.Drawing.Size(32, 32);
+            this._btnAddCourse.TabIndex = 6;
             this._btnAddCourse.TabStop = false;
-            this._btnAddCourse.Text = "Add New Course";
             this._btnAddCourse.UseVisualStyleBackColor = false;
+            // 
+            // _gbManagePrograms
+            // 
+            this._gbManagePrograms.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this._gbManagePrograms.Controls.Add(this._btnManagePrograms);
+            this._gbManagePrograms.Controls.Add(this._btnAddProgram);
+            this._gbManagePrograms.Location = new System.Drawing.Point(677, 32);
+            this._gbManagePrograms.Name = "_gbManagePrograms";
+            this._gbManagePrograms.Size = new System.Drawing.Size(130, 60);
+            this._gbManagePrograms.TabIndex = 45;
+            this._gbManagePrograms.TabStop = false;
+            this._gbManagePrograms.Text = "Manage Programs";
             // 
             // _btnManagePrograms
             // 
-            this._btnManagePrograms.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this._btnManagePrograms.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this._btnManagePrograms.AutoSize = true;
             this._btnManagePrograms.BackColor = System.Drawing.Color.White;
+            this._btnManagePrograms.BackgroundImage = global::TransferLogger.Ui.Properties.Resources.grid;
+            this._btnManagePrograms.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this._btnManagePrograms.Cursor = System.Windows.Forms.Cursors.Hand;
             this._btnManagePrograms.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
             this._btnManagePrograms.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
             this._btnManagePrograms.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
             this._btnManagePrograms.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnManagePrograms.ForeColor = System.Drawing.Color.Black;
-            this._btnManagePrograms.Location = new System.Drawing.Point(713, 42);
+            this._btnManagePrograms.Location = new System.Drawing.Point(46, 20);
             this._btnManagePrograms.Name = "_btnManagePrograms";
-            this._btnManagePrograms.Size = new System.Drawing.Size(97, 30);
-            this._btnManagePrograms.TabIndex = 42;
+            this._btnManagePrograms.Size = new System.Drawing.Size(32, 32);
+            this._btnManagePrograms.TabIndex = 7;
             this._btnManagePrograms.TabStop = false;
-            this._btnManagePrograms.Text = "Manage";
             this._btnManagePrograms.UseVisualStyleBackColor = false;
             // 
             // _btnAddProgram
             // 
-            this._btnAddProgram.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this._btnAddProgram.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this._btnAddProgram.AutoSize = true;
             this._btnAddProgram.BackColor = System.Drawing.Color.White;
+            this._btnAddProgram.BackgroundImage = global::TransferLogger.Ui.Properties.Resources.add;
+            this._btnAddProgram.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this._btnAddProgram.Cursor = System.Windows.Forms.Cursors.Hand;
             this._btnAddProgram.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
             this._btnAddProgram.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
             this._btnAddProgram.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
             this._btnAddProgram.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnAddProgram.ForeColor = System.Drawing.Color.Black;
-            this._btnAddProgram.Location = new System.Drawing.Point(538, 42);
+            this._btnAddProgram.Location = new System.Drawing.Point(8, 20);
             this._btnAddProgram.Name = "_btnAddProgram";
-            this._btnAddProgram.Size = new System.Drawing.Size(169, 30);
-            this._btnAddProgram.TabIndex = 41;
+            this._btnAddProgram.Size = new System.Drawing.Size(32, 32);
+            this._btnAddProgram.TabIndex = 6;
             this._btnAddProgram.TabStop = false;
-            this._btnAddProgram.Text = "Add New Program";
             this._btnAddProgram.UseVisualStyleBackColor = false;
             // 
             // _lInstructions
@@ -190,7 +228,7 @@
             // _btnSelectProgram
             // 
             this._btnSelectProgram.AutoSize = true;
-            this._btnSelectProgram.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
+            this._btnSelectProgram.BackColor = System.Drawing.Color.White;
             this._btnSelectProgram.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
             this._btnSelectProgram.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
             this._btnSelectProgram.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
@@ -275,20 +313,8 @@
             this._grid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this._grid.RowHeadersVisible = false;
             this._grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this._grid.Size = new System.Drawing.Size(824, 374);
+            this._grid.Size = new System.Drawing.Size(824, 370);
             this._grid.TabIndex = 10;
-            // 
-            // _tbSearchName
-            // 
-            this._tbSearchName.BackColor = System.Drawing.Color.GhostWhite;
-            this._tbSearchName.BoxWidth = 325;
-            this._tbSearchName.Dock = System.Windows.Forms.DockStyle.Top;
-            this._tbSearchName.ForeColor = System.Drawing.Color.Black;
-            this._tbSearchName.Location = new System.Drawing.Point(0, 0);
-            this._tbSearchName.Name = "_tbSearchName";
-            this._tbSearchName.PlaceholderText = "Type here to filter courses";
-            this._tbSearchName.Size = new System.Drawing.Size(824, 23);
-            this._tbSearchName.TabIndex = 9;
             // 
             // Selected
             // 
@@ -327,6 +353,18 @@
             this.Cycle.Name = "Cycle";
             this.Cycle.ReadOnly = true;
             // 
+            // _tbSearchName
+            // 
+            this._tbSearchName.BackColor = System.Drawing.Color.GhostWhite;
+            this._tbSearchName.BoxWidth = 325;
+            this._tbSearchName.Dock = System.Windows.Forms.DockStyle.Top;
+            this._tbSearchName.ForeColor = System.Drawing.Color.Black;
+            this._tbSearchName.Location = new System.Drawing.Point(0, 0);
+            this._tbSearchName.Name = "_tbSearchName";
+            this._tbSearchName.PlaceholderText = "Type here to filter courses";
+            this._tbSearchName.Size = new System.Drawing.Size(824, 23);
+            this._tbSearchName.TabIndex = 9;
+            // 
             // CoursesControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -340,6 +378,10 @@
             this._splitContainer.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this._splitContainer)).EndInit();
             this._splitContainer.ResumeLayout(false);
+            this._gbManageCourses.ResumeLayout(false);
+            this._gbManageCourses.PerformLayout();
+            this._gbManagePrograms.ResumeLayout(false);
+            this._gbManagePrograms.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this._grid)).EndInit();
             this.ResumeLayout(false);
 
@@ -354,15 +396,17 @@
         private TlDropDownList _cbPrograms;
         private System.Windows.Forms.Label _lCountry;
         private System.Windows.Forms.Label _lInstructions;
-        private TlButton _btnManagePrograms;
-        private TlButton _btnAddProgram;
-        private TlButton _btnManageCourses;
-        private TlButton _btnAddCourse;
         private TlTextBox _tbSearchName;
         private TlDataGrid _grid;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Selected;
         private System.Windows.Forms.DataGridViewTextBoxColumn CourseName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Program;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cycle;
+        private System.Windows.Forms.GroupBox _gbManagePrograms;
+        private TlButton _btnManagePrograms;
+        private TlButton _btnAddProgram;
+        private System.Windows.Forms.GroupBox _gbManageCourses;
+        private TlButton _btnManageCourses;
+        private TlButton _btnAddCourse;
     }
 }

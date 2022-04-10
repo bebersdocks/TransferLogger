@@ -32,24 +32,26 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this._splitContainer = new TransferLogger.Ui.Controls.TlSplitContainer();
+            this._gbManageOrganizations = new System.Windows.Forms.GroupBox();
             this._btnManage = new TransferLogger.Ui.Controls.TlButton();
-            this._lInstructions = new System.Windows.Forms.Label();
             this._btnAdd = new TransferLogger.Ui.Controls.TlButton();
+            this._lInstructions = new System.Windows.Forms.Label();
             this._btnSelectCountry = new TransferLogger.Ui.Controls.TlButton();
             this._cbCountries = new TransferLogger.Ui.Controls.TlDropDownList();
             this._lCountry = new System.Windows.Forms.Label();
             this._cbOrganizationTypes = new TransferLogger.Ui.Controls.TlDropDownList();
             this._lOrganizationType = new System.Windows.Forms.Label();
             this._grid = new TransferLogger.Ui.Controls.TlDataGrid();
-            this._tbSearchName = new TransferLogger.Ui.Controls.TlTextBox();
             this.Selected = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.OrganizationName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Country = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._tbSearchName = new TransferLogger.Ui.Controls.TlTextBox();
             ((System.ComponentModel.ISupportInitialize)(this._splitContainer)).BeginInit();
             this._splitContainer.Panel1.SuspendLayout();
             this._splitContainer.Panel2.SuspendLayout();
             this._splitContainer.SuspendLayout();
+            this._gbManageOrganizations.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._grid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,9 +68,8 @@
             // _splitContainer.Panel1
             // 
             this._splitContainer.Panel1.BackColor = System.Drawing.Color.White;
-            this._splitContainer.Panel1.Controls.Add(this._btnManage);
+            this._splitContainer.Panel1.Controls.Add(this._gbManageOrganizations);
             this._splitContainer.Panel1.Controls.Add(this._lInstructions);
-            this._splitContainer.Panel1.Controls.Add(this._btnAdd);
             this._splitContainer.Panel1.Controls.Add(this._btnSelectCountry);
             this._splitContainer.Panel1.Controls.Add(this._cbCountries);
             this._splitContainer.Panel1.Controls.Add(this._lCountry);
@@ -84,22 +85,57 @@
             this._splitContainer.SplitterDistance = 130;
             this._splitContainer.TabIndex = 0;
             // 
+            // _gbManageOrganizations
+            // 
+            this._gbManageOrganizations.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this._gbManageOrganizations.Controls.Add(this._btnManage);
+            this._gbManageOrganizations.Controls.Add(this._btnAdd);
+            this._gbManageOrganizations.Location = new System.Drawing.Point(666, 32);
+            this._gbManageOrganizations.Name = "_gbManageOrganizations";
+            this._gbManageOrganizations.Size = new System.Drawing.Size(143, 60);
+            this._gbManageOrganizations.TabIndex = 47;
+            this._gbManageOrganizations.TabStop = false;
+            this._gbManageOrganizations.Text = "Manage Organizations";
+            // 
             // _btnManage
             // 
-            this._btnManage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this._btnManage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this._btnManage.AutoSize = true;
             this._btnManage.BackColor = System.Drawing.Color.White;
+            this._btnManage.BackgroundImage = global::TransferLogger.Ui.Properties.Resources.grid;
+            this._btnManage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this._btnManage.Cursor = System.Windows.Forms.Cursors.Hand;
             this._btnManage.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
             this._btnManage.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
             this._btnManage.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
             this._btnManage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnManage.ForeColor = System.Drawing.Color.Black;
-            this._btnManage.Location = new System.Drawing.Point(717, 83);
+            this._btnManage.Location = new System.Drawing.Point(46, 20);
             this._btnManage.Name = "_btnManage";
-            this._btnManage.Size = new System.Drawing.Size(97, 30);
-            this._btnManage.TabIndex = 40;
+            this._btnManage.Size = new System.Drawing.Size(32, 32);
+            this._btnManage.TabIndex = 7;
             this._btnManage.TabStop = false;
-            this._btnManage.Text = "Manage";
             this._btnManage.UseVisualStyleBackColor = false;
+            // 
+            // _btnAdd
+            // 
+            this._btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this._btnAdd.AutoSize = true;
+            this._btnAdd.BackColor = System.Drawing.Color.White;
+            this._btnAdd.BackgroundImage = global::TransferLogger.Ui.Properties.Resources.add;
+            this._btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this._btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this._btnAdd.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
+            this._btnAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
+            this._btnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
+            this._btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._btnAdd.ForeColor = System.Drawing.Color.Black;
+            this._btnAdd.Location = new System.Drawing.Point(8, 20);
+            this._btnAdd.Name = "_btnAdd";
+            this._btnAdd.Size = new System.Drawing.Size(32, 32);
+            this._btnAdd.TabIndex = 6;
+            this._btnAdd.TabStop = false;
+            this._btnAdd.UseVisualStyleBackColor = false;
             // 
             // _lInstructions
             // 
@@ -112,27 +148,10 @@
             this._lInstructions.TabIndex = 39;
             this._lInstructions.Text = "Choose organization or add new one.";
             // 
-            // _btnAdd
-            // 
-            this._btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this._btnAdd.BackColor = System.Drawing.Color.White;
-            this._btnAdd.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
-            this._btnAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
-            this._btnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
-            this._btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._btnAdd.ForeColor = System.Drawing.Color.Black;
-            this._btnAdd.Location = new System.Drawing.Point(542, 83);
-            this._btnAdd.Name = "_btnAdd";
-            this._btnAdd.Size = new System.Drawing.Size(169, 30);
-            this._btnAdd.TabIndex = 27;
-            this._btnAdd.TabStop = false;
-            this._btnAdd.Text = "Add New Organization";
-            this._btnAdd.UseVisualStyleBackColor = false;
-            // 
             // _btnSelectCountry
             // 
             this._btnSelectCountry.AutoSize = true;
-            this._btnSelectCountry.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
+            this._btnSelectCountry.BackColor = System.Drawing.Color.White;
             this._btnSelectCountry.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
             this._btnSelectCountry.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
             this._btnSelectCountry.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
@@ -240,18 +259,6 @@
             this._grid.Size = new System.Drawing.Size(828, 382);
             this._grid.TabIndex = 5;
             // 
-            // _tbSearchName
-            // 
-            this._tbSearchName.BackColor = System.Drawing.Color.GhostWhite;
-            this._tbSearchName.BoxWidth = 325;
-            this._tbSearchName.Dock = System.Windows.Forms.DockStyle.Top;
-            this._tbSearchName.ForeColor = System.Drawing.Color.Black;
-            this._tbSearchName.Location = new System.Drawing.Point(0, 0);
-            this._tbSearchName.Name = "_tbSearchName";
-            this._tbSearchName.PlaceholderText = "Type here to filter organizations";
-            this._tbSearchName.Size = new System.Drawing.Size(828, 23);
-            this._tbSearchName.TabIndex = 1;
-            // 
             // Selected
             // 
             this.Selected.DataPropertyName = "Selected";
@@ -288,6 +295,18 @@
             this.Country.Name = "Country";
             this.Country.ReadOnly = true;
             // 
+            // _tbSearchName
+            // 
+            this._tbSearchName.BackColor = System.Drawing.Color.GhostWhite;
+            this._tbSearchName.BoxWidth = 325;
+            this._tbSearchName.Dock = System.Windows.Forms.DockStyle.Top;
+            this._tbSearchName.ForeColor = System.Drawing.Color.Black;
+            this._tbSearchName.Location = new System.Drawing.Point(0, 0);
+            this._tbSearchName.Name = "_tbSearchName";
+            this._tbSearchName.PlaceholderText = "Type here to filter organizations";
+            this._tbSearchName.Size = new System.Drawing.Size(828, 23);
+            this._tbSearchName.TabIndex = 1;
+            // 
             // OrganizationControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -302,6 +321,8 @@
             this._splitContainer.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this._splitContainer)).EndInit();
             this._splitContainer.ResumeLayout(false);
+            this._gbManageOrganizations.ResumeLayout(false);
+            this._gbManageOrganizations.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this._grid)).EndInit();
             this.ResumeLayout(false);
 
@@ -317,12 +338,13 @@
         private System.Windows.Forms.Label _lCountry;
         private TlDropDownList _cbOrganizationTypes;
         private System.Windows.Forms.Label _lOrganizationType;
-        private TlButton _btnAdd;
         private System.Windows.Forms.Label _lInstructions;
-        private TlButton _btnManage;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Selected;
         private System.Windows.Forms.DataGridViewTextBoxColumn OrganizationName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Type;
         private System.Windows.Forms.DataGridViewTextBoxColumn Country;
+        private System.Windows.Forms.GroupBox _gbManageOrganizations;
+        private TlButton _btnManage;
+        private TlButton _btnAdd;
     }
 }
