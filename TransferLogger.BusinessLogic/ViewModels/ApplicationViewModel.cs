@@ -45,6 +45,8 @@ namespace TransferLogger.BusinessLogic.ViewModels
 
             var query = dc.Applications.AsQueryable();
 
+            studentName = studentName.Replace(" ", string.Empty);
+
             if (!string.IsNullOrEmpty(studentName))
                 query = query.Where(a => $"{a.Student.Name}{a.Student.Middle}{a.Student.Surname}"
                     .Replace(" ", string.Empty)
