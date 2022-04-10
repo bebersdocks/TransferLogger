@@ -150,7 +150,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
         {
             var (_, cycle) = GetSelectedValues();
 
-            if (FormUtils.InsertOrReplace(_grid, id => new ProgramForm(id, _appBuild.OrganizationId, true, cycle), () => SetData(), true))
+            if (FormUtils.InsertOrReplace(_grid, id => new ProgramForm(id, _appBuild.OrganizationId, cycle), () => SetData(), true))
                 SetPrograms();
         }
 
@@ -158,7 +158,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
         {
             var (_, cycle) = GetSelectedValues();
 
-            using var form = new ProgramsForm(_appBuild.OrganizationId, true, cycle);
+            using var form = new ProgramsForm(_appBuild.OrganizationId, cycle);
 
             form.ShowDialog();
 
@@ -169,7 +169,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
         {
             var (programId, cycle) = GetSelectedValues();
 
-            if (FormUtils.InsertOrReplace(_grid, id => new CourseForm(id, _appBuild.OrganizationId, true, programId, cycle), () => SetData(), true))
+            if (FormUtils.InsertOrReplace(_grid, id => new CourseForm(id, _appBuild.OrganizationId, programId, cycle), () => SetData(), true))
                 SetCurrentRowAsSelected();
         }
 
@@ -177,7 +177,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
         {
             var (_, cycle) = GetSelectedValues();
 
-            using var form = new CoursesForm(_appBuild.OrganizationId, true, cycle);
+            using var form = new CoursesForm(_appBuild.OrganizationId, cycle);
 
             form.ShowDialog();
 
