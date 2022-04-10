@@ -21,22 +21,19 @@ namespace TransferLogger.Ui.Forms.Courses
     {
         private readonly List<Lookup> _organizations = LookupServices.GetOrganizations();
 
-        public CoursesForm(int? organizationId = null, bool organizationsLocked = false, Cycle? cycle = null)
+        public CoursesForm(int? organizationId = null, Cycle? cycle = null)
         {
             InitializeComponent();
 
-            SetData(organizationId, organizationsLocked, cycle);
+            SetData(organizationId, cycle);
             SetPrograms();
             SetEvents();
         }
 
-        private void SetData(int? organizationId = null, bool organizationsLocked = false, Cycle? cycle = null)
+        private void SetData(int? organizationId = null, Cycle? cycle = null)
         {
             if (_cbOrganizations.Items.Count == 0)
                 _cbOrganizations.FillLookups(_organizations, organizationId);
-
-            _cbOrganizations.Enabled       = !organizationsLocked;
-            _btnSelectOrganization.Enabled = !organizationsLocked;
 
             if (_cbCycles.Items.Count == 0)
                 _cbCycles.FillLookups<Cycle>(Convert.ToInt32(cycle));
@@ -107,16 +104,14 @@ namespace TransferLogger.Ui.Forms.Courses
 
         private void InsertOrReplace(bool isNew = false)
         {
-            var organizationId      = Convert.ToInt32(_cbOrganizations.SelectedValue);
-            var organizationsLocked = !_cbOrganizations.Enabled;
-
-            var programId = Convert.ToInt32(_cbPrograms.SelectedValue);
+            var organizationId = Convert.ToInt32(_cbOrganizations.SelectedValue);
+            var programId      = Convert.ToInt32(_cbPrograms.SelectedValue);
 
             Cycle? cycle = null;
             if (_cbCycles.SelectedValue != null)
                 cycle = (Cycle)_cbCycles.SelectedValue;
 
-            FormUtils.InsertOrReplace(_grid, id => new CourseForm(id, organizationId, organizationsLocked, programId, cycle), () => SetData(), isNew);
+            FormUtils.InsertOrReplace(_grid, id => new CourseForm(id, organizationId, programId, cycle), () => SetData(), isNew);
         }
 
         private void _btnDelete_Click(object? sender, EventArgs e)

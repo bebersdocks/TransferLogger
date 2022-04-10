@@ -53,7 +53,7 @@ namespace TransferLogger.Ui.Forms.Courses
             _btnOk.Click += (s, e) => Close();
         }
 
-        public CourseForm(int courseId = 0, int? organizationId = null, bool organizationsLocked = false, int? programId = null, Cycle? cycle = null)
+        public CourseForm(int courseId = 0, int? organizationId = null, int? programId = null, Cycle? cycle = null)
         {
             InitializeComponent();
 
@@ -63,12 +63,12 @@ namespace TransferLogger.Ui.Forms.Courses
                 .LoadWith(c => c.Program)
                 .FirstOrDefault(c => c.CourseId == courseId) ?? new();
 
-            SetData(organizationId, organizationsLocked, cycle);
+            SetData(organizationId, cycle);
             SetPrograms(_course.ProgramId > 0 ? _course.ProgramId : programId);
             SetEvents();
         }
 
-        private void SetData(int? organizationId = null, bool organizationsLocked = false, Cycle ? cycle = null)
+        private void SetData(int? organizationId = null, Cycle ? cycle = null)
         {
             if (_course.CourseId > 0)
             {
@@ -86,9 +86,6 @@ namespace TransferLogger.Ui.Forms.Courses
 
             _cbCycles.FillLookups(cycle ?? Cycle.Bachelor);
             _cbOrganizations.FillLookups(_organizations, organizationId);
-
-            _cbOrganizations.Enabled       = !organizationsLocked;
-            _btnSelectOrganization.Enabled = !organizationsLocked;
         }
 
         private void SetPrograms(int? programId = null)
