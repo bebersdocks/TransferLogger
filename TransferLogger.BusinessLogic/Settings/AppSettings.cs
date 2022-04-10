@@ -17,16 +17,16 @@ namespace TransferLogger.BusinessLogic.Settings
                 if (_instance == null)
                 {
                     _instance = Read();
-                    _instance.LoggingSettings ??= new LoggingSettings();
+                    _instance.Logging ??= new LoggingSettings();
                 }
 
                 return _instance;
             }
         }
 
-        public int             OrganizationId  { get; set; }
-        public DbSettings      DbSettings      { get; set; }
-        public LoggingSettings LoggingSettings { get; set; }
+        public int             OrganizationId { get; set; }
+        public DbSettings      DbSettings     { get; set; }
+        public LoggingSettings Logging        { get; set; }
 
         private static AppSettings Read()
         {

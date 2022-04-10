@@ -19,29 +19,28 @@ namespace TransferLogger.Ui
         {
             try
             {
-                Log.Logger = Logging.CreateLogger(AppSettings.Instance.LoggingSettings);
-                Log.Information($"Settings have been read.");
+                Log.Logger = Logging.CreateLogger(AppSettings.Instance.Logging);
+                Log.Information("Settings have been read.");
 
-                Application.ThreadException += new ThreadExceptionEventHandler(OnException);
+                Application.ThreadException += new ThreadExceptionEventHandler(OnThreadException);
 #if NET5_0
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
 #else
-            ApplicationConfiguration.Initialize();
+                ApplicationConfiguration.Initialize();
 #endif
-                Log.Information($"Application configuration has been initialized.");
+                Log.Information("Application configuration has been initialized.");
+                Log.Information("Creating default data connection configuration.");
 
                 Dc.CreateDefaultConfiguration(AppSettings.Instance.DbSettings);
 
-                Log.Information($"Default data configuration has been created.");
+                Log.Information("Checking data connection.");
 
                 using var dc = new Dc();
 
-                Log.Information($"Data connection has been established.");
+                Log.Information("Restoring or updating database.");
 
                 dc.CreateOrUpdateDb();
-
-                Log.Information($"Database has been restored or checked.");
 
                 Application.Run(new ApplicationsForm());
             }
@@ -54,7 +53,7 @@ namespace TransferLogger.Ui
         }
 
         // Handles uncaught exceptions within Application.Run()
-        private static void OnException(object sender, ThreadExceptionEventArgs t)
+        private static void OnThreadException(object sender, ThreadExceptionEventArgs t)
         {
             Log.Error(t.Exception, "failed");
 

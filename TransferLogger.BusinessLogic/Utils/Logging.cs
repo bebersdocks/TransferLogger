@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 using Serilog;
 using Serilog.Core;
@@ -11,19 +12,23 @@ namespace TransferLogger.BusinessLogic.Utils
     {
         public const string OutputTemplate = "[{Timestamp:dd-MM-yyyy HH:mm:ss.fff}] [{Level:u3}] {Message}{NewLine}{Exception}";
 
-        public static Logger CreateLogger(LoggingSettings loggingSettings)
+        public static Logger CreateLogger(LoggingSettings settings)
         {
             return new LoggerConfiguration()
-                .Enrich.FromLogContext()
-                
-                .MinimumLevel.Is(loggingSettings.Level)
-                .MinimumLevel.Override("System", loggingSettings.OverrideLevel)
-                .MinimumLevel.Override("Microsoft", loggingSettings.OverrideLevel)
+                .Enrich.FromLogContext() 
+                .MinimumLevel.Is(settings.Level)
+                .MinimumLevel.Override("System", settings.OverrideLevel)
+                .MinimumLevel.Override("Microsoft", settings.OverrideLevel)
                 .WriteTo.Async(c =>
                 {
-                    var logPath = loggingSettings.Path + "/" + DateTime.Now.ToString("dd_MM_yyyy") + ".log";
+                    var sb = new StringBuilder($"{settings.Path}/");
 
-                    c.File(logPath, outputTemplate: OutputTemplate, shared: true);
+                    if (!string.IsNullOrEmpty(settings.FileName))
+                        sb.Append($"{settings.FileName}_");
+
+                    sb.Append($"{DateTime.Now:dd_MM_yyyy}.log");
+
+                    c.File(sb.ToString(), outputTemplate: OutputTemplate, shared: true);
                 })
                 .CreateLogger();
         }
