@@ -21,6 +21,8 @@ namespace TransferLogger.Ui.Forms.Programs
 
         private readonly List<Lookup> _organizations = LookupServices.GetOrganizations();
 
+        public int ProgramId => _program.ProgramId;
+
         public ProgramForm(int programId = 0, int? organizationId = null, bool organizationsLocked = false, Cycle ? cycle = null)
         {
             InitializeComponent();
@@ -107,8 +109,12 @@ namespace TransferLogger.Ui.Forms.Programs
             _program.Cycle          = (Cycle)_cbCycle.SelectedValue;
             _program.Year           = (int)_numericYear.Value;
 
-            if (FormUtils.TryInsertOrReplace(_program, _program.ProgramId))
+            var programId = _program.ProgramId;
+
+            if (FormUtils.TryInsertOrReplace(_program, ref programId))
             {
+                _program.ProgramId = programId;
+
                 DialogResult = DialogResult.OK;
 
                 Close();

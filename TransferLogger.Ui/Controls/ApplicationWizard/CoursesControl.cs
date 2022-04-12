@@ -54,12 +54,28 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             _grid.SelectionChanged += _grid_SelectionChanged;
         }
 
-        private void SetPrograms()
+        private void SetPrograms(int? programId = null)
         {
+            if (programId.HasValue)
+            {
+                using var dc = new Dc();
+
+                var program = dc.Programs.First(p => p.ProgramId == programId);
+
+                // Do not trigger data refresh twice.
+                _cbCycles.SelectedValueChanged -= _cbCycles_SelectedValueChanged;
+
+                _cbCycles.SelectedValue = Convert.ToInt32(program.Cycle);
+
+                _cbCycles.SelectedValueChanged += _cbCycles_SelectedValueChanged;
+            }
+
             var programs = LookupServices.GetPrograms(_appBuild.OrganizationId, _cbCycles.SelectedValue);
             if (programs.Any())
             {
-                _cbPrograms.FillLookups(programs, (int?)_cbPrograms.SelectedValue ?? -1);
+                programId ??= (int?)_cbPrograms.SelectedValue ?? -1;
+
+                _cbPrograms.FillLookups(programs, programId);
                 _cbPrograms.Enabled = _btnSelectProgram.Enabled = true;
             }
             else
@@ -77,7 +93,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             _grid.CellClick       += (s, e) => SetCurrentRowAsSelected();
             _grid.CellDoubleClick += (s, e) => SetCurrentRowAsSelected();
 
-            _cbCycles.SelectedValueChanged += OnValuesChanges;
+            _cbCycles.SelectedValueChanged += _cbCycles_SelectedValueChanged;
 
             _btnAddCourse.Click      += _btnAddCourse_Click;
             _btnManageCourses.Click  += _btnManageCourses_Click;
@@ -131,7 +147,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             }
         }
 
-        private void OnValuesChanges(object? sender, EventArgs e)
+        private void _cbCycles_SelectedValueChanged(object? sender, EventArgs e)
         {
             SetData();
             SetPrograms();
@@ -150,8 +166,10 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
         {
             var (_, cycle) = GetSelectedValues();
 
-            if (FormUtils.InsertOrReplace(_grid, id => new ProgramForm(id, _appBuild.OrganizationId, true, cycle), () => SetData(), true))
-                SetPrograms();
+            using var form = new ProgramForm(0, _appBuild.OrganizationId, true, cycle);
+
+            if (form.ShowDialog() == DialogResult.OK)
+                SetPrograms(form.ProgramId);
         }
 
         private void _btnManagePrograms_Click(object? sender, EventArgs e)

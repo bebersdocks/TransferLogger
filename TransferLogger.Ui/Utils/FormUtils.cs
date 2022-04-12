@@ -21,6 +21,11 @@ namespace TransferLogger.Ui.Utils
             form.ShowDialog();
         }
 
+        /// <summary>
+        /// This method should be used only with homogenous data objects.
+        /// Correct: courses grid + form to create or update course, method will trigger update of the grid with new course.
+        /// Wrong: courses grid + form for creation of program.
+        /// </summary>
         public static bool InsertOrReplace(TlDataGrid grid, Func<int, Form> getForm, Action setData, bool isNew = false)
         {
             var itemId = 0;
