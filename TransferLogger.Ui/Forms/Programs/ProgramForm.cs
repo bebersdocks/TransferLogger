@@ -21,7 +21,7 @@ namespace TransferLogger.Ui.Forms.Programs
 
         private readonly List<Lookup> _organizations = LookupServices.GetOrganizations();
 
-        public ProgramForm(int programId = 0, int? organizationId = null, Cycle ? cycle = null)
+        public ProgramForm(int programId = 0, int? organizationId = null, bool organizationsLocked = false, Cycle ? cycle = null)
         {
             InitializeComponent();
 
@@ -29,11 +29,11 @@ namespace TransferLogger.Ui.Forms.Programs
 
             _program = dc.Programs.FirstOrDefault(p => p.ProgramId == programId) ?? new();
 
-            SetData(organizationId, cycle);
+            SetData(organizationId, organizationsLocked, cycle);
             SetEvents();
         }
 
-        private void SetData(int? organizationId = null, Cycle? cycle = null)
+        private void SetData(int? organizationId = null, bool organizationsLocked = false, Cycle? cycle = null)
         {
             if (_program.ProgramId > 0)
             {
@@ -52,6 +52,9 @@ namespace TransferLogger.Ui.Forms.Programs
                 _cbCycle.FillLookups(cycle ?? Cycle.Bachelor);
                 _cbOrganizations.FillLookups(_organizations, organizationId);
             }
+
+            _cbOrganizations.Enabled       = !organizationsLocked;
+            _btnSelectOrganization.Enabled = !organizationsLocked;
         }
 
         private void SetEvents()

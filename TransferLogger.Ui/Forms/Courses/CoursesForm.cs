@@ -111,7 +111,7 @@ namespace TransferLogger.Ui.Forms.Courses
             if (_cbCycles.SelectedValue != null)
                 cycle = (Cycle)_cbCycles.SelectedValue;
 
-            FormUtils.InsertOrReplace(_grid, id => new CourseForm(id, organizationId, programId, cycle), () => SetData(), isNew);
+            FormUtils.InsertOrReplace(_grid, id => new CourseForm(id, organizationId, false, programId, cycle), () => SetData(), isNew);
         }
 
         private void _btnDelete_Click(object? sender, EventArgs e)

@@ -73,7 +73,7 @@ namespace TransferLogger.Ui.Forms.Programs
             if (_cbCycles.SelectedValue != null)
                 cycle = (Cycle)_cbCycles.SelectedValue;
 
-            FormUtils.InsertOrReplace(_grid, id => new ProgramForm(id, organizationId, cycle), () => SetData(), isNew);
+            FormUtils.InsertOrReplace(_grid, id => new ProgramForm(id, organizationId, false, cycle), () => SetData(), isNew);
         }
 
         private void _btnDelete_Click(object? sender, EventArgs e)
