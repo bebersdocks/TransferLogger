@@ -64,9 +64,6 @@ namespace TransferLogger.Ui.Forms.Applications
             this._miInstructors = new System.Windows.Forms.ToolStripMenuItem();
             this._splitContainerBottom = new TransferLogger.Ui.Controls.TlSplitContainer();
             this._pnlCourses = new System.Windows.Forms.Panel();
-            this._lAppCourses = new System.Windows.Forms.Label();
-            this._gridAppCourses = new TransferLogger.Ui.Controls.TlDataGrid();
-            this._pnlApplications = new System.Windows.Forms.Panel();
             this._lApplications = new System.Windows.Forms.Label();
             this._gridApps = new TransferLogger.Ui.Controls.TlDataGrid();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -74,6 +71,9 @@ namespace TransferLogger.Ui.Forms.Applications
             this.Organization = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._pnlApplications = new System.Windows.Forms.Panel();
+            this._lAppCourses = new System.Windows.Forms.Label();
+            this._gridAppCourses = new TransferLogger.Ui.Controls.TlDataGrid();
             this.CourseCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EvaluationStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this._splitContainerForm)).BeginInit();
@@ -87,9 +87,9 @@ namespace TransferLogger.Ui.Forms.Applications
             this._splitContainerBottom.Panel2.SuspendLayout();
             this._splitContainerBottom.SuspendLayout();
             this._pnlCourses.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this._gridAppCourses)).BeginInit();
-            this._pnlApplications.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._gridApps)).BeginInit();
+            this._pnlApplications.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._gridAppCourses)).BeginInit();
             this.SuspendLayout();
             // 
             // _splitContainerForm
@@ -437,93 +437,19 @@ namespace TransferLogger.Ui.Forms.Applications
             // 
             this._splitContainerBottom.Panel2.Controls.Add(this._pnlApplications);
             this._splitContainerBottom.Size = new System.Drawing.Size(1234, 559);
-            this._splitContainerBottom.SplitterDistance = 280;
+            this._splitContainerBottom.SplitterDistance = 985;
             this._splitContainerBottom.TabIndex = 0;
             // 
             // _pnlCourses
             // 
             this._pnlCourses.BackColor = System.Drawing.Color.White;
-            this._pnlCourses.Controls.Add(this._lAppCourses);
-            this._pnlCourses.Controls.Add(this._gridAppCourses);
+            this._pnlCourses.Controls.Add(this._lApplications);
+            this._pnlCourses.Controls.Add(this._gridApps);
             this._pnlCourses.Dock = System.Windows.Forms.DockStyle.Fill;
             this._pnlCourses.Location = new System.Drawing.Point(0, 0);
             this._pnlCourses.Name = "_pnlCourses";
-            this._pnlCourses.Size = new System.Drawing.Size(276, 555);
+            this._pnlCourses.Size = new System.Drawing.Size(981, 555);
             this._pnlCourses.TabIndex = 1;
-            // 
-            // _lAppCourses
-            // 
-            this._lAppCourses.BackColor = System.Drawing.Color.AliceBlue;
-            this._lAppCourses.Dock = System.Windows.Forms.DockStyle.Top;
-            this._lAppCourses.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lAppCourses.Location = new System.Drawing.Point(0, 0);
-            this._lAppCourses.Name = "_lAppCourses";
-            this._lAppCourses.Size = new System.Drawing.Size(276, 20);
-            this._lAppCourses.TabIndex = 2;
-            this._lAppCourses.Text = "Courses";
-            this._lAppCourses.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // _gridAppCourses
-            // 
-            this._gridAppCourses.AllowUserToAddRows = false;
-            this._gridAppCourses.AllowUserToDeleteRows = false;
-            this._gridAppCourses.AllowUserToOrderColumns = true;
-            this._gridAppCourses.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this._gridAppCourses.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this._gridAppCourses.BackgroundColor = System.Drawing.Color.White;
-            this._gridAppCourses.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this._gridAppCourses.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.AliceBlue;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.AliceBlue;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this._gridAppCourses.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this._gridAppCourses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this._gridAppCourses.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.CourseCode,
-            this.EvaluationStatus});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this._gridAppCourses.DefaultCellStyle = dataGridViewCellStyle2;
-            this._gridAppCourses.EnableHeadersVisualStyles = false;
-            this._gridAppCourses.Location = new System.Drawing.Point(-2, 21);
-            this._gridAppCourses.MultiSelect = false;
-            this._gridAppCourses.Name = "_gridAppCourses";
-            this._gridAppCourses.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this._gridAppCourses.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this._gridAppCourses.RowHeadersVisible = false;
-            this._gridAppCourses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this._gridAppCourses.Size = new System.Drawing.Size(280, 536);
-            this._gridAppCourses.TabIndex = 1;
-            // 
-            // _pnlApplications
-            // 
-            this._pnlApplications.BackColor = System.Drawing.Color.White;
-            this._pnlApplications.Controls.Add(this._lApplications);
-            this._pnlApplications.Controls.Add(this._gridApps);
-            this._pnlApplications.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._pnlApplications.Location = new System.Drawing.Point(0, 0);
-            this._pnlApplications.Name = "_pnlApplications";
-            this._pnlApplications.Size = new System.Drawing.Size(946, 555);
-            this._pnlApplications.TabIndex = 0;
             // 
             // _lApplications
             // 
@@ -532,7 +458,7 @@ namespace TransferLogger.Ui.Forms.Applications
             this._lApplications.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._lApplications.Location = new System.Drawing.Point(0, 0);
             this._lApplications.Name = "_lApplications";
-            this._lApplications.Size = new System.Drawing.Size(946, 20);
+            this._lApplications.Size = new System.Drawing.Size(981, 20);
             this._lApplications.TabIndex = 1;
             this._lApplications.Text = "Applications";
             this._lApplications.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -549,15 +475,15 @@ namespace TransferLogger.Ui.Forms.Applications
             this._gridApps.BackgroundColor = System.Drawing.Color.White;
             this._gridApps.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this._gridApps.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.AliceBlue;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.AliceBlue;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this._gridApps.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.AliceBlue;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.AliceBlue;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this._gridApps.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this._gridApps.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this._gridApps.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
@@ -565,30 +491,30 @@ namespace TransferLogger.Ui.Forms.Applications
             this.Organization,
             this.Date,
             this.Status});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this._gridApps.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this._gridApps.DefaultCellStyle = dataGridViewCellStyle2;
             this._gridApps.EnableHeadersVisualStyles = false;
-            this._gridApps.Location = new System.Drawing.Point(-6, 21);
+            this._gridApps.Location = new System.Drawing.Point(-2, 21);
             this._gridApps.MultiSelect = false;
             this._gridApps.Name = "_gridApps";
             this._gridApps.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this._gridApps.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this._gridApps.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this._gridApps.RowHeadersVisible = false;
             this._gridApps.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this._gridApps.Size = new System.Drawing.Size(957, 536);
+            this._gridApps.Size = new System.Drawing.Size(985, 536);
             this._gridApps.TabIndex = 0;
             // 
             // Id
@@ -633,6 +559,80 @@ namespace TransferLogger.Ui.Forms.Applications
             this.Status.Name = "Status";
             this.Status.ReadOnly = true;
             // 
+            // _pnlApplications
+            // 
+            this._pnlApplications.BackColor = System.Drawing.Color.White;
+            this._pnlApplications.Controls.Add(this._lAppCourses);
+            this._pnlApplications.Controls.Add(this._gridAppCourses);
+            this._pnlApplications.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._pnlApplications.Location = new System.Drawing.Point(0, 0);
+            this._pnlApplications.Name = "_pnlApplications";
+            this._pnlApplications.Size = new System.Drawing.Size(241, 555);
+            this._pnlApplications.TabIndex = 0;
+            // 
+            // _lAppCourses
+            // 
+            this._lAppCourses.BackColor = System.Drawing.Color.AliceBlue;
+            this._lAppCourses.Dock = System.Windows.Forms.DockStyle.Top;
+            this._lAppCourses.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this._lAppCourses.Location = new System.Drawing.Point(0, 0);
+            this._lAppCourses.Name = "_lAppCourses";
+            this._lAppCourses.Size = new System.Drawing.Size(241, 20);
+            this._lAppCourses.TabIndex = 2;
+            this._lAppCourses.Text = "Courses";
+            this._lAppCourses.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // _gridAppCourses
+            // 
+            this._gridAppCourses.AllowUserToAddRows = false;
+            this._gridAppCourses.AllowUserToDeleteRows = false;
+            this._gridAppCourses.AllowUserToOrderColumns = true;
+            this._gridAppCourses.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this._gridAppCourses.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this._gridAppCourses.BackgroundColor = System.Drawing.Color.White;
+            this._gridAppCourses.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this._gridAppCourses.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.AliceBlue;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.AliceBlue;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this._gridAppCourses.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this._gridAppCourses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this._gridAppCourses.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CourseCode,
+            this.EvaluationStatus});
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this._gridAppCourses.DefaultCellStyle = dataGridViewCellStyle5;
+            this._gridAppCourses.EnableHeadersVisualStyles = false;
+            this._gridAppCourses.Location = new System.Drawing.Point(-2, 21);
+            this._gridAppCourses.MultiSelect = false;
+            this._gridAppCourses.Name = "_gridAppCourses";
+            this._gridAppCourses.ReadOnly = true;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this._gridAppCourses.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this._gridAppCourses.RowHeadersVisible = false;
+            this._gridAppCourses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this._gridAppCourses.Size = new System.Drawing.Size(247, 536);
+            this._gridAppCourses.TabIndex = 1;
+            // 
             // CourseCode
             // 
             this.CourseCode.DataPropertyName = "CourseCode";
@@ -674,9 +674,9 @@ namespace TransferLogger.Ui.Forms.Applications
             ((System.ComponentModel.ISupportInitialize)(this._splitContainerBottom)).EndInit();
             this._splitContainerBottom.ResumeLayout(false);
             this._pnlCourses.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this._gridAppCourses)).EndInit();
-            this._pnlApplications.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this._gridApps)).EndInit();
+            this._pnlApplications.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this._gridAppCourses)).EndInit();
             this.ResumeLayout(false);
 
         }
