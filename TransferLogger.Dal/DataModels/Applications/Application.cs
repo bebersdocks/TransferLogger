@@ -41,9 +41,6 @@ namespace TransferLogger.Dal.DataModels.Applications
         [Association(ThisKey = nameof(ApplicationId), OtherKey = nameof(ApplicationId), Relationship = Relationship.OneToMany)]
         public IEnumerable<Evaluation> Evaluations { get; set; }
 
-        [Association(ThisKey = nameof(ApplicationId), OtherKey = nameof(ApplicationId), Relationship = Relationship.OneToMany)]
-        public IEnumerable<EmailLog> EmailLogs { get; set; }
-
         #endregion
     }
 }
