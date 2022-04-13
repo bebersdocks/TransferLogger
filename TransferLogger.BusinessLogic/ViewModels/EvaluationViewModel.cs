@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using LinqToDB;
+
 using TransferLogger.BusinessLogic.Intefaces;
 using TransferLogger.BusinessLogic.Settings;
 using TransferLogger.BusinessLogic.Utils;
@@ -72,6 +73,7 @@ namespace TransferLogger.BusinessLogic.ViewModels
                 .Where(e => e.CourseId == courseId)
                 .Where(e => e.Application.SourceOrganizationId != AppSettings.Instance.OrganizationId)
                 .Where(e => e.EvaluationStatus != EvaluationStatus.InProcess)
+                .Where(e => e.EvaluationStatus != EvaluationStatus.MatchedByHistory)
                 .Select(e => new EvaluationViewModel(e))
                 .ToList();
         }

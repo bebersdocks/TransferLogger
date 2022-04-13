@@ -36,20 +36,9 @@ namespace TransferLogger.Ui.Forms.Courses
             SetData();
             SetPrograms(_course.ProgramId);
 
-            foreach (Control control in Controls)
-            {
-                if (control is TextBox textBox)
-                {
-                    textBox.ReadOnly = true;
-                }
-                else if (control is Button button)
-                {
-                    button.Enabled = false;
-                }
-            }
+            FormUtils.SetReadOnly(Controls);
 
             _btnOk.Enabled = true;
-
             _btnOk.Click += (s, e) => Close();
         }
 
@@ -123,15 +112,15 @@ namespace TransferLogger.Ui.Forms.Courses
 
         private void _numeric_ValueChanged(object? sender, EventArgs e)
         {
-            if (sender is NumericUpDown numericCredits)
+            if (sender is NumericUpDown numericUpDown)
             {
-                if (numericCredits.Value < numericCredits.Minimum)
+                if (numericUpDown.Value < numericUpDown.Minimum)
                 {
-                    numericCredits.Value = numericCredits.Minimum;
+                    numericUpDown.Value = numericUpDown.Minimum;
                 }
-                else if (numericCredits.Value > numericCredits.Maximum)
+                else if (numericUpDown.Value > numericUpDown.Maximum)
                 {
-                    numericCredits.Value = numericCredits.Maximum;
+                    numericUpDown.Value = numericUpDown.Maximum;
                 }
             }
         }

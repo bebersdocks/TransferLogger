@@ -15,6 +15,7 @@ namespace TransferLogger.BusinessLogic.ViewModels
         public string           StatusDisplayName  { get; set; }
         public string           Instructor         { get; set; }
         public string           SuggestedOrMatched { get; set; }
+        public bool             UseHistorical      { get; set; }
 
         public ApplicationEvaluationViewModel(Dc dc, ApplicationEvaluation evaluation)
         {
@@ -31,6 +32,7 @@ namespace TransferLogger.BusinessLogic.ViewModels
                 Status             = EvaluationStatus.MatchedByHistory;
                 Instructor         = historical.Instructor.DisplayString;
                 SuggestedOrMatched = historical.MatchedCourse.DisplayString;
+                UseHistorical      = true;
             }
             else
             {

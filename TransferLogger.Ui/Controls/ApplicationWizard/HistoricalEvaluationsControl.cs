@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -38,110 +39,140 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
         {
             using var dc = new Dc();
 
-            var courses = dc.Courses
+            var courseIds = dc.Courses
                 .Where(c => _appBuild.Evaluations.ContainsKey(c.CourseId))
                 .Where(c => c.Evaluations.Any(e => e.EvaluationStatus != EvaluationStatus.InProcess))
-                .ToList();
+                .Select(c => c.CourseId)
+                .ToHashSet();
 
             if (_currentCourseId <= 0 && !_appBuild.Evaluations.ContainsKey(_currentCourseId))
-                _currentCourseId = courses.FirstOrDefault()?.CourseId ?? 0;
+                _currentCourseId = courseIds.FirstOrDefault();
 
             if (_currentCourseId > 0)
             {
-                var evaluation = _appBuild.Evaluations[_currentCourseId];
+                _gridCourses.SelectionChanged -= _gridCourses_SelectionChanged;
 
-                _cbUseHistoricalEvaluation.Checked = evaluation.HistoricalEvaluationId > 0;
-
-                if (_cbStatuses.Items.Count == 0)
-                    _cbStatuses.FillLookups<EvaluationStatus>();
-
-                _cbCourses.SelectedValueChanged -= _cbCourses_SelectedValueChanged;
-
-                var courseLookups = courses
-                    .Select(c => new Lookup(c.CourseId, c.DisplayString))
+                _gridCourses.DataSource = _appBuild.Evaluations.Values
+                    .Where(e => courseIds.Contains(e.CourseId))
+                    .OrderBy(e => e.CourseId)
+                    .Select(e => new ApplicationEvaluationViewModel(dc, e))
                     .ToList();
 
-                _cbCourses.FillLookups(courseLookups, _currentCourseId);
+                _gridCourses.SelectRow<ApplicationEvaluation>(e => e.CourseId == _currentCourseId);
 
-                _cbCourses.SelectedValueChanged += _cbCourses_SelectedValueChanged;
+                _gridCourses.SelectionChanged += _gridCourses_SelectionChanged;
 
-                _grid.SelectionChanged -= _grid_SelectionChanged;
-
-                _grid.DataSource = EvaluationViewModel.GetHistoricalEvaluations(_currentCourseId);
-
-                if (evaluation.HistoricalEvaluationId > 0)
-                    _grid.SelectRow<IIdentifiable>(i => i.Id == evaluation.HistoricalEvaluationId);
-
-                _grid.SelectionChanged += _grid_SelectionChanged;
-
-                SetControls();
+                SetHistoricalEvaluations();
             }
         }
 
-        private void SetControls()
+        private void SetHistoricalEvaluations()
         {
-            _pnlEvaluation.Enabled = _cbUseHistoricalEvaluation.Checked;
+            var evaluation = _appBuild.Evaluations[_currentCourseId];
 
-            if (!_cbUseHistoricalEvaluation.Checked)
+            _gridHistoricalEvaluations.SelectionChanged -= _gridHistoricalEvaluations_SelectionChanged;
+
+            _gridHistoricalEvaluations.DataSource = EvaluationViewModel.GetHistoricalEvaluations(_currentCourseId);
+
+            if (evaluation.HistoricalEvaluationId > 0)
+                _gridHistoricalEvaluations.SelectRow<IIdentifiable>(i => i.Id == evaluation.HistoricalEvaluationId);
+
+            _gridHistoricalEvaluations.SelectionChanged += _gridHistoricalEvaluations_SelectionChanged;
+
+            SetHistoricalControls();
+        }
+
+        private void SetHistoricalControls()
+        {
+            _pnlEvaluationDetails.Enabled = _appBuild.Evaluations[_currentCourseId].HistoricalEvaluationId > 0;
+
+            if (_gridHistoricalEvaluations.CurrentRow?.DataBoundItem is EvaluationViewModel viewModel)
             {
-                _appBuild.Evaluations[_currentCourseId].HistoricalEvaluationId = 0;
-            }
-
-            if (_grid.CurrentRow?.DataBoundItem is EvaluationViewModel viewModel)
-            {
-                if (_cbUseHistoricalEvaluation.Checked)
-                {
-                    _appBuild.Evaluations[_currentCourseId].HistoricalEvaluationId = viewModel.Id;
-                }
-
-                _tbEvaluationCourse.Text = viewModel.Course;
-                _tbMatchedCourse.Text    = viewModel.MatchedCourse;
-                _tbApplicationDt.Text    = viewModel.ApplicationDt.ToString("dd/MM/yyyy HH:mm:ss");
-                _tbOrganization.Text     = viewModel.Organization;
-                _tbStudent.Text          = viewModel.Student;
-                _tbEvaluator.Text        = viewModel.Instructor;
-                _tbComment.Text          = viewModel.Comment;
-
-                _cbStatuses.SelectedValue = Convert.ToInt32(viewModel.Status);
+                _tbMatchedCourse.Text = viewModel.MatchedCourse;
+                _tbStudent.Text       = viewModel.Student;
+                _tbEvaluator.Text     = viewModel.Instructor;
+                _tbComment.Text       = viewModel.Comment;
             }
             else
             {
-                _tbEvaluationCourse.Text  = "";
-                _tbMatchedCourse.Text     = "";
-                _tbApplicationDt.Text     = "";
-                _tbOrganization.Text      = "";
-                _tbStudent.Text           = "";
-                _tbEvaluator.Text         = "";
-                _tbComment.Text           = "";
-
-                _cbStatuses.SelectedIndex = -1;
+                _tbMatchedCourse.Text = "";
+                _tbStudent.Text       = "";
+                _tbEvaluator.Text     = "";
+                _tbComment.Text       = "";
             }
         }
 
         private void SetEvents()
         {
-            _cbUseHistoricalEvaluation.CheckedChanged += (s, e) => SetControls();
+            _gridCourses.CellClick       += (s, e) => SetCurrentRowHistoricalUsage(e.ColumnIndex == 1);
+            _gridCourses.CellDoubleClick += (s, e) => SetCurrentRowHistoricalUsage(e.ColumnIndex == 1);
 
             _btnViewMatchedCourse.Click += _btnViewMatchedCourse_Click;
         }
 
-        private void _cbCourses_SelectedValueChanged(object? sender, EventArgs e)
+        // Refreshes the grid to display current value of UseHistorical checkbox.
+        private void UpdateRowsHistoricalUsage()
         {
-            _currentCourseId = Convert.ToInt32(_cbCourses.SelectedValue);
+            if (_gridCourses.DataSource is List<ApplicationEvaluationViewModel> evaluations)
+            {
+                foreach (var evaluation in evaluations)
+                {
+                    evaluation.UseHistorical = _appBuild.Evaluations[evaluation.CourseId].HistoricalEvaluationId > 0;
+                }
 
-            SetData();
+                _gridCourses.Refresh();
+            }
         }
 
-        private void _grid_SelectionChanged(object? sender, EventArgs e)
+        private void SetCurrentRowHistoricalUsage(bool toggleHistoricalUsage = true)
         {
-            SetControls();
+            if (_gridCourses.CurrentRow?.DataBoundItem is ApplicationEvaluationViewModel viewModel)
+            {
+                if (toggleHistoricalUsage)
+                {
+                    viewModel.UseHistorical = !viewModel.UseHistorical;
+                }
+
+                var evaluation = _appBuild.Evaluations[viewModel.CourseId];
+
+                if (viewModel.UseHistorical && _gridHistoricalEvaluations.CurrentRow?.DataBoundItem is IIdentifiable identifiable)
+                {
+                    evaluation.HistoricalEvaluationId = identifiable.Id;
+                }
+                else
+                {
+                    evaluation.HistoricalEvaluationId = 0;
+                }
+
+                UpdateRowsHistoricalUsage();
+
+                SetHistoricalControls();
+            }
+        }
+
+        private void _gridCourses_SelectionChanged(object? sender, EventArgs e)
+        {
+            if (_gridCourses.CurrentRow?.DataBoundItem is ApplicationEvaluationViewModel viewModel)
+            {
+                _currentCourseId = viewModel.CourseId;
+
+                SetHistoricalEvaluations();
+            }
+        }
+
+        private void _gridHistoricalEvaluations_SelectionChanged(object? sender, EventArgs e)
+        {
+            SetCurrentRowHistoricalUsage(false);
         }
 
         private void _btnViewMatchedCourse_Click(object? sender, EventArgs e)
         {
-            using var form = new CourseForm(_currentCourseId);
+            if (_gridHistoricalEvaluations.CurrentRow?.DataBoundItem is EvaluationViewModel viewModel && viewModel.MatchedCourseId.HasValue)
+            {
+                using var form = new CourseForm(viewModel.MatchedCourseId.Value);
 
-            form.ShowDialog();
+                form.ShowDialog();
+            }
         }
 
         public bool Complete()

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 using LinqToDB;
@@ -9,6 +10,8 @@ using TransferLogger.BusinessLogic.Intefaces;
 using TransferLogger.Dal;
 using TransferLogger.Ui.Controls;
 using TransferLogger.Ui.Forms.Dialogs;
+
+using static System.Windows.Forms.Control;
 
 namespace TransferLogger.Ui.Utils
 {
@@ -87,6 +90,31 @@ namespace TransferLogger.Ui.Utils
         public static bool TryInsertOrReplace<T>(T obj, int id = 0) where T : notnull
         {
             return TryInsertOrReplace(obj, ref id);
+        }
+
+        public static void SetReadOnly(ControlCollection controls)
+        {
+            foreach (Control control in controls)
+            {
+                if (control is TextBox textBox)
+                {
+                    textBox.BackColor = SystemColors.InactiveBorder;
+                    textBox.ReadOnly  = true;
+                }
+                else if (control is Button button)
+                {
+                    button.Enabled = false;
+                }
+                else if (control is ComboBox comboBox)
+                {
+                    comboBox.Enabled = false;
+                }
+                else if (control is NumericUpDown numericUpDown)
+                {
+                    numericUpDown.BackColor = SystemColors.InactiveBorder;
+                    numericUpDown.Enabled   = false;
+                }
+            }
         }
     }
 }
