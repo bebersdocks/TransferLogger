@@ -97,7 +97,7 @@ namespace TransferLogger.Ui.Forms.Programs
             // _btnSelectOrganization
             // 
             this._btnSelectOrganization.AutoSize = true;
-            this._btnSelectOrganization.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
+            this._btnSelectOrganization.BackColor = System.Drawing.Color.White;
             this._btnSelectOrganization.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
             this._btnSelectOrganization.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
             this._btnSelectOrganization.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
@@ -138,7 +138,7 @@ namespace TransferLogger.Ui.Forms.Programs
             this._cbCycles.BackColor = System.Drawing.Color.GhostWhite;
             this._cbCycles.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._cbCycles.FormattingEnabled = true;
-            this._cbCycles.Location = new System.Drawing.Point(71, 55);
+            this._cbCycles.Location = new System.Drawing.Point(71, 51);
             this._cbCycles.Name = "_cbCycles";
             this._cbCycles.Size = new System.Drawing.Size(325, 23);
             this._cbCycles.TabIndex = 1;
@@ -147,7 +147,7 @@ namespace TransferLogger.Ui.Forms.Programs
             // 
             this._lCycle.AutoSize = true;
             this._lCycle.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lCycle.Location = new System.Drawing.Point(24, 56);
+            this._lCycle.Location = new System.Drawing.Point(24, 52);
             this._lCycle.Name = "_lCycle";
             this._lCycle.Size = new System.Drawing.Size(41, 17);
             this._lCycle.TabIndex = 14;
@@ -178,7 +178,7 @@ namespace TransferLogger.Ui.Forms.Programs
             // 
             this._btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this._btnDelete.AutoSize = true;
-            this._btnDelete.BackColor = System.Drawing.Color.Transparent;
+            this._btnDelete.BackColor = System.Drawing.Color.White;
             this._btnDelete.BackgroundImage = global::TransferLogger.Ui.Properties.Resources.delete;
             this._btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this._btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -198,7 +198,7 @@ namespace TransferLogger.Ui.Forms.Programs
             // 
             this._btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this._btnEdit.AutoSize = true;
-            this._btnEdit.BackColor = System.Drawing.Color.Transparent;
+            this._btnEdit.BackColor = System.Drawing.Color.White;
             this._btnEdit.BackgroundImage = global::TransferLogger.Ui.Properties.Resources.edit;
             this._btnEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this._btnEdit.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -218,7 +218,7 @@ namespace TransferLogger.Ui.Forms.Programs
             // 
             this._btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this._btnAdd.AutoSize = true;
-            this._btnAdd.BackColor = System.Drawing.Color.Transparent;
+            this._btnAdd.BackColor = System.Drawing.Color.White;
             this._btnAdd.BackgroundImage = global::TransferLogger.Ui.Properties.Resources.add;
             this._btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this._btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;

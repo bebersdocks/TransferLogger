@@ -69,7 +69,7 @@ namespace TransferLogger.Ui.Forms.Instructors
             // 
             this._lSurname.AutoSize = true;
             this._lSurname.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lSurname.Location = new System.Drawing.Point(21, 100);
+            this._lSurname.Location = new System.Drawing.Point(21, 92);
             this._lSurname.Name = "_lSurname";
             this._lSurname.Size = new System.Drawing.Size(62, 17);
             this._lSurname.TabIndex = 19;
@@ -80,7 +80,7 @@ namespace TransferLogger.Ui.Forms.Instructors
             this._tbSurname.BackColor = System.Drawing.Color.GhostWhite;
             this._tbSurname.BoxWidth = 325;
             this._tbSurname.ForeColor = System.Drawing.Color.Black;
-            this._tbSurname.Location = new System.Drawing.Point(89, 97);
+            this._tbSurname.Location = new System.Drawing.Point(89, 89);
             this._tbSurname.Name = "_tbSurname";
             this._tbSurname.Size = new System.Drawing.Size(325, 25);
             this._tbSurname.TabIndex = 2;
@@ -89,7 +89,7 @@ namespace TransferLogger.Ui.Forms.Instructors
             // 
             this._lPhone.AutoSize = true;
             this._lPhone.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lPhone.Location = new System.Drawing.Point(36, 138);
+            this._lPhone.Location = new System.Drawing.Point(36, 126);
             this._lPhone.Name = "_lPhone";
             this._lPhone.Size = new System.Drawing.Size(47, 17);
             this._lPhone.TabIndex = 23;
@@ -100,7 +100,7 @@ namespace TransferLogger.Ui.Forms.Instructors
             this._tbPhone.BackColor = System.Drawing.Color.GhostWhite;
             this._tbPhone.BoxWidth = 325;
             this._tbPhone.ForeColor = System.Drawing.Color.Black;
-            this._tbPhone.Location = new System.Drawing.Point(89, 135);
+            this._tbPhone.Location = new System.Drawing.Point(89, 123);
             this._tbPhone.Name = "_tbPhone";
             this._tbPhone.Size = new System.Drawing.Size(325, 25);
             this._tbPhone.TabIndex = 3;
@@ -110,7 +110,7 @@ namespace TransferLogger.Ui.Forms.Instructors
             this._tbEmail.BackColor = System.Drawing.Color.GhostWhite;
             this._tbEmail.BoxWidth = 325;
             this._tbEmail.ForeColor = System.Drawing.Color.Black;
-            this._tbEmail.Location = new System.Drawing.Point(89, 173);
+            this._tbEmail.Location = new System.Drawing.Point(89, 157);
             this._tbEmail.Name = "_tbEmail";
             this._tbEmail.Size = new System.Drawing.Size(325, 25);
             this._tbEmail.TabIndex = 4;
@@ -119,7 +119,7 @@ namespace TransferLogger.Ui.Forms.Instructors
             // 
             this._lEmail.AutoSize = true;
             this._lEmail.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lEmail.Location = new System.Drawing.Point(41, 176);
+            this._lEmail.Location = new System.Drawing.Point(41, 160);
             this._lEmail.Name = "_lEmail";
             this._lEmail.Size = new System.Drawing.Size(42, 17);
             this._lEmail.TabIndex = 26;
@@ -129,7 +129,7 @@ namespace TransferLogger.Ui.Forms.Instructors
             // 
             this._lMiddle.AutoSize = true;
             this._lMiddle.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lMiddle.Location = new System.Drawing.Point(31, 62);
+            this._lMiddle.Location = new System.Drawing.Point(31, 58);
             this._lMiddle.Name = "_lMiddle";
             this._lMiddle.Size = new System.Drawing.Size(52, 17);
             this._lMiddle.TabIndex = 27;
@@ -140,7 +140,7 @@ namespace TransferLogger.Ui.Forms.Instructors
             this._tbMiddle.BackColor = System.Drawing.Color.GhostWhite;
             this._tbMiddle.BoxWidth = 325;
             this._tbMiddle.ForeColor = System.Drawing.Color.Black;
-            this._tbMiddle.Location = new System.Drawing.Point(89, 59);
+            this._tbMiddle.Location = new System.Drawing.Point(89, 55);
             this._tbMiddle.Name = "_tbMiddle";
             this._tbMiddle.Size = new System.Drawing.Size(325, 25);
             this._tbMiddle.TabIndex = 1;
@@ -149,13 +149,13 @@ namespace TransferLogger.Ui.Forms.Instructors
             // 
             this._btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this._btnOk.AutoSize = true;
-            this._btnOk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
+            this._btnOk.BackColor = System.Drawing.Color.White;
             this._btnOk.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
             this._btnOk.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
             this._btnOk.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
             this._btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnOk.ForeColor = System.Drawing.Color.Black;
-            this._btnOk.Location = new System.Drawing.Point(339, 240);
+            this._btnOk.Location = new System.Drawing.Point(339, 225);
             this._btnOk.Name = "_btnOk";
             this._btnOk.Size = new System.Drawing.Size(75, 29);
             this._btnOk.TabIndex = 28;
@@ -167,13 +167,13 @@ namespace TransferLogger.Ui.Forms.Instructors
             // 
             this._btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this._btnCancel.AutoSize = true;
-            this._btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
+            this._btnCancel.BackColor = System.Drawing.Color.White;
             this._btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
             this._btnCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
             this._btnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
             this._btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnCancel.ForeColor = System.Drawing.Color.Black;
-            this._btnCancel.Location = new System.Drawing.Point(251, 240);
+            this._btnCancel.Location = new System.Drawing.Point(251, 225);
             this._btnCancel.Name = "_btnCancel";
             this._btnCancel.Size = new System.Drawing.Size(82, 29);
             this._btnCancel.TabIndex = 29;
@@ -186,7 +186,7 @@ namespace TransferLogger.Ui.Forms.Instructors
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(444, 281);
+            this.ClientSize = new System.Drawing.Size(447, 266);
             this.Controls.Add(this._btnCancel);
             this.Controls.Add(this._btnOk);
             this.Controls.Add(this._tbMiddle);
@@ -201,7 +201,7 @@ namespace TransferLogger.Ui.Forms.Instructors
             this.Controls.Add(this._lName);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(460, 320);
+            this.MinimumSize = new System.Drawing.Size(463, 305);
             this.Name = "InstructorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "New Instructor";

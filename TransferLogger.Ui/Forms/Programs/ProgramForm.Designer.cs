@@ -49,7 +49,7 @@ namespace TransferLogger.Ui.Forms.Programs
             // 
             this._lName.AutoSize = true;
             this._lName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lName.Location = new System.Drawing.Point(61, 24);
+            this._lName.Location = new System.Drawing.Point(52, 24);
             this._lName.Name = "_lName";
             this._lName.Size = new System.Drawing.Size(46, 17);
             this._lName.TabIndex = 0;
@@ -59,7 +59,7 @@ namespace TransferLogger.Ui.Forms.Programs
             // 
             this._lYear.AutoSize = true;
             this._lYear.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lYear.Location = new System.Drawing.Point(71, 137);
+            this._lYear.Location = new System.Drawing.Point(62, 125);
             this._lYear.Name = "_lYear";
             this._lYear.Size = new System.Drawing.Size(36, 17);
             this._lYear.TabIndex = 2;
@@ -69,7 +69,7 @@ namespace TransferLogger.Ui.Forms.Programs
             // 
             this._lOrganization.AutoSize = true;
             this._lOrganization.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lOrganization.Location = new System.Drawing.Point(21, 62);
+            this._lOrganization.Location = new System.Drawing.Point(12, 58);
             this._lOrganization.Name = "_lOrganization";
             this._lOrganization.Size = new System.Drawing.Size(86, 17);
             this._lOrganization.TabIndex = 13;
@@ -80,7 +80,7 @@ namespace TransferLogger.Ui.Forms.Programs
             this._cbOrganizations.BackColor = System.Drawing.Color.GhostWhite;
             this._cbOrganizations.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._cbOrganizations.FormattingEnabled = true;
-            this._cbOrganizations.Location = new System.Drawing.Point(113, 59);
+            this._cbOrganizations.Location = new System.Drawing.Point(104, 55);
             this._cbOrganizations.Name = "_cbOrganizations";
             this._cbOrganizations.Size = new System.Drawing.Size(291, 25);
             this._cbOrganizations.TabIndex = 2;
@@ -90,7 +90,7 @@ namespace TransferLogger.Ui.Forms.Programs
             this._tbName.BackColor = System.Drawing.Color.GhostWhite;
             this._tbName.BoxWidth = 325;
             this._tbName.ForeColor = System.Drawing.Color.Black;
-            this._tbName.Location = new System.Drawing.Point(113, 21);
+            this._tbName.Location = new System.Drawing.Point(104, 21);
             this._tbName.Name = "_tbName";
             this._tbName.Size = new System.Drawing.Size(325, 25);
             this._tbName.TabIndex = 0;
@@ -100,7 +100,7 @@ namespace TransferLogger.Ui.Forms.Programs
             this._cbCycle.BackColor = System.Drawing.Color.GhostWhite;
             this._cbCycle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._cbCycle.FormattingEnabled = true;
-            this._cbCycle.Location = new System.Drawing.Point(113, 97);
+            this._cbCycle.Location = new System.Drawing.Point(104, 89);
             this._cbCycle.Name = "_cbCycle";
             this._cbCycle.Size = new System.Drawing.Size(325, 25);
             this._cbCycle.TabIndex = 3;
@@ -109,7 +109,7 @@ namespace TransferLogger.Ui.Forms.Programs
             // 
             this._lCycle.AutoSize = true;
             this._lCycle.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lCycle.Location = new System.Drawing.Point(66, 100);
+            this._lCycle.Location = new System.Drawing.Point(57, 92);
             this._lCycle.Name = "_lCycle";
             this._lCycle.Size = new System.Drawing.Size(41, 17);
             this._lCycle.TabIndex = 20;
@@ -118,7 +118,7 @@ namespace TransferLogger.Ui.Forms.Programs
             // _numericYear
             // 
             this._numericYear.BackColor = System.Drawing.Color.GhostWhite;
-            this._numericYear.Location = new System.Drawing.Point(113, 135);
+            this._numericYear.Location = new System.Drawing.Point(104, 123);
             this._numericYear.Maximum = new decimal(new int[] {
             2100,
             0,
@@ -142,13 +142,13 @@ namespace TransferLogger.Ui.Forms.Programs
             // 
             this._btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this._btnOk.AutoSize = true;
-            this._btnOk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
+            this._btnOk.BackColor = System.Drawing.Color.White;
             this._btnOk.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
             this._btnOk.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
             this._btnOk.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
             this._btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnOk.ForeColor = System.Drawing.Color.Black;
-            this._btnOk.Location = new System.Drawing.Point(363, 200);
+            this._btnOk.Location = new System.Drawing.Point(354, 190);
             this._btnOk.Name = "_btnOk";
             this._btnOk.Size = new System.Drawing.Size(75, 29);
             this._btnOk.TabIndex = 22;
@@ -160,13 +160,13 @@ namespace TransferLogger.Ui.Forms.Programs
             // 
             this._btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this._btnCancel.AutoSize = true;
-            this._btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
+            this._btnCancel.BackColor = System.Drawing.Color.White;
             this._btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
             this._btnCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
             this._btnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
             this._btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnCancel.ForeColor = System.Drawing.Color.Black;
-            this._btnCancel.Location = new System.Drawing.Point(282, 200);
+            this._btnCancel.Location = new System.Drawing.Point(273, 190);
             this._btnCancel.Name = "_btnCancel";
             this._btnCancel.Size = new System.Drawing.Size(75, 29);
             this._btnCancel.TabIndex = 23;
@@ -176,13 +176,13 @@ namespace TransferLogger.Ui.Forms.Programs
             // 
             // _btnSelectOrganization
             // 
-            this._btnSelectOrganization.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
+            this._btnSelectOrganization.BackColor = System.Drawing.Color.White;
             this._btnSelectOrganization.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
             this._btnSelectOrganization.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
             this._btnSelectOrganization.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
             this._btnSelectOrganization.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnSelectOrganization.ForeColor = System.Drawing.Color.Black;
-            this._btnSelectOrganization.Location = new System.Drawing.Point(410, 59);
+            this._btnSelectOrganization.Location = new System.Drawing.Point(401, 55);
             this._btnSelectOrganization.Name = "_btnSelectOrganization";
             this._btnSelectOrganization.Size = new System.Drawing.Size(28, 25);
             this._btnSelectOrganization.TabIndex = 24;
@@ -195,7 +195,7 @@ namespace TransferLogger.Ui.Forms.Programs
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(464, 241);
+            this.ClientSize = new System.Drawing.Size(459, 231);
             this.Controls.Add(this._btnSelectOrganization);
             this.Controls.Add(this._btnCancel);
             this.Controls.Add(this._btnOk);
@@ -209,7 +209,7 @@ namespace TransferLogger.Ui.Forms.Programs
             this.Controls.Add(this._lName);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(480, 280);
+            this.MinimumSize = new System.Drawing.Size(475, 270);
             this.Name = "ProgramForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "New Program";

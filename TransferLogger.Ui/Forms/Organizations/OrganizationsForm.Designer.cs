@@ -97,7 +97,7 @@ namespace TransferLogger.Ui.Forms.Organizations
             // _btnSelectCountry
             // 
             this._btnSelectCountry.AutoSize = true;
-            this._btnSelectCountry.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
+            this._btnSelectCountry.BackColor = System.Drawing.Color.White;
             this._btnSelectCountry.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
             this._btnSelectCountry.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
             this._btnSelectCountry.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
@@ -138,7 +138,7 @@ namespace TransferLogger.Ui.Forms.Organizations
             this._cbOrganizationTypes.BackColor = System.Drawing.Color.GhostWhite;
             this._cbOrganizationTypes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._cbOrganizationTypes.FormattingEnabled = true;
-            this._cbOrganizationTypes.Location = new System.Drawing.Point(71, 55);
+            this._cbOrganizationTypes.Location = new System.Drawing.Point(71, 51);
             this._cbOrganizationTypes.Name = "_cbOrganizationTypes";
             this._cbOrganizationTypes.Size = new System.Drawing.Size(325, 23);
             this._cbOrganizationTypes.TabIndex = 1;
@@ -147,7 +147,7 @@ namespace TransferLogger.Ui.Forms.Organizations
             // 
             this._lOrganizationType.AutoSize = true;
             this._lOrganizationType.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lOrganizationType.Location = new System.Drawing.Point(27, 56);
+            this._lOrganizationType.Location = new System.Drawing.Point(27, 52);
             this._lOrganizationType.Name = "_lOrganizationType";
             this._lOrganizationType.Size = new System.Drawing.Size(38, 17);
             this._lOrganizationType.TabIndex = 14;
@@ -178,7 +178,7 @@ namespace TransferLogger.Ui.Forms.Organizations
             // 
             this._btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this._btnDelete.AutoSize = true;
-            this._btnDelete.BackColor = System.Drawing.Color.Transparent;
+            this._btnDelete.BackColor = System.Drawing.Color.White;
             this._btnDelete.BackgroundImage = global::TransferLogger.Ui.Properties.Resources.delete;
             this._btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this._btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -198,7 +198,7 @@ namespace TransferLogger.Ui.Forms.Organizations
             // 
             this._btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this._btnEdit.AutoSize = true;
-            this._btnEdit.BackColor = System.Drawing.Color.Transparent;
+            this._btnEdit.BackColor = System.Drawing.Color.White;
             this._btnEdit.BackgroundImage = global::TransferLogger.Ui.Properties.Resources.edit;
             this._btnEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this._btnEdit.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -218,7 +218,7 @@ namespace TransferLogger.Ui.Forms.Organizations
             // 
             this._btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this._btnAdd.AutoSize = true;
-            this._btnAdd.BackColor = System.Drawing.Color.Transparent;
+            this._btnAdd.BackColor = System.Drawing.Color.White;
             this._btnAdd.BackgroundImage = global::TransferLogger.Ui.Properties.Resources.add;
             this._btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this._btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
