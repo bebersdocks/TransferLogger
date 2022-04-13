@@ -120,21 +120,6 @@ CREATE TABLE DbInfo (
 	UpdatedAt DATETIME NOT NULL
 );
 
-CREATE TABLE EmailLog (
-	EmailLogId INT IDENTITY(1,1) NOT NULL,
-	EmailStatus INT NOT NULL,
-	EvaluationId INT NOT NULL,
-	Address NVARCHAR(100) NOT NULL,
-	Recipient NVARCHAR(100) NOT NULL,
-	Subject NVARCHAR(80) NULL,
-	Body NVARCHAR(300) NULL,
-	CreatedAt DATETIME NULL,
-	CompletedAt DATETIME NULL
-);
-
-ALTER TABLE EmailLog ADD CONSTRAINT PK_EmailLog PRIMARY KEY (EmailLogId);
-ALTER TABLE EmailLog ADD CONSTRAINT FK_EmailLogEvaluation FOREIGN KEY (EvaluationId) REFERENCES Evaluation(EvaluationId);
-
 INSERT INTO DbInfo (Version, UpdatedAt) VALUES (@Version,  GETUTCDATE());
 
 END

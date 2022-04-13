@@ -19,7 +19,6 @@ namespace TransferLogger.Dal
         public ITable<Application>           Applications           => GetTable<Application>();
         public ITable<ApplicationAttachment> ApplicationAttachments => GetTable<ApplicationAttachment>();
         public ITable<Evaluation>            Evaluations            => GetTable<Evaluation>();
-        public ITable<EmailLog>              EmailLogs              => GetTable<EmailLog>();
         public ITable<DbInfo>                DbInfos                => GetTable<DbInfo>();
 
         // This value can be anything - it is just internal identifier for configuration.
@@ -90,7 +89,6 @@ namespace TransferLogger.Dal
             createTable(Applications);
             createTable(ApplicationAttachments);
             createTable(Evaluations);
-            createTable(EmailLogs);
             createTable(DbInfos);
         }
     }
