@@ -66,7 +66,6 @@ namespace TransferLogger.Ui.Forms.Programs
             | System.Windows.Forms.AnchorStyles.Right)));
             this._splitContainer.BackColor = System.Drawing.Color.GhostWhite;
             this._splitContainer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this._splitContainer.IsSplitterFixed = true;
             this._splitContainer.Location = new System.Drawing.Point(0, 0);
             this._splitContainer.Name = "_splitContainer";
             this._splitContainer.Orientation = System.Windows.Forms.Orientation.Horizontal;
@@ -91,7 +90,7 @@ namespace TransferLogger.Ui.Forms.Programs
             this._splitContainer.Panel2.Controls.Add(this._lPrograms);
             this._splitContainer.Panel2.Controls.Add(this._grid);
             this._splitContainer.Size = new System.Drawing.Size(1069, 636);
-            this._splitContainer.SplitterDistance = 99;
+            this._splitContainer.SplitterDistance = 89;
             this._splitContainer.TabIndex = 5;
             // 
             // _btnSelectOrganization
@@ -138,7 +137,7 @@ namespace TransferLogger.Ui.Forms.Programs
             this._cbCycles.BackColor = System.Drawing.Color.GhostWhite;
             this._cbCycles.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._cbCycles.FormattingEnabled = true;
-            this._cbCycles.Location = new System.Drawing.Point(71, 51);
+            this._cbCycles.Location = new System.Drawing.Point(71, 47);
             this._cbCycles.Name = "_cbCycles";
             this._cbCycles.Size = new System.Drawing.Size(325, 23);
             this._cbCycles.TabIndex = 1;
@@ -147,7 +146,7 @@ namespace TransferLogger.Ui.Forms.Programs
             // 
             this._lCycle.AutoSize = true;
             this._lCycle.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lCycle.Location = new System.Drawing.Point(24, 52);
+            this._lCycle.Location = new System.Drawing.Point(24, 48);
             this._lCycle.Name = "_lCycle";
             this._lCycle.Size = new System.Drawing.Size(41, 17);
             this._lCycle.TabIndex = 14;
@@ -298,7 +297,7 @@ namespace TransferLogger.Ui.Forms.Programs
             this._grid.RowHeadersVisible = false;
             this._grid.RowTemplate.Height = 25;
             this._grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this._grid.Size = new System.Drawing.Size(1069, 506);
+            this._grid.Size = new System.Drawing.Size(1069, 516);
             this._grid.TabIndex = 7;
             // 
             // Id

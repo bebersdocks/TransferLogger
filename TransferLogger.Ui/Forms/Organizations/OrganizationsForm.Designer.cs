@@ -91,7 +91,7 @@ namespace TransferLogger.Ui.Forms.Organizations
             this._splitContainer.Panel2.Controls.Add(this._lOrganizations);
             this._splitContainer.Panel2.Controls.Add(this._grid);
             this._splitContainer.Size = new System.Drawing.Size(1069, 636);
-            this._splitContainer.SplitterDistance = 99;
+            this._splitContainer.SplitterDistance = 87;
             this._splitContainer.TabIndex = 5;
             // 
             // _btnSelectCountry
@@ -138,7 +138,7 @@ namespace TransferLogger.Ui.Forms.Organizations
             this._cbOrganizationTypes.BackColor = System.Drawing.Color.GhostWhite;
             this._cbOrganizationTypes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._cbOrganizationTypes.FormattingEnabled = true;
-            this._cbOrganizationTypes.Location = new System.Drawing.Point(71, 51);
+            this._cbOrganizationTypes.Location = new System.Drawing.Point(71, 47);
             this._cbOrganizationTypes.Name = "_cbOrganizationTypes";
             this._cbOrganizationTypes.Size = new System.Drawing.Size(325, 23);
             this._cbOrganizationTypes.TabIndex = 1;
@@ -147,7 +147,7 @@ namespace TransferLogger.Ui.Forms.Organizations
             // 
             this._lOrganizationType.AutoSize = true;
             this._lOrganizationType.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lOrganizationType.Location = new System.Drawing.Point(27, 52);
+            this._lOrganizationType.Location = new System.Drawing.Point(27, 48);
             this._lOrganizationType.Name = "_lOrganizationType";
             this._lOrganizationType.Size = new System.Drawing.Size(38, 17);
             this._lOrganizationType.TabIndex = 14;
@@ -298,7 +298,7 @@ namespace TransferLogger.Ui.Forms.Organizations
             this._grid.RowHeadersVisible = false;
             this._grid.RowTemplate.Height = 25;
             this._grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this._grid.Size = new System.Drawing.Size(1069, 506);
+            this._grid.Size = new System.Drawing.Size(1069, 518);
             this._grid.TabIndex = 7;
             // 
             // Id

@@ -98,7 +98,6 @@ namespace TransferLogger.Ui.Forms.Applications
             this._splitContainerForm.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this._splitContainerForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this._splitContainerForm.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
-            this._splitContainerForm.IsSplitterFixed = true;
             this._splitContainerForm.Location = new System.Drawing.Point(0, 0);
             this._splitContainerForm.Name = "_splitContainerForm";
             this._splitContainerForm.Orientation = System.Windows.Forms.Orientation.Horizontal;
@@ -113,7 +112,7 @@ namespace TransferLogger.Ui.Forms.Applications
             // 
             this._splitContainerForm.Panel2.Controls.Add(this._splitContainerBottom);
             this._splitContainerForm.Size = new System.Drawing.Size(1234, 721);
-            this._splitContainerForm.SplitterDistance = 158;
+            this._splitContainerForm.SplitterDistance = 144;
             this._splitContainerForm.TabIndex = 5;
             // 
             // _pnlFilters
@@ -141,7 +140,7 @@ namespace TransferLogger.Ui.Forms.Applications
             this._pnlFilters.Controls.Add(this._lOrganization);
             this._pnlFilters.Location = new System.Drawing.Point(-2, 24);
             this._pnlFilters.Name = "_pnlFilters";
-            this._pnlFilters.Size = new System.Drawing.Size(1236, 131);
+            this._pnlFilters.Size = new System.Drawing.Size(1236, 117);
             this._pnlFilters.TabIndex = 1;
             // 
             // _btnEditLocations
@@ -249,7 +248,7 @@ namespace TransferLogger.Ui.Forms.Applications
             this._cbStatuses.BackColor = System.Drawing.Color.GhostWhite;
             this._cbStatuses.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._cbStatuses.FormattingEnabled = true;
-            this._cbStatuses.Location = new System.Drawing.Point(531, 55);
+            this._cbStatuses.Location = new System.Drawing.Point(531, 48);
             this._cbStatuses.Name = "_cbStatuses";
             this._cbStatuses.Size = new System.Drawing.Size(325, 23);
             this._cbStatuses.TabIndex = 31;
@@ -258,7 +257,7 @@ namespace TransferLogger.Ui.Forms.Applications
             // 
             this._lStatus.AutoSize = true;
             this._lStatus.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lStatus.Location = new System.Drawing.Point(479, 57);
+            this._lStatus.Location = new System.Drawing.Point(479, 49);
             this._lStatus.Name = "_lStatus";
             this._lStatus.Size = new System.Drawing.Size(46, 17);
             this._lStatus.TabIndex = 32;
@@ -268,7 +267,7 @@ namespace TransferLogger.Ui.Forms.Applications
             // 
             this._lTo.AutoSize = true;
             this._lTo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lTo.Location = new System.Drawing.Point(500, 94);
+            this._lTo.Location = new System.Drawing.Point(500, 82);
             this._lTo.Name = "_lTo";
             this._lTo.Size = new System.Drawing.Size(25, 17);
             this._lTo.TabIndex = 30;
@@ -280,7 +279,7 @@ namespace TransferLogger.Ui.Forms.Applications
             this._dtTo.CustomFormat = "dd/MM/yyyy";
             this._dtTo.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
             this._dtTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this._dtTo.Location = new System.Drawing.Point(531, 90);
+            this._dtTo.Location = new System.Drawing.Point(531, 78);
             this._dtTo.Name = "_dtTo";
             this._dtTo.Size = new System.Drawing.Size(325, 23);
             this._dtTo.TabIndex = 29;
@@ -290,7 +289,7 @@ namespace TransferLogger.Ui.Forms.Applications
             // 
             this._lFrom.AutoSize = true;
             this._lFrom.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lFrom.Location = new System.Drawing.Point(64, 94);
+            this._lFrom.Location = new System.Drawing.Point(64, 82);
             this._lFrom.Name = "_lFrom";
             this._lFrom.Size = new System.Drawing.Size(41, 17);
             this._lFrom.TabIndex = 28;
@@ -303,7 +302,7 @@ namespace TransferLogger.Ui.Forms.Applications
             this._dtFrom.CustomFormat = "dd/MM/yyyy";
             this._dtFrom.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
             this._dtFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this._dtFrom.Location = new System.Drawing.Point(111, 90);
+            this._dtFrom.Location = new System.Drawing.Point(111, 78);
             this._dtFrom.Name = "_dtFrom";
             this._dtFrom.Size = new System.Drawing.Size(325, 23);
             this._dtFrom.TabIndex = 27;
@@ -338,7 +337,7 @@ namespace TransferLogger.Ui.Forms.Applications
             this._btnSelectOrganization.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
             this._btnSelectOrganization.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnSelectOrganization.ForeColor = System.Drawing.Color.Black;
-            this._btnSelectOrganization.Location = new System.Drawing.Point(408, 55);
+            this._btnSelectOrganization.Location = new System.Drawing.Point(408, 48);
             this._btnSelectOrganization.MaximumSize = new System.Drawing.Size(0, 23);
             this._btnSelectOrganization.MinimumSize = new System.Drawing.Size(0, 23);
             this._btnSelectOrganization.Name = "_btnSelectOrganization";
@@ -353,7 +352,7 @@ namespace TransferLogger.Ui.Forms.Applications
             this._cbOrganizations.BackColor = System.Drawing.Color.GhostWhite;
             this._cbOrganizations.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._cbOrganizations.FormattingEnabled = true;
-            this._cbOrganizations.Location = new System.Drawing.Point(111, 55);
+            this._cbOrganizations.Location = new System.Drawing.Point(111, 48);
             this._cbOrganizations.Name = "_cbOrganizations";
             this._cbOrganizations.Size = new System.Drawing.Size(291, 23);
             this._cbOrganizations.TabIndex = 1;
@@ -362,7 +361,7 @@ namespace TransferLogger.Ui.Forms.Applications
             // 
             this._lOrganization.AutoSize = true;
             this._lOrganization.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lOrganization.Location = new System.Drawing.Point(19, 56);
+            this._lOrganization.Location = new System.Drawing.Point(19, 50);
             this._lOrganization.Name = "_lOrganization";
             this._lOrganization.Size = new System.Drawing.Size(86, 17);
             this._lOrganization.TabIndex = 24;
@@ -426,6 +425,7 @@ namespace TransferLogger.Ui.Forms.Applications
             this._splitContainerBottom.BackColor = System.Drawing.Color.GhostWhite;
             this._splitContainerBottom.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this._splitContainerBottom.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._splitContainerBottom.IsSplitterFixed = true;
             this._splitContainerBottom.Location = new System.Drawing.Point(0, 0);
             this._splitContainerBottom.Name = "_splitContainerBottom";
             // 
@@ -436,7 +436,7 @@ namespace TransferLogger.Ui.Forms.Applications
             // _splitContainerBottom.Panel2
             // 
             this._splitContainerBottom.Panel2.Controls.Add(this._pnlApplications);
-            this._splitContainerBottom.Size = new System.Drawing.Size(1234, 559);
+            this._splitContainerBottom.Size = new System.Drawing.Size(1234, 573);
             this._splitContainerBottom.SplitterDistance = 985;
             this._splitContainerBottom.TabIndex = 0;
             // 
@@ -448,7 +448,7 @@ namespace TransferLogger.Ui.Forms.Applications
             this._pnlCourses.Dock = System.Windows.Forms.DockStyle.Fill;
             this._pnlCourses.Location = new System.Drawing.Point(0, 0);
             this._pnlCourses.Name = "_pnlCourses";
-            this._pnlCourses.Size = new System.Drawing.Size(981, 555);
+            this._pnlCourses.Size = new System.Drawing.Size(981, 569);
             this._pnlCourses.TabIndex = 1;
             // 
             // _lApplications
@@ -514,7 +514,7 @@ namespace TransferLogger.Ui.Forms.Applications
             this._gridApps.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this._gridApps.RowHeadersVisible = false;
             this._gridApps.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this._gridApps.Size = new System.Drawing.Size(985, 536);
+            this._gridApps.Size = new System.Drawing.Size(985, 550);
             this._gridApps.TabIndex = 0;
             // 
             // Id
@@ -567,7 +567,7 @@ namespace TransferLogger.Ui.Forms.Applications
             this._pnlApplications.Dock = System.Windows.Forms.DockStyle.Fill;
             this._pnlApplications.Location = new System.Drawing.Point(0, 0);
             this._pnlApplications.Name = "_pnlApplications";
-            this._pnlApplications.Size = new System.Drawing.Size(241, 555);
+            this._pnlApplications.Size = new System.Drawing.Size(241, 569);
             this._pnlApplications.TabIndex = 0;
             // 
             // _lAppCourses
@@ -630,7 +630,7 @@ namespace TransferLogger.Ui.Forms.Applications
             this._gridAppCourses.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this._gridAppCourses.RowHeadersVisible = false;
             this._gridAppCourses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this._gridAppCourses.Size = new System.Drawing.Size(247, 536);
+            this._gridAppCourses.Size = new System.Drawing.Size(247, 550);
             this._gridAppCourses.TabIndex = 1;
             // 
             // CourseCode
