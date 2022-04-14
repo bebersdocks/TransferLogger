@@ -35,7 +35,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             _tbOrganization.Text = dc.Organizations.First(o => o.OrganizationId == _appBuild.OrganizationId).DisplayString;
 
             _grid.DataSource = _appBuild.Evaluations.Values
-                .Select(e => new ApplicationEvaluationViewModel(dc, e))
+                .Select(e => new BuildEvaluationViewModel(dc, e))
                 .OrderByDescending(e => e.Status)
                 .ToList();
         }

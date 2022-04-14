@@ -38,6 +38,8 @@ namespace TransferLogger.Ui.Forms.Courses
 
             FormUtils.SetReadOnly(Controls);
 
+            _btnCancel.Enabled = true;
+
             _btnOk.Enabled = true;
             _btnOk.Click += (s, e) => Close();
         }

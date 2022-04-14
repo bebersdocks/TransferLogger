@@ -8,7 +8,7 @@ using TransferLogger.Dal.DataModels;
 
 namespace TransferLogger.BusinessLogic.ViewModels
 {
-    public class ApplicationEvaluationViewModel : ApplicationEvaluation
+    public class BuildEvaluationViewModel : ApplicationEvaluation
     {
         public string           Course             { get; set; }
         public EvaluationStatus Status             { get; set; }
@@ -17,10 +17,13 @@ namespace TransferLogger.BusinessLogic.ViewModels
         public string           SuggestedOrMatched { get; set; }
         public bool             UseHistorical      { get; set; }
 
-        public ApplicationEvaluationViewModel(Dc dc, ApplicationEvaluation evaluation)
+        public BuildEvaluationViewModel(Dc dc, ApplicationEvaluation evaluation)
         {
-            CourseId = evaluation.CourseId;
-            Course   = dc.Courses.First(c => c.CourseId == evaluation.CourseId).DisplayString;
+            CourseId          = evaluation.CourseId;
+            InstructorId      = evaluation.InstructorId;
+            SuggestedCourseId = evaluation.SuggestedCourseId;
+
+            Course = dc.Courses.First(c => c.CourseId == evaluation.CourseId).DisplayString;
 
             if (evaluation.HistoricalEvaluationId > 0)
             {

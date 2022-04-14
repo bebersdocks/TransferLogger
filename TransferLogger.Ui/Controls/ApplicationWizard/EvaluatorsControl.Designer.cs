@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this._splitContainer = new TransferLogger.Ui.Controls.TlSplitContainer();
             this._pnlEvaluator = new System.Windows.Forms.Panel();
             this._btnSelectSuggestedCourse = new TransferLogger.Ui.Controls.TlButton();
@@ -41,10 +41,8 @@
             this._lSuggested = new System.Windows.Forms.Label();
             this._cbEvaluators = new TransferLogger.Ui.Controls.TlDropDownList();
             this._grid = new TransferLogger.Ui.Controls.TlDataGrid();
-            this._lCourses = new System.Windows.Forms.Label();
             this.Course = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Evaluator = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SuggestedOrMatched = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._lCourses = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this._splitContainer)).BeginInit();
             this._splitContainer.Panel1.SuspendLayout();
             this._splitContainer.Panel2.SuspendLayout();
@@ -73,7 +71,7 @@
             this._splitContainer.Panel2.BackColor = System.Drawing.Color.White;
             this._splitContainer.Panel2.Controls.Add(this._grid);
             this._splitContainer.Panel2.Controls.Add(this._lCourses);
-            this._splitContainer.Size = new System.Drawing.Size(824, 525);
+            this._splitContainer.Size = new System.Drawing.Size(925, 525);
             this._splitContainer.SplitterDistance = 121;
             this._splitContainer.TabIndex = 2;
             // 
@@ -89,13 +87,13 @@
             this._pnlEvaluator.Dock = System.Windows.Forms.DockStyle.Fill;
             this._pnlEvaluator.Location = new System.Drawing.Point(0, 0);
             this._pnlEvaluator.Name = "_pnlEvaluator";
-            this._pnlEvaluator.Size = new System.Drawing.Size(824, 121);
+            this._pnlEvaluator.Size = new System.Drawing.Size(925, 121);
             this._pnlEvaluator.TabIndex = 48;
             // 
             // _btnSelectSuggestedCourse
             // 
             this._btnSelectSuggestedCourse.AutoSize = true;
-            this._btnSelectSuggestedCourse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
+            this._btnSelectSuggestedCourse.BackColor = System.Drawing.Color.White;
             this._btnSelectSuggestedCourse.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
             this._btnSelectSuggestedCourse.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
             this._btnSelectSuggestedCourse.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
@@ -134,7 +132,7 @@
             // _btnSelectEvaluator
             // 
             this._btnSelectEvaluator.AutoSize = true;
-            this._btnSelectEvaluator.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
+            this._btnSelectEvaluator.BackColor = System.Drawing.Color.White;
             this._btnSelectEvaluator.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
             this._btnSelectEvaluator.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
             this._btnSelectEvaluator.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
@@ -194,58 +192,42 @@
             this._grid.BackgroundColor = System.Drawing.Color.White;
             this._grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this._grid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.AliceBlue;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.AliceBlue;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this._grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.AliceBlue;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.AliceBlue;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this._grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this._grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this._grid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Course,
-            this.Evaluator,
-            this.SuggestedOrMatched});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this._grid.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Course});
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this._grid.DefaultCellStyle = dataGridViewCellStyle5;
             this._grid.EnableHeadersVisualStyles = false;
             this._grid.Location = new System.Drawing.Point(0, 20);
             this._grid.MultiSelect = false;
             this._grid.Name = "_grid";
-            this._grid.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this._grid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this._grid.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this._grid.RowHeadersVisible = false;
             this._grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this._grid.Size = new System.Drawing.Size(824, 378);
+            this._grid.Size = new System.Drawing.Size(925, 378);
             this._grid.TabIndex = 12;
-            // 
-            // _lCourses
-            // 
-            this._lCourses.BackColor = System.Drawing.Color.AliceBlue;
-            this._lCourses.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this._lCourses.Dock = System.Windows.Forms.DockStyle.Top;
-            this._lCourses.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lCourses.Location = new System.Drawing.Point(0, 0);
-            this._lCourses.Name = "_lCourses";
-            this._lCourses.Size = new System.Drawing.Size(824, 21);
-            this._lCourses.TabIndex = 11;
-            this._lCourses.Text = "Courses";
-            this._lCourses.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Course
             // 
@@ -256,22 +238,18 @@
             this.Course.Name = "Course";
             this.Course.ReadOnly = true;
             // 
-            // Evaluator
+            // _lCourses
             // 
-            this.Evaluator.DataPropertyName = "Instructor";
-            this.Evaluator.HeaderText = "Evaluator";
-            this.Evaluator.MinimumWidth = 180;
-            this.Evaluator.Name = "Evaluator";
-            this.Evaluator.ReadOnly = true;
-            // 
-            // SuggestedOrMatched
-            // 
-            this.SuggestedOrMatched.DataPropertyName = "SuggestedOrMatched";
-            this.SuggestedOrMatched.FillWeight = 115F;
-            this.SuggestedOrMatched.HeaderText = "Suggested Course";
-            this.SuggestedOrMatched.MinimumWidth = 200;
-            this.SuggestedOrMatched.Name = "SuggestedOrMatched";
-            this.SuggestedOrMatched.ReadOnly = true;
+            this._lCourses.BackColor = System.Drawing.Color.AliceBlue;
+            this._lCourses.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this._lCourses.Dock = System.Windows.Forms.DockStyle.Top;
+            this._lCourses.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this._lCourses.Location = new System.Drawing.Point(0, 0);
+            this._lCourses.Name = "_lCourses";
+            this._lCourses.Size = new System.Drawing.Size(925, 21);
+            this._lCourses.TabIndex = 11;
+            this._lCourses.Text = "Courses";
+            this._lCourses.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // EvaluatorsControl
             // 
@@ -279,7 +257,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this._splitContainer);
             this.Name = "EvaluatorsControl";
-            this.Size = new System.Drawing.Size(824, 525);
+            this.Size = new System.Drawing.Size(925, 525);
             this._splitContainer.Panel1.ResumeLayout(false);
             this._splitContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this._splitContainer)).EndInit();
@@ -305,7 +283,5 @@
         private System.Windows.Forms.Label _lSuggested;
         private System.Windows.Forms.Panel _pnlEvaluator;
         private System.Windows.Forms.DataGridViewTextBoxColumn Course;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Evaluator;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SuggestedOrMatched;
     }
 }

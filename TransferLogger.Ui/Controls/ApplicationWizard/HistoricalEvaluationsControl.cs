@@ -55,7 +55,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
                 _gridCourses.DataSource = _appBuild.Evaluations.Values
                     .Where(e => courseIds.Contains(e.CourseId))
                     .OrderBy(e => e.CourseId)
-                    .Select(e => new ApplicationEvaluationViewModel(dc, e))
+                    .Select(e => new BuildEvaluationViewModel(dc, e))
                     .ToList();
 
                 _gridCourses.SelectRow<ApplicationEvaluation>(e => e.CourseId == _currentCourseId);
@@ -95,10 +95,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             }
             else
             {
-                _tbMatchedCourse.Text = "";
-                _tbStudent.Text       = "";
-                _tbEvaluator.Text     = "";
-                _tbComment.Text       = "";
+                _tbMatchedCourse.Text = _tbStudent.Text = _tbEvaluator.Text  = _tbComment.Text = "";
             }
         }
 
@@ -113,7 +110,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
         // Refreshes the grid to display current value of UseHistorical checkbox.
         private void UpdateRowsHistoricalUsage()
         {
-            if (_gridCourses.DataSource is List<ApplicationEvaluationViewModel> evaluations)
+            if (_gridCourses.DataSource is List<BuildEvaluationViewModel> evaluations)
             {
                 foreach (var evaluation in evaluations)
                 {
@@ -126,7 +123,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
         private void SetCurrentRowHistoricalUsage(bool toggleHistoricalUsage = true)
         {
-            if (_gridCourses.CurrentRow?.DataBoundItem is ApplicationEvaluationViewModel viewModel)
+            if (_gridCourses.CurrentRow?.DataBoundItem is BuildEvaluationViewModel viewModel)
             {
                 if (toggleHistoricalUsage)
                 {
@@ -152,7 +149,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
         private void _gridCourses_SelectionChanged(object? sender, EventArgs e)
         {
-            if (_gridCourses.CurrentRow?.DataBoundItem is ApplicationEvaluationViewModel viewModel)
+            if (_gridCourses.CurrentRow?.DataBoundItem is BuildEvaluationViewModel viewModel)
             {
                 _currentCourseId = viewModel.CourseId;
 
