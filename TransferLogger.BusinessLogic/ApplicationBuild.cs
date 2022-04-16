@@ -95,7 +95,7 @@ namespace TransferLogger.BusinessLogic
             };
         }
 
-        public void Insert()
+        public int Insert()
         {
             using var dc = new Dc();
             using var tr = dc.BeginTransaction();
@@ -146,6 +146,8 @@ namespace TransferLogger.BusinessLogic
             }
 
             tr.Commit();
+
+            return appId;
         }
     }
 }

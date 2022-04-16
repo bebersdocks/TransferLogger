@@ -104,7 +104,7 @@
             this._btnExcel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
             this._btnExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnExcel.ForeColor = System.Drawing.Color.Black;
-            this._btnExcel.Location = new System.Drawing.Point(889, 47);
+            this._btnExcel.Location = new System.Drawing.Point(887, 47);
             this._btnExcel.Name = "_btnExcel";
             this._btnExcel.Size = new System.Drawing.Size(32, 32);
             this._btnExcel.TabIndex = 37;

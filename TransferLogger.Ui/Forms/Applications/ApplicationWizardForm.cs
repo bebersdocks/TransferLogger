@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Windows.Forms;
 
 using TransferLogger.BusinessLogic;
+using TransferLogger.Interop;
 using TransferLogger.Ui.Controls.ApplicationWizard;
 
 namespace TransferLogger.Ui.Forms.Applications
@@ -29,7 +30,7 @@ namespace TransferLogger.Ui.Forms.Applications
                 { BuildStep.Review, new ReviewControl(_appBuild) }
             };
 
-            foreach (var (_, wizardControl) in _wizardControls)
+            foreach (var wizardControl in _wizardControls.Values)
             {
                 _pnlControl.Controls.Add(wizardControl as Control);
             }
@@ -93,8 +94,10 @@ namespace TransferLogger.Ui.Forms.Applications
 
         private void CreateApplication()
         {
-            _appBuild.Insert();
-  
+            var appId = _appBuild.Insert();
+
+            EmailService.PrepareEmail(appId);
+
             DialogResult = DialogResult.OK;
 
             Close();

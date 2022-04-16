@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using TransferLogger.BusinessLogic;
 using TransferLogger.BusinessLogic.ViewModels;
 using TransferLogger.Dal.DataModels.Applications;
+using TransferLogger.Interop;
 using TransferLogger.Ui.Controls;
 using TransferLogger.Ui.Forms.Courses;
 using TransferLogger.Ui.Forms.Instructors;
@@ -59,6 +60,7 @@ namespace TransferLogger.Ui.Forms.Applications
             _dtTo.ValueChanged                    += (s, e) => SetData();
 
             _btnAdd.Click                += _btnAdd_Click;
+            _btnSendEmail.Click          += _btnSendEmail_Click;
             _btnSelectOrganization.Click += _btnSelectOrganization_Click;
 
             _gridApps.SelectionChanged += _gridApps_SelectionChanged;
@@ -71,6 +73,14 @@ namespace TransferLogger.Ui.Forms.Applications
             if (form.ShowDialog() == DialogResult.OK)
             {
                 SetData();
+            }
+        }
+
+        private void _btnSendEmail_Click(object? sender, EventArgs e)
+        {
+            if (_gridApps.CurrentRow?.DataBoundItem is ApplicationViewModel viewModel)
+            {
+                EmailService.PrepareEmail(viewModel.Id);
             }
         }
 

@@ -26,6 +26,7 @@
 	<ItemGroup>
 		<ProjectReference Include="..\TransferLogger.BusinessLogic\TransferLogger.BusinessLogic.csproj" />
 		<ProjectReference Include="..\TransferLogger.Dal\TransferLogger.Dal.csproj" />
+		<ProjectReference Include="..\TransferLogger.Interop\TransferLogger.Interop.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

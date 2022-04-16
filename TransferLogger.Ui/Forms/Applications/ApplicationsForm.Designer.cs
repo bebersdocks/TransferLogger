@@ -41,7 +41,6 @@ namespace TransferLogger.Ui.Forms.Applications
             this._pnlFilters = new System.Windows.Forms.Panel();
             this._btnEditLocations = new TransferLogger.Ui.Controls.TlButton();
             this._btnExport = new TransferLogger.Ui.Controls.TlButton();
-            this._btnDelete = new TransferLogger.Ui.Controls.TlButton();
             this._btnEdit = new TransferLogger.Ui.Controls.TlButton();
             this._btnAdd = new TransferLogger.Ui.Controls.TlButton();
             this._cbStatuses = new TransferLogger.Ui.Controls.TlDropDownList();
@@ -76,6 +75,7 @@ namespace TransferLogger.Ui.Forms.Applications
             this._gridAppCourses = new TransferLogger.Ui.Controls.TlDataGrid();
             this.CourseCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EvaluationStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._btnSendEmail = new TransferLogger.Ui.Controls.TlButton();
             ((System.ComponentModel.ISupportInitialize)(this._splitContainerForm)).BeginInit();
             this._splitContainerForm.Panel1.SuspendLayout();
             this._splitContainerForm.Panel2.SuspendLayout();
@@ -98,6 +98,7 @@ namespace TransferLogger.Ui.Forms.Applications
             this._splitContainerForm.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this._splitContainerForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this._splitContainerForm.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this._splitContainerForm.IsSplitterFixed = true;
             this._splitContainerForm.Location = new System.Drawing.Point(0, 0);
             this._splitContainerForm.Name = "_splitContainerForm";
             this._splitContainerForm.Orientation = System.Windows.Forms.Orientation.Horizontal;
@@ -122,9 +123,9 @@ namespace TransferLogger.Ui.Forms.Applications
             | System.Windows.Forms.AnchorStyles.Right)));
             this._pnlFilters.BackColor = System.Drawing.Color.White;
             this._pnlFilters.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this._pnlFilters.Controls.Add(this._btnSendEmail);
             this._pnlFilters.Controls.Add(this._btnEditLocations);
             this._pnlFilters.Controls.Add(this._btnExport);
-            this._pnlFilters.Controls.Add(this._btnDelete);
             this._pnlFilters.Controls.Add(this._btnEdit);
             this._pnlFilters.Controls.Add(this._btnAdd);
             this._pnlFilters.Controls.Add(this._cbStatuses);
@@ -156,7 +157,7 @@ namespace TransferLogger.Ui.Forms.Applications
             this._btnEditLocations.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
             this._btnEditLocations.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnEditLocations.ForeColor = System.Drawing.Color.Black;
-            this._btnEditLocations.Location = new System.Drawing.Point(1189, 17);
+            this._btnEditLocations.Location = new System.Drawing.Point(1187, 18);
             this._btnEditLocations.Name = "_btnEditLocations";
             this._btnEditLocations.Size = new System.Drawing.Size(32, 32);
             this._btnEditLocations.TabIndex = 37;
@@ -176,32 +177,12 @@ namespace TransferLogger.Ui.Forms.Applications
             this._btnExport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
             this._btnExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnExport.ForeColor = System.Drawing.Color.Black;
-            this._btnExport.Location = new System.Drawing.Point(1151, 17);
+            this._btnExport.Location = new System.Drawing.Point(1111, 18);
             this._btnExport.Name = "_btnExport";
             this._btnExport.Size = new System.Drawing.Size(32, 32);
             this._btnExport.TabIndex = 36;
             this._btnExport.TabStop = false;
             this._btnExport.UseVisualStyleBackColor = false;
-            // 
-            // _btnDelete
-            // 
-            this._btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this._btnDelete.AutoSize = true;
-            this._btnDelete.BackColor = System.Drawing.Color.White;
-            this._btnDelete.BackgroundImage = global::TransferLogger.Ui.Properties.Resources.delete;
-            this._btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this._btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
-            this._btnDelete.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
-            this._btnDelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
-            this._btnDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
-            this._btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._btnDelete.ForeColor = System.Drawing.Color.Black;
-            this._btnDelete.Location = new System.Drawing.Point(1113, 17);
-            this._btnDelete.Name = "_btnDelete";
-            this._btnDelete.Size = new System.Drawing.Size(32, 32);
-            this._btnDelete.TabIndex = 35;
-            this._btnDelete.TabStop = false;
-            this._btnDelete.UseVisualStyleBackColor = false;
             // 
             // _btnEdit
             // 
@@ -216,7 +197,7 @@ namespace TransferLogger.Ui.Forms.Applications
             this._btnEdit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
             this._btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnEdit.ForeColor = System.Drawing.Color.Black;
-            this._btnEdit.Location = new System.Drawing.Point(1075, 17);
+            this._btnEdit.Location = new System.Drawing.Point(1073, 18);
             this._btnEdit.Name = "_btnEdit";
             this._btnEdit.Size = new System.Drawing.Size(32, 32);
             this._btnEdit.TabIndex = 34;
@@ -236,7 +217,7 @@ namespace TransferLogger.Ui.Forms.Applications
             this._btnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
             this._btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnAdd.ForeColor = System.Drawing.Color.Black;
-            this._btnAdd.Location = new System.Drawing.Point(1037, 18);
+            this._btnAdd.Location = new System.Drawing.Point(1035, 18);
             this._btnAdd.Name = "_btnAdd";
             this._btnAdd.Size = new System.Drawing.Size(32, 32);
             this._btnAdd.TabIndex = 33;
@@ -649,6 +630,26 @@ namespace TransferLogger.Ui.Forms.Applications
             this.EvaluationStatus.Name = "EvaluationStatus";
             this.EvaluationStatus.ReadOnly = true;
             // 
+            // _btnSendEmail
+            // 
+            this._btnSendEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this._btnSendEmail.AutoSize = true;
+            this._btnSendEmail.BackColor = System.Drawing.Color.White;
+            this._btnSendEmail.BackgroundImage = global::TransferLogger.Ui.Properties.Resources.mail;
+            this._btnSendEmail.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this._btnSendEmail.Cursor = System.Windows.Forms.Cursors.Hand;
+            this._btnSendEmail.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
+            this._btnSendEmail.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
+            this._btnSendEmail.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
+            this._btnSendEmail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._btnSendEmail.ForeColor = System.Drawing.Color.Black;
+            this._btnSendEmail.Location = new System.Drawing.Point(1149, 18);
+            this._btnSendEmail.Name = "_btnSendEmail";
+            this._btnSendEmail.Size = new System.Drawing.Size(32, 32);
+            this._btnSendEmail.TabIndex = 38;
+            this._btnSendEmail.TabStop = false;
+            this._btnSendEmail.UseVisualStyleBackColor = false;
+            // 
             // ApplicationsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -710,7 +711,6 @@ namespace TransferLogger.Ui.Forms.Applications
         private Label _lStatus;
         private Controls.TlDataGrid _gridAppCourses;
         private Label _lAppCourses;
-        private Controls.TlButton _btnDelete;
         private Controls.TlButton _btnEdit;
         private Controls.TlButton _btnAdd;
         private Controls.TlButton _btnEditLocations;
@@ -722,5 +722,6 @@ namespace TransferLogger.Ui.Forms.Applications
         private DataGridViewTextBoxColumn Status;
         private DataGridViewTextBoxColumn CourseCode;
         private DataGridViewTextBoxColumn EvaluationStatus;
+        private Controls.TlButton _btnSendEmail;
     }
 }
