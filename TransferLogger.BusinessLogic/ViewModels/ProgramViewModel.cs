@@ -34,7 +34,7 @@ namespace TransferLogger.BusinessLogic.ViewModels
             var query = dc.Programs.AsQueryable();
 
             if (!string.IsNullOrEmpty(searchName))
-                query = query.Where(p => p.Name.Contains(searchName, StringComparison.OrdinalIgnoreCase));
+                query = query.Where(p => p.Name.Contains(searchName));
 
             if (organizationId > 0)
                 query = query.Where(p => p.OrganizationId == organizationId);

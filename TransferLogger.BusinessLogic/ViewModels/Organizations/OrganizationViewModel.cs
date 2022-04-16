@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 using TransferLogger.BusinessLogic.Intefaces;
@@ -36,7 +35,7 @@ namespace TransferLogger.BusinessLogic.ViewModels.Organizations
             if (!string.IsNullOrEmpty(searchName))
                 query = query.Where(o => (string.IsNullOrEmpty(o.Description) ? o.Name : $"{o.Name} - {o.Description}")
                     .Replace(" ", string.Empty)
-                    .Contains(searchName, StringComparison.OrdinalIgnoreCase));
+                    .Contains(searchName));
 
             if (organizationType.HasValue)
                 query = query.Where(o => o.OrganizationType == organizationType.Value);

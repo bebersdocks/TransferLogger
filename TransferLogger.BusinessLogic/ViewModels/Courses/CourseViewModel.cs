@@ -37,8 +37,14 @@ namespace TransferLogger.BusinessLogic.ViewModels.Courses
         {
             var query = dc.Courses.AsQueryable();
 
+            searchName = searchName
+                .Replace("-", string.Empty)
+                .Replace(" ", string.Empty);
+
             if (!string.IsNullOrEmpty(searchName))
-                query = query.Where(c => $"{c.CourseCode} - {c.Name}".Contains(searchName, StringComparison.OrdinalIgnoreCase));
+                query = query.Where(c => $"{c.CourseCode}{c.Name}"
+                    .Replace(" ", string.Empty)
+                    .Contains(searchName));
 
             if (organizationId > 0)
                 query = query.Where(c => c.OrganizationId == organizationId);

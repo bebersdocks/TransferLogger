@@ -50,7 +50,7 @@ namespace TransferLogger.BusinessLogic.ViewModels
             if (!string.IsNullOrEmpty(studentName))
                 query = query.Where(a => $"{a.Student.Name}{a.Student.Middle}{a.Student.Surname}"
                     .Replace(" ", string.Empty)
-                    .Contains(studentName, StringComparison.OrdinalIgnoreCase));
+                    .Contains(studentName));
 
             if (organizationId > 0)
                 query = query.Where(a => a.SourceOrganizationId == organizationId);

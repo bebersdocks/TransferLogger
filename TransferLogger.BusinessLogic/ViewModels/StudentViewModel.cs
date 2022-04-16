@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 using TransferLogger.BusinessLogic.Intefaces;
@@ -38,10 +37,10 @@ namespace TransferLogger.BusinessLogic.ViewModels
             if (!string.IsNullOrEmpty(searchName))
                 query = query.Where(s => $"{s.Name}{s.Middle}{s.Surname}"
                     .Replace(" ", string.Empty)
-                    .Contains(searchName, StringComparison.OrdinalIgnoreCase));
+                    .Contains(searchName));
 
             if (!string.IsNullOrEmpty(reference))
-                query = query.Where(s => s.Reference.Contains(reference, StringComparison.OrdinalIgnoreCase));
+                query = query.Where(s => s.Reference.Contains(reference));
 
             return query
                 .Select(s => new StudentViewModel(s))

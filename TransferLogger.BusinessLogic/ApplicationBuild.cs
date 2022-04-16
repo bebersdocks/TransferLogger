@@ -40,7 +40,18 @@ namespace TransferLogger.BusinessLogic
         public readonly Dictionary<int, ApplicationEvaluation> Evaluations;
         public readonly List<ApplicationAttachment>            Attachments;
 
-        public HashSet<int> CourseIds => Evaluations.Keys.ToHashSet();
+        public HashSet<int> CourseIds
+        {
+            get
+            {
+                var hashSet = new HashSet<int>();
+
+                foreach (var key in Evaluations.Keys)
+                    hashSet.Add(key);
+
+                return hashSet;
+            }
+        }
 
         public ApplicationBuild()
         {
@@ -95,7 +106,7 @@ namespace TransferLogger.BusinessLogic
             app.StudentId            = Student.StudentId;
             app.SourceOrganizationId = OrganizationId;
             app.TargetOrganizationId = AppSettings.Instance.OrganizationId;
-            app.ExcelLocation        = ExcelLocation.Trim();
+            app.ExcelLocation        = ExcelLocation?.Trim() ?? string.Empty;
             app.CreatedAt            = DateTime.UtcNow;
 
             var appId = dc.InsertWithInt32Identity(app);
