@@ -33,7 +33,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this._splitContainer = new TransferLogger.Ui.Controls.TlSplitContainer();
             this._lInstructions = new System.Windows.Forms.Label();
-            this._btnExcel = new TransferLogger.Ui.Controls.TlButton();
             this._tbOrganization = new TransferLogger.Ui.Controls.TlTextBox();
             this._lOrganization = new System.Windows.Forms.Label();
             this._tbStudent = new TransferLogger.Ui.Controls.TlTextBox();
@@ -65,7 +64,6 @@
             // 
             this._splitContainer.Panel1.BackColor = System.Drawing.Color.White;
             this._splitContainer.Panel1.Controls.Add(this._lInstructions);
-            this._splitContainer.Panel1.Controls.Add(this._btnExcel);
             this._splitContainer.Panel1.Controls.Add(this._tbOrganization);
             this._splitContainer.Panel1.Controls.Add(this._lOrganization);
             this._splitContainer.Panel1.Controls.Add(this._tbStudent);
@@ -90,26 +88,6 @@
             this._lInstructions.Size = new System.Drawing.Size(323, 17);
             this._lInstructions.TabIndex = 40;
             this._lInstructions.Text = "Review evaluations and complete application creation.";
-            // 
-            // _btnExcel
-            // 
-            this._btnExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this._btnExcel.AutoSize = true;
-            this._btnExcel.BackColor = System.Drawing.Color.White;
-            this._btnExcel.BackgroundImage = global::TransferLogger.Ui.Properties.Resources.excel;
-            this._btnExcel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this._btnExcel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this._btnExcel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
-            this._btnExcel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
-            this._btnExcel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
-            this._btnExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._btnExcel.ForeColor = System.Drawing.Color.Black;
-            this._btnExcel.Location = new System.Drawing.Point(887, 47);
-            this._btnExcel.Name = "_btnExcel";
-            this._btnExcel.Size = new System.Drawing.Size(32, 32);
-            this._btnExcel.TabIndex = 37;
-            this._btnExcel.TabStop = false;
-            this._btnExcel.UseVisualStyleBackColor = false;
             // 
             // _tbOrganization
             // 
@@ -276,7 +254,6 @@
         private System.Windows.Forms.Label _lOrganization;
         private TlTextBox _tbStudent;
         private System.Windows.Forms.Label _lStudent;
-        private TlButton _btnExcel;
         private TlDataGrid _grid;
         private System.Windows.Forms.Label _lEvaluations;
         private System.Windows.Forms.Label _lInstructions;

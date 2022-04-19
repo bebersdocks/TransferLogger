@@ -1,10 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using TransferLogger.BusinessLogic;
 using TransferLogger.Interop;
 using TransferLogger.Ui.Controls.ApplicationWizard;
+using TransferLogger.Ui.Forms.Utils;
 
 namespace TransferLogger.Ui.Forms.Applications
 {
@@ -92,11 +95,17 @@ namespace TransferLogger.Ui.Forms.Applications
             SetCurrentStep(_appBuild.GetPreviousStep(), false);
         }
 
-        private void CreateApplication()
+        private async void CreateApplication()
         {
             var appId = _appBuild.Insert();
 
-            EmailService.PrepareEmail(appId);
+            var task = Task.Run(() => EmailService.PrepareEmail(appId));
+
+            using var form = new LoadingForm("Email", "Preparing email...");
+
+            BeginInvoke((Action)(() => form.ShowDialog()));
+
+            await task;
 
             DialogResult = DialogResult.OK;
 

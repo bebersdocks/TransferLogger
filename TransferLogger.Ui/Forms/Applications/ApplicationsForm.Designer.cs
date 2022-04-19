@@ -30,17 +30,18 @@ namespace TransferLogger.Ui.Forms.Applications
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ApplicationsForm));
             this._splitContainerForm = new TransferLogger.Ui.Controls.TlSplitContainer();
             this._pnlFilters = new System.Windows.Forms.Panel();
+            this._btnSendEmail = new TransferLogger.Ui.Controls.TlButton();
             this._btnEditLocations = new TransferLogger.Ui.Controls.TlButton();
-            this._btnExport = new TransferLogger.Ui.Controls.TlButton();
+            this._btnExportExcel = new TransferLogger.Ui.Controls.TlButton();
             this._btnEdit = new TransferLogger.Ui.Controls.TlButton();
             this._btnAdd = new TransferLogger.Ui.Controls.TlButton();
             this._cbStatuses = new TransferLogger.Ui.Controls.TlDropDownList();
@@ -75,7 +76,6 @@ namespace TransferLogger.Ui.Forms.Applications
             this._gridAppCourses = new TransferLogger.Ui.Controls.TlDataGrid();
             this.CourseCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EvaluationStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._btnSendEmail = new TransferLogger.Ui.Controls.TlButton();
             ((System.ComponentModel.ISupportInitialize)(this._splitContainerForm)).BeginInit();
             this._splitContainerForm.Panel1.SuspendLayout();
             this._splitContainerForm.Panel2.SuspendLayout();
@@ -125,7 +125,7 @@ namespace TransferLogger.Ui.Forms.Applications
             this._pnlFilters.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this._pnlFilters.Controls.Add(this._btnSendEmail);
             this._pnlFilters.Controls.Add(this._btnEditLocations);
-            this._pnlFilters.Controls.Add(this._btnExport);
+            this._pnlFilters.Controls.Add(this._btnExportExcel);
             this._pnlFilters.Controls.Add(this._btnEdit);
             this._pnlFilters.Controls.Add(this._btnAdd);
             this._pnlFilters.Controls.Add(this._cbStatuses);
@@ -143,6 +143,26 @@ namespace TransferLogger.Ui.Forms.Applications
             this._pnlFilters.Name = "_pnlFilters";
             this._pnlFilters.Size = new System.Drawing.Size(1236, 117);
             this._pnlFilters.TabIndex = 1;
+            // 
+            // _btnSendEmail
+            // 
+            this._btnSendEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this._btnSendEmail.AutoSize = true;
+            this._btnSendEmail.BackColor = System.Drawing.Color.White;
+            this._btnSendEmail.BackgroundImage = global::TransferLogger.Ui.Properties.Resources.mail;
+            this._btnSendEmail.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this._btnSendEmail.Cursor = System.Windows.Forms.Cursors.Hand;
+            this._btnSendEmail.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
+            this._btnSendEmail.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
+            this._btnSendEmail.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
+            this._btnSendEmail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._btnSendEmail.ForeColor = System.Drawing.Color.Black;
+            this._btnSendEmail.Location = new System.Drawing.Point(1149, 18);
+            this._btnSendEmail.Name = "_btnSendEmail";
+            this._btnSendEmail.Size = new System.Drawing.Size(32, 32);
+            this._btnSendEmail.TabIndex = 38;
+            this._btnSendEmail.TabStop = false;
+            this._btnSendEmail.UseVisualStyleBackColor = false;
             // 
             // _btnEditLocations
             // 
@@ -164,25 +184,25 @@ namespace TransferLogger.Ui.Forms.Applications
             this._btnEditLocations.TabStop = false;
             this._btnEditLocations.UseVisualStyleBackColor = false;
             // 
-            // _btnExport
+            // _btnExportExcel
             // 
-            this._btnExport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this._btnExport.AutoSize = true;
-            this._btnExport.BackColor = System.Drawing.Color.White;
-            this._btnExport.BackgroundImage = global::TransferLogger.Ui.Properties.Resources.excel;
-            this._btnExport.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this._btnExport.Cursor = System.Windows.Forms.Cursors.Hand;
-            this._btnExport.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
-            this._btnExport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
-            this._btnExport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
-            this._btnExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._btnExport.ForeColor = System.Drawing.Color.Black;
-            this._btnExport.Location = new System.Drawing.Point(1111, 18);
-            this._btnExport.Name = "_btnExport";
-            this._btnExport.Size = new System.Drawing.Size(32, 32);
-            this._btnExport.TabIndex = 36;
-            this._btnExport.TabStop = false;
-            this._btnExport.UseVisualStyleBackColor = false;
+            this._btnExportExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this._btnExportExcel.AutoSize = true;
+            this._btnExportExcel.BackColor = System.Drawing.Color.White;
+            this._btnExportExcel.BackgroundImage = global::TransferLogger.Ui.Properties.Resources.excel;
+            this._btnExportExcel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this._btnExportExcel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this._btnExportExcel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
+            this._btnExportExcel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
+            this._btnExportExcel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
+            this._btnExportExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._btnExportExcel.ForeColor = System.Drawing.Color.Black;
+            this._btnExportExcel.Location = new System.Drawing.Point(1111, 18);
+            this._btnExportExcel.Name = "_btnExportExcel";
+            this._btnExportExcel.Size = new System.Drawing.Size(32, 32);
+            this._btnExportExcel.TabIndex = 36;
+            this._btnExportExcel.TabStop = false;
+            this._btnExportExcel.UseVisualStyleBackColor = false;
             // 
             // _btnEdit
             // 
@@ -456,15 +476,15 @@ namespace TransferLogger.Ui.Forms.Applications
             this._gridApps.BackgroundColor = System.Drawing.Color.White;
             this._gridApps.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this._gridApps.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.AliceBlue;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.AliceBlue;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this._gridApps.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.AliceBlue;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.AliceBlue;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this._gridApps.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this._gridApps.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this._gridApps.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
@@ -472,27 +492,27 @@ namespace TransferLogger.Ui.Forms.Applications
             this.Organization,
             this.Date,
             this.Status});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this._gridApps.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this._gridApps.DefaultCellStyle = dataGridViewCellStyle8;
             this._gridApps.EnableHeadersVisualStyles = false;
             this._gridApps.Location = new System.Drawing.Point(-2, 21);
             this._gridApps.MultiSelect = false;
             this._gridApps.Name = "_gridApps";
             this._gridApps.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this._gridApps.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this._gridApps.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this._gridApps.RowHeadersVisible = false;
             this._gridApps.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this._gridApps.Size = new System.Drawing.Size(985, 550);
@@ -575,40 +595,40 @@ namespace TransferLogger.Ui.Forms.Applications
             this._gridAppCourses.BackgroundColor = System.Drawing.Color.White;
             this._gridAppCourses.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this._gridAppCourses.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.AliceBlue;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.AliceBlue;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this._gridAppCourses.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.AliceBlue;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle10.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.AliceBlue;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this._gridAppCourses.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this._gridAppCourses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this._gridAppCourses.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CourseCode,
             this.EvaluationStatus});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this._gridAppCourses.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this._gridAppCourses.DefaultCellStyle = dataGridViewCellStyle11;
             this._gridAppCourses.EnableHeadersVisualStyles = false;
             this._gridAppCourses.Location = new System.Drawing.Point(-2, 21);
             this._gridAppCourses.MultiSelect = false;
             this._gridAppCourses.Name = "_gridAppCourses";
             this._gridAppCourses.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this._gridAppCourses.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this._gridAppCourses.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this._gridAppCourses.RowHeadersVisible = false;
             this._gridAppCourses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this._gridAppCourses.Size = new System.Drawing.Size(247, 550);
@@ -629,26 +649,6 @@ namespace TransferLogger.Ui.Forms.Applications
             this.EvaluationStatus.MinimumWidth = 110;
             this.EvaluationStatus.Name = "EvaluationStatus";
             this.EvaluationStatus.ReadOnly = true;
-            // 
-            // _btnSendEmail
-            // 
-            this._btnSendEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this._btnSendEmail.AutoSize = true;
-            this._btnSendEmail.BackColor = System.Drawing.Color.White;
-            this._btnSendEmail.BackgroundImage = global::TransferLogger.Ui.Properties.Resources.mail;
-            this._btnSendEmail.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this._btnSendEmail.Cursor = System.Windows.Forms.Cursors.Hand;
-            this._btnSendEmail.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
-            this._btnSendEmail.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
-            this._btnSendEmail.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
-            this._btnSendEmail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._btnSendEmail.ForeColor = System.Drawing.Color.Black;
-            this._btnSendEmail.Location = new System.Drawing.Point(1149, 18);
-            this._btnSendEmail.Name = "_btnSendEmail";
-            this._btnSendEmail.Size = new System.Drawing.Size(32, 32);
-            this._btnSendEmail.TabIndex = 38;
-            this._btnSendEmail.TabStop = false;
-            this._btnSendEmail.UseVisualStyleBackColor = false;
             // 
             // ApplicationsForm
             // 
@@ -714,7 +714,7 @@ namespace TransferLogger.Ui.Forms.Applications
         private Controls.TlButton _btnEdit;
         private Controls.TlButton _btnAdd;
         private Controls.TlButton _btnEditLocations;
-        private Controls.TlButton _btnExport;
+        private Controls.TlButton _btnExportExcel;
         private DataGridViewTextBoxColumn Id;
         private DataGridViewTextBoxColumn Student;
         private DataGridViewTextBoxColumn Organization;

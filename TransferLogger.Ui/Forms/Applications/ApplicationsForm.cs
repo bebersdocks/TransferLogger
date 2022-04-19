@@ -1,17 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using TransferLogger.BusinessLogic;
 using TransferLogger.BusinessLogic.ViewModels;
 using TransferLogger.Dal.DataModels.Applications;
 using TransferLogger.Interop;
+using TransferLogger.Interop.Excel;
 using TransferLogger.Ui.Controls;
 using TransferLogger.Ui.Forms.Courses;
 using TransferLogger.Ui.Forms.Instructors;
 using TransferLogger.Ui.Forms.Organizations;
 using TransferLogger.Ui.Forms.Programs;
 using TransferLogger.Ui.Forms.Students;
+using TransferLogger.Ui.Forms.Utils;
 
 using static TransferLogger.Ui.Utils.FormUtils;
 
@@ -60,6 +63,7 @@ namespace TransferLogger.Ui.Forms.Applications
             _dtTo.ValueChanged                    += (s, e) => SetData();
 
             _btnAdd.Click                += _btnAdd_Click;
+            _btnExportExcel.Click        += _btnExportExcel_Click;
             _btnSendEmail.Click          += _btnSendEmail_Click;
             _btnSelectOrganization.Click += _btnSelectOrganization_Click;
 
@@ -76,11 +80,33 @@ namespace TransferLogger.Ui.Forms.Applications
             }
         }
 
-        private void _btnSendEmail_Click(object? sender, EventArgs e)
+        private async void _btnExportExcel_Click(object? sender, EventArgs e)
         {
             if (_gridApps.CurrentRow?.DataBoundItem is ApplicationViewModel viewModel)
             {
-                EmailService.PrepareEmail(viewModel.Id);
+                var task = Task.Run(() => new ExcelExporter(viewModel.Id).Export());
+
+                using var form = new LoadingForm("Excel Export", "Exporting...");
+
+                BeginInvoke((Action)(() => form.ShowDialog()));
+
+                var excelPath = await task;
+
+                new ExcelViewer(excelPath).Open();
+            }
+        }
+
+        private async void _btnSendEmail_Click(object? sender, EventArgs e)
+        {
+            if (_gridApps.CurrentRow?.DataBoundItem is ApplicationViewModel viewModel)
+            {
+                var task = Task.Run(() => EmailService.PrepareEmail(viewModel.Id));
+
+                using var form = new LoadingForm("Email", "Preparing email...");
+
+                BeginInvoke((Action)(() => form.ShowDialog()));
+
+                await task;
             }
         }
 
