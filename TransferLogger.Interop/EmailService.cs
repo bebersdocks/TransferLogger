@@ -7,6 +7,7 @@ using LinqToDB;
 
 using TransferLogger.Dal;
 using TransferLogger.Dal.DataModels;
+using TransferLogger.Interop.Excel;
 
 namespace TransferLogger.Interop
 {
@@ -20,6 +21,11 @@ namespace TransferLogger.Interop
                 .Where(a => a.ApplicationId == appId)
                 .LoadWith(a => a.Student)
                 .LoadWith(a => a.Evaluations)
+                .ThenLoad(e => e.Course)
+                .LoadWith(a => a.Evaluations)
+                .ThenLoad(e => e.Instructor)
+                .LoadWith(a => a.Evaluations)
+                .ThenLoad(e => e.Course)
                 .LoadWith(a => a.Attachments)
                 .First();
 
@@ -47,13 +53,28 @@ namespace TransferLogger.Interop
                 mailItem.To      = to;
                 mailItem.CC      = ccEmails;
 
+                var excelLocation = application.ExcelLocation;
+
+                if (string.IsNullOrEmpty(excelLocation) || !File.Exists(excelLocation))
+                {
+                    var excelExporter = new ExcelExporter(application);
+
+                    excelLocation = excelExporter.Export();
+                }
+
+                mailItem.Attachments.Add(excelLocation, OlAttachmentType.olByValue, 1, Path.GetFileName(excelLocation));
+
+                // In case if it was temporary created file - delete it.
+                if (string.IsNullOrEmpty(application.ExcelLocation))
+                    File.Delete(excelLocation);
+
                 for (var i = 0; i < application.Attachments.Count(); i++)
                 {
                     var attachment = application.Attachments.ElementAt(i);
 
                     if (File.Exists(attachment.FileName))
                     {
-                        mailItem.Attachments.Add(attachment.FileName, OlAttachmentType.olByValue, i + 1, attachment.FileName);
+                        mailItem.Attachments.Add(attachment.FileName, OlAttachmentType.olByValue, i + 2, attachment.FileName);
                     }
                     else
                     {
@@ -64,7 +85,7 @@ namespace TransferLogger.Interop
                         fileStream.Write(attachment.Data);
                         fileStream.Close();
 
-                        mailItem.Attachments.Add(tempPath, OlAttachmentType.olByValue, i + 1, attachment.FileName);
+                        mailItem.Attachments.Add(tempPath, OlAttachmentType.olByValue, i + 2, attachment.FileName);
 
                         File.Delete(tempPath);
                     }
