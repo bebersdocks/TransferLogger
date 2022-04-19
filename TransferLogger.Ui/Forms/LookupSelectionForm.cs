@@ -47,7 +47,7 @@ namespace TransferLogger.Ui.Forms
         {
             if (!string.IsNullOrEmpty(displayName))
                 _grid.DataSource = _lookups
-                    .Where(l => l.DisplayName.Contains(displayName, StringComparison.OrdinalIgnoreCase))
+                    .Where(l => l.DisplayName.Contains(displayName))
                     .ToList();
             else
                 _grid.DataSource = _lookups;
