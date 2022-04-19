@@ -45,11 +45,11 @@
             this._cbPrograms = new TransferLogger.Ui.Controls.TlDropDownList();
             this._lCountry = new System.Windows.Forms.Label();
             this._grid = new TransferLogger.Ui.Controls.TlDataGrid();
+            this._tbSearchName = new TransferLogger.Ui.Controls.TlTextBox();
             this.Selected = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.CourseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Program = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cycle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._tbSearchName = new TransferLogger.Ui.Controls.TlTextBox();
             ((System.ComponentModel.ISupportInitialize)(this._splitContainer)).BeginInit();
             this._splitContainer.Panel1.SuspendLayout();
             this._splitContainer.Panel2.SuspendLayout();
@@ -316,43 +316,6 @@
             this._grid.Size = new System.Drawing.Size(824, 370);
             this._grid.TabIndex = 10;
             // 
-            // Selected
-            // 
-            this.Selected.DataPropertyName = "Selected";
-            this.Selected.FalseValue = "False";
-            this.Selected.FillWeight = 95F;
-            this.Selected.HeaderText = "Selected";
-            this.Selected.MinimumWidth = 55;
-            this.Selected.Name = "Selected";
-            this.Selected.ReadOnly = true;
-            this.Selected.TrueValue = "True";
-            // 
-            // CourseName
-            // 
-            this.CourseName.DataPropertyName = "Name";
-            this.CourseName.FillWeight = 115F;
-            this.CourseName.HeaderText = "Name";
-            this.CourseName.MinimumWidth = 250;
-            this.CourseName.Name = "CourseName";
-            this.CourseName.ReadOnly = true;
-            // 
-            // Program
-            // 
-            this.Program.DataPropertyName = "Program";
-            this.Program.HeaderText = "Program";
-            this.Program.MinimumWidth = 250;
-            this.Program.Name = "Program";
-            this.Program.ReadOnly = true;
-            // 
-            // Cycle
-            // 
-            this.Cycle.DataPropertyName = "Cycle";
-            this.Cycle.FillWeight = 90F;
-            this.Cycle.HeaderText = "Cycle";
-            this.Cycle.MinimumWidth = 75;
-            this.Cycle.Name = "Cycle";
-            this.Cycle.ReadOnly = true;
-            // 
             // _tbSearchName
             // 
             this._tbSearchName.BackColor = System.Drawing.Color.GhostWhite;
@@ -364,6 +327,39 @@
             this._tbSearchName.PlaceholderText = "Type here to filter courses";
             this._tbSearchName.Size = new System.Drawing.Size(824, 23);
             this._tbSearchName.TabIndex = 9;
+            // 
+            // Selected
+            // 
+            this.Selected.DataPropertyName = "Selected";
+            this.Selected.FalseValue = "False";
+            this.Selected.HeaderText = "Selected";
+            this.Selected.Name = "Selected";
+            this.Selected.ReadOnly = true;
+            this.Selected.TrueValue = "True";
+            // 
+            // CourseName
+            // 
+            this.CourseName.DataPropertyName = "Name";
+            this.CourseName.FillWeight = 150F;
+            this.CourseName.HeaderText = "Name";
+            this.CourseName.Name = "CourseName";
+            this.CourseName.ReadOnly = true;
+            // 
+            // Program
+            // 
+            this.Program.DataPropertyName = "Program";
+            this.Program.FillWeight = 150F;
+            this.Program.HeaderText = "Program";
+            this.Program.Name = "Program";
+            this.Program.ReadOnly = true;
+            // 
+            // Cycle
+            // 
+            this.Cycle.DataPropertyName = "Cycle";
+            this.Cycle.FillWeight = 105F;
+            this.Cycle.HeaderText = "Cycle";
+            this.Cycle.Name = "Cycle";
+            this.Cycle.ReadOnly = true;
             // 
             // CoursesControl
             // 

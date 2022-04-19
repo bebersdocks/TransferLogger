@@ -258,33 +258,30 @@ namespace TransferLogger.Ui.Forms.Instructors
             // 
             this.Id.DataPropertyName = "Id";
             this.Id.HeaderText = "ID";
-            this.Id.MinimumWidth = 25;
             this.Id.Name = "Id";
             this.Id.ReadOnly = true;
             // 
             // InstructorName
             // 
             this.InstructorName.DataPropertyName = "Name";
-            this.InstructorName.FillWeight = 110F;
+            this.InstructorName.FillWeight = 150F;
             this.InstructorName.HeaderText = "Name";
-            this.InstructorName.MinimumWidth = 250;
             this.InstructorName.Name = "InstructorName";
             this.InstructorName.ReadOnly = true;
             // 
             // Phone
             // 
             this.Phone.DataPropertyName = "Phone";
+            this.Phone.FillWeight = 125F;
             this.Phone.HeaderText = "Phone";
-            this.Phone.MinimumWidth = 75;
             this.Phone.Name = "Phone";
             this.Phone.ReadOnly = true;
             // 
             // Email
             // 
             this.Email.DataPropertyName = "Email";
-            this.Email.FillWeight = 105F;
+            this.Email.FillWeight = 125F;
             this.Email.HeaderText = "Email";
-            this.Email.MinimumWidth = 215;
             this.Email.Name = "Email";
             this.Email.ReadOnly = true;
             // 

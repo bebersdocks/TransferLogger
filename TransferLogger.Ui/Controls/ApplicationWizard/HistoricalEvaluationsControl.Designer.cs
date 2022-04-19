@@ -405,40 +405,38 @@
             this.Id.DataPropertyName = "Id";
             this.Id.FillWeight = 90F;
             this.Id.HeaderText = "ID";
-            this.Id.MinimumWidth = 70;
             this.Id.Name = "Id";
             this.Id.ReadOnly = true;
             // 
             // Status
             // 
             this.Status.DataPropertyName = "StatusDisplayName";
+            this.Status.FillWeight = 115F;
             this.Status.HeaderText = "Status";
-            this.Status.MinimumWidth = 100;
             this.Status.Name = "Status";
             this.Status.ReadOnly = true;
             // 
             // Student
             // 
             this.Student.DataPropertyName = "Student";
-            this.Student.FillWeight = 105F;
+            this.Student.FillWeight = 160F;
             this.Student.HeaderText = "Student";
-            this.Student.MinimumWidth = 200;
             this.Student.Name = "Student";
             this.Student.ReadOnly = true;
             // 
             // Instructor
             // 
             this.Instructor.DataPropertyName = "Instructor";
+            this.Instructor.FillWeight = 160F;
             this.Instructor.HeaderText = "Evaluator";
-            this.Instructor.MinimumWidth = 150;
             this.Instructor.Name = "Instructor";
             this.Instructor.ReadOnly = true;
             // 
             // MatchedCourse
             // 
             this.MatchedCourse.DataPropertyName = "MatchedCourse";
+            this.MatchedCourse.FillWeight = 180F;
             this.MatchedCourse.HeaderText = "Matched Course";
-            this.MatchedCourse.MinimumWidth = 200;
             this.MatchedCourse.Name = "MatchedCourse";
             this.MatchedCourse.ReadOnly = true;
             // 

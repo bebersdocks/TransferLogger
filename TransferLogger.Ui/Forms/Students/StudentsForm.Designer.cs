@@ -262,50 +262,46 @@ namespace TransferLogger.Ui.Forms.Students
             // 
             this.Id.DataPropertyName = "Id";
             this.Id.HeaderText = "ID";
-            this.Id.MinimumWidth = 25;
             this.Id.Name = "Id";
             this.Id.ReadOnly = true;
             // 
             // StudentName
             // 
             this.StudentName.DataPropertyName = "Name";
-            this.StudentName.FillWeight = 110F;
+            this.StudentName.FillWeight = 160F;
             this.StudentName.HeaderText = "Name";
-            this.StudentName.MinimumWidth = 250;
             this.StudentName.Name = "StudentName";
             this.StudentName.ReadOnly = true;
             // 
             // Reference
             // 
             this.Reference.DataPropertyName = "Reference";
+            this.Reference.FillWeight = 110F;
             this.Reference.HeaderText = "Reference";
-            this.Reference.MinimumWidth = 100;
             this.Reference.Name = "Reference";
             this.Reference.ReadOnly = true;
             // 
             // DocumentNo
             // 
             this.DocumentNo.DataPropertyName = "DocumentNo";
-            this.DocumentNo.FillWeight = 95F;
+            this.DocumentNo.FillWeight = 110F;
             this.DocumentNo.HeaderText = "Document";
-            this.DocumentNo.MinimumWidth = 60;
             this.DocumentNo.Name = "DocumentNo";
             this.DocumentNo.ReadOnly = true;
             // 
             // Phone
             // 
             this.Phone.DataPropertyName = "Phone";
+            this.Phone.FillWeight = 110F;
             this.Phone.HeaderText = "Phone";
-            this.Phone.MinimumWidth = 75;
             this.Phone.Name = "Phone";
             this.Phone.ReadOnly = true;
             // 
             // Email
             // 
             this.Email.DataPropertyName = "Email";
-            this.Email.FillWeight = 105F;
+            this.Email.FillWeight = 135F;
             this.Email.HeaderText = "Email";
-            this.Email.MinimumWidth = 215;
             this.Email.Name = "Email";
             this.Email.ReadOnly = true;
             // 

@@ -180,7 +180,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this._grid.DefaultCellStyle = dataGridViewCellStyle2;
             this._grid.EnableHeadersVisualStyles = false;
-            this._grid.Location = new System.Drawing.Point(0, 16);
+            this._grid.Location = new System.Drawing.Point(0, 19);
             this._grid.MultiSelect = false;
             this._grid.Name = "_grid";
             this._grid.ReadOnly = true;
@@ -194,15 +194,13 @@
             this._grid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this._grid.RowHeadersVisible = false;
             this._grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this._grid.Size = new System.Drawing.Size(935, 505);
+            this._grid.Size = new System.Drawing.Size(935, 502);
             this._grid.TabIndex = 16;
             // 
             // Course
             // 
             this.Course.DataPropertyName = "Course";
-            this.Course.FillWeight = 115F;
             this.Course.HeaderText = "Course";
-            this.Course.MinimumWidth = 215;
             this.Course.Name = "Course";
             this.Course.ReadOnly = true;
             // 
@@ -210,7 +208,6 @@
             // 
             this.Evaluator.DataPropertyName = "Instructor";
             this.Evaluator.HeaderText = "Evaluator";
-            this.Evaluator.MinimumWidth = 180;
             this.Evaluator.Name = "Evaluator";
             this.Evaluator.ReadOnly = true;
             // 
@@ -218,7 +215,6 @@
             // 
             this.SuggestedOrMatched.DataPropertyName = "SuggestedOrMatched";
             this.SuggestedOrMatched.HeaderText = "Suggested / Matched Course";
-            this.SuggestedOrMatched.MinimumWidth = 215;
             this.SuggestedOrMatched.Name = "SuggestedOrMatched";
             this.SuggestedOrMatched.ReadOnly = true;
             // 
@@ -226,7 +222,6 @@
             // 
             this.Status.DataPropertyName = "StatusDisplayName";
             this.Status.HeaderText = "Status";
-            this.Status.MinimumWidth = 100;
             this.Status.Name = "Status";
             this.Status.ReadOnly = true;
             // 

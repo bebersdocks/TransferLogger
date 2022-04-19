@@ -305,25 +305,22 @@ namespace TransferLogger.Ui.Forms.Organizations
             // Id
             // 
             this.Id.DataPropertyName = "Id";
-            this.Id.FillWeight = 50F;
             this.Id.HeaderText = "ID";
-            this.Id.MinimumWidth = 75;
             this.Id.Name = "Id";
             this.Id.ReadOnly = true;
             // 
             // OrganizationName
             // 
             this.OrganizationName.DataPropertyName = "Name";
-            this.OrganizationName.FillWeight = 110F;
+            this.OrganizationName.FillWeight = 175F;
             this.OrganizationName.HeaderText = "Name";
-            this.OrganizationName.MinimumWidth = 325;
             this.OrganizationName.Name = "OrganizationName";
             this.OrganizationName.ReadOnly = true;
             // 
             // Type
             // 
             this.Type.DataPropertyName = "Type";
-            this.Type.FillWeight = 74.31472F;
+            this.Type.FillWeight = 115F;
             this.Type.HeaderText = "Type";
             this.Type.Name = "Type";
             this.Type.ReadOnly = true;
@@ -331,7 +328,7 @@ namespace TransferLogger.Ui.Forms.Organizations
             // Country
             // 
             this.Country.DataPropertyName = "Country";
-            this.Country.FillWeight = 74.31472F;
+            this.Country.FillWeight = 115F;
             this.Country.HeaderText = "Country";
             this.Country.Name = "Country";
             this.Country.ReadOnly = true;
@@ -339,7 +336,7 @@ namespace TransferLogger.Ui.Forms.Organizations
             // URL
             // 
             this.URL.DataPropertyName = "URL";
-            this.URL.FillWeight = 74.31472F;
+            this.URL.FillWeight = 115F;
             this.URL.HeaderText = "URL";
             this.URL.Name = "URL";
             this.URL.ReadOnly = true;

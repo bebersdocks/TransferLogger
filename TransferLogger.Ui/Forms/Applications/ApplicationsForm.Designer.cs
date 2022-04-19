@@ -524,25 +524,22 @@ namespace TransferLogger.Ui.Forms.Applications
             // 
             this.Id.DataPropertyName = "Id";
             this.Id.HeaderText = "ID";
-            this.Id.MinimumWidth = 75;
             this.Id.Name = "Id";
             this.Id.ReadOnly = true;
             // 
             // Student
             // 
             this.Student.DataPropertyName = "Student";
-            this.Student.FillWeight = 105F;
+            this.Student.FillWeight = 155F;
             this.Student.HeaderText = "Student";
-            this.Student.MinimumWidth = 250;
             this.Student.Name = "Student";
             this.Student.ReadOnly = true;
             // 
             // Organization
             // 
             this.Organization.DataPropertyName = "Organization";
-            this.Organization.FillWeight = 105F;
+            this.Organization.FillWeight = 155F;
             this.Organization.HeaderText = "Organization";
-            this.Organization.MinimumWidth = 250;
             this.Organization.Name = "Organization";
             this.Organization.ReadOnly = true;
             // 
@@ -550,7 +547,6 @@ namespace TransferLogger.Ui.Forms.Applications
             // 
             this.Date.DataPropertyName = "CreatedAt";
             this.Date.HeaderText = "Date";
-            this.Date.MinimumWidth = 80;
             this.Date.Name = "Date";
             this.Date.ReadOnly = true;
             // 
@@ -558,7 +554,6 @@ namespace TransferLogger.Ui.Forms.Applications
             // 
             this.Status.DataPropertyName = "StatusDisplayName";
             this.Status.HeaderText = "Status";
-            this.Status.MinimumWidth = 100;
             this.Status.Name = "Status";
             this.Status.ReadOnly = true;
             // 
@@ -642,15 +637,14 @@ namespace TransferLogger.Ui.Forms.Applications
             // 
             this.CourseCode.DataPropertyName = "CourseCode";
             this.CourseCode.HeaderText = "Code";
-            this.CourseCode.MinimumWidth = 110;
             this.CourseCode.Name = "CourseCode";
             this.CourseCode.ReadOnly = true;
             // 
             // Instructor
             // 
             this.Instructor.DataPropertyName = "Instructor";
+            this.Instructor.FillWeight = 115F;
             this.Instructor.HeaderText = "Evaluator";
-            this.Instructor.MinimumWidth = 135;
             this.Instructor.Name = "Instructor";
             this.Instructor.ReadOnly = true;
             // 
@@ -658,7 +652,6 @@ namespace TransferLogger.Ui.Forms.Applications
             // 
             this.EvaluationStatus.DataPropertyName = "StatusDisplayName";
             this.EvaluationStatus.HeaderText = "Status";
-            this.EvaluationStatus.MinimumWidth = 110;
             this.EvaluationStatus.Name = "EvaluationStatus";
             this.EvaluationStatus.ReadOnly = true;
             // 
@@ -727,12 +720,12 @@ namespace TransferLogger.Ui.Forms.Applications
         private Controls.TlButton _btnAdd;
         private Controls.TlButton _btnEditLocations;
         private Controls.TlButton _btnExportExcel;
+        private Controls.TlButton _btnSendEmail;
         private DataGridViewTextBoxColumn Id;
         private DataGridViewTextBoxColumn Student;
         private DataGridViewTextBoxColumn Organization;
         private DataGridViewTextBoxColumn Date;
         private DataGridViewTextBoxColumn Status;
-        private Controls.TlButton _btnSendEmail;
         private DataGridViewTextBoxColumn CourseCode;
         private DataGridViewTextBoxColumn Instructor;
         private DataGridViewTextBoxColumn EvaluationStatus;

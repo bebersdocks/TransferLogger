@@ -305,44 +305,39 @@ namespace TransferLogger.Ui.Forms.Programs
             // Id
             // 
             this.Id.DataPropertyName = "Id";
-            this.Id.FillWeight = 50F;
             this.Id.HeaderText = "ID";
-            this.Id.MinimumWidth = 75;
             this.Id.Name = "Id";
             this.Id.ReadOnly = true;
             // 
             // ProgramName
             // 
             this.ProgramName.DataPropertyName = "Name";
-            this.ProgramName.FillWeight = 110F;
+            this.ProgramName.FillWeight = 170F;
             this.ProgramName.HeaderText = "Name";
-            this.ProgramName.MinimumWidth = 300;
             this.ProgramName.Name = "ProgramName";
             this.ProgramName.ReadOnly = true;
             // 
             // Organization
             // 
             this.Organization.DataPropertyName = "Organization";
-            this.Organization.FillWeight = 130F;
+            this.Organization.FillWeight = 165F;
             this.Organization.HeaderText = "Organization";
-            this.Organization.MinimumWidth = 275;
             this.Organization.Name = "Organization";
             this.Organization.ReadOnly = true;
             // 
             // Cycle
             // 
             this.Cycle.DataPropertyName = "Cycle";
-            this.Cycle.FillWeight = 105F;
+            this.Cycle.FillWeight = 110F;
             this.Cycle.HeaderText = "Cycle";
-            this.Cycle.MinimumWidth = 120;
             this.Cycle.Name = "Cycle";
             this.Cycle.ReadOnly = true;
             // 
             // Year
             // 
             this.Year.DataPropertyName = "Year";
+            this.Year.FillWeight = 105F;
             this.Year.HeaderText = "Year";
-            this.Year.MinimumWidth = 50;
             this.Year.Name = "Year";
             this.Year.ReadOnly = true;
             // 

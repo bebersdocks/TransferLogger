@@ -42,11 +42,11 @@
             this._cbOrganizationTypes = new TransferLogger.Ui.Controls.TlDropDownList();
             this._lOrganizationType = new System.Windows.Forms.Label();
             this._grid = new TransferLogger.Ui.Controls.TlDataGrid();
+            this._tbSearchName = new TransferLogger.Ui.Controls.TlTextBox();
             this.Selected = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.OrganizationName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Country = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._tbSearchName = new TransferLogger.Ui.Controls.TlTextBox();
             ((System.ComponentModel.ISupportInitialize)(this._splitContainer)).BeginInit();
             this._splitContainer.Panel1.SuspendLayout();
             this._splitContainer.Panel2.SuspendLayout();
@@ -259,42 +259,6 @@
             this._grid.Size = new System.Drawing.Size(828, 382);
             this._grid.TabIndex = 5;
             // 
-            // Selected
-            // 
-            this.Selected.DataPropertyName = "Selected";
-            this.Selected.FalseValue = "False";
-            this.Selected.FillWeight = 95F;
-            this.Selected.HeaderText = "Selected";
-            this.Selected.MinimumWidth = 55;
-            this.Selected.Name = "Selected";
-            this.Selected.ReadOnly = true;
-            this.Selected.TrueValue = "True";
-            // 
-            // OrganizationName
-            // 
-            this.OrganizationName.DataPropertyName = "Name";
-            this.OrganizationName.FillWeight = 115F;
-            this.OrganizationName.HeaderText = "Name";
-            this.OrganizationName.MinimumWidth = 280;
-            this.OrganizationName.Name = "OrganizationName";
-            this.OrganizationName.ReadOnly = true;
-            // 
-            // Type
-            // 
-            this.Type.DataPropertyName = "Type";
-            this.Type.HeaderText = "Type";
-            this.Type.MinimumWidth = 100;
-            this.Type.Name = "Type";
-            this.Type.ReadOnly = true;
-            // 
-            // Country
-            // 
-            this.Country.DataPropertyName = "Country";
-            this.Country.HeaderText = "Country";
-            this.Country.MinimumWidth = 220;
-            this.Country.Name = "Country";
-            this.Country.ReadOnly = true;
-            // 
             // _tbSearchName
             // 
             this._tbSearchName.BackColor = System.Drawing.Color.GhostWhite;
@@ -306,6 +270,40 @@
             this._tbSearchName.PlaceholderText = "Type here to filter organizations";
             this._tbSearchName.Size = new System.Drawing.Size(828, 23);
             this._tbSearchName.TabIndex = 1;
+            // 
+            // Selected
+            // 
+            this.Selected.DataPropertyName = "Selected";
+            this.Selected.FalseValue = "False";
+            this.Selected.FillWeight = 95F;
+            this.Selected.HeaderText = "Selected";
+            this.Selected.Name = "Selected";
+            this.Selected.ReadOnly = true;
+            this.Selected.TrueValue = "True";
+            // 
+            // OrganizationName
+            // 
+            this.OrganizationName.DataPropertyName = "Name";
+            this.OrganizationName.FillWeight = 160F;
+            this.OrganizationName.HeaderText = "Name";
+            this.OrganizationName.Name = "OrganizationName";
+            this.OrganizationName.ReadOnly = true;
+            // 
+            // Type
+            // 
+            this.Type.DataPropertyName = "Type";
+            this.Type.FillWeight = 115F;
+            this.Type.HeaderText = "Type";
+            this.Type.Name = "Type";
+            this.Type.ReadOnly = true;
+            // 
+            // Country
+            // 
+            this.Country.DataPropertyName = "Country";
+            this.Country.FillWeight = 130F;
+            this.Country.HeaderText = "Country";
+            this.Country.Name = "Country";
+            this.Country.ReadOnly = true;
             // 
             // OrganizationControl
             // 
@@ -339,12 +337,12 @@
         private TlDropDownList _cbOrganizationTypes;
         private System.Windows.Forms.Label _lOrganizationType;
         private System.Windows.Forms.Label _lInstructions;
+        private System.Windows.Forms.GroupBox _gbManageOrganizations;
+        private TlButton _btnManage;
+        private TlButton _btnAdd;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Selected;
         private System.Windows.Forms.DataGridViewTextBoxColumn OrganizationName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Type;
         private System.Windows.Forms.DataGridViewTextBoxColumn Country;
-        private System.Windows.Forms.GroupBox _gbManageOrganizations;
-        private TlButton _btnManage;
-        private TlButton _btnAdd;
     }
 }
