@@ -66,6 +66,7 @@ namespace TransferLogger.Ui.Forms.Programs
             | System.Windows.Forms.AnchorStyles.Right)));
             this._splitContainer.BackColor = System.Drawing.Color.GhostWhite;
             this._splitContainer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this._splitContainer.IsSplitterFixed = true;
             this._splitContainer.Location = new System.Drawing.Point(0, 0);
             this._splitContainer.Name = "_splitContainer";
             this._splitContainer.Orientation = System.Windows.Forms.Orientation.Horizontal;
@@ -250,6 +251,7 @@ namespace TransferLogger.Ui.Forms.Programs
             this._grid.AllowUserToAddRows = false;
             this._grid.AllowUserToDeleteRows = false;
             this._grid.AllowUserToOrderColumns = true;
+            this._grid.AllowUserToResizeRows = false;
             this._grid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));

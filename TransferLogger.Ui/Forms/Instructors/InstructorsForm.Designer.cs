@@ -131,7 +131,7 @@ namespace TransferLogger.Ui.Forms.Instructors
             // 
             this._btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this._btnDelete.AutoSize = true;
-            this._btnDelete.BackColor = System.Drawing.Color.Transparent;
+            this._btnDelete.BackColor = System.Drawing.Color.White;
             this._btnDelete.BackgroundImage = global::TransferLogger.Ui.Properties.Resources.delete;
             this._btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this._btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -151,7 +151,7 @@ namespace TransferLogger.Ui.Forms.Instructors
             // 
             this._btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this._btnEdit.AutoSize = true;
-            this._btnEdit.BackColor = System.Drawing.Color.Transparent;
+            this._btnEdit.BackColor = System.Drawing.Color.White;
             this._btnEdit.BackgroundImage = global::TransferLogger.Ui.Properties.Resources.edit;
             this._btnEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this._btnEdit.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -171,7 +171,7 @@ namespace TransferLogger.Ui.Forms.Instructors
             // 
             this._btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this._btnAdd.AutoSize = true;
-            this._btnAdd.BackColor = System.Drawing.Color.Transparent;
+            this._btnAdd.BackColor = System.Drawing.Color.White;
             this._btnAdd.BackgroundImage = global::TransferLogger.Ui.Properties.Resources.add;
             this._btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this._btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -204,6 +204,7 @@ namespace TransferLogger.Ui.Forms.Instructors
             this._grid.AllowUserToAddRows = false;
             this._grid.AllowUserToDeleteRows = false;
             this._grid.AllowUserToOrderColumns = true;
+            this._grid.AllowUserToResizeRows = false;
             this._grid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
