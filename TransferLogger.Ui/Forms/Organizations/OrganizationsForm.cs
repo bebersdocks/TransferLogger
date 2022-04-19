@@ -94,11 +94,11 @@ namespace TransferLogger.Ui.Forms.Organizations
         {
             if (_grid.CurrentRow?.DataBoundItem is OrganizationViewModel viewModel)
             {
-                using var confirmDlg = new ConfirmDialog(
+                using var confirmBox = new ConfirmBox(
                     "Confirm Deletion",
                     $"Are you sure you want to delete {viewModel.Name} (Id: {viewModel.Id})?");
 
-                if (confirmDlg.ShowDialog() == DialogResult.OK)
+                if (confirmBox.ShowDialog() == DialogResult.OK)
                 {
                     var index = _grid.CurrentRow.Index;
 

@@ -3,9 +3,9 @@ using System.Windows.Forms;
 
 namespace TransferLogger.Ui.Forms.Dialogs
 {
-    public partial class ConfirmDialog : Form
+    public partial class ConfirmBox : Form
     {
-        public ConfirmDialog(string title, string message)
+        public ConfirmBox(string title, string message)
         {
             InitializeComponent();
 

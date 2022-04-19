@@ -1,6 +1,6 @@
-﻿namespace TransferLogger.Ui.Forms.Dialogs
+﻿namespace TransferLogger.Ui.Forms.Utils
 {
-    partial class ErrorDialog
+    partial class ExceptionInfo
     {
         /// <summary>
         /// Required designer variable.
@@ -35,13 +35,13 @@
             // _btnOk
             // 
             this._btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this._btnOk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
+            this._btnOk.BackColor = System.Drawing.Color.White;
             this._btnOk.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
             this._btnOk.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
             this._btnOk.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
             this._btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnOk.ForeColor = System.Drawing.Color.Black;
-            this._btnOk.Location = new System.Drawing.Point(329, 221);
+            this._btnOk.Location = new System.Drawing.Point(327, 220);
             this._btnOk.Name = "_btnOk";
             this._btnOk.Size = new System.Drawing.Size(75, 29);
             this._btnOk.TabIndex = 0;
@@ -58,20 +58,20 @@
             this._tbMessage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this._tbMessage.Location = new System.Drawing.Point(12, 12);
             this._tbMessage.Name = "_tbMessage";
-            this._tbMessage.Size = new System.Drawing.Size(392, 196);
+            this._tbMessage.Size = new System.Drawing.Size(390, 195);
             this._tbMessage.TabIndex = 4;
             this._tbMessage.Text = "";
             // 
-            // ErrorDialog
+            // ExceptionInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(416, 262);
+            this.ClientSize = new System.Drawing.Size(414, 261);
             this.Controls.Add(this._tbMessage);
             this.Controls.Add(this._btnOk);
-            this.MinimumSize = new System.Drawing.Size(400, 210);
-            this.Name = "ErrorDialog";
+            this.MinimumSize = new System.Drawing.Size(430, 300);
+            this.Name = "ExceptionInfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Exception";
             this.ResumeLayout(false);

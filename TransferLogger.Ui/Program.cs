@@ -8,7 +8,7 @@ using TransferLogger.BusinessLogic.Settings;
 using TransferLogger.BusinessLogic.Utils;
 using TransferLogger.Dal;
 using TransferLogger.Ui.Forms.Applications;
-using TransferLogger.Ui.Forms.Dialogs;
+using TransferLogger.Ui.Forms.Utils;
 
 namespace TransferLogger.Ui
 {
@@ -23,11 +23,11 @@ namespace TransferLogger.Ui
                 Log.Information("Settings have been read.");
 
                 Application.ThreadException += new ThreadExceptionEventHandler(OnThreadException);
-#if NET5_0
+#if NET6_0
+                ApplicationConfiguration.Initialize();
+#else
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-#else
-                ApplicationConfiguration.Initialize();
 #endif
                 Log.Information("Application configuration has been initialized.");
                 Log.Information("Creating default data connection configuration.");
@@ -48,7 +48,7 @@ namespace TransferLogger.Ui
             {
                 Log.Error($"{ex.Message}\n{ex.StackTrace}");
 
-                ErrorDialog.Show(ex.Message);
+                ExceptionInfo.Show(ex);
             }
         }
 
@@ -57,7 +57,7 @@ namespace TransferLogger.Ui
         {
             Log.Error(t.Exception, "failed");
 
-            ErrorDialog.Show(t.Exception.Message);
+            ExceptionInfo.Show(t.Exception);
         }
     }
 }

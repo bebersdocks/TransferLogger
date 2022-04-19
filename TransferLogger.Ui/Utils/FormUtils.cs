@@ -9,7 +9,7 @@ using Serilog;
 using TransferLogger.BusinessLogic.Intefaces;
 using TransferLogger.Dal;
 using TransferLogger.Ui.Controls;
-using TransferLogger.Ui.Forms.Dialogs;
+using TransferLogger.Ui.Forms.Utils;
 
 using static System.Windows.Forms.Control;
 
@@ -81,7 +81,7 @@ namespace TransferLogger.Ui.Utils
             {
                 Log.Error(ex, "failed");
 
-                ErrorDialog.Show(ex.Message, "Database Error");
+                ExceptionInfo.Show(ex);
                 
                 return false;
             }

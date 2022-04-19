@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace TransferLogger.Ui.Forms.Dialogs
+namespace TransferLogger.Ui.Forms.Utils
 {
-    public partial class ErrorDialog : Form
+    public partial class ExceptionInfo : Form
     {
-        public ErrorDialog(string message, string title)
+        public ExceptionInfo(string message, string title)
         {
             InitializeComponent();
 
@@ -16,16 +16,9 @@ namespace TransferLogger.Ui.Forms.Dialogs
             SetEvents();
         }
 
-        public static void Show(string message, string title = "Exception")
+        public static void Show(Exception ex)
         {
-            using var errorDlg = new ErrorDialog(message, title);
-
-            errorDlg.ShowDialog();
-        }
-
-        public static void Show(Exception ex, string title = "Exception")
-        {
-            using var errorDlg = new ErrorDialog(ex.Message, title);
+            using var errorDlg = new ExceptionInfo(ex.Message, ex.GetType().ToString());
 
             errorDlg.ShowDialog();
         }
