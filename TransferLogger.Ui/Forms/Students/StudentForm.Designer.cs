@@ -40,13 +40,13 @@ namespace TransferLogger.Ui.Forms.Students
             // 
             this._btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this._btnOk.AutoSize = true;
-            this._btnOk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
+            this._btnOk.BackColor = System.Drawing.Color.White;
             this._btnOk.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
             this._btnOk.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
             this._btnOk.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
             this._btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnOk.ForeColor = System.Drawing.Color.Black;
-            this._btnOk.Location = new System.Drawing.Point(362, 300);
+            this._btnOk.Location = new System.Drawing.Point(362, 285);
             this._btnOk.Name = "_btnOk";
             this._btnOk.Size = new System.Drawing.Size(75, 29);
             this._btnOk.TabIndex = 29;
@@ -58,13 +58,13 @@ namespace TransferLogger.Ui.Forms.Students
             // 
             this._btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this._btnCancel.AutoSize = true;
-            this._btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
+            this._btnCancel.BackColor = System.Drawing.Color.White;
             this._btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
             this._btnCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
             this._btnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
             this._btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnCancel.ForeColor = System.Drawing.Color.Black;
-            this._btnCancel.Location = new System.Drawing.Point(281, 300);
+            this._btnCancel.Location = new System.Drawing.Point(281, 285);
             this._btnCancel.Name = "_btnCancel";
             this._btnCancel.Size = new System.Drawing.Size(75, 29);
             this._btnCancel.TabIndex = 30;
@@ -79,7 +79,7 @@ namespace TransferLogger.Ui.Forms.Students
             | System.Windows.Forms.AnchorStyles.Right)));
             this._pnl.Location = new System.Drawing.Point(12, 24);
             this._pnl.Name = "_pnl";
-            this._pnl.Size = new System.Drawing.Size(445, 260);
+            this._pnl.Size = new System.Drawing.Size(445, 245);
             this._pnl.TabIndex = 31;
             // 
             // StudentForm
@@ -87,13 +87,13 @@ namespace TransferLogger.Ui.Forms.Students
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(469, 341);
+            this.ClientSize = new System.Drawing.Size(469, 326);
             this.Controls.Add(this._pnl);
             this.Controls.Add(this._btnCancel);
             this.Controls.Add(this._btnOk);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(485, 380);
+            this.MinimumSize = new System.Drawing.Size(485, 365);
             this.Name = "StudentForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "New Student";

@@ -157,7 +157,7 @@ namespace TransferLogger.Ui.Forms.Organizations
             this._btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnOk.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._btnOk.ForeColor = System.Drawing.Color.Black;
-            this._btnOk.Location = new System.Drawing.Point(344, 235);
+            this._btnOk.Location = new System.Drawing.Point(344, 215);
             this._btnOk.Name = "_btnOk";
             this._btnOk.Size = new System.Drawing.Size(75, 29);
             this._btnOk.TabIndex = 21;
@@ -193,7 +193,7 @@ namespace TransferLogger.Ui.Forms.Organizations
             this._btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnCancel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._btnCancel.ForeColor = System.Drawing.Color.Black;
-            this._btnCancel.Location = new System.Drawing.Point(263, 235);
+            this._btnCancel.Location = new System.Drawing.Point(263, 215);
             this._btnCancel.Name = "_btnCancel";
             this._btnCancel.Size = new System.Drawing.Size(75, 29);
             this._btnCancel.TabIndex = 23;
@@ -206,7 +206,7 @@ namespace TransferLogger.Ui.Forms.Organizations
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(444, 276);
+            this.ClientSize = new System.Drawing.Size(444, 256);
             this.Controls.Add(this._btnCancel);
             this.Controls.Add(this._btnSelectCountry);
             this.Controls.Add(this._btnOk);
@@ -222,7 +222,7 @@ namespace TransferLogger.Ui.Forms.Organizations
             this.Controls.Add(this._lName);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(460, 315);
+            this.MinimumSize = new System.Drawing.Size(460, 295);
             this.Name = "OrganizationForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "New Organization";

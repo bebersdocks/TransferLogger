@@ -155,7 +155,7 @@ namespace TransferLogger.Ui.Forms.Instructors
             this._btnOk.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
             this._btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnOk.ForeColor = System.Drawing.Color.Black;
-            this._btnOk.Location = new System.Drawing.Point(339, 225);
+            this._btnOk.Location = new System.Drawing.Point(339, 215);
             this._btnOk.Name = "_btnOk";
             this._btnOk.Size = new System.Drawing.Size(75, 29);
             this._btnOk.TabIndex = 28;
@@ -173,9 +173,9 @@ namespace TransferLogger.Ui.Forms.Instructors
             this._btnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
             this._btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnCancel.ForeColor = System.Drawing.Color.Black;
-            this._btnCancel.Location = new System.Drawing.Point(251, 225);
+            this._btnCancel.Location = new System.Drawing.Point(258, 215);
             this._btnCancel.Name = "_btnCancel";
-            this._btnCancel.Size = new System.Drawing.Size(82, 29);
+            this._btnCancel.Size = new System.Drawing.Size(75, 29);
             this._btnCancel.TabIndex = 29;
             this._btnCancel.TabStop = false;
             this._btnCancel.Text = "Cancel";
@@ -186,7 +186,7 @@ namespace TransferLogger.Ui.Forms.Instructors
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(447, 266);
+            this.ClientSize = new System.Drawing.Size(444, 256);
             this.Controls.Add(this._btnCancel);
             this.Controls.Add(this._btnOk);
             this.Controls.Add(this._tbMiddle);
@@ -201,7 +201,7 @@ namespace TransferLogger.Ui.Forms.Instructors
             this.Controls.Add(this._lName);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(463, 305);
+            this.MinimumSize = new System.Drawing.Size(460, 295);
             this.Name = "InstructorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "New Instructor";
