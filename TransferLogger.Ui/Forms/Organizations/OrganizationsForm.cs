@@ -23,6 +23,8 @@ namespace TransferLogger.Ui.Forms.Organizations
     {
         private readonly List<Lookup> _countries = EnumUtils.GetLookups<Country>();
 
+        public OrganizationsForm() : this(OrganizationType.University, Dal.Definitions.Country.CY) {}
+
         public OrganizationsForm(OrganizationType? organizationType = null, Country? country = null)
         {
             InitializeComponent();

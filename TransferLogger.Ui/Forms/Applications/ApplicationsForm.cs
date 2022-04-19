@@ -50,11 +50,11 @@ namespace TransferLogger.Ui.Forms.Applications
 
         private void SetEvents()
         {
-            _miCourses.Click       += (s, e) => ShowForm(() => new CoursesForm());
-            _miInstructors.Click   += (s, e) => ShowForm(() => new InstructorsForm());
-            _miOrganizations.Click += (s, e) => ShowForm(() => new OrganizationsForm());
-            _miPrograms.Click      += (s, e) => ShowForm(() => new ProgramsForm());
-            _miStudents.Click      += (s, e) => ShowForm(() => new StudentsForm());
+            _miCourses.Click       += (s, e) => ShowForm<CoursesForm>();
+            _miInstructors.Click   += (s, e) => ShowForm<InstructorsForm>();
+            _miOrganizations.Click += (s, e) => ShowForm<OrganizationsForm>();
+            _miPrograms.Click      += (s, e) => ShowForm<ProgramsForm>();
+            _miStudents.Click      += (s, e) => ShowForm<StudentsForm>();
 
             _tbSearchName.TextChanged             += (s, e) => SetData();
             _cbOrganizations.SelectedValueChanged += (s, e) => SetData();
@@ -68,6 +68,15 @@ namespace TransferLogger.Ui.Forms.Applications
             _btnSelectOrganization.Click += _btnSelectOrganization_Click;
 
             _gridApps.SelectionChanged += _gridApps_SelectionChanged;
+        }
+
+        private void ShowForm<T>() where T : Form, new()
+        {
+            using var form = new T();
+
+            form.ShowDialog();
+
+            SetData();
         }
 
         private void _btnAdd_Click(object? sender, EventArgs e)

@@ -21,6 +21,8 @@ namespace TransferLogger.Ui.Forms.Courses
     {
         private readonly List<Lookup> _organizations = LookupServices.GetOrganizations();
 
+        public CoursesForm() : this(0, Dal.Definitions.Cycle.Bachelor) {}
+
         public CoursesForm(int? organizationId = null, Cycle? cycle = null)
         {
             InitializeComponent();

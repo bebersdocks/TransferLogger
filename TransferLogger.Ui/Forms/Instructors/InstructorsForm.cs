@@ -4,8 +4,6 @@ using System.Windows.Forms;
 
 using LinqToDB;
 
-using Serilog;
-
 using TransferLogger.BusinessLogic.ViewModels;
 using TransferLogger.Dal;
 using TransferLogger.Ui.Forms.Dialogs;

@@ -643,7 +643,7 @@ namespace TransferLogger.Ui.Forms.Applications
             // Instructor
             // 
             this.Instructor.DataPropertyName = "Instructor";
-            this.Instructor.FillWeight = 115F;
+            this.Instructor.FillWeight = 125F;
             this.Instructor.HeaderText = "Evaluator";
             this.Instructor.Name = "Instructor";
             this.Instructor.ReadOnly = true;

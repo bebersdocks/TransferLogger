@@ -17,13 +17,6 @@ namespace TransferLogger.Ui.Utils
 {
     public static class FormUtils
     {
-        public static void ShowForm<T>(Func<T> getForm) where T : Form
-        {
-            using var form = getForm();
-
-            form.ShowDialog();
-        }
-
         /// <summary>
         /// This method should be used only with homogenous data objects.
         /// Correct: courses grid + form to create or update course, method will trigger update of the grid with new course.
