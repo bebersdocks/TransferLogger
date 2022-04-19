@@ -130,16 +130,18 @@ namespace TransferLogger.BusinessLogic
 
                     newEvaluation.EvaluationStatus   = EvaluationStatus.MatchedByHistory;
                     newEvaluation.CourseId           = evaluation.CourseId;
-                    newEvaluation.MatchedCourseId    = historical.MatchedCourseId;
                     newEvaluation.InstructorId       = historical.InstructorId;
+                    newEvaluation.MatchedCourseId    = historical.MatchedCourseId;
+                    newEvaluation.SuggestedCourseId  = historical.SuggestedCourseId;
                     newEvaluation.LinkedEvaluationId = historical.EvaluationId;
-                    newEvaluation.Comment            = historical.Comment;             
+                    newEvaluation.Comment            = historical.Comment;
                 }
                 else
                 {
-                    newEvaluation.EvaluationStatus = EvaluationStatus.InProcess;
-                    newEvaluation.CourseId         = evaluation.CourseId;
-                    newEvaluation.InstructorId     = evaluation.InstructorId;
+                    newEvaluation.EvaluationStatus  = EvaluationStatus.InProcess;
+                    newEvaluation.CourseId          = evaluation.CourseId;
+                    newEvaluation.InstructorId      = evaluation.InstructorId;
+                    newEvaluation.SuggestedCourseId = evaluation.SuggestedCourseId;
                 }
 
                 dc.InsertWithInt32Identity(newEvaluation);

@@ -102,8 +102,9 @@ CREATE TABLE Evaluation (
 	EvaluationStatus INT NOT NULL,
 	ApplicationId INT NOT NULL,
 	CourseId INT NOT NULL,
-	MatchedCourseId INT NULL,
 	InstructorId INT NOT NULL,
+	SuggestedCourseId INT NULL,
+	MatchedCourseId INT NULL,
 	LinkedEvaluationId INT NULL,
 	Comment NVARCHAR (300) NULL
 );
@@ -111,8 +112,9 @@ CREATE TABLE Evaluation (
 ALTER TABLE Evaluation ADD CONSTRAINT PK_Evaluation PRIMARY KEY (EvaluationId);
 ALTER TABLE Evaluation ADD CONSTRAINT FK_EvaluationApplication FOREIGN KEY (ApplicationId) REFERENCES Application(ApplicationId); 
 ALTER TABLE Evaluation ADD CONSTRAINT FK_EvaluationCourse FOREIGN KEY (CourseId) REFERENCES Course(CourseId);
-ALTER TABLE Evaluation ADD CONSTRAINT FK_EvaluationMatchedCourse FOREIGN KEY (MatchedCourseId) REFERENCES Course(CourseId);
 ALTER TABLE Evaluation ADD CONSTRAINT FK_EvaluationInstructor FOREIGN KEY (InstructorId) REFERENCES Instructor(InstructorId);
+ALTER TABLE Evaluation ADD CONSTRAINT FK_EvaluationSuggestedCourse FOREIGN KEY (SuggestedCourseId) REFERENCES Course(SuggestedCourseId);
+ALTER TABLE Evaluation ADD CONSTRAINT FK_EvaluationMatchedCourse FOREIGN KEY (MatchedCourseId) REFERENCES Course(CourseId);
 ALTER TABLE Evaluation ADD CONSTRAINT FK_EvaluationLinkedEvaluation FOREIGN KEY (LinkedEvaluationId) REFERENCES Evaluation(EvaluationId);
 
 CREATE TABLE DbInfo (

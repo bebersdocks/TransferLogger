@@ -20,8 +20,9 @@ namespace TransferLogger.Dal.DataModels
         [Column, NotNull]      public EvaluationStatus EvaluationStatus   { get; set; }
         [Column, NotNull]      public int              ApplicationId      { get; set; }
         [Column, NotNull]      public int              CourseId           { get; set; }
-        [Column, Nullable]     public int?             MatchedCourseId    { get; set; }
         [Column, NotNull]      public int              InstructorId       { get; set; }
+        [Column, NotNull]      public int?             SuggestedCourseId  { get; set; }
+        [Column, Nullable]     public int?             MatchedCourseId    { get; set; }
         [Column, Nullable]     public int?             LinkedEvaluationId { get; set; }
         [Column, Nullable]     public string           Comment            { get; set; }
 
@@ -33,11 +34,14 @@ namespace TransferLogger.Dal.DataModels
         [Association(ThisKey = nameof(CourseId), OtherKey = nameof(CourseId), Relationship = Relationship.ManyToOne, CanBeNull = false)]
         public Course Course { get; set; }
 
-        [Association(ThisKey = nameof(MatchedCourseId), OtherKey = nameof(CourseId), Relationship = Relationship.ManyToOne, CanBeNull = true)]
-        public Course MatchedCourse { get; set; }
-
         [Association(ThisKey = nameof(InstructorId), OtherKey = nameof(InstructorId), Relationship = Relationship.ManyToOne, CanBeNull = false)]
         public Instructor Instructor { get; set; }
+
+        [Association(ThisKey = nameof(SuggestedCourseId), OtherKey = nameof(CourseId), Relationship = Relationship.ManyToOne, CanBeNull = true)]
+        public Course SuggestedCourse { get; set; }
+
+        [Association(ThisKey = nameof(MatchedCourseId), OtherKey = nameof(CourseId), Relationship = Relationship.ManyToOne, CanBeNull = true)]
+        public Course MatchedCourse { get; set; }
 
         [Association(ThisKey = nameof(LinkedEvaluationId), OtherKey = nameof(EvaluationId), Relationship = Relationship.ManyToOne, CanBeNull = true)]
         public Evaluation LinkedEvaluation { get; set; }
