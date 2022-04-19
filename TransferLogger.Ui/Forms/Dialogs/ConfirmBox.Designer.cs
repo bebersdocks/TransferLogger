@@ -41,11 +41,11 @@
             this._tbMessage.BoxWidth = 325;
             this._tbMessage.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._tbMessage.ForeColor = System.Drawing.Color.Black;
-            this._tbMessage.Location = new System.Drawing.Point(29, 29);
+            this._tbMessage.Location = new System.Drawing.Point(12, 29);
             this._tbMessage.Multiline = true;
             this._tbMessage.Name = "_tbMessage";
             this._tbMessage.ReadOnly = true;
-            this._tbMessage.Size = new System.Drawing.Size(344, 45);
+            this._tbMessage.Size = new System.Drawing.Size(380, 45);
             this._tbMessage.TabIndex = 5;
             this._tbMessage.TabStop = false;
             this._tbMessage.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
