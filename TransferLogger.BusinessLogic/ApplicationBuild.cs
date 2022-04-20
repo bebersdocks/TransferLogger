@@ -104,7 +104,7 @@ namespace TransferLogger.BusinessLogic
             using var dc = new Dc();
 
             if (!dc.Programs.Any(p => p.ProgramId == ProgramId && p.OrganizationId == AppSettings.Instance.OrganizationId))
-                throw new ArgumentOutOfRangeException($"Program ID {ProgramId} is not valid.");
+                throw new ArgumentOutOfRangeException(nameof(ProgramId));
 
             using var tr = dc.BeginTransaction();
 
@@ -150,7 +150,7 @@ namespace TransferLogger.BusinessLogic
                     newEvaluation.EvaluationStatus  = EvaluationStatus.InProcess;
                     newEvaluation.CourseId          = evaluation.CourseId;
                     newEvaluation.InstructorId      = evaluation.InstructorId;
-                    newEvaluation.SuggestedCourseId = evaluation.SuggestedCourseId;
+                    newEvaluation.SuggestedCourseId = evaluation.SuggestedCourseId > 0 ? evaluation.SuggestedCourseId : null;
                 }
 
                 dc.InsertWithInt32Identity(newEvaluation);

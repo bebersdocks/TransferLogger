@@ -16,7 +16,6 @@ using TransferLogger.Ui.Forms.Programs;
 using TransferLogger.Ui.Forms.Students;
 using TransferLogger.Ui.Forms.Utils;
 using TransferLogger.Ui.Properties;
-using static TransferLogger.Ui.Utils.FormUtils;
 
 using Lookup = TransferLogger.BusinessLogic.Lookup;
 

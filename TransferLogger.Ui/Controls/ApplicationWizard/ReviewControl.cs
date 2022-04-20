@@ -31,8 +31,14 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
         {
             using var dc = new Dc();
 
-            _tbStudent.Text      = dc.Students.First(s => s.StudentId == _appBuild.Student.StudentId).DisplayString;
-            _tbOrganization.Text = dc.Organizations.First(o => o.OrganizationId == _appBuild.OrganizationId).DisplayString;
+            _tbStudent.Text = dc.Students
+                .First(s => s.StudentId == _appBuild.Student.StudentId).DisplayString;
+
+            _tbOrganization.Text = dc.Organizations
+                .First(o => o.OrganizationId == _appBuild.OrganizationId).DisplayString;
+
+            _tbTargetProgram.Text = dc.Programs
+                .First(p => p.ProgramId == _appBuild.ProgramId).DisplayString;
 
             _grid.DataSource = _appBuild.Evaluations.Values
                 .Select(e => new BuildEvaluationViewModel(dc, e))

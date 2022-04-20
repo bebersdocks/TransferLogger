@@ -44,7 +44,7 @@ namespace TransferLogger.Ui
 
                 Application.Run(new ApplicationsForm());
             }
-            catch (Exception ex) // handles exceptions before Application.Run()
+            catch (Exception ex) // Handles exceptions before Application.Run()
             {
                 Log.Error($"{ex.Message}\n{ex.StackTrace}");
 

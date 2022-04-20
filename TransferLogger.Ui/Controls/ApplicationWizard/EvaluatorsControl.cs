@@ -10,7 +10,6 @@ using TransferLogger.Ui.Forms;
 using TransferLogger.Ui.Forms.Courses;
 using TransferLogger.Ui.Forms.Dialogs;
 using TransferLogger.Ui.Forms.Instructors;
-using TransferLogger.Ui.Utils;
 
 namespace TransferLogger.Ui.Controls.ApplicationWizard
 {
@@ -156,7 +155,6 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             }
         }
 
-
         private void _grid_CurrentCellDirtyStateChanged(object? sender, EventArgs e)
         {
             _grid.CommitEdit(DataGridViewDataErrorContexts.Commit);
@@ -216,7 +214,12 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
         private void _btnAddInstructors_Click(object? sender, EventArgs e)
         {
-            FormUtils.InsertOrReplace(_grid, id => new InstructorForm(id), () => SetData(), true);
+            using var form = new InstructorForm();
+
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                SetData();
+            }
         }
 
         private void _btnManageInstructors_Click(object? sender, EventArgs e)
@@ -232,7 +235,12 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
         private void _btnAddCourse_Click(object? sender, EventArgs e)
         {
-            FormUtils.InsertOrReplace(_grid, id => new CourseForm(id, AppSettings.Instance.OrganizationId, true, _appBuild.ProgramId), () => SetData(), true);
+            using var form = new CourseForm(0, AppSettings.Instance.OrganizationId, true, _appBuild.ProgramId);
+
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                SetData();
+            }
         }
 
         private void _btnManageCourses_Click(object? sender, EventArgs e)

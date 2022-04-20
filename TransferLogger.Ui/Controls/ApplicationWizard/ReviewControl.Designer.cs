@@ -32,6 +32,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this._splitContainer = new TransferLogger.Ui.Controls.TlSplitContainer();
+            this._tbTargetProgram = new TransferLogger.Ui.Controls.TlTextBox();
+            this._lTargetProgram = new System.Windows.Forms.Label();
             this._lInstructions = new System.Windows.Forms.Label();
             this._tbOrganization = new TransferLogger.Ui.Controls.TlTextBox();
             this._lOrganization = new System.Windows.Forms.Label();
@@ -63,6 +65,8 @@
             // _splitContainer.Panel1
             // 
             this._splitContainer.Panel1.BackColor = System.Drawing.Color.White;
+            this._splitContainer.Panel1.Controls.Add(this._tbTargetProgram);
+            this._splitContainer.Panel1.Controls.Add(this._lTargetProgram);
             this._splitContainer.Panel1.Controls.Add(this._lInstructions);
             this._splitContainer.Panel1.Controls.Add(this._tbOrganization);
             this._splitContainer.Panel1.Controls.Add(this._lOrganization);
@@ -75,8 +79,29 @@
             this._splitContainer.Panel2.Controls.Add(this._lEvaluations);
             this._splitContainer.Panel2.Controls.Add(this._grid);
             this._splitContainer.Size = new System.Drawing.Size(935, 640);
-            this._splitContainer.SplitterDistance = 115;
+            this._splitContainer.SplitterDistance = 143;
             this._splitContainer.TabIndex = 0;
+            // 
+            // _tbTargetProgram
+            // 
+            this._tbTargetProgram.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this._tbTargetProgram.BoxWidth = 325;
+            this._tbTargetProgram.ForeColor = System.Drawing.Color.Black;
+            this._tbTargetProgram.Location = new System.Drawing.Point(129, 105);
+            this._tbTargetProgram.Name = "_tbTargetProgram";
+            this._tbTargetProgram.ReadOnly = true;
+            this._tbTargetProgram.Size = new System.Drawing.Size(325, 23);
+            this._tbTargetProgram.TabIndex = 41;
+            // 
+            // _lTargetProgram
+            // 
+            this._lTargetProgram.AutoSize = true;
+            this._lTargetProgram.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this._lTargetProgram.Location = new System.Drawing.Point(32, 108);
+            this._lTargetProgram.Name = "_lTargetProgram";
+            this._lTargetProgram.Size = new System.Drawing.Size(91, 15);
+            this._lTargetProgram.TabIndex = 42;
+            this._lTargetProgram.Text = "Target Program:";
             // 
             // _lInstructions
             // 
@@ -94,7 +119,7 @@
             this._tbOrganization.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this._tbOrganization.BoxWidth = 325;
             this._tbOrganization.ForeColor = System.Drawing.Color.Black;
-            this._tbOrganization.Location = new System.Drawing.Point(116, 76);
+            this._tbOrganization.Location = new System.Drawing.Point(129, 76);
             this._tbOrganization.Name = "_tbOrganization";
             this._tbOrganization.ReadOnly = true;
             this._tbOrganization.Size = new System.Drawing.Size(325, 23);
@@ -104,7 +129,7 @@
             // 
             this._lOrganization.AutoSize = true;
             this._lOrganization.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lOrganization.Location = new System.Drawing.Point(32, 79);
+            this._lOrganization.Location = new System.Drawing.Point(45, 79);
             this._lOrganization.Name = "_lOrganization";
             this._lOrganization.Size = new System.Drawing.Size(78, 15);
             this._lOrganization.TabIndex = 8;
@@ -115,7 +140,7 @@
             this._tbStudent.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this._tbStudent.BoxWidth = 325;
             this._tbStudent.ForeColor = System.Drawing.Color.Black;
-            this._tbStudent.Location = new System.Drawing.Point(116, 47);
+            this._tbStudent.Location = new System.Drawing.Point(129, 47);
             this._tbStudent.Name = "_tbStudent";
             this._tbStudent.Size = new System.Drawing.Size(325, 23);
             this._tbStudent.TabIndex = 5;
@@ -124,7 +149,7 @@
             // 
             this._lStudent.AutoSize = true;
             this._lStudent.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lStudent.Location = new System.Drawing.Point(59, 50);
+            this._lStudent.Location = new System.Drawing.Point(72, 50);
             this._lStudent.Name = "_lStudent";
             this._lStudent.Size = new System.Drawing.Size(51, 15);
             this._lStudent.TabIndex = 6;
@@ -194,7 +219,7 @@
             this._grid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this._grid.RowHeadersVisible = false;
             this._grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this._grid.Size = new System.Drawing.Size(935, 502);
+            this._grid.Size = new System.Drawing.Size(935, 474);
             this._grid.TabIndex = 16;
             // 
             // Course
@@ -256,5 +281,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Evaluator;
         private System.Windows.Forms.DataGridViewTextBoxColumn SuggestedOrMatched;
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
+        private TlTextBox _tbTargetProgram;
+        private System.Windows.Forms.Label _lTargetProgram;
     }
 }
