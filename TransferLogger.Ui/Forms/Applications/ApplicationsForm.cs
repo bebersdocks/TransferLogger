@@ -15,7 +15,7 @@ using TransferLogger.Ui.Forms.Organizations;
 using TransferLogger.Ui.Forms.Programs;
 using TransferLogger.Ui.Forms.Students;
 using TransferLogger.Ui.Forms.Utils;
-
+using TransferLogger.Ui.Properties;
 using static TransferLogger.Ui.Utils.FormUtils;
 
 using Lookup = TransferLogger.BusinessLogic.Lookup;
@@ -35,6 +35,8 @@ namespace TransferLogger.Ui.Forms.Applications
 
             SetData();
             SetEvents();
+
+            ToggleCourses(true);
         }
 
         public void SetData()
@@ -62,6 +64,8 @@ namespace TransferLogger.Ui.Forms.Applications
             _dtFrom.ValueChanged                  += (s, e) => SetData();
             _dtTo.ValueChanged                    += (s, e) => SetData();
 
+            _btnToggleCourses.Click += (s, e) => ToggleCourses();
+
             _btnAdd.Click                += _btnAdd_Click;
             _btnExportExcel.Click        += _btnExportExcel_Click;
             _btnSendEmail.Click          += _btnSendEmail_Click;
@@ -77,6 +81,16 @@ namespace TransferLogger.Ui.Forms.Applications
             form.ShowDialog();
 
             SetData();
+        }
+
+        private void ToggleCourses(bool? collapsed = null)
+        {
+            _splitContainerBottom.Panel2Collapsed = collapsed ?? !_splitContainerBottom.Panel2Collapsed;
+
+            if (_splitContainerBottom.Panel2Collapsed)
+                _btnToggleCourses.BackgroundImage = Resources.expand_arrow;
+            else
+                _btnToggleCourses.BackgroundImage = Resources.collapse_arrow;
         }
 
         private void _btnAdd_Click(object? sender, EventArgs e)

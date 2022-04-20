@@ -39,6 +39,7 @@ namespace TransferLogger.Ui.Forms.Applications
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ApplicationsForm));
             this._splitContainerForm = new TransferLogger.Ui.Controls.TlSplitContainer();
             this._pnlFilters = new System.Windows.Forms.Panel();
+            this._btnToggleCourses = new TransferLogger.Ui.Controls.TlButton();
             this._btnSendEmail = new TransferLogger.Ui.Controls.TlButton();
             this._btnEditLocations = new TransferLogger.Ui.Controls.TlButton();
             this._btnExportExcel = new TransferLogger.Ui.Controls.TlButton();
@@ -125,6 +126,7 @@ namespace TransferLogger.Ui.Forms.Applications
             | System.Windows.Forms.AnchorStyles.Right)));
             this._pnlFilters.BackColor = System.Drawing.Color.White;
             this._pnlFilters.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this._pnlFilters.Controls.Add(this._btnToggleCourses);
             this._pnlFilters.Controls.Add(this._btnSendEmail);
             this._pnlFilters.Controls.Add(this._btnEditLocations);
             this._pnlFilters.Controls.Add(this._btnExportExcel);
@@ -145,6 +147,26 @@ namespace TransferLogger.Ui.Forms.Applications
             this._pnlFilters.Name = "_pnlFilters";
             this._pnlFilters.Size = new System.Drawing.Size(1236, 117);
             this._pnlFilters.TabIndex = 1;
+            // 
+            // _btnToggleCourses
+            // 
+            this._btnToggleCourses.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this._btnToggleCourses.AutoSize = true;
+            this._btnToggleCourses.BackColor = System.Drawing.Color.White;
+            this._btnToggleCourses.BackgroundImage = global::TransferLogger.Ui.Properties.Resources.collapse_arrow;
+            this._btnToggleCourses.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this._btnToggleCourses.Cursor = System.Windows.Forms.Cursors.Hand;
+            this._btnToggleCourses.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
+            this._btnToggleCourses.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
+            this._btnToggleCourses.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
+            this._btnToggleCourses.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._btnToggleCourses.ForeColor = System.Drawing.Color.Black;
+            this._btnToggleCourses.Location = new System.Drawing.Point(1187, 69);
+            this._btnToggleCourses.Name = "_btnToggleCourses";
+            this._btnToggleCourses.Size = new System.Drawing.Size(32, 32);
+            this._btnToggleCourses.TabIndex = 39;
+            this._btnToggleCourses.TabStop = false;
+            this._btnToggleCourses.UseVisualStyleBackColor = false;
             // 
             // _btnSendEmail
             // 
@@ -739,5 +761,6 @@ namespace TransferLogger.Ui.Forms.Applications
         private DataGridViewTextBoxColumn TargetProgram;
         private DataGridViewTextBoxColumn Date;
         private DataGridViewTextBoxColumn Status;
+        private Controls.TlButton _btnToggleCourses;
     }
 }
