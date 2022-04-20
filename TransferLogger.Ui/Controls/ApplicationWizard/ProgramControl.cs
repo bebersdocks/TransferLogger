@@ -153,25 +153,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             }
             else
             {
-                // Remove any sugged courses which do not belong to current program selection.
-                // This might occur if user selected program, assigned suggested courses and then stepped back and changed target program.
-                if (_appBuild.Evaluations.Any())
-                {
-                    using var dc = new Dc();
-
-                    var programCourseIds = dc.Courses
-                        .Where(c => c.ProgramId == _appBuild.ProgramId)
-                        .Select(c => c.CourseId)
-                        .ToHashSet();
-
-                    foreach (var evaluation in _appBuild.Evaluations.Values)
-                    {
-                        if (evaluation.SuggestedCourseId != 0 && !programCourseIds.Contains(evaluation.SuggestedCourseId))
-                        {
-                            evaluation.SuggestedCourseId = 0;
-                        }
-                    }
-                }
+                _appBuild.CleanObsoleteResources();
 
                 return true;
             }

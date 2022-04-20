@@ -180,6 +180,8 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
             form.ShowDialog();
 
+            _appBuild.CleanObsoleteResources();
+
             SetPrograms();
         }
 
@@ -199,20 +201,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
             form.ShowDialog();
 
-            using var dc = new Dc();
-
-            var courseIds = dc.Courses
-                .Select(c => c.CourseId)
-                .ToHashSet();
-
-            // Remove courses for evaluation which no longer exist.
-            foreach (var courseId in _appBuild.CourseIds)
-            {
-                if (!courseIds.Contains(courseId))
-                {
-                    _appBuild.Evaluations.Remove(courseId);
-                }
-            }
+            _appBuild.CleanObsoleteResources();
 
             SetData();
         }

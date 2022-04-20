@@ -102,6 +102,10 @@ namespace TransferLogger.BusinessLogic
         public int Insert()
         {
             using var dc = new Dc();
+
+            if (!dc.Programs.Any(p => p.ProgramId == ProgramId && p.OrganizationId == AppSettings.Instance.OrganizationId))
+                throw new ArgumentOutOfRangeException($"Program ID {ProgramId} is not valid.");
+
             using var tr = dc.BeginTransaction();
 
             var app = new Application();
@@ -155,6 +159,51 @@ namespace TransferLogger.BusinessLogic
             tr.Commit();
 
             return appId;
+        }
+
+        /// <summary>
+        /// Remove values which are no longer valid, exist or do not correlate with current selections.
+        /// This might occur if user selected program, assigned suggested courses and then stepped back and changed target program.
+        /// It also applies for deleted entities while inside application wizard.
+        /// </summary>
+        public void CleanObsoleteResources()
+        {
+            if (!Evaluations.Any())
+                return;
+
+            using var dc = new Dc();
+
+            var organizationCourseIds = dc.Courses
+                .Where(c => c.OrganizationId == OrganizationId)
+                .Select(c => c.CourseId)
+                .ToList();
+
+            var programCourseIds = dc.Courses
+                .Where(c => c.ProgramId == ProgramId)
+                .Select(c => c.CourseId)
+                .ToList();
+
+            var instructorIds = dc.Instructors
+                .Select(i => i.InstructorId)
+                .ToList();
+
+            foreach (var courseId in CourseIds)
+            {
+                if (!organizationCourseIds.Contains(courseId))
+                {
+                    Evaluations.Remove(courseId);
+
+                    continue;
+                }
+
+                var evaluation = Evaluations[courseId];
+
+                if (!programCourseIds.Contains(evaluation.SuggestedCourseId))
+                    evaluation.SuggestedCourseId = 0;
+                
+                if (!instructorIds.Contains(evaluation.InstructorId))
+                    evaluation.InstructorId = 0;
+            }
         }
     }
 }
