@@ -11,19 +11,19 @@ namespace TransferLogger.BusinessLogic.ViewModels.Organizations
 {
     public class OrganizationViewModel : IIdentifiable
     {
-        public int    Id          { get; set; }
-        public string Type        { get; set; }
-        public string Name        { get; set; }
-        public string Country     { get; set; }
-        public string Url         { get; set; }
+        public int    Id      { get; set; }
+        public string Type    { get; set; }
+        public string Name    { get; set; }
+        public string Country { get; set; }
+        public string Url     { get; set; }
 
         public OrganizationViewModel(Organization organization)
         {
-            Id          = organization.OrganizationId;
-            Type        = organization.OrganizationType.GetDisplayName();
-            Name        = organization.DisplayString;
-            Country     = organization.Country.GetDisplayName();
-            Url         = organization.Url;
+            Id      = organization.OrganizationId;
+            Type    = organization.OrganizationType.GetDisplayName();
+            Name    = organization.DisplayString;
+            Country = organization.Country.GetDisplayName();
+            Url     = organization.Url;
         }
 
         protected static IQueryable<Organization> GetQuery(Dc dc, string searchName = "", OrganizationType? organizationType = null, Country? country = null)

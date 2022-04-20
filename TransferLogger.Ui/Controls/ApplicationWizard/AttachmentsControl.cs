@@ -57,8 +57,8 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             {
                 var fileName = fileDialog.FileName;
 
-                if (!fileName.EndsWith(".xls"))
-                    fileName += ".xls";
+                if (!fileName.EndsWith(".xlsx"))
+                    fileName += ".xlsx";
 
                 _tbExcelLocation.Text = _appBuild.ExcelLocation = fileName;
             }

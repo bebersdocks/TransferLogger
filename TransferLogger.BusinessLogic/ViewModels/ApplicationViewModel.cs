@@ -18,6 +18,7 @@ namespace TransferLogger.BusinessLogic.ViewModels
         public string                    StatusDisplayName { get; set; }
         public string                    Student           { get; set; }
         public string                    Organization      { get; set; }
+        public string                    TargetProgram     { get; set; }
         public DateTime                  CreatedAt         { get; set; }
         public DateTime?                 UpdatedAt         { get; set; }
         public DateTime?                 CompletedAt       { get; set; }
@@ -30,6 +31,7 @@ namespace TransferLogger.BusinessLogic.ViewModels
             StatusDisplayName = app.ApplicationStatus.GetDisplayName();
             Student           = app.Student.DisplayString;
             Organization      = app.SourceOrganization.DisplayString;
+            TargetProgram     = app.TargetProgram.DisplayString;
             CreatedAt         = app.CreatedAt.ToLocalTime();
             UpdatedAt         = app.UpdatedAt?.ToLocalTime() ?? null;
             CompletedAt       = app.CompletedAt?.ToLocalTime() ?? null;
@@ -67,6 +69,7 @@ namespace TransferLogger.BusinessLogic.ViewModels
             return query
                 .LoadWith(a => a.Student)
                 .LoadWith(a => a.SourceOrganization)
+                .LoadWith(a => a.TargetProgram)
                 .LoadWith(a => a.Evaluations)
                 .ThenLoad(e => e.Course)
                 .LoadWith(a => a.Evaluations)

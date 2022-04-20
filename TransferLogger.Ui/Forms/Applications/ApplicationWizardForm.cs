@@ -25,6 +25,7 @@ namespace TransferLogger.Ui.Forms.Applications
             _wizardControls = new Dictionary<BuildStep, IWizardControl>
             {
                 { BuildStep.Student, new StudentControl(_appBuild) },
+                { BuildStep.Program, new ProgramControl(_appBuild) },
                 { BuildStep.Organization, new OrganizationControl(_appBuild) },
                 { BuildStep.Courses, new CoursesControl(_appBuild) },
                 { BuildStep.HistoricalEvaluations, new HistoricalEvaluationsControl(_appBuild) },
@@ -84,10 +85,24 @@ namespace TransferLogger.Ui.Forms.Applications
         private void NextStep()
         {
             var nextStep = _appBuild.GetNextStep();
+
             if (nextStep.HasValue)
-                SetCurrentStep(nextStep.Value);
+            {
+                try
+                {
+                    SetCurrentStep(nextStep.Value);
+                }
+                catch (Exception)
+                {
+                    Back(); // Revert step back if move failed.
+
+                    throw;
+                }
+            }
             else
+            {
                 CreateApplication();
+            }
         }
 
         private void Back()

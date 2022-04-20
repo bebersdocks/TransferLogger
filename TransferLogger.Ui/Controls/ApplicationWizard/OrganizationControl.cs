@@ -173,13 +173,14 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
                     var courseIds = _appBuild.CourseIds;
 
-                    var courseOrganizations = dc.Courses
-                        .Where(c => courseIds.Contains(c.CourseId))
-                        .ToDictionary(c => c.CourseId, c => c.OrganizationId);
+                    var organizationCourseIds = dc.Courses
+                        .Where(c => c.OrganizationId == _appBuild.OrganizationId)
+                        .Select(c => c.CourseId)
+                        .ToHashSet();
 
                     foreach (var courseId in courseIds)
                     {
-                        if (courseOrganizations[courseId] != _appBuild.OrganizationId)
+                        if (organizationCourseIds.Contains(courseId))
                         {
                             _appBuild.Evaluations.Remove(courseId);
                         }

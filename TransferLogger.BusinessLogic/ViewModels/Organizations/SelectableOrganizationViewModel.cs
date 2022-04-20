@@ -12,7 +12,8 @@ namespace TransferLogger.BusinessLogic.ViewModels.Organizations
     {
         public bool Selected { get; set; }
 
-        public SelectableOrganizationViewModel(Organization organization, bool selected) : base(organization)
+        public SelectableOrganizationViewModel(Organization organization, bool selected) 
+            : base(organization)
         {
             Selected = selected;
         }

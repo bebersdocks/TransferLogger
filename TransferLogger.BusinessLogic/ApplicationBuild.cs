@@ -14,12 +14,13 @@ namespace TransferLogger.BusinessLogic
     public enum BuildStep
     {
         Student               = 0,
-        Organization          = 1,
-        Courses               = 2,
-        HistoricalEvaluations = 3,
-        Evaluators            = 4,
-        Attachments           = 5,
-        Review                = 6
+        Program               = 1,
+        Organization          = 2,
+        Courses               = 3,
+        HistoricalEvaluations = 4,
+        Evaluators            = 5,
+        Attachments           = 6,
+        Review                = 7
     }
 
     public class ApplicationEvaluation
@@ -32,6 +33,7 @@ namespace TransferLogger.BusinessLogic
 
     public class ApplicationBuild
     {
+        public int       ProgramId      { get; set; }
         public int       OrganizationId { get; set; }
         public string    ExcelLocation  { get; set; }
         public BuildStep CurrentStep    { get; set; }
@@ -71,7 +73,8 @@ namespace TransferLogger.BusinessLogic
         {
             return CurrentStep switch
             {
-                BuildStep.Student => BuildStep.Organization,
+                BuildStep.Student => BuildStep.Program,
+                BuildStep.Program => BuildStep.Organization,
                 BuildStep.Organization => BuildStep.Courses,
                 BuildStep.Courses when AnyHistoricalEvaluations() => BuildStep.HistoricalEvaluations,
                 BuildStep.Courses or BuildStep.HistoricalEvaluations => BuildStep.Evaluators,
@@ -91,6 +94,7 @@ namespace TransferLogger.BusinessLogic
                 BuildStep.Evaluators => BuildStep.Courses,
                 BuildStep.HistoricalEvaluations => BuildStep.Courses,
                 BuildStep.Courses => BuildStep.Organization,
+                BuildStep.Organization => BuildStep.Program,
                 _ => BuildStep.Student
             };
         }
@@ -106,6 +110,7 @@ namespace TransferLogger.BusinessLogic
             app.StudentId            = Student.StudentId;
             app.SourceOrganizationId = OrganizationId;
             app.TargetOrganizationId = AppSettings.Instance.OrganizationId;
+            app.TargetProgramId      = ProgramId;
             app.ExcelLocation        = ExcelLocation?.Trim() ?? string.Empty;
             app.CreatedAt            = DateTime.UtcNow;
 

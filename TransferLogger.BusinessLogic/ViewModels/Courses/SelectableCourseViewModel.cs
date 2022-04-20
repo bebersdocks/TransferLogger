@@ -14,7 +14,8 @@ namespace TransferLogger.BusinessLogic.ViewModels.Courses
     {
         public bool Selected { get; set; }
 
-        public SelectableCourseViewModel(Course course, bool selected) : base(course)
+        public SelectableCourseViewModel(Course course, bool selected) 
+            : base(course)
         {
             Selected = selected;
         }

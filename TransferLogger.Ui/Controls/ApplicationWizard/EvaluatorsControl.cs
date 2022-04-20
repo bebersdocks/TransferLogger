@@ -78,7 +78,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
         {
             var column = GetComboBoxColumn();
 
-            var suggestedCourses = LookupServices.GetCourses(AppSettings.Instance.OrganizationId);
+            var suggestedCourses = LookupServices.GetCourses(AppSettings.Instance.OrganizationId, _appBuild.ProgramId);
 
             suggestedCourses.Insert(0, new Lookup(0, "None"));
 
@@ -96,7 +96,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             _cbSuggestedCourses.SelectedValueChanged -= OnValuesChanges;
 
             _cbEvaluators.FillLookups(LookupServices.GetInstructors());
-            _cbSuggestedCourses.FillLookups(LookupServices.GetCourses(AppSettings.Instance.OrganizationId));
+            _cbSuggestedCourses.FillLookups(LookupServices.GetCourses(AppSettings.Instance.OrganizationId, _appBuild.ProgramId));
 
             _cbEvaluators.SelectedValueChanged       += OnValuesChanges;
             _cbSuggestedCourses.SelectedValueChanged += OnValuesChanges;
@@ -197,7 +197,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
         private void _btnSelectSuggestedCourse_Click(object? sender, EventArgs e)
         {
-            var suggestedCourses = LookupServices.GetCourses(AppSettings.Instance.OrganizationId);
+            var suggestedCourses = LookupServices.GetCourses(AppSettings.Instance.OrganizationId, _appBuild.ProgramId);
 
             using var form = new LookupSelectionForm("Select Suggested Course", suggestedCourses, _cbSuggestedCourses.SelectedValue);
 

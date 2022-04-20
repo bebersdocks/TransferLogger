@@ -65,12 +65,12 @@ namespace TransferLogger.BusinessLogic
             return GetPrograms((int?)organizationIdObj ?? 0, cycle);
         }
 
-        public static List<Lookup> GetCourses(int organizationId)
+        public static List<Lookup> GetCourses(int organizationId, int programId)
         {
             using var dc = new Dc();
 
             return dc.Courses
-                .Where(c => c.OrganizationId == organizationId)
+                .Where(c => c.OrganizationId == organizationId && c.ProgramId == programId)
                 .Select(c => new Lookup(c.CourseId, c.DisplayString))
                 .ToList();
         }

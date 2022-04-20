@@ -6,7 +6,7 @@ using System.Windows.Forms;
 using LinqToDB;
 
 using TransferLogger.BusinessLogic;
-using TransferLogger.BusinessLogic.ViewModels;
+using TransferLogger.BusinessLogic.ViewModels.Programs;
 using TransferLogger.Dal;
 using TransferLogger.Dal.Definitions;
 using TransferLogger.Ui.Controls;

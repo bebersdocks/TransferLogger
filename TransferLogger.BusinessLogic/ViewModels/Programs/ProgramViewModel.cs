@@ -8,7 +8,7 @@ using TransferLogger.Dal;
 using TransferLogger.Dal.DataModels;
 using TransferLogger.Dal.Definitions;
 
-namespace TransferLogger.BusinessLogic.ViewModels
+namespace TransferLogger.BusinessLogic.ViewModels.Programs
 {
     public class ProgramViewModel : IIdentifiable
     {
@@ -27,10 +27,8 @@ namespace TransferLogger.BusinessLogic.ViewModels
             Year         = program.Year;
         }
 
-        public static List<ProgramViewModel> GetList(string searchName = "", int organizationId = 0, Cycle? cycle = null)
+        protected static IQueryable<Program> GetQuery(Dc dc, string searchName = "", int organizationId = 0, Cycle? cycle = null)
         {
-            using var dc = new Dc();
-
             var query = dc.Programs.AsQueryable();
 
             if (!string.IsNullOrEmpty(searchName))
@@ -42,7 +40,14 @@ namespace TransferLogger.BusinessLogic.ViewModels
             if (cycle.HasValue)
                 query = query.Where(p => p.Cycle == cycle.Value);
 
-            return query
+            return query;
+        }
+
+        public static List<ProgramViewModel> GetList(string searchName = "", int organizationId = 0, Cycle? cycle = null)
+        {
+            using var dc = new Dc();
+
+            return GetQuery(dc, searchName, organizationId, cycle)
                 .Select(p => new ProgramViewModel(p, p.Organization))
                 .ToList();
         }

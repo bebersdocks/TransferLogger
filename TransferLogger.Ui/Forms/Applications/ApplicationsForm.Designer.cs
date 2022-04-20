@@ -69,6 +69,7 @@ namespace TransferLogger.Ui.Forms.Applications
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Student = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Organization = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TargetProgram = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._pnlApplications = new System.Windows.Forms.Panel();
@@ -427,7 +428,6 @@ namespace TransferLogger.Ui.Forms.Applications
             this._splitContainerBottom.BackColor = System.Drawing.Color.GhostWhite;
             this._splitContainerBottom.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this._splitContainerBottom.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._splitContainerBottom.IsSplitterFixed = true;
             this._splitContainerBottom.Location = new System.Drawing.Point(0, 0);
             this._splitContainerBottom.Name = "_splitContainerBottom";
             // 
@@ -439,7 +439,7 @@ namespace TransferLogger.Ui.Forms.Applications
             // 
             this._splitContainerBottom.Panel2.Controls.Add(this._pnlApplications);
             this._splitContainerBottom.Size = new System.Drawing.Size(1234, 573);
-            this._splitContainerBottom.SplitterDistance = 839;
+            this._splitContainerBottom.SplitterDistance = 891;
             this._splitContainerBottom.TabIndex = 0;
             // 
             // _pnlCourses
@@ -450,7 +450,7 @@ namespace TransferLogger.Ui.Forms.Applications
             this._pnlCourses.Dock = System.Windows.Forms.DockStyle.Fill;
             this._pnlCourses.Location = new System.Drawing.Point(0, 0);
             this._pnlCourses.Name = "_pnlCourses";
-            this._pnlCourses.Size = new System.Drawing.Size(835, 569);
+            this._pnlCourses.Size = new System.Drawing.Size(887, 569);
             this._pnlCourses.TabIndex = 1;
             // 
             // _lApplications
@@ -460,7 +460,7 @@ namespace TransferLogger.Ui.Forms.Applications
             this._lApplications.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._lApplications.Location = new System.Drawing.Point(0, 0);
             this._lApplications.Name = "_lApplications";
-            this._lApplications.Size = new System.Drawing.Size(835, 20);
+            this._lApplications.Size = new System.Drawing.Size(887, 20);
             this._lApplications.TabIndex = 1;
             this._lApplications.Text = "Applications";
             this._lApplications.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -492,6 +492,7 @@ namespace TransferLogger.Ui.Forms.Applications
             this.Id,
             this.Student,
             this.Organization,
+            this.TargetProgram,
             this.Date,
             this.Status});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -517,7 +518,7 @@ namespace TransferLogger.Ui.Forms.Applications
             this._gridApps.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this._gridApps.RowHeadersVisible = false;
             this._gridApps.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this._gridApps.Size = new System.Drawing.Size(839, 550);
+            this._gridApps.Size = new System.Drawing.Size(891, 550);
             this._gridApps.TabIndex = 0;
             // 
             // Id
@@ -543,6 +544,14 @@ namespace TransferLogger.Ui.Forms.Applications
             this.Organization.Name = "Organization";
             this.Organization.ReadOnly = true;
             // 
+            // TargetProgram
+            // 
+            this.TargetProgram.DataPropertyName = "TargetProgram";
+            this.TargetProgram.FillWeight = 155F;
+            this.TargetProgram.HeaderText = "Target Program";
+            this.TargetProgram.Name = "TargetProgram";
+            this.TargetProgram.ReadOnly = true;
+            // 
             // Date
             // 
             this.Date.DataPropertyName = "CreatedAt";
@@ -565,7 +574,7 @@ namespace TransferLogger.Ui.Forms.Applications
             this._pnlApplications.Dock = System.Windows.Forms.DockStyle.Fill;
             this._pnlApplications.Location = new System.Drawing.Point(0, 0);
             this._pnlApplications.Name = "_pnlApplications";
-            this._pnlApplications.Size = new System.Drawing.Size(387, 569);
+            this._pnlApplications.Size = new System.Drawing.Size(335, 569);
             this._pnlApplications.TabIndex = 0;
             // 
             // _lAppCourses
@@ -575,7 +584,7 @@ namespace TransferLogger.Ui.Forms.Applications
             this._lAppCourses.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._lAppCourses.Location = new System.Drawing.Point(0, 0);
             this._lAppCourses.Name = "_lAppCourses";
-            this._lAppCourses.Size = new System.Drawing.Size(387, 20);
+            this._lAppCourses.Size = new System.Drawing.Size(335, 20);
             this._lAppCourses.TabIndex = 2;
             this._lAppCourses.Text = "Courses";
             this._lAppCourses.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -630,7 +639,7 @@ namespace TransferLogger.Ui.Forms.Applications
             this._gridAppCourses.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this._gridAppCourses.RowHeadersVisible = false;
             this._gridAppCourses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this._gridAppCourses.Size = new System.Drawing.Size(393, 550);
+            this._gridAppCourses.Size = new System.Drawing.Size(341, 550);
             this._gridAppCourses.TabIndex = 1;
             // 
             // CourseCode
@@ -721,13 +730,14 @@ namespace TransferLogger.Ui.Forms.Applications
         private Controls.TlButton _btnEditLocations;
         private Controls.TlButton _btnExportExcel;
         private Controls.TlButton _btnSendEmail;
-        private DataGridViewTextBoxColumn Id;
-        private DataGridViewTextBoxColumn Student;
-        private DataGridViewTextBoxColumn Organization;
-        private DataGridViewTextBoxColumn Date;
-        private DataGridViewTextBoxColumn Status;
         private DataGridViewTextBoxColumn CourseCode;
         private DataGridViewTextBoxColumn Instructor;
         private DataGridViewTextBoxColumn EvaluationStatus;
+        private DataGridViewTextBoxColumn Id;
+        private DataGridViewTextBoxColumn Student;
+        private DataGridViewTextBoxColumn Organization;
+        private DataGridViewTextBoxColumn TargetProgram;
+        private DataGridViewTextBoxColumn Date;
+        private DataGridViewTextBoxColumn Status;
     }
 }

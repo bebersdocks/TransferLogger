@@ -10,7 +10,6 @@ namespace TransferLogger.Ui.Controls
             BackColor        = Color.GhostWhite;
             BorderStyle      = BorderStyle.None;
             Dock             = DockStyle.Fill;
-            IsSplitterFixed  = true;
             Panel1.BackColor = Color.White;
             Panel2.BackColor = Color.White;
         }
