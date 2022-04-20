@@ -36,7 +36,7 @@ namespace TransferLogger.Ui.Forms.Applications
             SetData();
             SetEvents();
 
-            ToggleCourses(true);
+            ToggleEvaluations(true);
         }
 
         public void SetData()
@@ -64,7 +64,7 @@ namespace TransferLogger.Ui.Forms.Applications
             _dtFrom.ValueChanged                  += (s, e) => SetData();
             _dtTo.ValueChanged                    += (s, e) => SetData();
 
-            _btnToggleCourses.Click += (s, e) => ToggleCourses();
+            _btnToggleCourses.Click += (s, e) => ToggleEvaluations();
 
             _btnAdd.Click                += _btnAdd_Click;
             _btnExportExcel.Click        += _btnExportExcel_Click;
@@ -83,7 +83,7 @@ namespace TransferLogger.Ui.Forms.Applications
             SetData();
         }
 
-        private void ToggleCourses(bool? collapsed = null)
+        private void ToggleEvaluations(bool? collapsed = null)
         {
             _splitContainerBottom.Panel2Collapsed = collapsed ?? !_splitContainerBottom.Panel2Collapsed;
 
@@ -147,7 +147,7 @@ namespace TransferLogger.Ui.Forms.Applications
         {
             if (_gridApps.CurrentRow?.DataBoundItem is ApplicationViewModel viewModel)
             {
-                _gridAppCourses.DataSource = viewModel.Evaluations;
+                _gridAppEvaluations.DataSource = viewModel.Evaluations;
             }
         }
     }
