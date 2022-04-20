@@ -40,7 +40,7 @@ namespace TransferLogger.Dal.DataModels.Applications
         public Organization TargetOrganization { get; set; }
 
         [Association(ThisKey = nameof(TargetProgramId), OtherKey = nameof(Program.ProgramId), Relationship = Relationship.ManyToOne, CanBeNull = false)]
-        public Organization TargetProgram { get; set; }
+        public Program TargetProgram { get; set; }
 
         [Association(ThisKey = nameof(ApplicationId), OtherKey = nameof(ApplicationId), Relationship = Relationship.OneToMany)]
         public IEnumerable<Evaluation> Evaluations { get; set; }
