@@ -115,7 +115,7 @@ ALTER TABLE Evaluation ADD CONSTRAINT PK_Evaluation PRIMARY KEY (EvaluationId);
 ALTER TABLE Evaluation ADD CONSTRAINT FK_EvaluationApplication FOREIGN KEY (ApplicationId) REFERENCES Application(ApplicationId); 
 ALTER TABLE Evaluation ADD CONSTRAINT FK_EvaluationCourse FOREIGN KEY (CourseId) REFERENCES Course(CourseId);
 ALTER TABLE Evaluation ADD CONSTRAINT FK_EvaluationInstructor FOREIGN KEY (InstructorId) REFERENCES Instructor(InstructorId);
-ALTER TABLE Evaluation ADD CONSTRAINT FK_EvaluationSuggestedCourse FOREIGN KEY (SuggestedCourseId) REFERENCES Course(SuggestedCourseId);
+ALTER TABLE Evaluation ADD CONSTRAINT FK_EvaluationSuggestedCourse FOREIGN KEY (SuggestedCourseId) REFERENCES Course(CourseId);
 ALTER TABLE Evaluation ADD CONSTRAINT FK_EvaluationMatchedCourse FOREIGN KEY (MatchedCourseId) REFERENCES Course(CourseId);
 ALTER TABLE Evaluation ADD CONSTRAINT FK_EvaluationLinkedEvaluation FOREIGN KEY (LinkedEvaluationId) REFERENCES Evaluation(EvaluationId);
 
