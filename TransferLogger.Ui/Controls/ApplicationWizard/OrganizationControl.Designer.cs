@@ -42,11 +42,11 @@
             this._cbOrganizationTypes = new TransferLogger.Ui.Controls.TlDropDownList();
             this._lOrganizationType = new System.Windows.Forms.Label();
             this._grid = new TransferLogger.Ui.Controls.TlDataGrid();
-            this._tbSearchName = new TransferLogger.Ui.Controls.TlTextBox();
             this.Selected = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.OrganizationName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Country = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._tbSearchName = new TransferLogger.Ui.Controls.TlTextBox();
             ((System.ComponentModel.ISupportInitialize)(this._splitContainer)).BeginInit();
             this._splitContainer.Panel1.SuspendLayout();
             this._splitContainer.Panel2.SuspendLayout();
@@ -99,7 +99,6 @@
             // 
             // _btnManage
             // 
-            this._btnManage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this._btnManage.AutoSize = true;
             this._btnManage.BackColor = System.Drawing.Color.White;
             this._btnManage.BackgroundImage = global::TransferLogger.Ui.Properties.Resources.grid;
@@ -119,7 +118,6 @@
             // 
             // _btnAdd
             // 
-            this._btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this._btnAdd.AutoSize = true;
             this._btnAdd.BackColor = System.Drawing.Color.White;
             this._btnAdd.BackgroundImage = global::TransferLogger.Ui.Properties.Resources.add;
@@ -259,18 +257,6 @@
             this._grid.Size = new System.Drawing.Size(828, 382);
             this._grid.TabIndex = 5;
             // 
-            // _tbSearchName
-            // 
-            this._tbSearchName.BackColor = System.Drawing.Color.GhostWhite;
-            this._tbSearchName.BoxWidth = 325;
-            this._tbSearchName.Dock = System.Windows.Forms.DockStyle.Top;
-            this._tbSearchName.ForeColor = System.Drawing.Color.Black;
-            this._tbSearchName.Location = new System.Drawing.Point(0, 0);
-            this._tbSearchName.Name = "_tbSearchName";
-            this._tbSearchName.PlaceholderText = "Type here to filter organizations";
-            this._tbSearchName.Size = new System.Drawing.Size(828, 23);
-            this._tbSearchName.TabIndex = 1;
-            // 
             // Selected
             // 
             this.Selected.DataPropertyName = "Selected";
@@ -304,6 +290,18 @@
             this.Country.HeaderText = "Country";
             this.Country.Name = "Country";
             this.Country.ReadOnly = true;
+            // 
+            // _tbSearchName
+            // 
+            this._tbSearchName.BackColor = System.Drawing.Color.GhostWhite;
+            this._tbSearchName.BoxWidth = 325;
+            this._tbSearchName.Dock = System.Windows.Forms.DockStyle.Top;
+            this._tbSearchName.ForeColor = System.Drawing.Color.Black;
+            this._tbSearchName.Location = new System.Drawing.Point(0, 0);
+            this._tbSearchName.Name = "_tbSearchName";
+            this._tbSearchName.PlaceholderText = "Type here to filter organizations";
+            this._tbSearchName.Size = new System.Drawing.Size(828, 23);
+            this._tbSearchName.TabIndex = 1;
             // 
             // OrganizationControl
             // 

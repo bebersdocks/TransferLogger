@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this._splitContainer = new TransferLogger.Ui.Controls.TlSplitContainer();
             this._gbManageOrganizations = new System.Windows.Forms.GroupBox();
             this._btnManage = new TransferLogger.Ui.Controls.TlButton();
@@ -39,11 +39,11 @@
             this._cbCycles = new TransferLogger.Ui.Controls.TlDropDownList();
             this._lCycle = new System.Windows.Forms.Label();
             this._grid = new TransferLogger.Ui.Controls.TlDataGrid();
-            this._tbSearchName = new TransferLogger.Ui.Controls.TlTextBox();
             this.Selected = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.ProgramName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cycle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Year = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._tbSearchName = new TransferLogger.Ui.Controls.TlTextBox();
             ((System.ComponentModel.ISupportInitialize)(this._splitContainer)).BeginInit();
             this._splitContainer.Panel1.SuspendLayout();
             this._splitContainer.Panel2.SuspendLayout();
@@ -83,16 +83,15 @@
             this._gbManageOrganizations.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this._gbManageOrganizations.Controls.Add(this._btnManage);
             this._gbManageOrganizations.Controls.Add(this._btnAdd);
-            this._gbManageOrganizations.Location = new System.Drawing.Point(668, 31);
+            this._gbManageOrganizations.Location = new System.Drawing.Point(677, 32);
             this._gbManageOrganizations.Name = "_gbManageOrganizations";
-            this._gbManageOrganizations.Size = new System.Drawing.Size(143, 60);
+            this._gbManageOrganizations.Size = new System.Drawing.Size(130, 60);
             this._gbManageOrganizations.TabIndex = 47;
             this._gbManageOrganizations.TabStop = false;
             this._gbManageOrganizations.Text = "Manage Programs";
             // 
             // _btnManage
             // 
-            this._btnManage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this._btnManage.AutoSize = true;
             this._btnManage.BackColor = System.Drawing.Color.White;
             this._btnManage.BackgroundImage = global::TransferLogger.Ui.Properties.Resources.grid;
@@ -112,7 +111,6 @@
             // 
             // _btnAdd
             // 
-            this._btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this._btnAdd.AutoSize = true;
             this._btnAdd.BackColor = System.Drawing.Color.White;
             this._btnAdd.BackgroundImage = global::TransferLogger.Ui.Properties.Resources.add;
@@ -171,59 +169,47 @@
             this._grid.BackgroundColor = System.Drawing.Color.White;
             this._grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this._grid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.AliceBlue;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.AliceBlue;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this._grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.AliceBlue;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.AliceBlue;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this._grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this._grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this._grid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Selected,
             this.ProgramName,
             this.Cycle,
             this.Year});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this._grid.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this._grid.DefaultCellStyle = dataGridViewCellStyle5;
             this._grid.Dock = System.Windows.Forms.DockStyle.Fill;
             this._grid.EnableHeadersVisualStyles = false;
             this._grid.Location = new System.Drawing.Point(0, 23);
             this._grid.MultiSelect = false;
             this._grid.Name = "_grid";
             this._grid.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this._grid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this._grid.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this._grid.RowHeadersVisible = false;
             this._grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this._grid.Size = new System.Drawing.Size(828, 399);
             this._grid.TabIndex = 5;
-            // 
-            // _tbSearchName
-            // 
-            this._tbSearchName.BackColor = System.Drawing.Color.GhostWhite;
-            this._tbSearchName.BoxWidth = 325;
-            this._tbSearchName.Dock = System.Windows.Forms.DockStyle.Top;
-            this._tbSearchName.ForeColor = System.Drawing.Color.Black;
-            this._tbSearchName.Location = new System.Drawing.Point(0, 0);
-            this._tbSearchName.Name = "_tbSearchName";
-            this._tbSearchName.PlaceholderText = "Type here to filter programs";
-            this._tbSearchName.Size = new System.Drawing.Size(828, 23);
-            this._tbSearchName.TabIndex = 1;
             // 
             // Selected
             // 
@@ -257,6 +243,18 @@
             this.Year.HeaderText = "Year";
             this.Year.Name = "Year";
             this.Year.ReadOnly = true;
+            // 
+            // _tbSearchName
+            // 
+            this._tbSearchName.BackColor = System.Drawing.Color.GhostWhite;
+            this._tbSearchName.BoxWidth = 325;
+            this._tbSearchName.Dock = System.Windows.Forms.DockStyle.Top;
+            this._tbSearchName.ForeColor = System.Drawing.Color.Black;
+            this._tbSearchName.Location = new System.Drawing.Point(0, 0);
+            this._tbSearchName.Name = "_tbSearchName";
+            this._tbSearchName.PlaceholderText = "Type here to filter programs";
+            this._tbSearchName.Size = new System.Drawing.Size(828, 23);
+            this._tbSearchName.TabIndex = 1;
             // 
             // ProgramControl
             // 
