@@ -30,16 +30,16 @@ namespace TransferLogger.Dal.DataModels.Applications
 
         #region Associations
 
-        [Association(ThisKey = nameof(StudentId), OtherKey = nameof(StudentId), Relationship = Relationship.OneToOne, CanBeNull = false)]
+        [Association(ThisKey = nameof(StudentId), OtherKey = nameof(StudentId), Relationship = Relationship.ManyToOne, CanBeNull = false)]
         public Student Student { get; set; }
 
-        [Association(ThisKey = nameof(SourceOrganizationId), OtherKey = nameof(Organization.OrganizationId), Relationship = Relationship.OneToOne, CanBeNull = false)]
+        [Association(ThisKey = nameof(SourceOrganizationId), OtherKey = nameof(Organization.OrganizationId), Relationship = Relationship.ManyToOne, CanBeNull = false)]
         public Organization SourceOrganization { get; set; }
 
-        [Association(ThisKey = nameof(TargetOrganizationId), OtherKey = nameof(Organization.OrganizationId), Relationship = Relationship.OneToOne, CanBeNull = false)]
+        [Association(ThisKey = nameof(TargetOrganizationId), OtherKey = nameof(Organization.OrganizationId), Relationship = Relationship.ManyToOne, CanBeNull = false)]
         public Organization TargetOrganization { get; set; }
 
-        [Association(ThisKey = nameof(TargetProgramId), OtherKey = nameof(Program.ProgramId), Relationship = Relationship.OneToOne, CanBeNull = false)]
+        [Association(ThisKey = nameof(TargetProgramId), OtherKey = nameof(Program.ProgramId), Relationship = Relationship.ManyToOne, CanBeNull = false)]
         public Organization TargetProgram { get; set; }
 
         [Association(ThisKey = nameof(ApplicationId), OtherKey = nameof(ApplicationId), Relationship = Relationship.OneToMany)]
