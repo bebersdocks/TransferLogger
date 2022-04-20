@@ -28,11 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this._splitContainer = new TransferLogger.Ui.Controls.TlSplitContainer();
             this._pnlEvaluator = new System.Windows.Forms.Panel();
+            this._gbManageInstructors = new System.Windows.Forms.GroupBox();
+            this._btnManageInstructors = new TransferLogger.Ui.Controls.TlButton();
+            this._btnAddInstructors = new TransferLogger.Ui.Controls.TlButton();
+            this._gbManageCourses = new System.Windows.Forms.GroupBox();
+            this._btnManageCourses = new TransferLogger.Ui.Controls.TlButton();
+            this._btnAddCourse = new TransferLogger.Ui.Controls.TlButton();
             this._btnSelectSuggestedCourse = new TransferLogger.Ui.Controls.TlButton();
             this._cbSuggestedCourses = new TransferLogger.Ui.Controls.TlDropDownList();
             this._lEvaluator = new System.Windows.Forms.Label();
@@ -48,6 +54,8 @@
             this._splitContainer.Panel2.SuspendLayout();
             this._splitContainer.SuspendLayout();
             this._pnlEvaluator.SuspendLayout();
+            this._gbManageInstructors.SuspendLayout();
+            this._gbManageCourses.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._grid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -77,6 +85,8 @@
             // 
             // _pnlEvaluator
             // 
+            this._pnlEvaluator.Controls.Add(this._gbManageInstructors);
+            this._pnlEvaluator.Controls.Add(this._gbManageCourses);
             this._pnlEvaluator.Controls.Add(this._btnSelectSuggestedCourse);
             this._pnlEvaluator.Controls.Add(this._cbSuggestedCourses);
             this._pnlEvaluator.Controls.Add(this._lEvaluator);
@@ -90,6 +100,106 @@
             this._pnlEvaluator.Size = new System.Drawing.Size(925, 121);
             this._pnlEvaluator.TabIndex = 48;
             // 
+            // _gbManageInstructors
+            // 
+            this._gbManageInstructors.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this._gbManageInstructors.Controls.Add(this._btnManageInstructors);
+            this._gbManageInstructors.Controls.Add(this._btnAddInstructors);
+            this._gbManageInstructors.Location = new System.Drawing.Point(640, 32);
+            this._gbManageInstructors.Name = "_gbManageInstructors";
+            this._gbManageInstructors.Size = new System.Drawing.Size(130, 60);
+            this._gbManageInstructors.TabIndex = 57;
+            this._gbManageInstructors.TabStop = false;
+            this._gbManageInstructors.Text = "Manage Instructors";
+            // 
+            // _btnManageInstructors
+            // 
+            this._btnManageInstructors.AutoSize = true;
+            this._btnManageInstructors.BackColor = System.Drawing.Color.White;
+            this._btnManageInstructors.BackgroundImage = global::TransferLogger.Ui.Properties.Resources.grid;
+            this._btnManageInstructors.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this._btnManageInstructors.Cursor = System.Windows.Forms.Cursors.Hand;
+            this._btnManageInstructors.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
+            this._btnManageInstructors.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
+            this._btnManageInstructors.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
+            this._btnManageInstructors.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._btnManageInstructors.ForeColor = System.Drawing.Color.Black;
+            this._btnManageInstructors.Location = new System.Drawing.Point(46, 20);
+            this._btnManageInstructors.Name = "_btnManageInstructors";
+            this._btnManageInstructors.Size = new System.Drawing.Size(32, 32);
+            this._btnManageInstructors.TabIndex = 7;
+            this._btnManageInstructors.TabStop = false;
+            this._btnManageInstructors.UseVisualStyleBackColor = false;
+            // 
+            // _btnAddInstructors
+            // 
+            this._btnAddInstructors.AutoSize = true;
+            this._btnAddInstructors.BackColor = System.Drawing.Color.White;
+            this._btnAddInstructors.BackgroundImage = global::TransferLogger.Ui.Properties.Resources.add;
+            this._btnAddInstructors.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this._btnAddInstructors.Cursor = System.Windows.Forms.Cursors.Hand;
+            this._btnAddInstructors.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
+            this._btnAddInstructors.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
+            this._btnAddInstructors.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
+            this._btnAddInstructors.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._btnAddInstructors.ForeColor = System.Drawing.Color.Black;
+            this._btnAddInstructors.Location = new System.Drawing.Point(8, 20);
+            this._btnAddInstructors.Name = "_btnAddInstructors";
+            this._btnAddInstructors.Size = new System.Drawing.Size(32, 32);
+            this._btnAddInstructors.TabIndex = 6;
+            this._btnAddInstructors.TabStop = false;
+            this._btnAddInstructors.UseVisualStyleBackColor = false;
+            // 
+            // _gbManageCourses
+            // 
+            this._gbManageCourses.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this._gbManageCourses.Controls.Add(this._btnManageCourses);
+            this._gbManageCourses.Controls.Add(this._btnAddCourse);
+            this._gbManageCourses.Location = new System.Drawing.Point(776, 32);
+            this._gbManageCourses.Name = "_gbManageCourses";
+            this._gbManageCourses.Size = new System.Drawing.Size(130, 60);
+            this._gbManageCourses.TabIndex = 56;
+            this._gbManageCourses.TabStop = false;
+            this._gbManageCourses.Text = "Manage Courses";
+            // 
+            // _btnManageCourses
+            // 
+            this._btnManageCourses.AutoSize = true;
+            this._btnManageCourses.BackColor = System.Drawing.Color.White;
+            this._btnManageCourses.BackgroundImage = global::TransferLogger.Ui.Properties.Resources.grid;
+            this._btnManageCourses.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this._btnManageCourses.Cursor = System.Windows.Forms.Cursors.Hand;
+            this._btnManageCourses.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
+            this._btnManageCourses.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
+            this._btnManageCourses.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
+            this._btnManageCourses.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._btnManageCourses.ForeColor = System.Drawing.Color.Black;
+            this._btnManageCourses.Location = new System.Drawing.Point(46, 20);
+            this._btnManageCourses.Name = "_btnManageCourses";
+            this._btnManageCourses.Size = new System.Drawing.Size(32, 32);
+            this._btnManageCourses.TabIndex = 7;
+            this._btnManageCourses.TabStop = false;
+            this._btnManageCourses.UseVisualStyleBackColor = false;
+            // 
+            // _btnAddCourse
+            // 
+            this._btnAddCourse.AutoSize = true;
+            this._btnAddCourse.BackColor = System.Drawing.Color.White;
+            this._btnAddCourse.BackgroundImage = global::TransferLogger.Ui.Properties.Resources.add;
+            this._btnAddCourse.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this._btnAddCourse.Cursor = System.Windows.Forms.Cursors.Hand;
+            this._btnAddCourse.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
+            this._btnAddCourse.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
+            this._btnAddCourse.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
+            this._btnAddCourse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._btnAddCourse.ForeColor = System.Drawing.Color.Black;
+            this._btnAddCourse.Location = new System.Drawing.Point(8, 20);
+            this._btnAddCourse.Name = "_btnAddCourse";
+            this._btnAddCourse.Size = new System.Drawing.Size(32, 32);
+            this._btnAddCourse.TabIndex = 6;
+            this._btnAddCourse.TabStop = false;
+            this._btnAddCourse.UseVisualStyleBackColor = false;
+            // 
             // _btnSelectSuggestedCourse
             // 
             this._btnSelectSuggestedCourse.AutoSize = true;
@@ -99,7 +209,7 @@
             this._btnSelectSuggestedCourse.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
             this._btnSelectSuggestedCourse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnSelectSuggestedCourse.ForeColor = System.Drawing.Color.Black;
-            this._btnSelectSuggestedCourse.Location = new System.Drawing.Point(443, 80);
+            this._btnSelectSuggestedCourse.Location = new System.Drawing.Point(467, 80);
             this._btnSelectSuggestedCourse.MaximumSize = new System.Drawing.Size(0, 23);
             this._btnSelectSuggestedCourse.MinimumSize = new System.Drawing.Size(0, 23);
             this._btnSelectSuggestedCourse.Name = "_btnSelectSuggestedCourse";
@@ -116,7 +226,7 @@
             this._cbSuggestedCourses.FormattingEnabled = true;
             this._cbSuggestedCourses.Location = new System.Drawing.Point(146, 80);
             this._cbSuggestedCourses.Name = "_cbSuggestedCourses";
-            this._cbSuggestedCourses.Size = new System.Drawing.Size(291, 23);
+            this._cbSuggestedCourses.Size = new System.Drawing.Size(315, 23);
             this._cbSuggestedCourses.TabIndex = 54;
             // 
             // _lEvaluator
@@ -138,7 +248,7 @@
             this._btnSelectEvaluator.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
             this._btnSelectEvaluator.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnSelectEvaluator.ForeColor = System.Drawing.Color.Black;
-            this._btnSelectEvaluator.Location = new System.Drawing.Point(443, 50);
+            this._btnSelectEvaluator.Location = new System.Drawing.Point(467, 50);
             this._btnSelectEvaluator.MaximumSize = new System.Drawing.Size(0, 23);
             this._btnSelectEvaluator.MinimumSize = new System.Drawing.Size(0, 23);
             this._btnSelectEvaluator.Name = "_btnSelectEvaluator";
@@ -176,7 +286,7 @@
             this._cbEvaluators.FormattingEnabled = true;
             this._cbEvaluators.Location = new System.Drawing.Point(146, 50);
             this._cbEvaluators.Name = "_cbEvaluators";
-            this._cbEvaluators.Size = new System.Drawing.Size(291, 23);
+            this._cbEvaluators.Size = new System.Drawing.Size(315, 23);
             this._cbEvaluators.TabIndex = 49;
             // 
             // _grid
@@ -192,38 +302,38 @@
             this._grid.BackgroundColor = System.Drawing.Color.White;
             this._grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this._grid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.AliceBlue;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.AliceBlue;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this._grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.AliceBlue;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.AliceBlue;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this._grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this._grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this._grid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Course});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this._grid.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this._grid.DefaultCellStyle = dataGridViewCellStyle5;
             this._grid.EnableHeadersVisualStyles = false;
             this._grid.Location = new System.Drawing.Point(0, 20);
             this._grid.MultiSelect = false;
             this._grid.Name = "_grid";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this._grid.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this._grid.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this._grid.RowHeadersVisible = false;
             this._grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this._grid.Size = new System.Drawing.Size(925, 378);
@@ -232,9 +342,7 @@
             // Course
             // 
             this.Course.DataPropertyName = "Course";
-            this.Course.FillWeight = 115F;
             this.Course.HeaderText = "Name";
-            this.Course.MinimumWidth = 250;
             this.Course.Name = "Course";
             this.Course.ReadOnly = true;
             // 
@@ -264,6 +372,10 @@
             this._splitContainer.ResumeLayout(false);
             this._pnlEvaluator.ResumeLayout(false);
             this._pnlEvaluator.PerformLayout();
+            this._gbManageInstructors.ResumeLayout(false);
+            this._gbManageInstructors.PerformLayout();
+            this._gbManageCourses.ResumeLayout(false);
+            this._gbManageCourses.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this._grid)).EndInit();
             this.ResumeLayout(false);
 
@@ -282,6 +394,12 @@
         private TlDropDownList _cbSuggestedCourses;
         private System.Windows.Forms.Label _lSuggested;
         private System.Windows.Forms.Panel _pnlEvaluator;
+        private System.Windows.Forms.GroupBox _gbManageCourses;
+        private TlButton _btnManageCourses;
+        private TlButton _btnAddCourse;
+        private System.Windows.Forms.GroupBox _gbManageInstructors;
+        private TlButton _btnManageInstructors;
+        private TlButton _btnAddInstructors;
         private System.Windows.Forms.DataGridViewTextBoxColumn Course;
     }
 }

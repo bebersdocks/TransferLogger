@@ -7,7 +7,10 @@ using TransferLogger.BusinessLogic.Settings;
 using TransferLogger.BusinessLogic.ViewModels;
 using TransferLogger.Dal;
 using TransferLogger.Ui.Forms;
+using TransferLogger.Ui.Forms.Courses;
 using TransferLogger.Ui.Forms.Dialogs;
+using TransferLogger.Ui.Forms.Instructors;
+using TransferLogger.Ui.Utils;
 
 namespace TransferLogger.Ui.Controls.ApplicationWizard
 {
@@ -30,16 +33,6 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
         public void Activate()
         {
-            // On each activate - refresh lookup lists to reflect changes inside db (if any in previous steps).
-            if (_grid.Columns.Count == 3)
-            {
-                _grid.Columns.RemoveAt(1);
-                _grid.Columns.RemoveAt(1);
-            }
-
-            _grid.Columns.Add(GetInstructorsColumn());
-            _grid.Columns.Add(GetSuggestedCoursesColumn());
-
             SetData();
 
             BringToFront();
@@ -50,9 +43,9 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             return new DataGridViewComboBoxColumn
             {
                 DisplayMember = "DisplayName",
-                FillWeight    = 105,
+                FillWeight    = 115,
                 FlatStyle     = FlatStyle.Popup,
-                MinimumWidth  = 225,
+                MinimumWidth  = 5,
                 ValueMember   = "Value",
                 ReadOnly      = false,
             };
@@ -108,6 +101,16 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
             _grid.SelectionChanged -= _grid_SelectionChanged;
 
+            // Refresh lookup grid lists to reflect changes inside db.
+            if (_grid.Columns.Count == 3)
+            {
+                _grid.Columns.RemoveAt(1);
+                _grid.Columns.RemoveAt(1);
+            }
+
+            _grid.Columns.Add(GetInstructorsColumn());
+            _grid.Columns.Add(GetSuggestedCoursesColumn());
+
             _grid.DataSource = _appBuild.Evaluations.Values
                 .Where(e => e.HistoricalEvaluationId <= 0)
                 .Select(e => new BuildEvaluationViewModel(dc, e))
@@ -124,6 +127,10 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
         {
             _btnSelectEvaluator.Click       += _btnSelectEvaluator_Click;
             _btnSelectSuggestedCourse.Click += _btnSelectSuggestedCourse_Click;
+            _btnAddInstructors.Click        += _btnAddInstructors_Click;
+            _btnManageInstructors.Click     += _btnManageInstructors_Click;
+            _btnAddCourse.Click             += _btnAddCourse_Click;
+            _btnManageCourses.Click         += _btnManageCourses_Click;
 
             _grid.CurrentCellDirtyStateChanged += _grid_CurrentCellDirtyStateChanged;
         }
@@ -205,6 +212,38 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             {
                 _cbSuggestedCourses.SelectedValue = form.SelectedValue.Value;
             }
+        }
+
+        private void _btnAddInstructors_Click(object? sender, EventArgs e)
+        {
+            FormUtils.InsertOrReplace(_grid, id => new InstructorForm(id), () => SetData(), true);
+        }
+
+        private void _btnManageInstructors_Click(object? sender, EventArgs e)
+        {
+            using var form = new InstructorsForm();
+
+            form.ShowDialog();
+
+            _appBuild.CleanObsoleteResources();
+
+            SetData();
+        }
+
+        private void _btnAddCourse_Click(object? sender, EventArgs e)
+        {
+            FormUtils.InsertOrReplace(_grid, id => new CourseForm(id, AppSettings.Instance.OrganizationId, true, _appBuild.ProgramId), () => SetData(), true);
+        }
+
+        private void _btnManageCourses_Click(object? sender, EventArgs e)
+        {
+            using var form = new CoursesForm(AppSettings.Instance.OrganizationId);
+
+            form.ShowDialog();
+
+            _appBuild.CleanObsoleteResources();
+
+            SetData();
         }
 
         public bool Complete()
