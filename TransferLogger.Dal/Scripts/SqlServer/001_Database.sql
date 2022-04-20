@@ -76,6 +76,7 @@ CREATE TABLE Application (
 	StudentId INT NOT NULL,
 	SourceOrganizationId INT NOT NULL,
 	TargetOrganizationId INT NOT NULL,
+	TargetProgramId INT NOT NULL,
 	ExcelLocation NVARCHAR(180) NULL,
 	CreatedAt DATETIME NOT NULL,
 	UpdatedAt DATETIME NULL,
@@ -86,6 +87,7 @@ ALTER TABLE Application ADD CONSTRAINT PK_Application PRIMARY KEY (ApplicationId
 ALTER TABLE Application ADD CONSTRAINT FK_ApplicationStudent FOREIGN KEY (StudentId) REFERENCES Student(StudentId);
 ALTER TABLE Application ADD CONSTRAINT FK_ApplicationSourceOrganization FOREIGN KEY (SourceOrganizationId) REFERENCES Organization(OrganizationId);
 ALTER TABLE Application ADD CONSTRAINT FK_ApplicationTargetOrganization FOREIGN KEY (TargetOrganizationId) REFERENCES Organization(OrganizationId);
+ALTER TABLE Application ADD CONSTRAINT FK_ApplicationTargetProgram FOREIGN KEY (TargetProgramId) REFERENCES Program(ProgramId);
 
 CREATE TABLE ApplicationAttachment (
 	ApplicationAttachmentId INT IDENTITY(1,1) NOT NULL,
