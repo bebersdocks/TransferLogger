@@ -40,11 +40,30 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
         private void SetEvents()
         {
-            _btnBrowse.Click  += _btnBrowse_Click;
-            _btnAdd.Click     += _btnAdd_Click;
-            _btnView.Click    += _btnView_Click;
-            _grid.DoubleClick += _btnView_Click;
-            _btnDelete.Click  += _btnDelete_Click;
+            _grid.DoubleClick += (s, e) => ViewAttachment();
+            _btnView.Click    += (s, e) => ViewAttachment();
+
+            _btnBrowse.Click += _btnBrowse_Click;
+            _grid.KeyDown    += _grid_KeyDown;
+            _btnAdd.Click    += _btnAdd_Click;
+            _btnDelete.Click += _btnDelete_Click;
+        }
+
+        private void ViewAttachment()
+        {
+            _btnView.Enabled = false;
+
+            if (_grid.CurrentRow?.DataBoundItem is ApplicationAttachment attachment)
+            {
+                var startInfo = new ProcessStartInfo(attachment.FileName)
+                {
+                    UseShellExecute = true
+                };
+
+                Process.Start(startInfo);
+            }
+
+            _btnView.Enabled = true;
         }
 
         private void _btnBrowse_Click(object? sender, EventArgs e)
@@ -63,6 +82,12 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
                 _tbExcelLocation.Text = _appBuild.ExcelLocation = fileName;
             }
+        }
+
+        private void _grid_KeyDown(object? sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                ViewAttachment();
         }
 
         private async void _btnAdd_Click(object? sender, EventArgs e)
@@ -91,23 +116,6 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
                 _btnAdd.Enabled = _btnView.Enabled = _btnDelete.Enabled = true;
             }
-        }
-
-        private void _btnView_Click(object? sender, EventArgs e)
-        {
-            _btnView.Enabled = false;
-
-            if (_grid.CurrentRow?.DataBoundItem is ApplicationAttachment attachment)
-            {
-                var startInfo = new ProcessStartInfo(attachment.FileName)
-                {
-                    UseShellExecute = true
-                };
-
-                Process.Start(startInfo);
-            }
-
-            _btnView.Enabled = true;
         }
 
         private void _btnDelete_Click(object? sender, EventArgs e)

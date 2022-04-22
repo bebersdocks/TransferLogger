@@ -105,7 +105,7 @@
             this._btnManage.Location = new System.Drawing.Point(46, 20);
             this._btnManage.Name = "_btnManage";
             this._btnManage.Size = new System.Drawing.Size(32, 32);
-            this._btnManage.TabIndex = 4;
+            this._btnManage.TabIndex = 5;
             this._btnManage.UseVisualStyleBackColor = false;
             // 
             // _btnAdd
@@ -123,7 +123,7 @@
             this._btnAdd.Location = new System.Drawing.Point(8, 20);
             this._btnAdd.Name = "_btnAdd";
             this._btnAdd.Size = new System.Drawing.Size(32, 32);
-            this._btnAdd.TabIndex = 3;
+            this._btnAdd.TabIndex = 4;
             this._btnAdd.UseVisualStyleBackColor = false;
             // 
             // _lInstructions
@@ -207,7 +207,7 @@
             this._grid.RowHeadersVisible = false;
             this._grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this._grid.Size = new System.Drawing.Size(828, 399);
-            this._grid.TabIndex = 5;
+            this._grid.TabIndex = 3;
             // 
             // Selected
             // 

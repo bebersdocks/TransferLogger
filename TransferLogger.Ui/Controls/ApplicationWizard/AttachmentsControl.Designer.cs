@@ -175,7 +175,6 @@
             this._grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this._grid.Size = new System.Drawing.Size(391, 247);
             this._grid.TabIndex = 3;
-            this._grid.TabStop = false;
             // 
             // FileName
             // 

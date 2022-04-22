@@ -27,22 +27,6 @@ namespace TransferLogger.Ui.Forms
             SetEvents();
         }
 
-        private void SetEvents()
-        {
-            _tbSearchLookup.TextChanged += _tbSearchLookup_TextChanged;
-
-            _grid.DoubleClick += _btnOk_Click;
-       
-            _btnClear.Click  += _btnClear_Click;
-            _btnCancel.Click += _btnCancel_Click;
-            _btnOk.Click     += _btnOk_Click;
-        }
-
-        private void _tbSearchLookup_TextChanged(object? sender, EventArgs e)
-        {
-            SetData(_tbSearchLookup.Text);
-        }
-
         private void SetData(string displayName = "")
         {
             if (!string.IsNullOrEmpty(displayName))
@@ -56,9 +40,36 @@ namespace TransferLogger.Ui.Forms
                 _grid.SelectRow<Lookup>(l => l.Value == _selectedValue.Value);
         }
 
-        private void _btnClear_Click(object? sender, EventArgs e)
+        private void SetEvents()
         {
-            _selectedValue = -1;
+            _grid.DoubleClick += (s, e) => Ok();
+            _btnOk.Click      += (s, e) => Ok();
+
+            _grid.KeyDown += _grid_KeyDown;
+
+            _tbSearchLookup.TextChanged += _tbSearchLookup_TextChanged;
+
+            _btnClear.Click  += _btnClear_Click;
+            _btnCancel.Click += _btnCancel_Click;
+        }
+
+        private void _grid_KeyDown(object? sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                Ok();
+        }
+
+        private void _tbSearchLookup_TextChanged(object? sender, EventArgs e)
+        {
+            SetData(_tbSearchLookup.Text);
+        }
+
+        private void Ok()
+        {
+            if (_grid.SelectedRows.Count == 1 && _grid.SelectedRows[0].DataBoundItem is Lookup lookup)
+            {
+                _selectedValue = lookup.Value;
+            }
 
             DialogResult = DialogResult.OK;
 
@@ -72,12 +83,9 @@ namespace TransferLogger.Ui.Forms
             Close();
         }
 
-        private void _btnOk_Click(object? sender, EventArgs e)
+        private void _btnClear_Click(object? sender, EventArgs e)
         {
-            if (_grid.SelectedRows.Count == 1 && _grid.SelectedRows[0].DataBoundItem is Lookup lookup)
-            {
-                _selectedValue = lookup.Value;
-            }
+            _selectedValue = -1;
 
             DialogResult = DialogResult.OK;
 

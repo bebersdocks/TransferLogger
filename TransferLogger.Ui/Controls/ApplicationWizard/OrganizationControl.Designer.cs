@@ -112,7 +112,7 @@
             this._btnManage.Location = new System.Drawing.Point(46, 20);
             this._btnManage.Name = "_btnManage";
             this._btnManage.Size = new System.Drawing.Size(32, 32);
-            this._btnManage.TabIndex = 6;
+            this._btnManage.TabIndex = 7;
             this._btnManage.UseVisualStyleBackColor = false;
             // 
             // _btnAdd
@@ -130,7 +130,7 @@
             this._btnAdd.Location = new System.Drawing.Point(8, 20);
             this._btnAdd.Name = "_btnAdd";
             this._btnAdd.Size = new System.Drawing.Size(32, 32);
-            this._btnAdd.TabIndex = 5;
+            this._btnAdd.TabIndex = 6;
             this._btnAdd.UseVisualStyleBackColor = false;
             // 
             // _lInstructions

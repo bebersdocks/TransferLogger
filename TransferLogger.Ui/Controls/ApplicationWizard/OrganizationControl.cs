@@ -72,6 +72,8 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             _grid.CellClick       += (s, e) => SetCurrentRowAsSelected();
             _grid.CellDoubleClick += (s, e) => SetCurrentRowAsSelected();
 
+            _grid.KeyDown += _grid_KeyDown;
+
             _btnAdd.Click           += _btnAdd_Click;
             _btnManage.Click        += _btnManage_Click;
             _btnSelectCountry.Click += _btnSelectCountry_Click;
@@ -93,6 +95,12 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
         private void _grid_SelectionChanged(object? sender, EventArgs e)
         {
             UpdateSelectedRow();
+        }
+
+        private void _grid_KeyDown(object? sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                SetCurrentRowAsSelected();
         }
 
         private void SetCurrentRowAsSelected()

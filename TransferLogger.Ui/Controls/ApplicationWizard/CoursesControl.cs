@@ -93,6 +93,8 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             _grid.CellClick       += (s, e) => SetCurrentRowAsSelected();
             _grid.CellDoubleClick += (s, e) => SetCurrentRowAsSelected();
 
+            _grid.KeyDown += _grid_KeyDown;
+
             _cbCycles.SelectedValueChanged += _cbCycles_SelectedValueChanged;
 
             _btnAddCourse.Click      += _btnAddCourse_Click;
@@ -113,11 +115,6 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
                 _grid.Refresh();
             }
-        }
-
-        private void _grid_SelectionChanged(object? sender, EventArgs e)
-        {
-            UpdateSelectedRows();
         }
 
         private void SetCurrentRowAsSelected()
@@ -145,6 +142,17 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
                 UpdateSelectedRows();
             }
+        }
+
+        private void _grid_SelectionChanged(object? sender, EventArgs e)
+        {
+            UpdateSelectedRows();
+        }
+
+        private void _grid_KeyDown(object? sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                SetCurrentRowAsSelected();
         }
 
         private void _cbCycles_SelectedValueChanged(object? sender, EventArgs e)
