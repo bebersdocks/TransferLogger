@@ -43,12 +43,12 @@
             this._pnlNewStudent.Location = new System.Drawing.Point(128, 86);
             this._pnlNewStudent.Name = "_pnlNewStudent";
             this._pnlNewStudent.Size = new System.Drawing.Size(441, 287);
-            this._pnlNewStudent.TabIndex = 32;
+            this._pnlNewStudent.TabIndex = 5;
             // 
             // _btnSelectStudent
             // 
             this._btnSelectStudent.AutoSize = true;
-            this._btnSelectStudent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
+            this._btnSelectStudent.BackColor = System.Drawing.Color.White;
             this._btnSelectStudent.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
             this._btnSelectStudent.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
             this._btnSelectStudent.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
@@ -59,8 +59,7 @@
             this._btnSelectStudent.MinimumSize = new System.Drawing.Size(0, 23);
             this._btnSelectStudent.Name = "_btnSelectStudent";
             this._btnSelectStudent.Size = new System.Drawing.Size(28, 23);
-            this._btnSelectStudent.TabIndex = 34;
-            this._btnSelectStudent.TabStop = false;
+            this._btnSelectStudent.TabIndex = 3;
             this._btnSelectStudent.Text = "...";
             this._btnSelectStudent.UseVisualStyleBackColor = false;
             // 
@@ -72,7 +71,7 @@
             this._cbStudents.Location = new System.Drawing.Point(229, 60);
             this._cbStudents.Name = "_cbStudents";
             this._cbStudents.Size = new System.Drawing.Size(291, 23);
-            this._cbStudents.TabIndex = 33;
+            this._cbStudents.TabIndex = 2;
             // 
             // _lStudent
             // 
@@ -92,7 +91,7 @@
             this._rbNewStudent.Location = new System.Drawing.Point(27, 86);
             this._rbNewStudent.Name = "_rbNewStudent";
             this._rbNewStudent.Size = new System.Drawing.Size(93, 19);
-            this._rbNewStudent.TabIndex = 36;
+            this._rbNewStudent.TabIndex = 4;
             this._rbNewStudent.Text = "New Student";
             this._rbNewStudent.UseVisualStyleBackColor = false;
             // 
@@ -104,7 +103,7 @@
             this._rbExistingStudent.Location = new System.Drawing.Point(27, 61);
             this._rbExistingStudent.Name = "_rbExistingStudent";
             this._rbExistingStudent.Size = new System.Drawing.Size(110, 19);
-            this._rbExistingStudent.TabIndex = 37;
+            this._rbExistingStudent.TabIndex = 1;
             this._rbExistingStudent.TabStop = true;
             this._rbExistingStudent.Text = "Existing Student";
             this._rbExistingStudent.UseVisualStyleBackColor = true;

@@ -84,7 +84,7 @@ namespace TransferLogger.Ui.Forms.Organizations
             this._cbOrganizationTypes.Location = new System.Drawing.Point(94, 89);
             this._cbOrganizationTypes.Name = "_cbOrganizationTypes";
             this._cbOrganizationTypes.Size = new System.Drawing.Size(325, 25);
-            this._cbOrganizationTypes.TabIndex = 2;
+            this._cbOrganizationTypes.TabIndex = 3;
             // 
             // _tbName
             // 
@@ -94,7 +94,7 @@ namespace TransferLogger.Ui.Forms.Organizations
             this._tbName.Location = new System.Drawing.Point(94, 21);
             this._tbName.Name = "_tbName";
             this._tbName.Size = new System.Drawing.Size(325, 25);
-            this._tbName.TabIndex = 0;
+            this._tbName.TabIndex = 1;
             // 
             // _tbUrl
             // 
@@ -104,7 +104,7 @@ namespace TransferLogger.Ui.Forms.Organizations
             this._tbUrl.Location = new System.Drawing.Point(94, 157);
             this._tbUrl.Name = "_tbUrl";
             this._tbUrl.Size = new System.Drawing.Size(325, 25);
-            this._tbUrl.TabIndex = 5;
+            this._tbUrl.TabIndex = 6;
             // 
             // _tbDescription
             // 
@@ -114,7 +114,7 @@ namespace TransferLogger.Ui.Forms.Organizations
             this._tbDescription.Location = new System.Drawing.Point(94, 55);
             this._tbDescription.Name = "_tbDescription";
             this._tbDescription.Size = new System.Drawing.Size(325, 25);
-            this._tbDescription.TabIndex = 1;
+            this._tbDescription.TabIndex = 2;
             // 
             // _lDescription
             // 
@@ -134,7 +134,7 @@ namespace TransferLogger.Ui.Forms.Organizations
             this._cbCountries.Location = new System.Drawing.Point(94, 123);
             this._cbCountries.Name = "_cbCountries";
             this._cbCountries.Size = new System.Drawing.Size(290, 25);
-            this._cbCountries.TabIndex = 3;
+            this._cbCountries.TabIndex = 4;
             // 
             // _lCountry
             // 
@@ -160,8 +160,7 @@ namespace TransferLogger.Ui.Forms.Organizations
             this._btnOk.Location = new System.Drawing.Point(344, 215);
             this._btnOk.Name = "_btnOk";
             this._btnOk.Size = new System.Drawing.Size(75, 29);
-            this._btnOk.TabIndex = 21;
-            this._btnOk.TabStop = false;
+            this._btnOk.TabIndex = 7;
             this._btnOk.Text = "Ok";
             this._btnOk.UseVisualStyleBackColor = false;
             // 
@@ -177,8 +176,7 @@ namespace TransferLogger.Ui.Forms.Organizations
             this._btnSelectCountry.Location = new System.Drawing.Point(391, 123);
             this._btnSelectCountry.Name = "_btnSelectCountry";
             this._btnSelectCountry.Size = new System.Drawing.Size(28, 25);
-            this._btnSelectCountry.TabIndex = 22;
-            this._btnSelectCountry.TabStop = false;
+            this._btnSelectCountry.TabIndex = 5;
             this._btnSelectCountry.Text = "...";
             this._btnSelectCountry.UseVisualStyleBackColor = false;
             // 
@@ -196,8 +194,7 @@ namespace TransferLogger.Ui.Forms.Organizations
             this._btnCancel.Location = new System.Drawing.Point(263, 215);
             this._btnCancel.Name = "_btnCancel";
             this._btnCancel.Size = new System.Drawing.Size(75, 29);
-            this._btnCancel.TabIndex = 23;
-            this._btnCancel.TabStop = false;
+            this._btnCancel.TabIndex = 8;
             this._btnCancel.Text = "Cancel";
             this._btnCancel.UseVisualStyleBackColor = false;
             // 

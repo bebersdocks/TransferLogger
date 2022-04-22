@@ -91,7 +91,7 @@
             this._tbTargetProgram.Name = "_tbTargetProgram";
             this._tbTargetProgram.ReadOnly = true;
             this._tbTargetProgram.Size = new System.Drawing.Size(325, 23);
-            this._tbTargetProgram.TabIndex = 41;
+            this._tbTargetProgram.TabIndex = 3;
             // 
             // _lTargetProgram
             // 
@@ -123,7 +123,7 @@
             this._tbOrganization.Name = "_tbOrganization";
             this._tbOrganization.ReadOnly = true;
             this._tbOrganization.Size = new System.Drawing.Size(325, 23);
-            this._tbOrganization.TabIndex = 7;
+            this._tbOrganization.TabIndex = 2;
             // 
             // _lOrganization
             // 
@@ -143,7 +143,7 @@
             this._tbStudent.Location = new System.Drawing.Point(129, 47);
             this._tbStudent.Name = "_tbStudent";
             this._tbStudent.Size = new System.Drawing.Size(325, 23);
-            this._tbStudent.TabIndex = 5;
+            this._tbStudent.TabIndex = 1;
             // 
             // _lStudent
             // 
@@ -220,7 +220,7 @@
             this._grid.RowHeadersVisible = false;
             this._grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this._grid.Size = new System.Drawing.Size(935, 474);
-            this._grid.TabIndex = 16;
+            this._grid.TabIndex = 4;
             // 
             // Course
             // 

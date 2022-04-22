@@ -49,8 +49,7 @@ namespace TransferLogger.Ui.Forms.Students
             this._btnOk.Location = new System.Drawing.Point(362, 285);
             this._btnOk.Name = "_btnOk";
             this._btnOk.Size = new System.Drawing.Size(75, 29);
-            this._btnOk.TabIndex = 29;
-            this._btnOk.TabStop = false;
+            this._btnOk.TabIndex = 2;
             this._btnOk.Text = "Ok";
             this._btnOk.UseVisualStyleBackColor = false;
             // 
@@ -67,8 +66,7 @@ namespace TransferLogger.Ui.Forms.Students
             this._btnCancel.Location = new System.Drawing.Point(281, 285);
             this._btnCancel.Name = "_btnCancel";
             this._btnCancel.Size = new System.Drawing.Size(75, 29);
-            this._btnCancel.TabIndex = 30;
-            this._btnCancel.TabStop = false;
+            this._btnCancel.TabIndex = 3;
             this._btnCancel.Text = "Cancel";
             this._btnCancel.UseVisualStyleBackColor = false;
             // 
@@ -80,7 +78,8 @@ namespace TransferLogger.Ui.Forms.Students
             this._pnl.Location = new System.Drawing.Point(12, 24);
             this._pnl.Name = "_pnl";
             this._pnl.Size = new System.Drawing.Size(445, 245);
-            this._pnl.TabIndex = 31;
+            this._pnl.TabIndex = 1;
+            this._pnl.TabStop = true;
             // 
             // StudentForm
             // 

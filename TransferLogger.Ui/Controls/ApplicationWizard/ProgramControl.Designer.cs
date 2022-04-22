@@ -105,8 +105,7 @@
             this._btnManage.Location = new System.Drawing.Point(46, 20);
             this._btnManage.Name = "_btnManage";
             this._btnManage.Size = new System.Drawing.Size(32, 32);
-            this._btnManage.TabIndex = 7;
-            this._btnManage.TabStop = false;
+            this._btnManage.TabIndex = 4;
             this._btnManage.UseVisualStyleBackColor = false;
             // 
             // _btnAdd
@@ -124,8 +123,7 @@
             this._btnAdd.Location = new System.Drawing.Point(8, 20);
             this._btnAdd.Name = "_btnAdd";
             this._btnAdd.Size = new System.Drawing.Size(32, 32);
-            this._btnAdd.TabIndex = 6;
-            this._btnAdd.TabStop = false;
+            this._btnAdd.TabIndex = 3;
             this._btnAdd.UseVisualStyleBackColor = false;
             // 
             // _lInstructions
@@ -147,7 +145,7 @@
             this._cbCycles.Location = new System.Drawing.Point(84, 50);
             this._cbCycles.Name = "_cbCycles";
             this._cbCycles.Size = new System.Drawing.Size(325, 23);
-            this._cbCycles.TabIndex = 22;
+            this._cbCycles.TabIndex = 1;
             // 
             // _lCycle
             // 
@@ -254,7 +252,7 @@
             this._tbSearchName.Name = "_tbSearchName";
             this._tbSearchName.PlaceholderText = "Type here to filter programs";
             this._tbSearchName.Size = new System.Drawing.Size(828, 23);
-            this._tbSearchName.TabIndex = 1;
+            this._tbSearchName.TabIndex = 2;
             // 
             // ProgramControl
             // 

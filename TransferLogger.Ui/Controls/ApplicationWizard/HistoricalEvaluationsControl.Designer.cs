@@ -142,7 +142,7 @@
             this._tbComment.Name = "_tbComment";
             this._tbComment.ReadOnly = true;
             this._tbComment.Size = new System.Drawing.Size(325, 25);
-            this._tbComment.TabIndex = 50;
+            this._tbComment.TabIndex = 5;
             // 
             // _btnViewApplication
             // 
@@ -155,8 +155,7 @@
             this._btnViewApplication.Location = new System.Drawing.Point(331, 142);
             this._btnViewApplication.Name = "_btnViewApplication";
             this._btnViewApplication.Size = new System.Drawing.Size(119, 29);
-            this._btnViewApplication.TabIndex = 65;
-            this._btnViewApplication.TabStop = false;
+            this._btnViewApplication.TabIndex = 6;
             this._btnViewApplication.Text = "View Application";
             this._btnViewApplication.UseVisualStyleBackColor = false;
             // 
@@ -190,7 +189,7 @@
             this._tbStudent.Name = "_tbStudent";
             this._tbStudent.ReadOnly = true;
             this._tbStudent.Size = new System.Drawing.Size(325, 25);
-            this._tbStudent.TabIndex = 54;
+            this._tbStudent.TabIndex = 3;
             // 
             // _tbEvaluator
             // 
@@ -202,7 +201,7 @@
             this._tbEvaluator.Name = "_tbEvaluator";
             this._tbEvaluator.ReadOnly = true;
             this._tbEvaluator.Size = new System.Drawing.Size(325, 25);
-            this._tbEvaluator.TabIndex = 56;
+            this._tbEvaluator.TabIndex = 4;
             // 
             // _btnViewMatchedCourse
             // 
@@ -215,8 +214,7 @@
             this._btnViewMatchedCourse.Location = new System.Drawing.Point(421, 14);
             this._btnViewMatchedCourse.Name = "_btnViewMatchedCourse";
             this._btnViewMatchedCourse.Size = new System.Drawing.Size(29, 25);
-            this._btnViewMatchedCourse.TabIndex = 47;
-            this._btnViewMatchedCourse.TabStop = false;
+            this._btnViewMatchedCourse.TabIndex = 2;
             this._btnViewMatchedCourse.Text = "...";
             this._btnViewMatchedCourse.UseVisualStyleBackColor = false;
             // 
@@ -230,7 +228,7 @@
             this._tbMatchedCourse.Name = "_tbMatchedCourse";
             this._tbMatchedCourse.ReadOnly = true;
             this._tbMatchedCourse.Size = new System.Drawing.Size(290, 25);
-            this._tbMatchedCourse.TabIndex = 48;
+            this._tbMatchedCourse.TabIndex = 1;
             // 
             // _lEvaluator
             // 

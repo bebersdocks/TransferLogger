@@ -65,7 +65,7 @@
             this._tbMiddle.Location = new System.Drawing.Point(101, 34);
             this._tbMiddle.Name = "_tbMiddle";
             this._tbMiddle.Size = new System.Drawing.Size(325, 25);
-            this._tbMiddle.TabIndex = 31;
+            this._tbMiddle.TabIndex = 2;
             // 
             // _lEmail
             // 
@@ -86,7 +86,7 @@
             this._tbEmail.Location = new System.Drawing.Point(101, 189);
             this._tbEmail.Name = "_tbEmail";
             this._tbEmail.Size = new System.Drawing.Size(325, 25);
-            this._tbEmail.TabIndex = 36;
+            this._tbEmail.TabIndex = 7;
             // 
             // _tbPhone
             // 
@@ -97,7 +97,7 @@
             this._tbPhone.Location = new System.Drawing.Point(101, 158);
             this._tbPhone.Name = "_tbPhone";
             this._tbPhone.Size = new System.Drawing.Size(325, 25);
-            this._tbPhone.TabIndex = 35;
+            this._tbPhone.TabIndex = 6;
             // 
             // _lPhone
             // 
@@ -128,7 +128,7 @@
             this._tbRef.Location = new System.Drawing.Point(101, 96);
             this._tbRef.Name = "_tbRef";
             this._tbRef.Size = new System.Drawing.Size(325, 25);
-            this._tbRef.TabIndex = 33;
+            this._tbRef.TabIndex = 4;
             // 
             // _tbSurname
             // 
@@ -139,7 +139,7 @@
             this._tbSurname.Location = new System.Drawing.Point(101, 65);
             this._tbSurname.Name = "_tbSurname";
             this._tbSurname.Size = new System.Drawing.Size(325, 25);
-            this._tbSurname.TabIndex = 32;
+            this._tbSurname.TabIndex = 3;
             // 
             // _lSurname
             // 
@@ -170,7 +170,7 @@
             this._tbDocumentNo.Location = new System.Drawing.Point(101, 127);
             this._tbDocumentNo.Name = "_tbDocumentNo";
             this._tbDocumentNo.Size = new System.Drawing.Size(325, 25);
-            this._tbDocumentNo.TabIndex = 34;
+            this._tbDocumentNo.TabIndex = 5;
             // 
             // _tbName
             // 
@@ -181,7 +181,7 @@
             this._tbName.Location = new System.Drawing.Point(100, 3);
             this._tbName.Name = "_tbName";
             this._tbName.Size = new System.Drawing.Size(325, 25);
-            this._tbName.TabIndex = 29;
+            this._tbName.TabIndex = 1;
             // 
             // _lName
             // 

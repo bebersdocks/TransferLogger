@@ -108,7 +108,7 @@ namespace TransferLogger.Ui.Forms.Courses
             this._cbCycles.Location = new System.Drawing.Point(546, 17);
             this._cbCycles.Name = "_cbCycles";
             this._cbCycles.Size = new System.Drawing.Size(325, 23);
-            this._cbCycles.TabIndex = 26;
+            this._cbCycles.TabIndex = 4;
             // 
             // _lCycle
             // 
@@ -134,8 +134,7 @@ namespace TransferLogger.Ui.Forms.Courses
             this._btnSelectOrganization.MinimumSize = new System.Drawing.Size(0, 23);
             this._btnSelectOrganization.Name = "_btnSelectOrganization";
             this._btnSelectOrganization.Size = new System.Drawing.Size(28, 23);
-            this._btnSelectOrganization.TabIndex = 23;
-            this._btnSelectOrganization.TabStop = false;
+            this._btnSelectOrganization.TabIndex = 3;
             this._btnSelectOrganization.Text = "...";
             this._btnSelectOrganization.UseVisualStyleBackColor = false;
             // 
@@ -147,7 +146,7 @@ namespace TransferLogger.Ui.Forms.Courses
             this._cbOrganizations.Location = new System.Drawing.Point(111, 47);
             this._cbOrganizations.Name = "_cbOrganizations";
             this._cbOrganizations.Size = new System.Drawing.Size(291, 23);
-            this._cbOrganizations.TabIndex = 22;
+            this._cbOrganizations.TabIndex = 2;
             // 
             // _lOrganization
             // 
@@ -173,8 +172,7 @@ namespace TransferLogger.Ui.Forms.Courses
             this._btnSelectProgram.MinimumSize = new System.Drawing.Size(0, 23);
             this._btnSelectProgram.Name = "_btnSelectProgram";
             this._btnSelectProgram.Size = new System.Drawing.Size(28, 23);
-            this._btnSelectProgram.TabIndex = 3;
-            this._btnSelectProgram.TabStop = false;
+            this._btnSelectProgram.TabIndex = 6;
             this._btnSelectProgram.Text = "...";
             this._btnSelectProgram.UseVisualStyleBackColor = false;
             // 
@@ -186,7 +184,7 @@ namespace TransferLogger.Ui.Forms.Courses
             this._cbPrograms.Location = new System.Drawing.Point(546, 47);
             this._cbPrograms.Name = "_cbPrograms";
             this._cbPrograms.Size = new System.Drawing.Size(291, 23);
-            this._cbPrograms.TabIndex = 2;
+            this._cbPrograms.TabIndex = 5;
             // 
             // _lCountry
             // 
@@ -217,7 +215,7 @@ namespace TransferLogger.Ui.Forms.Courses
             this._tbSearchName.Location = new System.Drawing.Point(111, 17);
             this._tbSearchName.Name = "_tbSearchName";
             this._tbSearchName.Size = new System.Drawing.Size(325, 23);
-            this._tbSearchName.TabIndex = 0;
+            this._tbSearchName.TabIndex = 1;
             // 
             // _btnDelete
             // 
@@ -235,8 +233,7 @@ namespace TransferLogger.Ui.Forms.Courses
             this._btnDelete.Location = new System.Drawing.Point(1063, 12);
             this._btnDelete.Name = "_btnDelete";
             this._btnDelete.Size = new System.Drawing.Size(32, 32);
-            this._btnDelete.TabIndex = 6;
-            this._btnDelete.TabStop = false;
+            this._btnDelete.TabIndex = 9;
             this._btnDelete.UseVisualStyleBackColor = false;
             // 
             // _btnEdit
@@ -255,8 +252,7 @@ namespace TransferLogger.Ui.Forms.Courses
             this._btnEdit.Location = new System.Drawing.Point(1025, 12);
             this._btnEdit.Name = "_btnEdit";
             this._btnEdit.Size = new System.Drawing.Size(32, 32);
-            this._btnEdit.TabIndex = 5;
-            this._btnEdit.TabStop = false;
+            this._btnEdit.TabIndex = 8;
             this._btnEdit.UseVisualStyleBackColor = false;
             // 
             // _btnAdd
@@ -275,8 +271,7 @@ namespace TransferLogger.Ui.Forms.Courses
             this._btnAdd.Location = new System.Drawing.Point(987, 12);
             this._btnAdd.Name = "_btnAdd";
             this._btnAdd.Size = new System.Drawing.Size(32, 32);
-            this._btnAdd.TabIndex = 4;
-            this._btnAdd.TabStop = false;
+            this._btnAdd.TabIndex = 7;
             this._btnAdd.UseVisualStyleBackColor = false;
             // 
             // _lCourses
@@ -345,7 +340,7 @@ namespace TransferLogger.Ui.Forms.Courses
             this._grid.RowTemplate.Height = 25;
             this._grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this._grid.Size = new System.Drawing.Size(1119, 521);
-            this._grid.TabIndex = 7;
+            this._grid.TabIndex = 10;
             // 
             // Id
             // 

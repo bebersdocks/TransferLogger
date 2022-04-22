@@ -105,7 +105,7 @@ namespace TransferLogger.Ui.Forms.Instructors
             this._tbEmail.Location = new System.Drawing.Point(484, 17);
             this._tbEmail.Name = "_tbEmail";
             this._tbEmail.Size = new System.Drawing.Size(325, 23);
-            this._tbEmail.TabIndex = 1;
+            this._tbEmail.TabIndex = 2;
             // 
             // _lSearchName
             // 
@@ -125,7 +125,7 @@ namespace TransferLogger.Ui.Forms.Instructors
             this._tbSearchName.Location = new System.Drawing.Point(71, 17);
             this._tbSearchName.Name = "_tbSearchName";
             this._tbSearchName.Size = new System.Drawing.Size(325, 23);
-            this._tbSearchName.TabIndex = 0;
+            this._tbSearchName.TabIndex = 1;
             // 
             // _btnDelete
             // 
@@ -143,8 +143,7 @@ namespace TransferLogger.Ui.Forms.Instructors
             this._btnDelete.Location = new System.Drawing.Point(1013, 11);
             this._btnDelete.Name = "_btnDelete";
             this._btnDelete.Size = new System.Drawing.Size(32, 32);
-            this._btnDelete.TabIndex = 4;
-            this._btnDelete.TabStop = false;
+            this._btnDelete.TabIndex = 5;
             this._btnDelete.UseVisualStyleBackColor = false;
             // 
             // _btnEdit
@@ -163,8 +162,7 @@ namespace TransferLogger.Ui.Forms.Instructors
             this._btnEdit.Location = new System.Drawing.Point(975, 11);
             this._btnEdit.Name = "_btnEdit";
             this._btnEdit.Size = new System.Drawing.Size(32, 32);
-            this._btnEdit.TabIndex = 3;
-            this._btnEdit.TabStop = false;
+            this._btnEdit.TabIndex = 4;
             this._btnEdit.UseVisualStyleBackColor = false;
             // 
             // _btnAdd
@@ -183,8 +181,7 @@ namespace TransferLogger.Ui.Forms.Instructors
             this._btnAdd.Location = new System.Drawing.Point(937, 11);
             this._btnAdd.Name = "_btnAdd";
             this._btnAdd.Size = new System.Drawing.Size(32, 32);
-            this._btnAdd.TabIndex = 2;
-            this._btnAdd.TabStop = false;
+            this._btnAdd.TabIndex = 3;
             this._btnAdd.UseVisualStyleBackColor = false;
             // 
             // _lInstructor
@@ -252,7 +249,7 @@ namespace TransferLogger.Ui.Forms.Instructors
             this._grid.RowTemplate.Height = 25;
             this._grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this._grid.Size = new System.Drawing.Size(1069, 549);
-            this._grid.TabIndex = 0;
+            this._grid.TabIndex = 6;
             // 
             // Id
             // 

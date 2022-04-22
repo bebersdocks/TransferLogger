@@ -93,7 +93,7 @@ namespace TransferLogger.Ui.Forms.Programs
             this._tbName.Location = new System.Drawing.Point(104, 21);
             this._tbName.Name = "_tbName";
             this._tbName.Size = new System.Drawing.Size(325, 25);
-            this._tbName.TabIndex = 0;
+            this._tbName.TabIndex = 1;
             // 
             // _cbCycle
             // 
@@ -103,7 +103,7 @@ namespace TransferLogger.Ui.Forms.Programs
             this._cbCycle.Location = new System.Drawing.Point(104, 89);
             this._cbCycle.Name = "_cbCycle";
             this._cbCycle.Size = new System.Drawing.Size(325, 25);
-            this._cbCycle.TabIndex = 3;
+            this._cbCycle.TabIndex = 4;
             // 
             // _lCycle
             // 
@@ -131,7 +131,7 @@ namespace TransferLogger.Ui.Forms.Programs
             0});
             this._numericYear.Name = "_numericYear";
             this._numericYear.Size = new System.Drawing.Size(325, 25);
-            this._numericYear.TabIndex = 21;
+            this._numericYear.TabIndex = 5;
             this._numericYear.Value = new decimal(new int[] {
             2022,
             0,
@@ -151,8 +151,7 @@ namespace TransferLogger.Ui.Forms.Programs
             this._btnOk.Location = new System.Drawing.Point(354, 175);
             this._btnOk.Name = "_btnOk";
             this._btnOk.Size = new System.Drawing.Size(75, 29);
-            this._btnOk.TabIndex = 22;
-            this._btnOk.TabStop = false;
+            this._btnOk.TabIndex = 6;
             this._btnOk.Text = "Ok";
             this._btnOk.UseVisualStyleBackColor = false;
             // 
@@ -169,8 +168,7 @@ namespace TransferLogger.Ui.Forms.Programs
             this._btnCancel.Location = new System.Drawing.Point(273, 175);
             this._btnCancel.Name = "_btnCancel";
             this._btnCancel.Size = new System.Drawing.Size(75, 29);
-            this._btnCancel.TabIndex = 23;
-            this._btnCancel.TabStop = false;
+            this._btnCancel.TabIndex = 7;
             this._btnCancel.Text = "Cancel";
             this._btnCancel.UseVisualStyleBackColor = false;
             // 
@@ -185,8 +183,7 @@ namespace TransferLogger.Ui.Forms.Programs
             this._btnSelectOrganization.Location = new System.Drawing.Point(401, 55);
             this._btnSelectOrganization.Name = "_btnSelectOrganization";
             this._btnSelectOrganization.Size = new System.Drawing.Size(28, 25);
-            this._btnSelectOrganization.TabIndex = 24;
-            this._btnSelectOrganization.TabStop = false;
+            this._btnSelectOrganization.TabIndex = 3;
             this._btnSelectOrganization.Text = "...";
             this._btnSelectOrganization.UseVisualStyleBackColor = false;
             // 

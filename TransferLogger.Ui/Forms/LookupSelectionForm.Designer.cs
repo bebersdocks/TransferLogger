@@ -35,12 +35,12 @@ namespace TransferLogger.Ui.Forms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LookupSelectionForm));
             this._grid = new TransferLogger.Ui.Controls.TlDataGrid();
+            this.Value = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DisplayName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._tbSearchLookup = new TransferLogger.Ui.Controls.TlTextBox();
             this._btnOk = new TransferLogger.Ui.Controls.TlButton();
             this._btnClear = new TransferLogger.Ui.Controls.TlButton();
             this._btnCancel = new TransferLogger.Ui.Controls.TlButton();
-            this.Value = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DisplayName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this._grid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -94,69 +94,7 @@ namespace TransferLogger.Ui.Forms
             this._grid.RowHeadersVisible = false;
             this._grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this._grid.Size = new System.Drawing.Size(474, 384);
-            this._grid.TabIndex = 4;
-            // 
-            // _tbSearchLookup
-            // 
-            this._tbSearchLookup.BackColor = System.Drawing.Color.GhostWhite;
-            this._tbSearchLookup.BoxWidth = 325;
-            this._tbSearchLookup.Dock = System.Windows.Forms.DockStyle.Top;
-            this._tbSearchLookup.ForeColor = System.Drawing.Color.Black;
-            this._tbSearchLookup.Location = new System.Drawing.Point(0, 0);
-            this._tbSearchLookup.Name = "_tbSearchLookup";
-            this._tbSearchLookup.Size = new System.Drawing.Size(474, 23);
-            this._tbSearchLookup.TabIndex = 0;
-            // 
-            // _btnOk
-            // 
-            this._btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this._btnOk.BackColor = System.Drawing.Color.White;
-            this._btnOk.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
-            this._btnOk.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
-            this._btnOk.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
-            this._btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._btnOk.ForeColor = System.Drawing.Color.Black;
-            this._btnOk.Location = new System.Drawing.Point(387, 420);
-            this._btnOk.Name = "_btnOk";
-            this._btnOk.Size = new System.Drawing.Size(75, 29);
-            this._btnOk.TabIndex = 5;
-            this._btnOk.TabStop = false;
-            this._btnOk.Text = "Ok";
-            this._btnOk.UseVisualStyleBackColor = false;
-            // 
-            // _btnClear
-            // 
-            this._btnClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this._btnClear.BackColor = System.Drawing.Color.White;
-            this._btnClear.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
-            this._btnClear.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
-            this._btnClear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
-            this._btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._btnClear.ForeColor = System.Drawing.Color.Black;
-            this._btnClear.Location = new System.Drawing.Point(12, 420);
-            this._btnClear.Name = "_btnClear";
-            this._btnClear.Size = new System.Drawing.Size(75, 29);
-            this._btnClear.TabIndex = 7;
-            this._btnClear.TabStop = false;
-            this._btnClear.Text = "Clear";
-            this._btnClear.UseVisualStyleBackColor = false;
-            // 
-            // _btnCancel
-            // 
-            this._btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this._btnCancel.BackColor = System.Drawing.Color.White;
-            this._btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
-            this._btnCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
-            this._btnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
-            this._btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._btnCancel.ForeColor = System.Drawing.Color.Black;
-            this._btnCancel.Location = new System.Drawing.Point(306, 420);
-            this._btnCancel.Name = "_btnCancel";
-            this._btnCancel.Size = new System.Drawing.Size(75, 29);
-            this._btnCancel.TabIndex = 6;
-            this._btnCancel.TabStop = false;
-            this._btnCancel.Text = "Cancel";
-            this._btnCancel.UseVisualStyleBackColor = false;
+            this._grid.TabIndex = 2;
             // 
             // Value
             // 
@@ -172,6 +110,65 @@ namespace TransferLogger.Ui.Forms
             this.DisplayName.HeaderText = "Display Name";
             this.DisplayName.Name = "DisplayName";
             this.DisplayName.ReadOnly = true;
+            // 
+            // _tbSearchLookup
+            // 
+            this._tbSearchLookup.BackColor = System.Drawing.Color.GhostWhite;
+            this._tbSearchLookup.BoxWidth = 325;
+            this._tbSearchLookup.Dock = System.Windows.Forms.DockStyle.Top;
+            this._tbSearchLookup.ForeColor = System.Drawing.Color.Black;
+            this._tbSearchLookup.Location = new System.Drawing.Point(0, 0);
+            this._tbSearchLookup.Name = "_tbSearchLookup";
+            this._tbSearchLookup.Size = new System.Drawing.Size(474, 23);
+            this._tbSearchLookup.TabIndex = 1;
+            // 
+            // _btnOk
+            // 
+            this._btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this._btnOk.BackColor = System.Drawing.Color.White;
+            this._btnOk.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
+            this._btnOk.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
+            this._btnOk.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
+            this._btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._btnOk.ForeColor = System.Drawing.Color.Black;
+            this._btnOk.Location = new System.Drawing.Point(387, 420);
+            this._btnOk.Name = "_btnOk";
+            this._btnOk.Size = new System.Drawing.Size(75, 29);
+            this._btnOk.TabIndex = 3;
+            this._btnOk.Text = "Ok";
+            this._btnOk.UseVisualStyleBackColor = false;
+            // 
+            // _btnClear
+            // 
+            this._btnClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this._btnClear.BackColor = System.Drawing.Color.White;
+            this._btnClear.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
+            this._btnClear.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
+            this._btnClear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
+            this._btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._btnClear.ForeColor = System.Drawing.Color.Black;
+            this._btnClear.Location = new System.Drawing.Point(12, 420);
+            this._btnClear.Name = "_btnClear";
+            this._btnClear.Size = new System.Drawing.Size(75, 29);
+            this._btnClear.TabIndex = 5;
+            this._btnClear.Text = "Clear";
+            this._btnClear.UseVisualStyleBackColor = false;
+            // 
+            // _btnCancel
+            // 
+            this._btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this._btnCancel.BackColor = System.Drawing.Color.White;
+            this._btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
+            this._btnCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
+            this._btnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
+            this._btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._btnCancel.ForeColor = System.Drawing.Color.Black;
+            this._btnCancel.Location = new System.Drawing.Point(306, 420);
+            this._btnCancel.Name = "_btnCancel";
+            this._btnCancel.Size = new System.Drawing.Size(75, 29);
+            this._btnCancel.TabIndex = 4;
+            this._btnCancel.Text = "Cancel";
+            this._btnCancel.UseVisualStyleBackColor = false;
             // 
             // LookupSelectionForm
             // 

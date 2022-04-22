@@ -112,8 +112,7 @@
             this._btnManage.Location = new System.Drawing.Point(46, 20);
             this._btnManage.Name = "_btnManage";
             this._btnManage.Size = new System.Drawing.Size(32, 32);
-            this._btnManage.TabIndex = 7;
-            this._btnManage.TabStop = false;
+            this._btnManage.TabIndex = 6;
             this._btnManage.UseVisualStyleBackColor = false;
             // 
             // _btnAdd
@@ -131,8 +130,7 @@
             this._btnAdd.Location = new System.Drawing.Point(8, 20);
             this._btnAdd.Name = "_btnAdd";
             this._btnAdd.Size = new System.Drawing.Size(32, 32);
-            this._btnAdd.TabIndex = 6;
-            this._btnAdd.TabStop = false;
+            this._btnAdd.TabIndex = 5;
             this._btnAdd.UseVisualStyleBackColor = false;
             // 
             // _lInstructions
@@ -160,8 +158,7 @@
             this._btnSelectCountry.MinimumSize = new System.Drawing.Size(0, 23);
             this._btnSelectCountry.Name = "_btnSelectCountry";
             this._btnSelectCountry.Size = new System.Drawing.Size(28, 23);
-            this._btnSelectCountry.TabIndex = 24;
-            this._btnSelectCountry.TabStop = false;
+            this._btnSelectCountry.TabIndex = 3;
             this._btnSelectCountry.Text = "...";
             this._btnSelectCountry.UseVisualStyleBackColor = false;
             // 
@@ -173,7 +170,7 @@
             this._cbCountries.Location = new System.Drawing.Point(84, 80);
             this._cbCountries.Name = "_cbCountries";
             this._cbCountries.Size = new System.Drawing.Size(291, 23);
-            this._cbCountries.TabIndex = 23;
+            this._cbCountries.TabIndex = 2;
             // 
             // _lCountry
             // 
@@ -193,7 +190,7 @@
             this._cbOrganizationTypes.Location = new System.Drawing.Point(84, 50);
             this._cbOrganizationTypes.Name = "_cbOrganizationTypes";
             this._cbOrganizationTypes.Size = new System.Drawing.Size(325, 23);
-            this._cbOrganizationTypes.TabIndex = 22;
+            this._cbOrganizationTypes.TabIndex = 1;
             // 
             // _lOrganizationType
             // 
@@ -301,7 +298,7 @@
             this._tbSearchName.Name = "_tbSearchName";
             this._tbSearchName.PlaceholderText = "Type here to filter organizations";
             this._tbSearchName.Size = new System.Drawing.Size(828, 23);
-            this._tbSearchName.TabIndex = 1;
+            this._tbSearchName.TabIndex = 4;
             // 
             // OrganizationControl
             // 

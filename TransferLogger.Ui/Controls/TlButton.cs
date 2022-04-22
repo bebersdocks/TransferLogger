@@ -13,7 +13,6 @@ namespace TransferLogger.Ui.Controls
             Cursor    = Cursors.Hand;
             FlatStyle = FlatStyle.Flat;
             ForeColor = Color.Black;
-            TabStop   = false;
             TextAlign = ContentAlignment.MiddleCenter;
 
             FlatAppearance.BorderColor        = Color.FromArgb(204, 206, 219);

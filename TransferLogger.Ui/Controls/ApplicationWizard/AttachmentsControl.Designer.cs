@@ -66,7 +66,8 @@
             this._tbExcelLocation.Name = "_tbExcelLocation";
             this._tbExcelLocation.ReadOnly = true;
             this._tbExcelLocation.Size = new System.Drawing.Size(391, 25);
-            this._tbExcelLocation.TabIndex = 59;
+            this._tbExcelLocation.TabIndex = 1;
+            this._tbExcelLocation.TabStop = false;
             // 
             // _lInstructions
             // 
@@ -104,8 +105,7 @@
             this._btnDelete.Location = new System.Drawing.Point(592, 82);
             this._btnDelete.Name = "_btnDelete";
             this._btnDelete.Size = new System.Drawing.Size(32, 32);
-            this._btnDelete.TabIndex = 68;
-            this._btnDelete.TabStop = false;
+            this._btnDelete.TabIndex = 6;
             this._btnDelete.UseVisualStyleBackColor = false;
             // 
             // _btnAdd
@@ -123,8 +123,7 @@
             this._btnAdd.Location = new System.Drawing.Point(516, 82);
             this._btnAdd.Name = "_btnAdd";
             this._btnAdd.Size = new System.Drawing.Size(32, 32);
-            this._btnAdd.TabIndex = 66;
-            this._btnAdd.TabStop = false;
+            this._btnAdd.TabIndex = 4;
             this._btnAdd.UseVisualStyleBackColor = false;
             // 
             // _grid
@@ -175,7 +174,8 @@
             this._grid.RowTemplate.Height = 25;
             this._grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this._grid.Size = new System.Drawing.Size(391, 247);
-            this._grid.TabIndex = 69;
+            this._grid.TabIndex = 3;
+            this._grid.TabStop = false;
             // 
             // FileName
             // 
@@ -205,8 +205,7 @@
             this._btnBrowse.Location = new System.Drawing.Point(516, 51);
             this._btnBrowse.Name = "_btnBrowse";
             this._btnBrowse.Size = new System.Drawing.Size(108, 25);
-            this._btnBrowse.TabIndex = 71;
-            this._btnBrowse.TabStop = false;
+            this._btnBrowse.TabIndex = 2;
             this._btnBrowse.Text = "Browse";
             this._btnBrowse.UseVisualStyleBackColor = false;
             // 
@@ -225,8 +224,7 @@
             this._btnView.Location = new System.Drawing.Point(554, 82);
             this._btnView.Name = "_btnView";
             this._btnView.Size = new System.Drawing.Size(32, 32);
-            this._btnView.TabIndex = 72;
-            this._btnView.TabStop = false;
+            this._btnView.TabIndex = 5;
             this._btnView.UseVisualStyleBackColor = false;
             // 
             // AttachmentsControl

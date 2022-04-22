@@ -47,8 +47,7 @@
             this._btnBrowse.Location = new System.Drawing.Point(506, 26);
             this._btnBrowse.Name = "_btnBrowse";
             this._btnBrowse.Size = new System.Drawing.Size(91, 25);
-            this._btnBrowse.TabIndex = 74;
-            this._btnBrowse.TabStop = false;
+            this._btnBrowse.TabIndex = 1;
             this._btnBrowse.Text = "Browse";
             this._btnBrowse.UseVisualStyleBackColor = false;
             // 
@@ -73,6 +72,7 @@
             this._tbExcelLocation.ReadOnly = true;
             this._tbExcelLocation.Size = new System.Drawing.Size(383, 25);
             this._tbExcelLocation.TabIndex = 73;
+            this._tbExcelLocation.TabStop = false;
             // 
             // _btnOk
             // 
@@ -86,8 +86,7 @@
             this._btnOk.Location = new System.Drawing.Point(522, 86);
             this._btnOk.Name = "_btnOk";
             this._btnOk.Size = new System.Drawing.Size(75, 29);
-            this._btnOk.TabIndex = 75;
-            this._btnOk.TabStop = false;
+            this._btnOk.TabIndex = 2;
             this._btnOk.Text = "Ok";
             this._btnOk.UseVisualStyleBackColor = false;
             // 
@@ -103,8 +102,7 @@
             this._btnCancel.Location = new System.Drawing.Point(441, 86);
             this._btnCancel.Name = "_btnCancel";
             this._btnCancel.Size = new System.Drawing.Size(75, 29);
-            this._btnCancel.TabIndex = 76;
-            this._btnCancel.TabStop = false;
+            this._btnCancel.TabIndex = 3;
             this._btnCancel.Text = "Cancel";
             this._btnCancel.UseVisualStyleBackColor = false;
             // 

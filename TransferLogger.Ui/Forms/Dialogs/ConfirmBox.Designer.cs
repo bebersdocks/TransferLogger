@@ -61,8 +61,7 @@
             this._btnConfirm.Location = new System.Drawing.Point(123, 80);
             this._btnConfirm.Name = "_btnConfirm";
             this._btnConfirm.Size = new System.Drawing.Size(75, 29);
-            this._btnConfirm.TabIndex = 4;
-            this._btnConfirm.TabStop = false;
+            this._btnConfirm.TabIndex = 2;
             this._btnConfirm.Text = "Yes";
             this._btnConfirm.UseVisualStyleBackColor = false;
             // 
@@ -77,8 +76,7 @@
             this._btnAbort.Location = new System.Drawing.Point(204, 80);
             this._btnAbort.Name = "_btnAbort";
             this._btnAbort.Size = new System.Drawing.Size(75, 29);
-            this._btnAbort.TabIndex = 6;
-            this._btnAbort.TabStop = false;
+            this._btnAbort.TabIndex = 1;
             this._btnAbort.Text = "No";
             this._btnAbort.UseVisualStyleBackColor = false;
             // 

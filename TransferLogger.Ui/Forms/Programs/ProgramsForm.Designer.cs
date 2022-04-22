@@ -108,8 +108,7 @@ namespace TransferLogger.Ui.Forms.Programs
             this._btnSelectOrganization.MinimumSize = new System.Drawing.Size(0, 23);
             this._btnSelectOrganization.Name = "_btnSelectOrganization";
             this._btnSelectOrganization.Size = new System.Drawing.Size(28, 23);
-            this._btnSelectOrganization.TabIndex = 3;
-            this._btnSelectOrganization.TabStop = false;
+            this._btnSelectOrganization.TabIndex = 4;
             this._btnSelectOrganization.Text = "...";
             this._btnSelectOrganization.UseVisualStyleBackColor = false;
             // 
@@ -121,7 +120,7 @@ namespace TransferLogger.Ui.Forms.Programs
             this._cbOrganizations.Location = new System.Drawing.Point(526, 17);
             this._cbOrganizations.Name = "_cbOrganizations";
             this._cbOrganizations.Size = new System.Drawing.Size(291, 23);
-            this._cbOrganizations.TabIndex = 2;
+            this._cbOrganizations.TabIndex = 3;
             // 
             // _lOrganization
             // 
@@ -141,7 +140,7 @@ namespace TransferLogger.Ui.Forms.Programs
             this._cbCycles.Location = new System.Drawing.Point(71, 47);
             this._cbCycles.Name = "_cbCycles";
             this._cbCycles.Size = new System.Drawing.Size(325, 23);
-            this._cbCycles.TabIndex = 1;
+            this._cbCycles.TabIndex = 2;
             // 
             // _lCycle
             // 
@@ -172,7 +171,7 @@ namespace TransferLogger.Ui.Forms.Programs
             this._tbSearchName.Location = new System.Drawing.Point(71, 17);
             this._tbSearchName.Name = "_tbSearchName";
             this._tbSearchName.Size = new System.Drawing.Size(325, 23);
-            this._tbSearchName.TabIndex = 0;
+            this._tbSearchName.TabIndex = 1;
             // 
             // _btnDelete
             // 
@@ -190,8 +189,7 @@ namespace TransferLogger.Ui.Forms.Programs
             this._btnDelete.Location = new System.Drawing.Point(1013, 12);
             this._btnDelete.Name = "_btnDelete";
             this._btnDelete.Size = new System.Drawing.Size(32, 32);
-            this._btnDelete.TabIndex = 6;
-            this._btnDelete.TabStop = false;
+            this._btnDelete.TabIndex = 7;
             this._btnDelete.UseVisualStyleBackColor = false;
             // 
             // _btnEdit
@@ -210,8 +208,7 @@ namespace TransferLogger.Ui.Forms.Programs
             this._btnEdit.Location = new System.Drawing.Point(975, 12);
             this._btnEdit.Name = "_btnEdit";
             this._btnEdit.Size = new System.Drawing.Size(32, 32);
-            this._btnEdit.TabIndex = 5;
-            this._btnEdit.TabStop = false;
+            this._btnEdit.TabIndex = 6;
             this._btnEdit.UseVisualStyleBackColor = false;
             // 
             // _btnAdd
@@ -230,8 +227,7 @@ namespace TransferLogger.Ui.Forms.Programs
             this._btnAdd.Location = new System.Drawing.Point(937, 12);
             this._btnAdd.Name = "_btnAdd";
             this._btnAdd.Size = new System.Drawing.Size(32, 32);
-            this._btnAdd.TabIndex = 4;
-            this._btnAdd.TabStop = false;
+            this._btnAdd.TabIndex = 5;
             this._btnAdd.UseVisualStyleBackColor = false;
             // 
             // _lPrograms
@@ -300,7 +296,7 @@ namespace TransferLogger.Ui.Forms.Programs
             this._grid.RowTemplate.Height = 25;
             this._grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this._grid.Size = new System.Drawing.Size(1069, 516);
-            this._grid.TabIndex = 7;
+            this._grid.TabIndex = 8;
             // 
             // Id
             // 

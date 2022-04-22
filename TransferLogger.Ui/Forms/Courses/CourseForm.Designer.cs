@@ -73,7 +73,7 @@ namespace TransferLogger.Ui.Forms.Courses
             this._tbName.Location = new System.Drawing.Point(116, 55);
             this._tbName.Name = "_tbName";
             this._tbName.Size = new System.Drawing.Size(325, 25);
-            this._tbName.TabIndex = 1;
+            this._tbName.TabIndex = 2;
             // 
             // _tbDescription
             // 
@@ -85,7 +85,7 @@ namespace TransferLogger.Ui.Forms.Courses
             this._tbDescription.Name = "_tbDescription";
             this._tbDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this._tbDescription.Size = new System.Drawing.Size(325, 81);
-            this._tbDescription.TabIndex = 9;
+            this._tbDescription.TabIndex = 10;
             // 
             // _lDescription
             // 
@@ -105,7 +105,7 @@ namespace TransferLogger.Ui.Forms.Courses
             this._cbPrograms.Location = new System.Drawing.Point(116, 157);
             this._cbPrograms.Name = "_cbPrograms";
             this._cbPrograms.Size = new System.Drawing.Size(292, 25);
-            this._cbPrograms.TabIndex = 5;
+            this._cbPrograms.TabIndex = 6;
             // 
             // _lProgram
             // 
@@ -132,7 +132,6 @@ namespace TransferLogger.Ui.Forms.Courses
             this._btnOk.Name = "_btnOk";
             this._btnOk.Size = new System.Drawing.Size(75, 29);
             this._btnOk.TabIndex = 11;
-            this._btnOk.TabStop = false;
             this._btnOk.Text = "Ok";
             this._btnOk.UseVisualStyleBackColor = false;
             // 
@@ -148,8 +147,7 @@ namespace TransferLogger.Ui.Forms.Courses
             this._btnSelectProgram.Location = new System.Drawing.Point(414, 157);
             this._btnSelectProgram.Name = "_btnSelectProgram";
             this._btnSelectProgram.Size = new System.Drawing.Size(28, 25);
-            this._btnSelectProgram.TabIndex = 6;
-            this._btnSelectProgram.TabStop = false;
+            this._btnSelectProgram.TabIndex = 7;
             this._btnSelectProgram.Text = "...";
             this._btnSelectProgram.UseVisualStyleBackColor = false;
             // 
@@ -167,8 +165,7 @@ namespace TransferLogger.Ui.Forms.Courses
             this._btnCancel.Location = new System.Drawing.Point(286, 365);
             this._btnCancel.Name = "_btnCancel";
             this._btnCancel.Size = new System.Drawing.Size(75, 29);
-            this._btnCancel.TabIndex = 10;
-            this._btnCancel.TabStop = false;
+            this._btnCancel.TabIndex = 12;
             this._btnCancel.Text = "Cancel";
             this._btnCancel.UseVisualStyleBackColor = false;
             // 
@@ -183,8 +180,7 @@ namespace TransferLogger.Ui.Forms.Courses
             this._btnSelectOrganization.Location = new System.Drawing.Point(413, 89);
             this._btnSelectOrganization.Name = "_btnSelectOrganization";
             this._btnSelectOrganization.Size = new System.Drawing.Size(28, 25);
-            this._btnSelectOrganization.TabIndex = 3;
-            this._btnSelectOrganization.TabStop = false;
+            this._btnSelectOrganization.TabIndex = 4;
             this._btnSelectOrganization.Text = "...";
             this._btnSelectOrganization.UseVisualStyleBackColor = false;
             // 
@@ -196,7 +192,7 @@ namespace TransferLogger.Ui.Forms.Courses
             this._cbOrganizations.Location = new System.Drawing.Point(116, 89);
             this._cbOrganizations.Name = "_cbOrganizations";
             this._cbOrganizations.Size = new System.Drawing.Size(292, 25);
-            this._cbOrganizations.TabIndex = 2;
+            this._cbOrganizations.TabIndex = 3;
             // 
             // _lOrganization
             // 
@@ -219,7 +215,7 @@ namespace TransferLogger.Ui.Forms.Courses
             0});
             this._numericWeeklyHours.Name = "_numericWeeklyHours";
             this._numericWeeklyHours.Size = new System.Drawing.Size(325, 25);
-            this._numericWeeklyHours.TabIndex = 8;
+            this._numericWeeklyHours.TabIndex = 9;
             this._numericWeeklyHours.Value = new decimal(new int[] {
             3,
             0,
@@ -247,7 +243,7 @@ namespace TransferLogger.Ui.Forms.Courses
             0});
             this._numericCredits.Name = "_numericCredits";
             this._numericCredits.Size = new System.Drawing.Size(325, 25);
-            this._numericCredits.TabIndex = 7;
+            this._numericCredits.TabIndex = 8;
             this._numericCredits.Value = new decimal(new int[] {
             6,
             0,
@@ -272,7 +268,7 @@ namespace TransferLogger.Ui.Forms.Courses
             this._tbCode.Location = new System.Drawing.Point(116, 21);
             this._tbCode.Name = "_tbCode";
             this._tbCode.Size = new System.Drawing.Size(325, 25);
-            this._tbCode.TabIndex = 0;
+            this._tbCode.TabIndex = 1;
             // 
             // _lCode
             // 
@@ -302,7 +298,7 @@ namespace TransferLogger.Ui.Forms.Courses
             this._cbCycles.Location = new System.Drawing.Point(116, 123);
             this._cbCycles.Name = "_cbCycles";
             this._cbCycles.Size = new System.Drawing.Size(325, 25);
-            this._cbCycles.TabIndex = 4;
+            this._cbCycles.TabIndex = 5;
             // 
             // CourseForm
             // 

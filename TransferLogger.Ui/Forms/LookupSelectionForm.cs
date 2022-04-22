@@ -32,7 +32,7 @@ namespace TransferLogger.Ui.Forms
             _tbSearchLookup.TextChanged += _tbSearchLookup_TextChanged;
 
             _grid.DoubleClick += _btnOk_Click;
-
+       
             _btnClear.Click  += _btnClear_Click;
             _btnCancel.Click += _btnCancel_Click;
             _btnOk.Click     += _btnOk_Click;
