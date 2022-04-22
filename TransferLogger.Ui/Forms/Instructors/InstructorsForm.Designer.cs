@@ -132,7 +132,7 @@ namespace TransferLogger.Ui.Forms.Instructors
             this._btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this._btnDelete.AutoSize = true;
             this._btnDelete.BackColor = System.Drawing.Color.White;
-            this._btnDelete.BackgroundImage = global::TransferLogger.Ui.Properties.Resources.delete;
+            this._btnDelete.BackgroundImage = global::TransferLogger.Ui.Properties.Resources.minus;
             this._btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this._btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this._btnDelete.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
@@ -172,7 +172,7 @@ namespace TransferLogger.Ui.Forms.Instructors
             this._btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this._btnAdd.AutoSize = true;
             this._btnAdd.BackColor = System.Drawing.Color.White;
-            this._btnAdd.BackgroundImage = global::TransferLogger.Ui.Properties.Resources.add;
+            this._btnAdd.BackgroundImage = global::TransferLogger.Ui.Properties.Resources.plus;
             this._btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this._btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
             this._btnAdd.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));

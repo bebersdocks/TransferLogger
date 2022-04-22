@@ -125,7 +125,7 @@
             // 
             this._btnAddCourse.AutoSize = true;
             this._btnAddCourse.BackColor = System.Drawing.Color.White;
-            this._btnAddCourse.BackgroundImage = global::TransferLogger.Ui.Properties.Resources.add;
+            this._btnAddCourse.BackgroundImage = global::TransferLogger.Ui.Properties.Resources.plus;
             this._btnAddCourse.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this._btnAddCourse.Cursor = System.Windows.Forms.Cursors.Hand;
             this._btnAddCourse.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
@@ -175,7 +175,7 @@
             // 
             this._btnAddProgram.AutoSize = true;
             this._btnAddProgram.BackColor = System.Drawing.Color.White;
-            this._btnAddProgram.BackgroundImage = global::TransferLogger.Ui.Properties.Resources.add;
+            this._btnAddProgram.BackgroundImage = global::TransferLogger.Ui.Properties.Resources.plus;
             this._btnAddProgram.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this._btnAddProgram.Cursor = System.Windows.Forms.Cursors.Hand;
             this._btnAddProgram.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
