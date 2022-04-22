@@ -21,12 +21,13 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
             _appBuild = appBuild;
 
-            SetData();
             SetEvents();
         }
 
         public void Activate()
         {
+            SetData();
+
             BringToFront();
         }
 
@@ -57,7 +58,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             {
                 var fileName = fileDialog.FileName;
 
-                if (!fileName.EndsWith(".xlsx"))
+                if (!fileName.EndsWith(".xls") && !fileName.EndsWith(".xlsx"))
                     fileName += ".xlsx";
 
                 _tbExcelLocation.Text = _appBuild.ExcelLocation = fileName;

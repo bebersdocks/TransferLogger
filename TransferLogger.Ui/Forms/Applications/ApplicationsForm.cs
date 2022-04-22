@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -46,7 +47,17 @@ namespace TransferLogger.Ui.Forms.Applications
             if (_cbStatuses.Items.Count == 0)
                 _cbStatuses.FillLookups<ApplicationStatus>();
 
-            _gridApps.DataSource = ApplicationViewModel.GetList(_tbSearchName.Text, _cbOrganizations.SelectedValue, _cbStatuses.SelectedValue, _dtFrom.Value, _dtTo.Value);
+            var apps = ApplicationViewModel.GetList(_tbSearchName.Text, _cbOrganizations.SelectedValue, _cbStatuses.SelectedValue, _dtFrom.Value, _dtTo.Value);
+
+            _gridApps.DataSource = apps;
+
+            if (!apps.Any())
+                _gridAppEvaluations.DataSource = null;
+
+            _btnImportExcel.Enabled =
+                _btnSendEmail.Enabled =
+                _btnExportExcel.Enabled =
+                _btnChangeExcelLocation.Enabled = apps.Any();
         }
 
         private void SetEvents()
@@ -65,10 +76,11 @@ namespace TransferLogger.Ui.Forms.Applications
 
             _btnToggleCourses.Click += (s, e) => ToggleEvaluations();
 
-            _btnAdd.Click                += _btnAdd_Click;
-            _btnExportExcel.Click        += _btnExportExcel_Click;
-            _btnSendEmail.Click          += _btnSendEmail_Click;
-            _btnSelectOrganization.Click += _btnSelectOrganization_Click;
+            _btnAdd.Click                 += _btnAdd_Click;
+            _btnExportExcel.Click         += _btnExportExcel_Click;
+            _btnSendEmail.Click           += _btnSendEmail_Click;
+            _btnChangeExcelLocation.Click += _btnChangeExcelLocation_Click;
+            _btnSelectOrganization.Click  += _btnSelectOrganization_Click;
 
             _gridApps.SelectionChanged += _gridApps_SelectionChanged;
         }
@@ -129,6 +141,16 @@ namespace TransferLogger.Ui.Forms.Applications
                 BeginInvoke((Action)(() => form.ShowDialog()));
 
                 await task;
+            }
+        }
+
+        private void _btnChangeExcelLocation_Click(object? sender, EventArgs e)
+        {
+            if (_gridApps.CurrentRow?.DataBoundItem is ApplicationViewModel viewModel)
+            {
+                using var form = new ChangeExcelLocationForm(viewModel.Id);
+
+                form.ShowDialog();
             }
         }
 
