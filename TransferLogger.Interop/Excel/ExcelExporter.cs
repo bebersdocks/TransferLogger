@@ -147,6 +147,8 @@ namespace TransferLogger.Interop.Excel
                     }
                 }
 
+                sheet.UsedRange.Columns.AutoFit();
+
                 workbook.SaveCopyAs(fileName);
             }
             catch (Exception) 
