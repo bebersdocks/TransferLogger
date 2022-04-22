@@ -134,13 +134,15 @@ namespace TransferLogger.Ui.Forms.Applications
         {
             if (_gridApps.CurrentRow?.DataBoundItem is ApplicationViewModel viewModel)
             {
-                var task = Task.Run(() => EmailService.PrepareEmail(viewModel.Id));
+                var task = Task.Run(() => new OutlookEmail(viewModel.Id));
 
                 using var form = new LoadingForm("Email", "Preparing email...");
 
                 BeginInvoke((Action)(() => form.ShowDialog()));
 
-                await task;
+                var outlookEmail = await task;
+
+                outlookEmail.Display();
             }
         }
 

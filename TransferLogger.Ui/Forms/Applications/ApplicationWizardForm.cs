@@ -114,13 +114,15 @@ namespace TransferLogger.Ui.Forms.Applications
         {
             var appId = _appBuild.Insert();
 
-            var task = Task.Run(() => EmailService.PrepareEmail(appId));
+            var task = Task.Run(() => new OutlookEmail(appId));
 
             using var form = new LoadingForm("Email", "Preparing email...");
 
             BeginInvoke((Action)(() => form.ShowDialog()));
 
-            await task;
+            var outlookEmail = await task;
+
+            outlookEmail.Display();
 
             DialogResult = DialogResult.OK;
 
