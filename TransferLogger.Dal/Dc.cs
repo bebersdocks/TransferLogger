@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.SqlClient;
 using System.Linq;
 
 using LinqToDB;
@@ -43,6 +44,17 @@ namespace TransferLogger.Dal
         {
             if (DataProvider.Name.Contains(ProviderName.SqlServer))
             {
+                try
+                {
+                    // On newer versions of MS SQL server, caching feature might cause annoying jump of identity (ID) column by 1000.
+                    // It seems to appear more often on personal machines when SQL server shuts down unexpectedly or crashes.
+                    // https://www.sqlshack.com/learn-to-avoid-an-identity-jump-issue-identity_cache-with-the-help-of-trace-command-t272/ 
+                    Command.CommandText = "ALTER DATABASE SCOPED CONFIGURATION SET IDENTITY_CACHE = OFF";
+
+                    ExecuteNonQuery(Command);
+                }
+                catch (SqlException) {}
+
                 using var tr = BeginTransaction();
 
                 foreach (var dbScript in EmbeddedResources.DbScripts)
