@@ -37,6 +37,8 @@ namespace TransferLogger.Interop.Excel
                 .ThenLoad(e => e.Instructor)
                 .LoadWith(a => a.Evaluations)
                 .ThenLoad(e => e.Course)
+                .LoadWith(a => a.Evaluations)
+                .ThenLoad(e => e.SuggestedCourse)
                 .First();
         }
 
@@ -74,7 +76,7 @@ namespace TransferLogger.Interop.Excel
                 "%CourseCode%"      => evaluation.Course.CourseCode,
                 "%Course%"          => evaluation.Course.DisplayString,
                 "%Instructor%"      => evaluation.Instructor.DisplayString,
-                "%SuggestedCourse%" => evaluation.SuggestedCourse?.CourseCode ?? string.Empty,
+                "%SuggestedCourse%" => evaluation.SuggestedCourse?.DisplayString ?? string.Empty,
                 _                   => string.Empty
             };
         }

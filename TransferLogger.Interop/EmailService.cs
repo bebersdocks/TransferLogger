@@ -21,11 +21,11 @@ namespace TransferLogger.Interop
                 .Where(a => a.ApplicationId == appId)
                 .LoadWith(a => a.Student)
                 .LoadWith(a => a.Evaluations)
-                .ThenLoad(e => e.Course)
-                .LoadWith(a => a.Evaluations)
                 .ThenLoad(e => e.Instructor)
                 .LoadWith(a => a.Evaluations)
                 .ThenLoad(e => e.Course)
+                .LoadWith(a => a.Evaluations)
+                .ThenLoad(e => e.SuggestedCourse)
                 .LoadWith(a => a.Attachments)
                 .First();
 
@@ -53,14 +53,8 @@ namespace TransferLogger.Interop
                 mailItem.To      = to;
                 mailItem.CC      = ccEmails;
 
-                var excelLocation = application.ExcelLocation;
-
-                if (string.IsNullOrEmpty(excelLocation) || !File.Exists(excelLocation))
-                {
-                    var excelExporter = new ExcelExporter(application);
-
-                    excelLocation = excelExporter.Export();
-                }
+                var excelExporter = new ExcelExporter(application);
+                var excelLocation = excelExporter.Export();
 
                 mailItem.Attachments.Add(excelLocation, OlAttachmentType.olByValue, 1, Path.GetFileName(excelLocation));
 
