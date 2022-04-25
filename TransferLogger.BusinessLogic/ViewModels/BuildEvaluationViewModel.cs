@@ -23,7 +23,8 @@ namespace TransferLogger.BusinessLogic.ViewModels
             InstructorId      = evaluation.InstructorId;
             SuggestedCourseId = evaluation.SuggestedCourseId;
 
-            Course = dc.Courses.First(c => c.CourseId == evaluation.CourseId).DisplayString;
+            Course = dc.Courses.First(c => c.CourseId == evaluation.CourseId)
+                .DisplayString;
 
             if (evaluation.HistoricalEvaluationId > 0)
             {
@@ -43,12 +44,14 @@ namespace TransferLogger.BusinessLogic.ViewModels
 
                 if (evaluation.InstructorId > 0)
                 {
-                    Instructor = dc.Instructors.First(i => i.InstructorId == evaluation.InstructorId).DisplayString;
+                    Instructor = dc.Instructors.First(i => i.InstructorId == evaluation.InstructorId)
+                        .DisplayString;
                 }
 
                 if (evaluation.SuggestedCourseId > 0)
                 {
-                    SuggestedOrMatched = dc.Courses.First(c => c.CourseId == evaluation.SuggestedCourseId).DisplayString;
+                    SuggestedOrMatched = dc.Courses.First(c => c.CourseId == evaluation.SuggestedCourseId)
+                        .DisplayString;
                 }
             }
 

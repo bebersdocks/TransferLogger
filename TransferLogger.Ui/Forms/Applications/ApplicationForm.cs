@@ -48,7 +48,8 @@ namespace TransferLogger.Ui.Forms.Applications
         private void SetData(bool initial = false)
         {
             if (_currentEvaluationId <= 0)
-                _currentEvaluationId = _application.Evaluations.First().EvaluationId;
+                _currentEvaluationId = _application.Evaluations.First()
+                    .EvaluationId;
 
             _grid.SelectionChanged -= _grid_SelectionChanged;
 

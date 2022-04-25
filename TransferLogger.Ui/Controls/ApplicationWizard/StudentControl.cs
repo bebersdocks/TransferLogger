@@ -68,7 +68,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
             if (form.ShowDialog() == DialogResult.OK && form.SelectedValue.HasValue)
             {
-                _cbStudents.SelectedValue   = form.SelectedValue.Value;
+                _cbStudents.SelectedValue = form.SelectedValue.Value;
             }
         }
 
