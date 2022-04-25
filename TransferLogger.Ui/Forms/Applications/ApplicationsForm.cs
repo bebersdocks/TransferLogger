@@ -1,22 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using TransferLogger.BusinessLogic;
+using TransferLogger.BusinessLogic.Intefaces;
 using TransferLogger.BusinessLogic.ViewModels;
 using TransferLogger.Dal.DataModels.Applications;
-using TransferLogger.Interop;
-using TransferLogger.Interop.Excel;
 using TransferLogger.Ui.Controls;
 using TransferLogger.Ui.Forms.Courses;
 using TransferLogger.Ui.Forms.Instructors;
 using TransferLogger.Ui.Forms.Organizations;
 using TransferLogger.Ui.Forms.Programs;
 using TransferLogger.Ui.Forms.Students;
-using TransferLogger.Ui.Forms.Utils;
 using TransferLogger.Ui.Properties;
+using TransferLogger.Ui.Utils;
 
 using Lookup = TransferLogger.BusinessLogic.Lookup;
 
@@ -77,8 +75,9 @@ namespace TransferLogger.Ui.Forms.Applications
             _btnToggleCourses.Click += (s, e) => ToggleEvaluations();
 
             _btnAdd.Click                 += _btnAdd_Click;
-            _btnExportExcel.Click         += _btnExportExcel_Click;
+            _btnOpen.Click                += _btnOpen_Click;
             _btnSendEmail.Click           += _btnSendEmail_Click;
+            _btnExportExcel.Click         += _btnExportExcel_Click;
             _btnChangeExcelLocation.Click += _btnChangeExcelLocation_Click;
             _btnSelectOrganization.Click  += _btnSelectOrganization_Click;
 
@@ -114,43 +113,40 @@ namespace TransferLogger.Ui.Forms.Applications
             }
         }
 
-        private async void _btnExportExcel_Click(object? sender, EventArgs e)
+        private void _btnOpen_Click(object? sender, EventArgs e)
         {
-            if (_gridApps.CurrentRow?.DataBoundItem is ApplicationViewModel viewModel)
+            if (_gridApps.CurrentRow?.DataBoundItem is IIdentifiable identifiable)
             {
-                var task = Task.Run(() => new ExcelExporter(viewModel.Id).Export());
+                using var form = new ApplicationForm(identifiable.Id);
 
-                using var form = new LoadingForm("Excel Export", "Exporting...");
-
-                BeginInvoke((Action)(() => form.ShowDialog()));
-
-                var excelPath = await task;
-
-                new ExcelViewer(excelPath).Open();
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    SetData();
+                }
             }
         }
 
         private async void _btnSendEmail_Click(object? sender, EventArgs e)
         {
-            if (_gridApps.CurrentRow?.DataBoundItem is ApplicationViewModel viewModel)
+            if (_gridApps.CurrentRow?.DataBoundItem is IIdentifiable identifiable)
             {
-                var task = Task.Run(() => new OutlookEmail(viewModel.Id));
+                await InteropActions.SendEmail(this, identifiable.Id);
+            }
+        }
 
-                using var form = new LoadingForm("Email", "Preparing email...");
-
-                BeginInvoke((Action)(() => form.ShowDialog()));
-
-                var outlookEmail = await task;
-
-                outlookEmail.Display();
+        private async void _btnExportExcel_Click(object? sender, EventArgs e)
+        {
+            if (_gridApps.CurrentRow?.DataBoundItem is IIdentifiable identifiable)
+            {
+                await InteropActions.ExportExcel(this, identifiable.Id);
             }
         }
 
         private void _btnChangeExcelLocation_Click(object? sender, EventArgs e)
         {
-            if (_gridApps.CurrentRow?.DataBoundItem is ApplicationViewModel viewModel)
+            if (_gridApps.CurrentRow?.DataBoundItem is IIdentifiable identifiable)
             {
-                using var form = new ChangeExcelLocationForm(viewModel.Id);
+                using var form = new ChangeExcelLocationForm(identifiable.Id);
 
                 form.ShowDialog();
             }

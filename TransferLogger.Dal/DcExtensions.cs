@@ -13,6 +13,9 @@ namespace TransferLogger.Dal
             return dc.Applications
                 .Where(a => a.ApplicationId == appId)
                 .LoadWith(a => a.Student)
+                .LoadWith(a => a.SourceOrganization)
+                .LoadWith(a => a.TargetOrganization)
+                .LoadWith(a => a.TargetProgram)
                 .LoadWith(a => a.Evaluations)
                 .ThenLoad(e => e.Instructor)
                 .LoadWith(a => a.Evaluations)

@@ -24,6 +24,8 @@ namespace TransferLogger.BusinessLogic.ViewModels
         public DateTime?                 CompletedAt       { get; set; }
         public List<EvaluationViewModel> Evaluations       { get; set; }
 
+        public string CreatedAtDisplay => CreatedAt.ToDisplayString();
+
         public ApplicationViewModel(Application app)
         {
             Id                = app.ApplicationId;

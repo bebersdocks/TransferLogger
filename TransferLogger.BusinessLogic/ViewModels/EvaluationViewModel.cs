@@ -28,6 +28,8 @@ namespace TransferLogger.BusinessLogic.ViewModels
         public string           Organization      { get; set; }
         public int?             MatchedCourseId   { get; set; }
         public string           MatchedCourse     { get; set; }
+        public int?             SuggestedCourseId { get; set; }
+        public string           SuggestedCourse   { get; set; }
         public int              InstructorId      { get; set; }
         public string           Instructor        { get; set; }
         public string           Comment           { get; set; }
