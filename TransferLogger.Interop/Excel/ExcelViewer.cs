@@ -31,6 +31,10 @@ namespace TransferLogger.Interop.Excel
                 excelApp.Visible = true;
 
                 workbook = excelApp.Workbooks.Open(_fileName);
+
+                // Brings window to front.
+                excelApp.WindowState = XlWindowState.xlMinimized;
+                excelApp.WindowState = XlWindowState.xlNormal;
             }
             catch (Exception)
             {
