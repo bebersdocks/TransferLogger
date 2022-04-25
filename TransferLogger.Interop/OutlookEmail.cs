@@ -26,17 +26,7 @@ namespace TransferLogger.Interop
         {
             using var dc = new Dc();
 
-            var application = dc.Applications
-                .Where(a => a.ApplicationId == _appId)
-                .LoadWith(a => a.Student)
-                .LoadWith(a => a.Evaluations)
-                .ThenLoad(e => e.Instructor)
-                .LoadWith(a => a.Evaluations)
-                .ThenLoad(e => e.Course)
-                .LoadWith(a => a.Evaluations)
-                .ThenLoad(e => e.SuggestedCourse)
-                .LoadWith(a => a.Attachments)
-                .First();
+            var application = dc.GetApplication(_appId);
 
             var instructorIds = application.Evaluations
                 .Where(e => e.EvaluationStatus == EvaluationStatus.InProcess)

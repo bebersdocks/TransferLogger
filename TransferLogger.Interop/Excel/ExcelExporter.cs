@@ -4,8 +4,6 @@ using System.Linq;
 
 using Microsoft.Office.Interop.Excel;
 
-using LinqToDB;
-
 using TransferLogger.BusinessLogic.Settings;
 using TransferLogger.Dal;
 using TransferLogger.Dal.DataModels;
@@ -28,18 +26,7 @@ namespace TransferLogger.Interop.Excel
         {
             using var dc = new Dc();
 
-            _application = dc.Applications
-                .Where(a => a.ApplicationId == appId)
-                .LoadWith(a => a.Student)
-                .LoadWith(a => a.Evaluations)
-                .ThenLoad(e => e.Course)
-                .LoadWith(a => a.Evaluations)
-                .ThenLoad(e => e.Instructor)
-                .LoadWith(a => a.Evaluations)
-                .ThenLoad(e => e.Course)
-                .LoadWith(a => a.Evaluations)
-                .ThenLoad(e => e.SuggestedCourse)
-                .First();
+            _application = dc.GetApplication(appId);
         }
 
         private static readonly HashSet<string> _appVars = new()
