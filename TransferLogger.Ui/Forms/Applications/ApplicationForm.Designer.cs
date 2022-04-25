@@ -43,6 +43,7 @@
             this._pnlApplication = new System.Windows.Forms.Panel();
             this._splitContainer = new System.Windows.Forms.SplitContainer();
             this._pnlEvaluation = new System.Windows.Forms.Panel();
+            this._cbMatchedCourses = new TransferLogger.Ui.Controls.TlDropDownList();
             this._btnViewSuggestedCourse = new TransferLogger.Ui.Controls.TlButton();
             this._lHorizontalLine = new System.Windows.Forms.Label();
             this._cbEvaluationStatus = new TransferLogger.Ui.Controls.TlDropDownList();
@@ -76,7 +77,6 @@
             this._btnSendEmail = new TransferLogger.Ui.Controls.TlButton();
             this._btnImportExcel = new TransferLogger.Ui.Controls.TlButton();
             this._btnExportExcel = new TransferLogger.Ui.Controls.TlButton();
-            this._cbMatchedCourses = new TransferLogger.Ui.Controls.TlDropDownList();
             this._pnlCourses.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._grid)).BeginInit();
             this._pnlApplication.SuspendLayout();
@@ -96,7 +96,7 @@
             this._pnlCourses.Dock = System.Windows.Forms.DockStyle.Fill;
             this._pnlCourses.Location = new System.Drawing.Point(0, 0);
             this._pnlCourses.Name = "_pnlCourses";
-            this._pnlCourses.Size = new System.Drawing.Size(1016, 310);
+            this._pnlCourses.Size = new System.Drawing.Size(1016, 297);
             this._pnlCourses.TabIndex = 0;
             // 
             // _lEvaluations
@@ -164,8 +164,8 @@
             this._grid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this._grid.RowHeadersVisible = false;
             this._grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this._grid.Size = new System.Drawing.Size(1016, 292);
-            this._grid.TabIndex = 5;
+            this._grid.Size = new System.Drawing.Size(1016, 279);
+            this._grid.TabIndex = 6;
             // 
             // Course
             // 
@@ -204,6 +204,9 @@
             // 
             // _pnlApplication
             // 
+            this._pnlApplication.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this._pnlApplication.BackColor = System.Drawing.Color.GhostWhite;
             this._pnlApplication.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this._pnlApplication.Controls.Add(this._splitContainer);
@@ -214,8 +217,12 @@
             // 
             // _splitContainer
             // 
+            this._splitContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this._splitContainer.BackColor = System.Drawing.Color.White;
-            this._splitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._splitContainer.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this._splitContainer.IsSplitterFixed = true;
             this._splitContainer.Location = new System.Drawing.Point(0, 0);
             this._splitContainer.Name = "_splitContainer";
             this._splitContainer.Orientation = System.Windows.Forms.Orientation.Horizontal;
@@ -230,7 +237,7 @@
             // 
             this._splitContainer.Panel2.Controls.Add(this._pnlCourses);
             this._splitContainer.Size = new System.Drawing.Size(1016, 593);
-            this._splitContainer.SplitterDistance = 279;
+            this._splitContainer.SplitterDistance = 292;
             this._splitContainer.TabIndex = 0;
             // 
             // _pnlEvaluation
@@ -252,10 +259,22 @@
             this._pnlEvaluation.Controls.Add(this._btnViewMatchedCourse);
             this._pnlEvaluation.Controls.Add(this._lEvaluator);
             this._pnlEvaluation.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._pnlEvaluation.Location = new System.Drawing.Point(0, 121);
+            this._pnlEvaluation.Location = new System.Drawing.Point(0, 131);
             this._pnlEvaluation.Name = "_pnlEvaluation";
-            this._pnlEvaluation.Size = new System.Drawing.Size(1016, 158);
+            this._pnlEvaluation.Size = new System.Drawing.Size(1016, 161);
             this._pnlEvaluation.TabIndex = 1;
+            // 
+            // _cbMatchedCourses
+            // 
+            this._cbMatchedCourses.BackColor = System.Drawing.Color.GhostWhite;
+            this._cbMatchedCourses.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this._cbMatchedCourses.Enabled = false;
+            this._cbMatchedCourses.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this._cbMatchedCourses.FormattingEnabled = true;
+            this._cbMatchedCourses.Location = new System.Drawing.Point(613, 16);
+            this._cbMatchedCourses.Name = "_cbMatchedCourses";
+            this._cbMatchedCourses.Size = new System.Drawing.Size(290, 25);
+            this._cbMatchedCourses.TabIndex = 3;
             // 
             // _btnViewSuggestedCourse
             // 
@@ -268,7 +287,7 @@
             this._btnViewSuggestedCourse.Location = new System.Drawing.Point(435, 50);
             this._btnViewSuggestedCourse.Name = "_btnViewSuggestedCourse";
             this._btnViewSuggestedCourse.Size = new System.Drawing.Size(29, 25);
-            this._btnViewSuggestedCourse.TabIndex = 76;
+            this._btnViewSuggestedCourse.TabIndex = 2;
             this._btnViewSuggestedCourse.Text = "...";
             this._btnViewSuggestedCourse.UseVisualStyleBackColor = false;
             // 
@@ -291,6 +310,7 @@
             this._cbEvaluationStatus.Name = "_cbEvaluationStatus";
             this._cbEvaluationStatus.Size = new System.Drawing.Size(325, 25);
             this._cbEvaluationStatus.TabIndex = 74;
+            this._cbEvaluationStatus.TabStop = false;
             // 
             // _lEvaluationStatus
             // 
@@ -312,7 +332,7 @@
             this._tbComment.Name = "_tbComment";
             this._tbComment.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this._tbComment.Size = new System.Drawing.Size(325, 59);
-            this._tbComment.TabIndex = 72;
+            this._tbComment.TabIndex = 5;
             // 
             // _lSuggestedCourse
             // 
@@ -335,6 +355,7 @@
             this._tbSuggestedCourse.ReadOnly = true;
             this._tbSuggestedCourse.Size = new System.Drawing.Size(290, 25);
             this._tbSuggestedCourse.TabIndex = 70;
+            this._tbSuggestedCourse.TabStop = false;
             // 
             // _btnViewCourse
             // 
@@ -347,7 +368,7 @@
             this._btnViewCourse.Location = new System.Drawing.Point(435, 16);
             this._btnViewCourse.Name = "_btnViewCourse";
             this._btnViewCourse.Size = new System.Drawing.Size(29, 25);
-            this._btnViewCourse.TabIndex = 69;
+            this._btnViewCourse.TabIndex = 1;
             this._btnViewCourse.Text = "...";
             this._btnViewCourse.UseVisualStyleBackColor = false;
             // 
@@ -372,6 +393,7 @@
             this._tbCourse.ReadOnly = true;
             this._tbCourse.Size = new System.Drawing.Size(290, 25);
             this._tbCourse.TabIndex = 67;
+            this._tbCourse.TabStop = false;
             // 
             // _lMatchedCourse
             // 
@@ -404,6 +426,7 @@
             this._tbEvaluator.ReadOnly = true;
             this._tbEvaluator.Size = new System.Drawing.Size(325, 25);
             this._tbEvaluator.TabIndex = 61;
+            this._tbEvaluator.TabStop = false;
             // 
             // _btnViewMatchedCourse
             // 
@@ -416,7 +439,7 @@
             this._btnViewMatchedCourse.Location = new System.Drawing.Point(909, 16);
             this._btnViewMatchedCourse.Name = "_btnViewMatchedCourse";
             this._btnViewMatchedCourse.Size = new System.Drawing.Size(29, 25);
-            this._btnViewMatchedCourse.TabIndex = 59;
+            this._btnViewMatchedCourse.TabIndex = 4;
             this._btnViewMatchedCourse.Text = "...";
             this._btnViewMatchedCourse.UseVisualStyleBackColor = false;
             // 
@@ -447,7 +470,7 @@
             this._pnlApplicationDetails.Dock = System.Windows.Forms.DockStyle.Top;
             this._pnlApplicationDetails.Location = new System.Drawing.Point(0, 0);
             this._pnlApplicationDetails.Name = "_pnlApplicationDetails";
-            this._pnlApplicationDetails.Size = new System.Drawing.Size(1016, 121);
+            this._pnlApplicationDetails.Size = new System.Drawing.Size(1016, 131);
             this._pnlApplicationDetails.TabIndex = 0;
             // 
             // _tbCompletedAt
@@ -456,17 +479,18 @@
             this._tbCompletedAt.BoxWidth = 325;
             this._tbCompletedAt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._tbCompletedAt.ForeColor = System.Drawing.Color.Black;
-            this._tbCompletedAt.Location = new System.Drawing.Point(613, 81);
+            this._tbCompletedAt.Location = new System.Drawing.Point(613, 86);
             this._tbCompletedAt.Name = "_tbCompletedAt";
             this._tbCompletedAt.ReadOnly = true;
             this._tbCompletedAt.Size = new System.Drawing.Size(325, 25);
             this._tbCompletedAt.TabIndex = 54;
+            this._tbCompletedAt.TabStop = false;
             // 
             // _lCompletedAt
             // 
             this._lCompletedAt.AutoSize = true;
             this._lCompletedAt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lCompletedAt.Location = new System.Drawing.Point(501, 84);
+            this._lCompletedAt.Location = new System.Drawing.Point(501, 89);
             this._lCompletedAt.Name = "_lCompletedAt";
             this._lCompletedAt.Size = new System.Drawing.Size(106, 17);
             this._lCompletedAt.TabIndex = 55;
@@ -478,17 +502,18 @@
             this._tbCreatedAt.BoxWidth = 325;
             this._tbCreatedAt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._tbCreatedAt.ForeColor = System.Drawing.Color.Black;
-            this._tbCreatedAt.Location = new System.Drawing.Point(613, 47);
+            this._tbCreatedAt.Location = new System.Drawing.Point(613, 52);
             this._tbCreatedAt.Name = "_tbCreatedAt";
             this._tbCreatedAt.ReadOnly = true;
             this._tbCreatedAt.Size = new System.Drawing.Size(325, 25);
             this._tbCreatedAt.TabIndex = 52;
+            this._tbCreatedAt.TabStop = false;
             // 
             // _lCreatedAt
             // 
             this._lCreatedAt.AutoSize = true;
             this._lCreatedAt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lCreatedAt.Location = new System.Drawing.Point(519, 50);
+            this._lCreatedAt.Location = new System.Drawing.Point(519, 55);
             this._lCreatedAt.Name = "_lCreatedAt";
             this._lCreatedAt.Size = new System.Drawing.Size(88, 17);
             this._lCreatedAt.TabIndex = 53;
@@ -501,16 +526,17 @@
             this._cbApplicationStatus.Enabled = false;
             this._cbApplicationStatus.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._cbApplicationStatus.FormattingEnabled = true;
-            this._cbApplicationStatus.Location = new System.Drawing.Point(613, 13);
+            this._cbApplicationStatus.Location = new System.Drawing.Point(613, 18);
             this._cbApplicationStatus.Name = "_cbApplicationStatus";
             this._cbApplicationStatus.Size = new System.Drawing.Size(325, 25);
             this._cbApplicationStatus.TabIndex = 51;
+            this._cbApplicationStatus.TabStop = false;
             // 
             // _lApplicationStatus
             // 
             this._lApplicationStatus.AutoSize = true;
             this._lApplicationStatus.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lApplicationStatus.Location = new System.Drawing.Point(561, 16);
+            this._lApplicationStatus.Location = new System.Drawing.Point(561, 21);
             this._lApplicationStatus.Name = "_lApplicationStatus";
             this._lApplicationStatus.Size = new System.Drawing.Size(46, 17);
             this._lApplicationStatus.TabIndex = 50;
@@ -522,17 +548,18 @@
             this._tbTargetProgram.BoxWidth = 325;
             this._tbTargetProgram.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._tbTargetProgram.ForeColor = System.Drawing.Color.Black;
-            this._tbTargetProgram.Location = new System.Drawing.Point(139, 81);
+            this._tbTargetProgram.Location = new System.Drawing.Point(139, 86);
             this._tbTargetProgram.Name = "_tbTargetProgram";
             this._tbTargetProgram.ReadOnly = true;
             this._tbTargetProgram.Size = new System.Drawing.Size(325, 25);
             this._tbTargetProgram.TabIndex = 45;
+            this._tbTargetProgram.TabStop = false;
             // 
             // _lTargetProgram
             // 
             this._lTargetProgram.AutoSize = true;
             this._lTargetProgram.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lTargetProgram.Location = new System.Drawing.Point(30, 84);
+            this._lTargetProgram.Location = new System.Drawing.Point(30, 89);
             this._lTargetProgram.Name = "_lTargetProgram";
             this._lTargetProgram.Size = new System.Drawing.Size(103, 17);
             this._lTargetProgram.TabIndex = 48;
@@ -544,17 +571,18 @@
             this._tbOrganization.BoxWidth = 325;
             this._tbOrganization.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._tbOrganization.ForeColor = System.Drawing.Color.Black;
-            this._tbOrganization.Location = new System.Drawing.Point(139, 47);
+            this._tbOrganization.Location = new System.Drawing.Point(139, 52);
             this._tbOrganization.Name = "_tbOrganization";
             this._tbOrganization.ReadOnly = true;
             this._tbOrganization.Size = new System.Drawing.Size(325, 25);
             this._tbOrganization.TabIndex = 44;
+            this._tbOrganization.TabStop = false;
             // 
             // _lOrganization
             // 
             this._lOrganization.AutoSize = true;
             this._lOrganization.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lOrganization.Location = new System.Drawing.Point(47, 50);
+            this._lOrganization.Location = new System.Drawing.Point(47, 55);
             this._lOrganization.Name = "_lOrganization";
             this._lOrganization.Size = new System.Drawing.Size(86, 17);
             this._lOrganization.TabIndex = 47;
@@ -566,16 +594,17 @@
             this._tbStudent.BoxWidth = 325;
             this._tbStudent.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._tbStudent.ForeColor = System.Drawing.Color.Black;
-            this._tbStudent.Location = new System.Drawing.Point(139, 13);
+            this._tbStudent.Location = new System.Drawing.Point(139, 18);
             this._tbStudent.Name = "_tbStudent";
             this._tbStudent.Size = new System.Drawing.Size(325, 25);
             this._tbStudent.TabIndex = 43;
+            this._tbStudent.TabStop = false;
             // 
             // _lStudent
             // 
             this._lStudent.AutoSize = true;
             this._lStudent.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lStudent.Location = new System.Drawing.Point(82, 16);
+            this._lStudent.Location = new System.Drawing.Point(82, 21);
             this._lStudent.Name = "_lStudent";
             this._lStudent.Size = new System.Drawing.Size(55, 17);
             this._lStudent.TabIndex = 46;
@@ -583,6 +612,7 @@
             // 
             // _btnSave
             // 
+            this._btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this._btnSave.BackColor = System.Drawing.Color.White;
             this._btnSave.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
             this._btnSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
@@ -592,13 +622,13 @@
             this._btnSave.Location = new System.Drawing.Point(954, 615);
             this._btnSave.Name = "_btnSave";
             this._btnSave.Size = new System.Drawing.Size(75, 29);
-            this._btnSave.TabIndex = 2;
-            this._btnSave.TabStop = false;
+            this._btnSave.TabIndex = 10;
             this._btnSave.Text = "Save";
             this._btnSave.UseVisualStyleBackColor = false;
             // 
             // _btnCancel
             // 
+            this._btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this._btnCancel.BackColor = System.Drawing.Color.White;
             this._btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
             this._btnCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
@@ -608,14 +638,13 @@
             this._btnCancel.Location = new System.Drawing.Point(873, 615);
             this._btnCancel.Name = "_btnCancel";
             this._btnCancel.Size = new System.Drawing.Size(75, 29);
-            this._btnCancel.TabIndex = 3;
-            this._btnCancel.TabStop = false;
+            this._btnCancel.TabIndex = 11;
             this._btnCancel.Text = "Cancel";
             this._btnCancel.UseVisualStyleBackColor = false;
             // 
             // _btnSendEmail
             // 
-            this._btnSendEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this._btnSendEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this._btnSendEmail.AutoSize = true;
             this._btnSendEmail.BackColor = System.Drawing.Color.White;
             this._btnSendEmail.BackgroundImage = global::TransferLogger.Ui.Properties.Resources.mail;
@@ -629,12 +658,12 @@
             this._btnSendEmail.Location = new System.Drawing.Point(51, 613);
             this._btnSendEmail.Name = "_btnSendEmail";
             this._btnSendEmail.Size = new System.Drawing.Size(32, 32);
-            this._btnSendEmail.TabIndex = 13;
+            this._btnSendEmail.TabIndex = 8;
             this._btnSendEmail.UseVisualStyleBackColor = false;
             // 
             // _btnImportExcel
             // 
-            this._btnImportExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this._btnImportExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this._btnImportExcel.AutoSize = true;
             this._btnImportExcel.BackColor = System.Drawing.Color.White;
             this._btnImportExcel.BackgroundImage = global::TransferLogger.Ui.Properties.Resources.merge_files;
@@ -648,12 +677,12 @@
             this._btnImportExcel.Location = new System.Drawing.Point(13, 612);
             this._btnImportExcel.Name = "_btnImportExcel";
             this._btnImportExcel.Size = new System.Drawing.Size(32, 32);
-            this._btnImportExcel.TabIndex = 12;
+            this._btnImportExcel.TabIndex = 7;
             this._btnImportExcel.UseVisualStyleBackColor = false;
             // 
             // _btnExportExcel
             // 
-            this._btnExportExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this._btnExportExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this._btnExportExcel.AutoSize = true;
             this._btnExportExcel.BackColor = System.Drawing.Color.White;
             this._btnExportExcel.BackgroundImage = global::TransferLogger.Ui.Properties.Resources.excel;
@@ -667,20 +696,8 @@
             this._btnExportExcel.Location = new System.Drawing.Point(89, 613);
             this._btnExportExcel.Name = "_btnExportExcel";
             this._btnExportExcel.Size = new System.Drawing.Size(32, 32);
-            this._btnExportExcel.TabIndex = 14;
+            this._btnExportExcel.TabIndex = 9;
             this._btnExportExcel.UseVisualStyleBackColor = false;
-            // 
-            // _cbMatchedCourses
-            // 
-            this._cbMatchedCourses.BackColor = System.Drawing.Color.GhostWhite;
-            this._cbMatchedCourses.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this._cbMatchedCourses.Enabled = false;
-            this._cbMatchedCourses.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._cbMatchedCourses.FormattingEnabled = true;
-            this._cbMatchedCourses.Location = new System.Drawing.Point(613, 16);
-            this._cbMatchedCourses.Name = "_cbMatchedCourses";
-            this._cbMatchedCourses.Size = new System.Drawing.Size(290, 25);
-            this._cbMatchedCourses.TabIndex = 77;
             // 
             // ApplicationForm
             // 

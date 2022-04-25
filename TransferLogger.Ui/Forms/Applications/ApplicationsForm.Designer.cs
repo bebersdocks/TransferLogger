@@ -39,7 +39,7 @@ namespace TransferLogger.Ui.Forms.Applications
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ApplicationsForm));
             this._splitContainerForm = new TransferLogger.Ui.Controls.TlSplitContainer();
             this._pnlFilters = new System.Windows.Forms.Panel();
-            this._btnCancelApplication = new TransferLogger.Ui.Controls.TlButton();
+            this._btnDelete = new TransferLogger.Ui.Controls.TlButton();
             this._btnChangeExcelLocation = new TransferLogger.Ui.Controls.TlButton();
             this._btnToggleCourses = new TransferLogger.Ui.Controls.TlButton();
             this._btnSendEmail = new TransferLogger.Ui.Controls.TlButton();
@@ -69,18 +69,18 @@ namespace TransferLogger.Ui.Forms.Applications
             this._pnlCourses = new System.Windows.Forms.Panel();
             this._lApplications = new System.Windows.Forms.Label();
             this._gridApps = new TransferLogger.Ui.Controls.TlDataGrid();
-            this._pnlApplications = new System.Windows.Forms.Panel();
-            this._lAppEvaluations = new System.Windows.Forms.Label();
-            this._gridAppEvaluations = new TransferLogger.Ui.Controls.TlDataGrid();
-            this.CourseCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Instructor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EvaluationStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Student = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Organization = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TargetProgram = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CreatedAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._pnlApplications = new System.Windows.Forms.Panel();
+            this._lAppEvaluations = new System.Windows.Forms.Label();
+            this._gridAppEvaluations = new TransferLogger.Ui.Controls.TlDataGrid();
+            this.CourseCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Instructor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EvaluationStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this._splitContainerForm)).BeginInit();
             this._splitContainerForm.Panel1.SuspendLayout();
             this._splitContainerForm.Panel2.SuspendLayout();
@@ -128,7 +128,7 @@ namespace TransferLogger.Ui.Forms.Applications
             | System.Windows.Forms.AnchorStyles.Right)));
             this._pnlFilters.BackColor = System.Drawing.Color.White;
             this._pnlFilters.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this._pnlFilters.Controls.Add(this._btnCancelApplication);
+            this._pnlFilters.Controls.Add(this._btnDelete);
             this._pnlFilters.Controls.Add(this._btnChangeExcelLocation);
             this._pnlFilters.Controls.Add(this._btnToggleCourses);
             this._pnlFilters.Controls.Add(this._btnSendEmail);
@@ -152,24 +152,24 @@ namespace TransferLogger.Ui.Forms.Applications
             this._pnlFilters.Size = new System.Drawing.Size(1236, 117);
             this._pnlFilters.TabIndex = 1;
             // 
-            // _btnCancelApplication
+            // _btnDelete
             // 
-            this._btnCancelApplication.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this._btnCancelApplication.AutoSize = true;
-            this._btnCancelApplication.BackColor = System.Drawing.Color.White;
-            this._btnCancelApplication.BackgroundImage = global::TransferLogger.Ui.Properties.Resources.minus;
-            this._btnCancelApplication.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this._btnCancelApplication.Cursor = System.Windows.Forms.Cursors.Hand;
-            this._btnCancelApplication.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
-            this._btnCancelApplication.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
-            this._btnCancelApplication.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
-            this._btnCancelApplication.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._btnCancelApplication.ForeColor = System.Drawing.Color.Black;
-            this._btnCancelApplication.Location = new System.Drawing.Point(1035, 18);
-            this._btnCancelApplication.Name = "_btnCancelApplication";
-            this._btnCancelApplication.Size = new System.Drawing.Size(32, 32);
-            this._btnCancelApplication.TabIndex = 33;
-            this._btnCancelApplication.UseVisualStyleBackColor = false;
+            this._btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this._btnDelete.AutoSize = true;
+            this._btnDelete.BackColor = System.Drawing.Color.White;
+            this._btnDelete.BackgroundImage = global::TransferLogger.Ui.Properties.Resources.minus;
+            this._btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this._btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this._btnDelete.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
+            this._btnDelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
+            this._btnDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
+            this._btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._btnDelete.ForeColor = System.Drawing.Color.Black;
+            this._btnDelete.Location = new System.Drawing.Point(1035, 18);
+            this._btnDelete.Name = "_btnDelete";
+            this._btnDelete.Size = new System.Drawing.Size(32, 32);
+            this._btnDelete.TabIndex = 9;
+            this._btnDelete.UseVisualStyleBackColor = false;
             // 
             // _btnChangeExcelLocation
             // 
@@ -187,7 +187,7 @@ namespace TransferLogger.Ui.Forms.Applications
             this._btnChangeExcelLocation.Location = new System.Drawing.Point(1187, 18);
             this._btnChangeExcelLocation.Name = "_btnChangeExcelLocation";
             this._btnChangeExcelLocation.Size = new System.Drawing.Size(32, 32);
-            this._btnChangeExcelLocation.TabIndex = 12;
+            this._btnChangeExcelLocation.TabIndex = 13;
             this._btnChangeExcelLocation.UseVisualStyleBackColor = false;
             // 
             // _btnToggleCourses
@@ -206,7 +206,7 @@ namespace TransferLogger.Ui.Forms.Applications
             this._btnToggleCourses.Location = new System.Drawing.Point(1187, 78);
             this._btnToggleCourses.Name = "_btnToggleCourses";
             this._btnToggleCourses.Size = new System.Drawing.Size(32, 32);
-            this._btnToggleCourses.TabIndex = 13;
+            this._btnToggleCourses.TabIndex = 14;
             this._btnToggleCourses.UseVisualStyleBackColor = false;
             // 
             // _btnSendEmail
@@ -225,7 +225,7 @@ namespace TransferLogger.Ui.Forms.Applications
             this._btnSendEmail.Location = new System.Drawing.Point(1111, 18);
             this._btnSendEmail.Name = "_btnSendEmail";
             this._btnSendEmail.Size = new System.Drawing.Size(32, 32);
-            this._btnSendEmail.TabIndex = 10;
+            this._btnSendEmail.TabIndex = 11;
             this._btnSendEmail.UseVisualStyleBackColor = false;
             // 
             // _btnImportExcel
@@ -244,7 +244,7 @@ namespace TransferLogger.Ui.Forms.Applications
             this._btnImportExcel.Location = new System.Drawing.Point(1073, 18);
             this._btnImportExcel.Name = "_btnImportExcel";
             this._btnImportExcel.Size = new System.Drawing.Size(32, 32);
-            this._btnImportExcel.TabIndex = 9;
+            this._btnImportExcel.TabIndex = 10;
             this._btnImportExcel.UseVisualStyleBackColor = false;
             // 
             // _btnExportExcel
@@ -263,7 +263,7 @@ namespace TransferLogger.Ui.Forms.Applications
             this._btnExportExcel.Location = new System.Drawing.Point(1149, 18);
             this._btnExportExcel.Name = "_btnExportExcel";
             this._btnExportExcel.Size = new System.Drawing.Size(32, 32);
-            this._btnExportExcel.TabIndex = 11;
+            this._btnExportExcel.TabIndex = 12;
             this._btnExportExcel.UseVisualStyleBackColor = false;
             // 
             // _btnOpen
@@ -576,8 +576,53 @@ namespace TransferLogger.Ui.Forms.Applications
             this._gridApps.RowHeadersVisible = false;
             this._gridApps.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this._gridApps.Size = new System.Drawing.Size(891, 550);
-            this._gridApps.TabIndex = 14;
+            this._gridApps.TabIndex = 15;
             this._gridApps.TabStop = false;
+            // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "ID";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            // 
+            // Student
+            // 
+            this.Student.DataPropertyName = "Student";
+            this.Student.FillWeight = 155F;
+            this.Student.HeaderText = "Student";
+            this.Student.Name = "Student";
+            this.Student.ReadOnly = true;
+            // 
+            // Organization
+            // 
+            this.Organization.DataPropertyName = "Organization";
+            this.Organization.FillWeight = 155F;
+            this.Organization.HeaderText = "Organization";
+            this.Organization.Name = "Organization";
+            this.Organization.ReadOnly = true;
+            // 
+            // TargetProgram
+            // 
+            this.TargetProgram.DataPropertyName = "TargetProgram";
+            this.TargetProgram.FillWeight = 155F;
+            this.TargetProgram.HeaderText = "Target Program";
+            this.TargetProgram.Name = "TargetProgram";
+            this.TargetProgram.ReadOnly = true;
+            // 
+            // CreatedAt
+            // 
+            this.CreatedAt.DataPropertyName = "CreatedAtDisplay";
+            this.CreatedAt.HeaderText = "Created Date";
+            this.CreatedAt.Name = "CreatedAt";
+            this.CreatedAt.ReadOnly = true;
+            // 
+            // Status
+            // 
+            this.Status.DataPropertyName = "StatusDisplayName";
+            this.Status.HeaderText = "Status";
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
             // 
             // _pnlApplications
             // 
@@ -678,51 +723,6 @@ namespace TransferLogger.Ui.Forms.Applications
             this.EvaluationStatus.Name = "EvaluationStatus";
             this.EvaluationStatus.ReadOnly = true;
             // 
-            // Id
-            // 
-            this.Id.DataPropertyName = "Id";
-            this.Id.HeaderText = "ID";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            // 
-            // Student
-            // 
-            this.Student.DataPropertyName = "Student";
-            this.Student.FillWeight = 155F;
-            this.Student.HeaderText = "Student";
-            this.Student.Name = "Student";
-            this.Student.ReadOnly = true;
-            // 
-            // Organization
-            // 
-            this.Organization.DataPropertyName = "Organization";
-            this.Organization.FillWeight = 155F;
-            this.Organization.HeaderText = "Organization";
-            this.Organization.Name = "Organization";
-            this.Organization.ReadOnly = true;
-            // 
-            // TargetProgram
-            // 
-            this.TargetProgram.DataPropertyName = "TargetProgram";
-            this.TargetProgram.FillWeight = 155F;
-            this.TargetProgram.HeaderText = "Target Program";
-            this.TargetProgram.Name = "TargetProgram";
-            this.TargetProgram.ReadOnly = true;
-            // 
-            // CreatedAt
-            // 
-            this.CreatedAt.DataPropertyName = "CreatedAtDisplay";
-            this.CreatedAt.HeaderText = "Created Date";
-            this.CreatedAt.Name = "CreatedAt";
-            this.CreatedAt.ReadOnly = true;
-            // 
-            // Status
-            // 
-            this.Status.DataPropertyName = "StatusDisplayName";
-            this.Status.HeaderText = "Status";
-            this.Status.Name = "Status";
-            this.Status.ReadOnly = true;
-            // 
             // ApplicationsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -794,7 +794,7 @@ namespace TransferLogger.Ui.Forms.Applications
         private DataGridViewTextBoxColumn EvaluationStatus;
         private Controls.TlButton _btnToggleCourses;
         private Controls.TlButton _btnChangeExcelLocation;
-        private Controls.TlButton _btnCancelApplication;
+        private Controls.TlButton _btnDelete;
         private DataGridViewTextBoxColumn Id;
         private DataGridViewTextBoxColumn Student;
         private DataGridViewTextBoxColumn Organization;

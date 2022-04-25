@@ -36,6 +36,11 @@ namespace TransferLogger.Ui.Forms.Applications
             _application = dc.GetApplication(appId);
             _courses     = LookupServices.GetCourses(_application.TargetOrganizationId, _application.TargetProgramId);
             _readOnly    = readOnly;
+
+            _pnlApplicationDetails.Enabled = !readOnly;
+
+            Text = $"Transfer application for {_application.Student.DisplayString} (Id: {_application.ApplicationId})";
+
             SetData(true);
             SetEvents();
         }
@@ -76,7 +81,7 @@ namespace TransferLogger.Ui.Forms.Applications
 
         private void SetEvaluation()
         {
-            _pnlEvaluation.Enabled = _readOnly || _application.ApplicationStatus == ApplicationStatus.InProcess;
+            _pnlEvaluation.Enabled = !_readOnly || _application.ApplicationStatus == ApplicationStatus.InProcess;
 
             if (_grid.CurrentRow?.DataBoundItem is EvaluationViewModel viewModel)
             {
@@ -89,14 +94,14 @@ namespace TransferLogger.Ui.Forms.Applications
 
                 _cbMatchedCourses.FillLookups(_courses, viewModel.MatchedCourseId);
 
-                _btnViewSuggestedCourse.Enabled = viewModel.SuggestedCourseId.HasValue;
-                _btnViewMatchedCourse.Enabled   = viewModel.MatchedCourseId.HasValue;
+                _btnViewSuggestedCourse.Enabled = (viewModel.SuggestedCourseId ?? 0) > 0;
+                _btnViewMatchedCourse.Enabled   = (viewModel.MatchedCourseId ?? 0) > 0;
 
                 if (_pnlEvaluation.Enabled)
                 {
                     bool readOnly = viewModel.Status == EvaluationStatus.MatchedByHistory;
 
-                    _cbMatchedCourses.Enabled = readOnly;
+                    _cbMatchedCourses.Enabled = !readOnly;
 
                     FormUtils.SetReadOnly(_tbComment, readOnly);
                 }
@@ -157,6 +162,8 @@ namespace TransferLogger.Ui.Forms.Applications
             if (GetGridEvaluation() is Evaluation evaluation)
             {
                 evaluation.MatchedCourseId = Convert.ToInt32(_cbMatchedCourses.SelectedValue);
+
+                _btnViewMatchedCourse.Enabled = (evaluation.MatchedCourseId ?? 0) > 0;
 
                 SetData();
             }

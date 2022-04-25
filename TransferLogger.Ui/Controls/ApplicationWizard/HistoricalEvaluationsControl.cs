@@ -8,6 +8,7 @@ using TransferLogger.BusinessLogic.Intefaces;
 using TransferLogger.BusinessLogic.ViewModels;
 using TransferLogger.Dal;
 using TransferLogger.Dal.DataModels;
+using TransferLogger.Ui.Forms.Applications;
 using TransferLogger.Ui.Forms.Courses;
 
 namespace TransferLogger.Ui.Controls.ApplicationWizard
@@ -105,6 +106,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             _gridCourses.CellDoubleClick += (s, e) => SetCurrentRowHistoricalUsage(e.ColumnIndex == 1);
 
             _btnViewMatchedCourse.Click += _btnViewMatchedCourse_Click;
+            _btnViewApplication.Click   += _btnViewApplication_Click;
         }
 
         // Refreshes the grid to display current value of UseHistorical checkbox.
@@ -167,6 +169,16 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             if (_gridHistoricalEvaluations.CurrentRow?.DataBoundItem is EvaluationViewModel viewModel && viewModel.MatchedCourseId.HasValue)
             {
                 using var form = new CourseForm(viewModel.MatchedCourseId.Value);
+
+                form.ShowDialog();
+            }
+        }
+
+        private void _btnViewApplication_Click(object? sender, EventArgs e)
+        {
+            if (_gridHistoricalEvaluations.CurrentRow?.DataBoundItem is EvaluationViewModel viewModel)
+            {
+                using var form = new ApplicationForm(viewModel.ApplicationId, true);
 
                 form.ShowDialog();
             }

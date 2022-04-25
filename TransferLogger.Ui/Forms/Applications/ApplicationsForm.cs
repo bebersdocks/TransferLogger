@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
+using LinqToDB;
+
 using TransferLogger.BusinessLogic;
 using TransferLogger.BusinessLogic.Intefaces;
 using TransferLogger.BusinessLogic.ViewModels;
+using TransferLogger.Dal;
 using TransferLogger.Dal.DataModels.Applications;
 using TransferLogger.Ui.Controls;
 using TransferLogger.Ui.Forms.Courses;
+using TransferLogger.Ui.Forms.Dialogs;
 using TransferLogger.Ui.Forms.Instructors;
 using TransferLogger.Ui.Forms.Organizations;
 using TransferLogger.Ui.Forms.Programs;
@@ -76,11 +80,14 @@ namespace TransferLogger.Ui.Forms.Applications
 
             _btnAdd.Click                 += _btnAdd_Click;
             _btnOpen.Click                += _btnOpen_Click;
+            _btnDelete.Click              += _btnDelete_Click;
             _btnSendEmail.Click           += _btnSendEmail_Click;
             _btnExportExcel.Click         += _btnExportExcel_Click;
             _btnChangeExcelLocation.Click += _btnChangeExcelLocation_Click;
             _btnSelectOrganization.Click  += _btnSelectOrganization_Click;
 
+            _gridApps.DoubleClick      += _gridApps_DoubleClick;
+            _gridApps.KeyDown          += _gridApps_KeyDown;
             _gridApps.SelectionChanged += _gridApps_SelectionChanged;
         }
 
@@ -113,7 +120,7 @@ namespace TransferLogger.Ui.Forms.Applications
             }
         }
 
-        private void _btnOpen_Click(object? sender, EventArgs e)
+        private void OpenApplication()
         {
             if (_gridApps.CurrentRow?.DataBoundItem is IIdentifiable identifiable)
             {
@@ -122,6 +129,43 @@ namespace TransferLogger.Ui.Forms.Applications
                 if (form.ShowDialog() == DialogResult.OK)
                 {
                     SetData();
+                }
+            }
+        }
+
+        private void _btnOpen_Click(object? sender, EventArgs e)
+        {
+            OpenApplication();
+        }
+        
+        private void _btnDelete_Click(object? sender, EventArgs e)
+        {
+            if (_gridApps.CurrentRow?.DataBoundItem is ApplicationViewModel viewModel)
+            {
+                using var confirmBox = new ConfirmBox(
+                    "Confirm Deletion",
+                    $"Are you sure you want to delete application for {viewModel.Student} (Id: {viewModel.Id})?");
+
+                if (confirmBox.ShowDialog() == DialogResult.OK)
+                {
+                    var index = _gridApps.CurrentRow.Index;
+
+                    using var dc = new Dc();
+                    using var tr = dc.BeginTransaction();
+
+                    dc.Evaluations
+                        .Where(a => a.ApplicationId == viewModel.Id)
+                        .Delete();
+
+                    dc.Applications
+                        .Where(a => a.ApplicationId == viewModel.Id)
+                        .Delete();
+
+                    tr.Commit();
+
+                    SetData();
+
+                    _gridApps.SelectRow(index);
                 }
             }
         }
@@ -162,11 +206,24 @@ namespace TransferLogger.Ui.Forms.Applications
             }
         }
 
+        private void _gridApps_DoubleClick(object? sender, EventArgs e)
+        {
+            OpenApplication();
+        }
+
+        private void _gridApps_KeyDown(object? sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                OpenApplication();
+        }
+
         private void _gridApps_SelectionChanged(object? sender, EventArgs e)
         {
             if (_gridApps.CurrentRow?.DataBoundItem is ApplicationViewModel viewModel)
             {
                 _gridAppEvaluations.DataSource = viewModel.Evaluations;
+
+                _btnDelete.Enabled = viewModel.Status != ApplicationStatus.Completed;
             }
         }
     }

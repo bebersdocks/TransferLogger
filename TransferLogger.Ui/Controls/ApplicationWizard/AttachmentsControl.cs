@@ -44,9 +44,10 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             _btnView.Click    += (s, e) => ViewAttachment();
 
             _btnBrowse.Click += _btnBrowse_Click;
-            _grid.KeyDown    += _grid_KeyDown;
             _btnAdd.Click    += _btnAdd_Click;
             _btnDelete.Click += _btnDelete_Click;
+
+            _grid.KeyDown += _grid_KeyDown;
         }
 
         private void ViewAttachment()
@@ -82,12 +83,6 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
                 _tbExcelLocation.Text = _appBuild.ExcelLocation = fileName;
             }
-        }
-
-        private void _grid_KeyDown(object? sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-                ViewAttachment();
         }
 
         private async void _btnAdd_Click(object? sender, EventArgs e)
@@ -130,6 +125,12 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
                 _grid.SelectRow(index);
             }
+        }
+
+        private void _grid_KeyDown(object? sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                ViewAttachment();
         }
 
         public bool Complete()

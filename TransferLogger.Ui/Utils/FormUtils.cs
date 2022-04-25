@@ -89,6 +89,8 @@ namespace TransferLogger.Ui.Utils
         {
             var backColor = readOnly ? SystemColors.InactiveBorder : Color.GhostWhite;
 
+            control.TabStop = !readOnly;
+
             if (control is TextBox textBox)
             {
                 textBox.BackColor = backColor;
