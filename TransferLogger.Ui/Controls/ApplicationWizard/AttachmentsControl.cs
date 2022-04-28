@@ -44,6 +44,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             _btnView.Click    += (s, e) => ViewAttachment();
 
             _btnBrowse.Click += _btnBrowse_Click;
+            _btnClear.Click  += _btnClear_Click;
             _btnAdd.Click    += _btnAdd_Click;
             _btnDelete.Click += _btnDelete_Click;
 
@@ -72,7 +73,9 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             using var fileDialog = new OpenFileDialog();
 
             fileDialog.CheckFileExists  = false;
+            fileDialog.FileName         = Path.GetFileName(_appBuild.ExcelLocation);
             fileDialog.RestoreDirectory = true;
+            fileDialog.Title            = "Choose excel location";
 
             if (fileDialog.ShowDialog() == DialogResult.OK)
             {
@@ -83,6 +86,11 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
                 _tbExcelLocation.Text = _appBuild.ExcelLocation = fileName;
             }
+        }
+
+        private void _btnClear_Click(object? sender, EventArgs e)
+        {
+            _tbExcelLocation.Text = _appBuild.ExcelLocation = string.Empty;
         }
 
         private async void _btnAdd_Click(object? sender, EventArgs e)

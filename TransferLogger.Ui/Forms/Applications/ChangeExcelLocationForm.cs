@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -35,6 +36,7 @@ namespace TransferLogger.Ui.Forms.Applications
         private void SetEvents()
         {
             _btnBrowse.Click += _btnBrowse_Click;
+            _btnClear.Click  += _btnClear_Click;
             _btnOk.Click     += _btnOk_Click;
             _btnCancel.Click += _btnCancel_Click;
         }
@@ -44,7 +46,9 @@ namespace TransferLogger.Ui.Forms.Applications
             using var fileDialog = new OpenFileDialog();
 
             fileDialog.CheckFileExists  = false;
+            fileDialog.FileName         = Path.GetFileName(_tbExcelLocation.Text);
             fileDialog.RestoreDirectory = true;
+            fileDialog.Title            = "Choose excel location";
 
             if (fileDialog.ShowDialog() == DialogResult.OK)
             {
@@ -55,6 +59,11 @@ namespace TransferLogger.Ui.Forms.Applications
 
                 _tbExcelLocation.Text = fileName;
             }
+        }
+
+        private void _btnClear_Click(object? sender, EventArgs e)
+        {
+            _tbExcelLocation.Text = string.Empty;
         }
 
         private void _btnOk_Click(object? sender, EventArgs e)

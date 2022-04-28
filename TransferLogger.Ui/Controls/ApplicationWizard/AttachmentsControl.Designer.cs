@@ -42,6 +42,7 @@
             this._pnlAttachments = new System.Windows.Forms.Panel();
             this._btnBrowse = new TransferLogger.Ui.Controls.TlButton();
             this._btnView = new TransferLogger.Ui.Controls.TlButton();
+            this._btnClear = new TransferLogger.Ui.Controls.TlButton();
             ((System.ComponentModel.ISupportInitialize)(this._grid)).BeginInit();
             this._pnlAttachments.SuspendLayout();
             this.SuspendLayout();
@@ -226,11 +227,27 @@
             this._btnView.TabIndex = 5;
             this._btnView.UseVisualStyleBackColor = false;
             // 
+            // _btnClear
+            // 
+            this._btnClear.BackColor = System.Drawing.Color.White;
+            this._btnClear.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
+            this._btnClear.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
+            this._btnClear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
+            this._btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._btnClear.ForeColor = System.Drawing.Color.Black;
+            this._btnClear.Location = new System.Drawing.Point(630, 51);
+            this._btnClear.Name = "_btnClear";
+            this._btnClear.Size = new System.Drawing.Size(108, 25);
+            this._btnClear.TabIndex = 71;
+            this._btnClear.Text = "Clear";
+            this._btnClear.UseVisualStyleBackColor = false;
+            // 
             // AttachmentsControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this._btnClear);
             this.Controls.Add(this._btnView);
             this.Controls.Add(this._btnBrowse);
             this.Controls.Add(this._pnlAttachments);
@@ -241,7 +258,7 @@
             this.Controls.Add(this._lInstructions);
             this.Controls.Add(this._tbExcelLocation);
             this.Name = "AttachmentsControl";
-            this.Size = new System.Drawing.Size(682, 376);
+            this.Size = new System.Drawing.Size(753, 428);
             ((System.ComponentModel.ISupportInitialize)(this._grid)).EndInit();
             this._pnlAttachments.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -261,5 +278,6 @@
         private TlButton _btnBrowse;
         private TlButton _btnView;
         private System.Windows.Forms.DataGridViewTextBoxColumn FileName;
+        private TlButton _btnClear;
     }
 }
