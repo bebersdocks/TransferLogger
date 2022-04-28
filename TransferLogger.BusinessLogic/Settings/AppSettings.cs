@@ -46,16 +46,20 @@ namespace TransferLogger.BusinessLogic.Settings
                     _instance.ExcelTemplatePath = Path.Combine(executingDir, "Resources\\Excel\\ExportTemplate.xlsx");
 
                     if (!File.Exists(_instance.ExcelTemplatePath))
+                    {
                         throw new FileNotFoundException(_instance.ExcelTemplatePath);
+                    }
                 }
 
                 if (string.IsNullOrEmpty(_instance.ExcelExportsDir))
                 {
                     _instance.ExcelExportsDir = Path.Combine(executingDir, "Exports");
-
-                    if (!Directory.Exists(_instance.ExcelExportsDir))
-                        Directory.CreateDirectory(_instance.ExcelExportsDir);
                 }
+            }
+
+            if (!Directory.Exists(_instance.ExcelExportsDir))
+            {
+                Directory.CreateDirectory(_instance.ExcelExportsDir);
             }
         }
 
