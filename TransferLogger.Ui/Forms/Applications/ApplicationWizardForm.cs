@@ -47,6 +47,16 @@ namespace TransferLogger.Ui.Forms.Applications
         {
             _btnBack.Click += (s, e) => Back();
             _btnNext.Click += (s, e) => NextStep();
+
+            KeyDown += ApplicationWizardForm_KeyDown;
+        }
+
+        private void ApplicationWizardForm_KeyDown(object? sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Right)
+                NextStep();
+            else if (e.KeyCode == Keys.Left)
+                Back();
         }
 
         private Size GetSize(BuildStep step)

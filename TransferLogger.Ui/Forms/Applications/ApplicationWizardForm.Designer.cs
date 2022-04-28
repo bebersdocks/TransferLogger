@@ -88,6 +88,7 @@
             this.Controls.Add(this._btnBack);
             this.Controls.Add(this._btnNext);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Name = "ApplicationWizardForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Application Wizard";

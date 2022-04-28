@@ -38,6 +38,8 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
         public void Activate()
         {
             BringToFront();
+
+            _grid.Focus();
         }
 
         private void SetData()
@@ -100,7 +102,11 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
         private void _grid_KeyDown(object? sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
+            {
                 SetCurrentRowAsSelected();
+
+                e.SuppressKeyPress = true;
+            }
         }
 
         private void SetCurrentRowAsSelected()

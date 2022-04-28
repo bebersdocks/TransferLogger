@@ -34,6 +34,8 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             SetData();
 
             BringToFront();
+
+            _gridCourses.Focus();
         }
 
         private void SetData()
