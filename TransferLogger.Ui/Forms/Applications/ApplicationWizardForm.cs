@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using TransferLogger.BusinessLogic;
-using TransferLogger.Interop;
 using TransferLogger.Ui.Controls.ApplicationWizard;
-using TransferLogger.Ui.Forms.Utils;
+using TransferLogger.Ui.Utils;
 
 namespace TransferLogger.Ui.Forms.Applications
 {
@@ -124,15 +122,7 @@ namespace TransferLogger.Ui.Forms.Applications
         {
             var appId = _appBuild.Insert();
 
-            var task = Task.Run(() => new OutlookEmail(appId));
-
-            using var form = new LoadingForm("Email", "Preparing email...");
-
-            BeginInvoke((Action)(() => form.ShowDialog()));
-
-            var outlookEmail = await task;
-
-            outlookEmail.Display();
+            await InteropActions.SendEmail(this, appId, true);
 
             DialogResult = DialogResult.OK;
 

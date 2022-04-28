@@ -1,67 +1,56 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 using Microsoft.Office.Interop.Outlook;
 
 using LinqToDB;
 
-using TransferLogger.Dal;
-using TransferLogger.Dal.DataModels;
 using TransferLogger.Interop.Excel;
+
+using DalApplication = TransferLogger.Dal.DataModels.Applications.Application;
 
 namespace TransferLogger.Interop
 {
     public class OutlookEmail
     {
-        private readonly int      _appId;
-        private readonly MailItem _mailItem;
+        private readonly DalApplication _application;
+        private readonly List<string>   _emails;
+        private readonly MailItem       _mailItem;
 
-        public OutlookEmail(int appId)
+        public OutlookEmail(DalApplication application, List<string> emails)
         {
-            _appId    = appId;
-            _mailItem = PrepareEmail();
+            _application = application;
+            _emails      = emails;
+            _mailItem    = PrepareEmail();
         }
 
         private MailItem PrepareEmail()
         {
-            using var dc = new Dc();
-
-            var application = dc.GetApplication(_appId);
-
-            var instructorIds = application.Evaluations
-                .Where(e => e.EvaluationStatus == EvaluationStatus.InProcess)
-                .Select(e => e.InstructorId)
-                .ToHashSet();
-
-            var emails = dc.Instructors
-                .Where(i => instructorIds.Contains(i.InstructorId))
-                .Select(i => i.Email)
-                .ToList();
-
-            var to       = emails.First();
-            var ccEmails = string.Join(";", emails.Skip(1));
+            var to       = _emails.First();
+            var ccEmails = string.Join(";", _emails.Skip(1));
 
             var ol = new Application();
 
             var mailItem = ol.CreateItem(OlItemType.olMailItem) as MailItem;
 
-            mailItem.Subject = $"Transfer evaluation for {application.Student.DisplayString}";
+            mailItem.Subject = $"Transfer evaluation for {_application.Student.DisplayString}";
             mailItem.Body    = string.Empty;
             mailItem.To      = to;
             mailItem.CC      = ccEmails;
 
-            var excelExporter = new ExcelExporter(application);
+            var excelExporter = new ExcelExporter(_application);
             var excelLocation = excelExporter.Export();
 
             mailItem.Attachments.Add(excelLocation, OlAttachmentType.olByValue, 1, Path.GetFileName(excelLocation));
 
             // In case if it was temporary created file - delete it.
-            if (string.IsNullOrEmpty(application.ExcelLocation))
+            if (string.IsNullOrEmpty(_application.ExcelLocation))
                 File.Delete(excelLocation);
 
-            for (var i = 0; i < application.Attachments.Count(); i++)
+            for (var i = 0; i < _application.Attachments.Count(); i++)
             {
-                var attachment = application.Attachments.ElementAt(i);
+                var attachment = _application.Attachments.ElementAt(i);
 
                 if (File.Exists(attachment.FileName))
                 {
@@ -88,6 +77,11 @@ namespace TransferLogger.Interop
         public void Display()
         {
             _mailItem.Display(false);
+
+            var inspector = _mailItem.GetInspector;
+
+            inspector.WindowState = OlWindowState.olMinimized;
+            inspector.WindowState = OlWindowState.olNormalWindow;
         }
     }
 }
