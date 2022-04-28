@@ -48,6 +48,8 @@ namespace TransferLogger.BusinessLogic.ViewModels
             Course            = evaluation.Course.DisplayString;
             MatchedCourseId   = evaluation.MatchedCourseId;
             MatchedCourse     = evaluation.MatchedCourse?.DisplayString ?? string.Empty;
+            SuggestedCourseId = evaluation.SuggestedCourseId;
+            SuggestedCourse   = evaluation.SuggestedCourse?.DisplayString ?? string.Empty;
             Organization      = app.SourceOrganization.DisplayString;
             InstructorId      = evaluation.InstructorId;
             Instructor        = evaluation.Instructor.DisplayString;
