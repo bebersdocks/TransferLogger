@@ -42,6 +42,7 @@ namespace TransferLogger.Interop.Excel
             {
                 "%AppId%"   => _application.ApplicationId,
                 "%Student%" => _application.Student.DisplayString,
+                "%Program%" => _application.TargetProgram.DisplayString,
                 _           => string.Empty
             };
         }
@@ -52,20 +53,56 @@ namespace TransferLogger.Interop.Excel
             "%CourseCode%",
             "%Course%",
             "%Instructor%",
-            "%SuggestedCourse%"
+            "%SuggestedCourse%",
+            "%Transfer%",
+            "%Comment%"
         };
 
         private void ReplaceEvaluationVar(Range cell, string variable, Evaluation evaluation)
         {
-            cell.Value = variable switch
+            if (variable == "%Transfer%" || variable == "%Comment%")
             {
-                "%EvaluationId%"    => evaluation.EvaluationId,
-                "%CourseCode%"      => evaluation.Course.CourseCode,
-                "%Course%"          => evaluation.Course.DisplayString,
-                "%Instructor%"      => evaluation.Instructor.DisplayString,
-                "%SuggestedCourse%" => evaluation.SuggestedCourse?.DisplayString ?? string.Empty,
-                _                   => string.Empty
-            };
+                if (variable == "%Transfer%")
+                {
+                    if (evaluation.MatchedCourseId.HasValue && evaluation.MatchedCourseId == evaluation.SuggestedCourseId)
+                    {
+                        cell.Value = "YES";
+                    }
+                    else if (evaluation.MatchedCourseId.HasValue)
+                    {
+                        cell.Value = evaluation.MatchedCourse.CourseCode;
+                    }
+                    else if (evaluation.EvaluationStatus != EvaluationStatus.InProcess)
+                    {
+                        cell.Value = "NO";
+                    }
+                    else
+                    {
+                        cell.Value = string.Empty;
+                    }
+                }
+                else if (variable == "%Comment%")
+                {
+                    cell.Value = evaluation.EvaluationStatus switch
+                    {
+                        EvaluationStatus.MatchedByHistory    => "[Historical]",
+                        EvaluationStatus.NotMatchedByHistory => "[Historical]",
+                        _                                    => evaluation.Comment
+                    };
+                }
+            }
+            else
+            {
+                cell.Value = variable switch
+                {
+                    "%EvaluationId%"    => evaluation.EvaluationId,
+                    "%CourseCode%"      => evaluation.Course.CourseCode,
+                    "%Course%"          => evaluation.Course.DisplayString,
+                    "%Instructor%"      => evaluation.Instructor.DisplayString,
+                    "%SuggestedCourse%" => evaluation.SuggestedCourse?.DisplayString ?? string.Empty,
+                    _                   => string.Empty
+                };
+            }
         }
 
         public void Export(string fileName)
@@ -88,7 +125,7 @@ namespace TransferLogger.Interop.Excel
                 {
                     var range = sheet.UsedRange.Rows[rowIdx];
 
-                    for (var colIdx = 1; colIdx < range.Columns.Count; colIdx++)
+                    for (var colIdx = 1; colIdx <= range.Columns.Count; colIdx++)
                     {
                         var cell = range.Columns[colIdx];
 
@@ -120,7 +157,7 @@ namespace TransferLogger.Interop.Excel
                     {
                         sheet.Rows[tableRowIdx].Copy(sheet.Rows[currentRowIdx]);
 
-                        for (var colIdx = 1; colIdx < tableRow.Columns.Count; colIdx++)
+                        for (var colIdx = 1; colIdx <= tableRow.Columns.Count; colIdx++)
                         {
                             if (tableColIndexes.TryGetValue(colIdx, out var variable))
                             {
