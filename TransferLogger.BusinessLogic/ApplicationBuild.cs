@@ -137,7 +137,13 @@ namespace TransferLogger.BusinessLogic
                 {
                     var historical = dc.Evaluations.First(e => e.EvaluationId == evaluation.HistoricalEvaluationId);
 
-                    newEvaluation.EvaluationStatus   = EvaluationStatus.MatchedByHistory;
+                    newEvaluation.EvaluationStatus = EvaluationStatus.MatchedByHistory;
+
+                    if (historical.EvaluationStatus == EvaluationStatus.NotMatched)
+                    {
+                        newEvaluation.EvaluationStatus = EvaluationStatus.NotMatchedByHistory;
+                    }
+
                     newEvaluation.CourseId           = evaluation.CourseId;
                     newEvaluation.InstructorId       = historical.InstructorId;
                     newEvaluation.MatchedCourseId    = historical.MatchedCourseId;

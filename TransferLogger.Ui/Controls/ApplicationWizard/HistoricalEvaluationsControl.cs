@@ -95,6 +95,8 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
                 _tbStudent.Text       = viewModel.Student;
                 _tbEvaluator.Text     = viewModel.Instructor;
                 _tbComment.Text       = viewModel.Comment;
+
+                _btnViewMatchedCourse.Enabled = viewModel.MatchedCourseId > 0;
             }
             else
             {

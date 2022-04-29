@@ -76,8 +76,7 @@ namespace TransferLogger.BusinessLogic.ViewModels
             return GetQuery(dc)
                 .Where(e => e.CourseId == courseId)
                 .Where(e => e.Application.SourceOrganizationId != AppSettings.Instance.OrganizationId)
-                .Where(e => e.EvaluationStatus != EvaluationStatus.InProcess)
-                .Where(e => e.EvaluationStatus != EvaluationStatus.MatchedByHistory)
+                .Where(e => e.EvaluationStatus == EvaluationStatus.Matched || e.EvaluationStatus == EvaluationStatus.NotMatched)
                 .Select(e => new EvaluationViewModel(e))
                 .ToList();
         }
