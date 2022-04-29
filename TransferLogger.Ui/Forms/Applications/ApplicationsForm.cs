@@ -81,6 +81,7 @@ namespace TransferLogger.Ui.Forms.Applications
             _btnAdd.Click                 += _btnAdd_Click;
             _btnOpen.Click                += _btnOpen_Click;
             _btnDelete.Click              += _btnDelete_Click;
+            _btnImportExcel.Click         += _btnImportExcel_Click;
             _btnSendEmail.Click           += _btnSendEmail_Click;
             _btnExportExcel.Click         += _btnExportExcel_Click;
             _btnChangeExcelLocation.Click += _btnChangeExcelLocation_Click;
@@ -167,6 +168,32 @@ namespace TransferLogger.Ui.Forms.Applications
 
                     _gridApps.SelectRow(index);
                 }
+            }
+        }
+
+        private async void _btnImportExcel_Click(object? sender, EventArgs e)
+        {
+            var imports = await InteropActions.ImportEvaluations(this);
+
+            using var dc = new Dc();
+
+            var evaluations = dc.Evaluations
+                .LoadWith(e => e.Application)
+                .ThenLoad(a => a.TargetProgram)
+                .Where(e => imports.Any(i => i.EvaluationId == e.EvaluationId))
+                .Where(e => e.LinkedEvaluationId == null)
+                .ToList();
+
+            if (evaluations.Any())
+            {
+                var targetProgramId = evaluations
+                    .Select(e => e.Application.TargetProgramId)
+                    .ToHashSet()
+                    .Single();
+            }
+            else
+            {
+                MessageDialog.Show("There were no available imports detected.", "No imports");
             }
         }
 

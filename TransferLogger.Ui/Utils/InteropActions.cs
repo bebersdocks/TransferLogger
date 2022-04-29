@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -7,6 +8,7 @@ using TransferLogger.Dal;
 using TransferLogger.Dal.DataModels;
 using TransferLogger.Interop;
 using TransferLogger.Interop.Excel;
+using TransferLogger.Interop.Excel.Import;
 using TransferLogger.Ui.Forms.Dialogs;
 using TransferLogger.Ui.Forms.Utils;
 
@@ -62,6 +64,29 @@ namespace TransferLogger.Ui.Utils
             var excelPath = await task;
 
             new ExcelViewer(excelPath).Open();
+        }
+
+        public static async Task<List<EvaluationImport>> ImportEvaluations(Form caller)
+        {
+            using var fileDialog = new OpenFileDialog();
+
+            fileDialog.CheckFileExists  = true;
+            fileDialog.Filter           = "Excel Files (*.xlsx)|*.xlsx";
+            fileDialog.RestoreDirectory = true;
+            fileDialog.Title            = "Select application excel";
+
+            if (fileDialog.ShowDialog() == DialogResult.OK)
+            {
+                var task = Task.Run(() => ExcelImporter.ImportEvaluations(fileDialog.FileName));
+
+                using var form = new LoadingForm("Excel Import", "Importing...");
+
+                caller.BeginInvoke((Action)(() => form.ShowDialog()));
+
+                return await task;
+            }
+
+            return await Task.FromResult<List<EvaluationImport>>(new());
         }
     }
 }

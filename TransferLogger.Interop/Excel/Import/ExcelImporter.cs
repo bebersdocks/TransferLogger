@@ -94,8 +94,7 @@ namespace TransferLogger.Interop.Excel.Import
                             }
                             else if (importColumn == ImportColumn.Transfer)
                             {
-                                string value = cell.Value
-                                    .ToString()
+                                string value = cell.Value.ToString()
                                     .Replace(" ", string.Empty);
 
                                 import.EvaluationStatus = EvaluationStatus.InProcess;
@@ -105,7 +104,7 @@ namespace TransferLogger.Interop.Excel.Import
                                 else if (value.Equals("No", StringComparison.OrdinalIgnoreCase))
                                     import.EvaluationStatus = EvaluationStatus.NotMatched;
                                 else
-                                    import.AlternativeCourse = value;
+                                    import.AlternativeCourse = value.Trim();
                             }
                             else if (importColumn == ImportColumn.Comment)
                             {
