@@ -34,7 +34,7 @@ namespace TransferLogger.Ui.Controls
             dropDownList.ValueMember   = nameof(Lookup.Value);
             dropDownList.DisplayMember = nameof(Lookup.DisplayName);
             dropDownList.DataSource    = items.ToList();
-            dropDownList.SelectedIndex = -1;
+            dropDownList.SelectedIndex = defaultValue != null ? 0 : -1;
         }
 
         public static void FillLookups(this TlDropDownList dropDownList, IList<Lookup> items, int selectedValue, Lookup? defaultValue = null)
@@ -49,9 +49,9 @@ namespace TransferLogger.Ui.Controls
             dropDownList.FillLookups(items, Convert.ToInt32(selectedValue), null);
         }
 
-        public static void FillLookups<T>(this TlDropDownList dropDownList) where T : Enum
+        public static void FillLookups<T>(this TlDropDownList dropDownList, Lookup? defaultValue = null) where T : Enum
         {
-            dropDownList.FillLookups(EnumUtils.GetLookups<T>());
+            dropDownList.FillLookups(EnumUtils.GetLookups<T>(), defaultValue);
         }
 
         public static void FillLookups<T>(this TlDropDownList dropDownList, int selectedValue, Lookup? defaultValue = null) where T : Enum

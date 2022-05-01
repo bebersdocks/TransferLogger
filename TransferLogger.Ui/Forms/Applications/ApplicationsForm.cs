@@ -44,10 +44,10 @@ namespace TransferLogger.Ui.Forms.Applications
         public void SetData()
         {
             if (_cbOrganizations.Items.Count == 0)
-                _cbOrganizations.FillLookups(_organizations, -1, new Lookup(-1, "All"));
+                _cbOrganizations.FillLookups(_organizations, new Lookup(-1, "All"));
 
             if (_cbStatuses.Items.Count == 0)
-                _cbStatuses.FillLookups<ApplicationStatus>(-1, new Lookup(-1, "All"));
+                _cbStatuses.FillLookups<ApplicationStatus>(new Lookup(-1, "All"));
 
             var apps = ApplicationViewModel.GetList(_tbSearchName.Text, _cbOrganizations.SelectedValue, _cbStatuses.SelectedValue, _dtFrom.Value, _dtTo.Value);
 
