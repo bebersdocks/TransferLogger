@@ -75,7 +75,6 @@
             this._btnSave = new TransferLogger.Ui.Controls.TlButton();
             this._btnCancel = new TransferLogger.Ui.Controls.TlButton();
             this._btnSendEmail = new TransferLogger.Ui.Controls.TlButton();
-            this._btnImportExcel = new TransferLogger.Ui.Controls.TlButton();
             this._btnExportExcel = new TransferLogger.Ui.Controls.TlButton();
             this._pnlCourses.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._grid)).BeginInit();
@@ -655,30 +654,11 @@
             this._btnSendEmail.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
             this._btnSendEmail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnSendEmail.ForeColor = System.Drawing.Color.Black;
-            this._btnSendEmail.Location = new System.Drawing.Point(51, 613);
+            this._btnSendEmail.Location = new System.Drawing.Point(12, 613);
             this._btnSendEmail.Name = "_btnSendEmail";
             this._btnSendEmail.Size = new System.Drawing.Size(32, 32);
             this._btnSendEmail.TabIndex = 8;
             this._btnSendEmail.UseVisualStyleBackColor = false;
-            // 
-            // _btnImportExcel
-            // 
-            this._btnImportExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this._btnImportExcel.AutoSize = true;
-            this._btnImportExcel.BackColor = System.Drawing.Color.White;
-            this._btnImportExcel.BackgroundImage = global::TransferLogger.Ui.Properties.Resources.merge_files;
-            this._btnImportExcel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this._btnImportExcel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this._btnImportExcel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
-            this._btnImportExcel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
-            this._btnImportExcel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
-            this._btnImportExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._btnImportExcel.ForeColor = System.Drawing.Color.Black;
-            this._btnImportExcel.Location = new System.Drawing.Point(13, 612);
-            this._btnImportExcel.Name = "_btnImportExcel";
-            this._btnImportExcel.Size = new System.Drawing.Size(32, 32);
-            this._btnImportExcel.TabIndex = 7;
-            this._btnImportExcel.UseVisualStyleBackColor = false;
             // 
             // _btnExportExcel
             // 
@@ -693,7 +673,7 @@
             this._btnExportExcel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
             this._btnExportExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnExportExcel.ForeColor = System.Drawing.Color.Black;
-            this._btnExportExcel.Location = new System.Drawing.Point(89, 613);
+            this._btnExportExcel.Location = new System.Drawing.Point(50, 613);
             this._btnExportExcel.Name = "_btnExportExcel";
             this._btnExportExcel.Size = new System.Drawing.Size(32, 32);
             this._btnExportExcel.TabIndex = 9;
@@ -706,7 +686,6 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1044, 656);
             this.Controls.Add(this._btnSendEmail);
-            this.Controls.Add(this._btnImportExcel);
             this.Controls.Add(this._btnCancel);
             this.Controls.Add(this._btnSave);
             this.Controls.Add(this._btnExportExcel);
@@ -773,7 +752,6 @@
         private Controls.TlTextBox _tbCreatedAt;
         private System.Windows.Forms.Label _lCreatedAt;
         private Controls.TlButton _btnSendEmail;
-        private Controls.TlButton _btnImportExcel;
         private Controls.TlButton _btnExportExcel;
         private Controls.TlTextBox _tbCompletedAt;
         private System.Windows.Forms.Label _lCompletedAt;

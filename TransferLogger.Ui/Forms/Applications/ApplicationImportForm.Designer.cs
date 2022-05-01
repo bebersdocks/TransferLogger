@@ -1,6 +1,6 @@
 ﻿namespace TransferLogger.Ui.Forms.Applications
 {
-    partial class ApplicationImport
+    partial class ApplicationImportForm
     {
         /// <summary>
         /// Required designer variable.
@@ -34,7 +34,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ApplicationImport));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ApplicationImportForm));
             this._pnlNewState = new System.Windows.Forms.Panel();
             this._lHorizontalLineImportResults = new System.Windows.Forms.Label();
             this._lImportResults = new System.Windows.Forms.Label();
@@ -44,10 +44,17 @@
             this.SuggestedCourse2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MatchedCourse2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Comment2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._pnlCurrentEvaluations = new System.Windows.Forms.Panel();
             this._lHorizontalLineEvaluations = new System.Windows.Forms.Label();
             this._lEvaluations = new System.Windows.Forms.Label();
             this._gridEvaluations = new TransferLogger.Ui.Controls.TlDataGrid();
+            this.Course = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Evaluator = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SuggestedCourse = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MatchedCourse = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Comment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._tbTargetProgram = new TransferLogger.Ui.Controls.TlTextBox();
             this._lTargetProgram = new System.Windows.Forms.Label();
             this._lCurrently = new System.Windows.Forms.Label();
@@ -60,11 +67,6 @@
             this._lAfter = new System.Windows.Forms.Label();
             this._btnCancel = new TransferLogger.Ui.Controls.TlButton();
             this._btnAccept = new TransferLogger.Ui.Controls.TlButton();
-            this.Course = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Evaluator = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SuggestedCourse = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MatchedCourse = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._pnlNewState.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._gridImportResults)).BeginInit();
             this._pnlCurrentEvaluations.SuspendLayout();
@@ -77,9 +79,9 @@
             this._pnlNewState.Controls.Add(this._lHorizontalLineImportResults);
             this._pnlNewState.Controls.Add(this._lImportResults);
             this._pnlNewState.Controls.Add(this._gridImportResults);
-            this._pnlNewState.Location = new System.Drawing.Point(26, 347);
+            this._pnlNewState.Location = new System.Drawing.Point(12, 347);
             this._pnlNewState.Name = "_pnlNewState";
-            this._pnlNewState.Size = new System.Drawing.Size(889, 200);
+            this._pnlNewState.Size = new System.Drawing.Size(1022, 180);
             this._pnlNewState.TabIndex = 0;
             // 
             // _lHorizontalLineImportResults
@@ -88,7 +90,7 @@
             this._lHorizontalLineImportResults.Dock = System.Windows.Forms.DockStyle.Top;
             this._lHorizontalLineImportResults.Location = new System.Drawing.Point(0, 20);
             this._lHorizontalLineImportResults.Name = "_lHorizontalLineImportResults";
-            this._lHorizontalLineImportResults.Size = new System.Drawing.Size(887, 1);
+            this._lHorizontalLineImportResults.Size = new System.Drawing.Size(1020, 1);
             this._lHorizontalLineImportResults.TabIndex = 21;
             // 
             // _lImportResults
@@ -98,7 +100,7 @@
             this._lImportResults.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._lImportResults.Location = new System.Drawing.Point(0, 0);
             this._lImportResults.Name = "_lImportResults";
-            this._lImportResults.Size = new System.Drawing.Size(887, 20);
+            this._lImportResults.Size = new System.Drawing.Size(1020, 20);
             this._lImportResults.TabIndex = 20;
             this._lImportResults.Text = "Import Result";
             this._lImportResults.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -108,7 +110,6 @@
             this._gridImportResults.AllowUserToAddRows = false;
             this._gridImportResults.AllowUserToDeleteRows = false;
             this._gridImportResults.AllowUserToOrderColumns = true;
-            this._gridImportResults.AllowUserToResizeRows = false;
             this._gridImportResults.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -131,7 +132,8 @@
             this.Evaluator2,
             this.SuggestedCourse2,
             this.MatchedCourse2,
-            this.Status2});
+            this.Status2,
+            this.Comment2});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -155,12 +157,13 @@
             this._gridImportResults.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this._gridImportResults.RowHeadersVisible = false;
             this._gridImportResults.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this._gridImportResults.Size = new System.Drawing.Size(890, 179);
+            this._gridImportResults.Size = new System.Drawing.Size(1023, 159);
             this._gridImportResults.TabIndex = 19;
             // 
             // Course2
             // 
             this.Course2.DataPropertyName = "Course";
+            this.Course2.FillWeight = 125F;
             this.Course2.HeaderText = "Course";
             this.Course2.Name = "Course2";
             this.Course2.ReadOnly = true;
@@ -168,6 +171,7 @@
             // Evaluator2
             // 
             this.Evaluator2.DataPropertyName = "Instructor";
+            this.Evaluator2.FillWeight = 115F;
             this.Evaluator2.HeaderText = "Evaluator";
             this.Evaluator2.Name = "Evaluator2";
             this.Evaluator2.ReadOnly = true;
@@ -175,6 +179,7 @@
             // SuggestedCourse2
             // 
             this.SuggestedCourse2.DataPropertyName = "SuggestedCourse";
+            this.SuggestedCourse2.FillWeight = 125F;
             this.SuggestedCourse2.HeaderText = "Suggested Course";
             this.SuggestedCourse2.Name = "SuggestedCourse2";
             this.SuggestedCourse2.ReadOnly = true;
@@ -182,6 +187,7 @@
             // MatchedCourse2
             // 
             this.MatchedCourse2.DataPropertyName = "MatchedCourse";
+            this.MatchedCourse2.FillWeight = 125F;
             this.MatchedCourse2.HeaderText = "Matched Course";
             this.MatchedCourse2.Name = "MatchedCourse2";
             this.MatchedCourse2.ReadOnly = true;
@@ -193,15 +199,23 @@
             this.Status2.Name = "Status2";
             this.Status2.ReadOnly = true;
             // 
+            // Comment2
+            // 
+            this.Comment2.DataPropertyName = "Comment";
+            this.Comment2.FillWeight = 115F;
+            this.Comment2.HeaderText = "Comment";
+            this.Comment2.Name = "Comment2";
+            this.Comment2.ReadOnly = true;
+            // 
             // _pnlCurrentEvaluations
             // 
             this._pnlCurrentEvaluations.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this._pnlCurrentEvaluations.Controls.Add(this._lHorizontalLineEvaluations);
             this._pnlCurrentEvaluations.Controls.Add(this._lEvaluations);
             this._pnlCurrentEvaluations.Controls.Add(this._gridEvaluations);
-            this._pnlCurrentEvaluations.Location = new System.Drawing.Point(25, 123);
+            this._pnlCurrentEvaluations.Location = new System.Drawing.Point(12, 123);
             this._pnlCurrentEvaluations.Name = "_pnlCurrentEvaluations";
-            this._pnlCurrentEvaluations.Size = new System.Drawing.Size(889, 180);
+            this._pnlCurrentEvaluations.Size = new System.Drawing.Size(1022, 180);
             this._pnlCurrentEvaluations.TabIndex = 1;
             // 
             // _lHorizontalLineEvaluations
@@ -210,7 +224,7 @@
             this._lHorizontalLineEvaluations.Dock = System.Windows.Forms.DockStyle.Top;
             this._lHorizontalLineEvaluations.Location = new System.Drawing.Point(0, 20);
             this._lHorizontalLineEvaluations.Name = "_lHorizontalLineEvaluations";
-            this._lHorizontalLineEvaluations.Size = new System.Drawing.Size(887, 1);
+            this._lHorizontalLineEvaluations.Size = new System.Drawing.Size(1020, 1);
             this._lHorizontalLineEvaluations.TabIndex = 21;
             // 
             // _lEvaluations
@@ -220,7 +234,7 @@
             this._lEvaluations.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._lEvaluations.Location = new System.Drawing.Point(0, 0);
             this._lEvaluations.Name = "_lEvaluations";
-            this._lEvaluations.Size = new System.Drawing.Size(887, 20);
+            this._lEvaluations.Size = new System.Drawing.Size(1020, 20);
             this._lEvaluations.TabIndex = 20;
             this._lEvaluations.Text = "Detected Evaluations";
             this._lEvaluations.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -230,7 +244,6 @@
             this._gridEvaluations.AllowUserToAddRows = false;
             this._gridEvaluations.AllowUserToDeleteRows = false;
             this._gridEvaluations.AllowUserToOrderColumns = true;
-            this._gridEvaluations.AllowUserToResizeRows = false;
             this._gridEvaluations.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -253,7 +266,8 @@
             this.Evaluator,
             this.SuggestedCourse,
             this.MatchedCourse,
-            this.Status});
+            this.Status,
+            this.Comment});
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -277,8 +291,55 @@
             this._gridEvaluations.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this._gridEvaluations.RowHeadersVisible = false;
             this._gridEvaluations.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this._gridEvaluations.Size = new System.Drawing.Size(890, 159);
+            this._gridEvaluations.Size = new System.Drawing.Size(1023, 159);
             this._gridEvaluations.TabIndex = 19;
+            // 
+            // Course
+            // 
+            this.Course.DataPropertyName = "Course";
+            this.Course.FillWeight = 125F;
+            this.Course.HeaderText = "Course";
+            this.Course.Name = "Course";
+            this.Course.ReadOnly = true;
+            // 
+            // Evaluator
+            // 
+            this.Evaluator.DataPropertyName = "Instructor";
+            this.Evaluator.FillWeight = 115F;
+            this.Evaluator.HeaderText = "Evaluator";
+            this.Evaluator.Name = "Evaluator";
+            this.Evaluator.ReadOnly = true;
+            // 
+            // SuggestedCourse
+            // 
+            this.SuggestedCourse.DataPropertyName = "SuggestedCourse";
+            this.SuggestedCourse.FillWeight = 125F;
+            this.SuggestedCourse.HeaderText = "Suggested Course";
+            this.SuggestedCourse.Name = "SuggestedCourse";
+            this.SuggestedCourse.ReadOnly = true;
+            // 
+            // MatchedCourse
+            // 
+            this.MatchedCourse.DataPropertyName = "MatchedCourse";
+            this.MatchedCourse.FillWeight = 125F;
+            this.MatchedCourse.HeaderText = "Matched Course";
+            this.MatchedCourse.Name = "MatchedCourse";
+            this.MatchedCourse.ReadOnly = true;
+            // 
+            // Status
+            // 
+            this.Status.DataPropertyName = "StatusDisplayName";
+            this.Status.HeaderText = "Status";
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
+            // 
+            // Comment
+            // 
+            this.Comment.DataPropertyName = "Comment";
+            this.Comment.FillWeight = 115F;
+            this.Comment.HeaderText = "Comment";
+            this.Comment.Name = "Comment";
+            this.Comment.ReadOnly = true;
             // 
             // _tbTargetProgram
             // 
@@ -306,7 +367,7 @@
             this._lCurrently.AutoSize = true;
             this._lCurrently.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._lCurrently.ForeColor = System.Drawing.Color.Black;
-            this._lCurrently.Location = new System.Drawing.Point(25, 94);
+            this._lCurrently.Location = new System.Drawing.Point(11, 93);
             this._lCurrently.Name = "_lCurrently";
             this._lCurrently.Size = new System.Drawing.Size(295, 17);
             this._lCurrently.TabIndex = 48;
@@ -378,7 +439,7 @@
             this._lAfter.AutoSize = true;
             this._lAfter.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._lAfter.ForeColor = System.Drawing.Color.Black;
-            this._lAfter.Location = new System.Drawing.Point(25, 317);
+            this._lAfter.Location = new System.Drawing.Point(11, 316);
             this._lAfter.Name = "_lAfter";
             this._lAfter.Size = new System.Drawing.Size(231, 17);
             this._lAfter.TabIndex = 52;
@@ -393,7 +454,7 @@
             this._btnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
             this._btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnCancel.ForeColor = System.Drawing.Color.Black;
-            this._btnCancel.Location = new System.Drawing.Point(759, 563);
+            this._btnCancel.Location = new System.Drawing.Point(879, 545);
             this._btnCancel.Name = "_btnCancel";
             this._btnCancel.Size = new System.Drawing.Size(75, 29);
             this._btnCancel.TabIndex = 54;
@@ -409,54 +470,19 @@
             this._btnAccept.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
             this._btnAccept.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnAccept.ForeColor = System.Drawing.Color.Black;
-            this._btnAccept.Location = new System.Drawing.Point(840, 563);
+            this._btnAccept.Location = new System.Drawing.Point(960, 545);
             this._btnAccept.Name = "_btnAccept";
             this._btnAccept.Size = new System.Drawing.Size(75, 29);
             this._btnAccept.TabIndex = 53;
             this._btnAccept.Text = "Accept";
             this._btnAccept.UseVisualStyleBackColor = false;
             // 
-            // Course
-            // 
-            this.Course.DataPropertyName = "Course";
-            this.Course.HeaderText = "Course";
-            this.Course.Name = "Course";
-            this.Course.ReadOnly = true;
-            // 
-            // Evaluator
-            // 
-            this.Evaluator.DataPropertyName = "Instructor";
-            this.Evaluator.HeaderText = "Evaluator";
-            this.Evaluator.Name = "Evaluator";
-            this.Evaluator.ReadOnly = true;
-            // 
-            // SuggestedCourse
-            // 
-            this.SuggestedCourse.DataPropertyName = "SuggestedCourse";
-            this.SuggestedCourse.HeaderText = "Suggested Course";
-            this.SuggestedCourse.Name = "SuggestedCourse";
-            this.SuggestedCourse.ReadOnly = true;
-            // 
-            // MatchedCourse
-            // 
-            this.MatchedCourse.DataPropertyName = "MatchedCourse";
-            this.MatchedCourse.HeaderText = "Matched Course";
-            this.MatchedCourse.Name = "MatchedCourse";
-            this.MatchedCourse.ReadOnly = true;
-            // 
-            // Status
-            // 
-            this.Status.DataPropertyName = "StatusDisplayName";
-            this.Status.HeaderText = "Status";
-            this.Status.Name = "Status";
-            this.Status.ReadOnly = true;
-            // 
-            // ApplicationImport
+            // ApplicationImportForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(939, 604);
+            this.ClientSize = new System.Drawing.Size(1046, 586);
             this.Controls.Add(this._btnCancel);
             this.Controls.Add(this._btnAccept);
             this.Controls.Add(this._lAfter);
@@ -472,7 +498,8 @@
             this.Controls.Add(this._pnlCurrentEvaluations);
             this.Controls.Add(this._pnlNewState);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "ApplicationImport";
+            this.Name = "ApplicationImportForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Application Import";
             this._pnlNewState.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this._gridImportResults)).EndInit();
@@ -488,11 +515,6 @@
         private System.Windows.Forms.Panel _pnlNewState;
         private System.Windows.Forms.Label _lImportResults;
         private Controls.TlDataGrid _gridImportResults;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Course2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Evaluator2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SuggestedCourse2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MatchedCourse2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Status2;
         private System.Windows.Forms.Panel _pnlCurrentEvaluations;
         private System.Windows.Forms.Label _lEvaluations;
         private Controls.TlDataGrid _gridEvaluations;
@@ -510,10 +532,17 @@
         private Controls.TlButton _btnAccept;
         private System.Windows.Forms.Label _lHorizontalLineEvaluations;
         private System.Windows.Forms.Label _lHorizontalLineImportResults;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Course2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Evaluator2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SuggestedCourse2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MatchedCourse2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Status2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Comment2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Course;
         private System.Windows.Forms.DataGridViewTextBoxColumn Evaluator;
         private System.Windows.Forms.DataGridViewTextBoxColumn SuggestedCourse;
         private System.Windows.Forms.DataGridViewTextBoxColumn MatchedCourse;
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Comment;
     }
 }

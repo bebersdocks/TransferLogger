@@ -58,22 +58,11 @@ namespace TransferLogger.BusinessLogic.ViewModels
 
         public EvaluationViewModel(Evaluation evaluation) : this(evaluation, evaluation.Application) {}
 
-        private static IQueryable<Evaluation> GetQuery(Dc dc)
-        {
-            return dc.Evaluations
-                .LoadWith(e => e.Application)
-                .LoadWith(e => e.Application.Student)
-                .LoadWith(e => e.Application.SourceOrganization)
-                .LoadWith(e => e.Course)
-                .LoadWith(e => e.MatchedCourse)
-                .LoadWith(e => e.Instructor);
-        }
-
         public static List<EvaluationViewModel> GetHistoricalEvaluations(int courseId)
         {
             using var dc = new Dc();
 
-            return GetQuery(dc)
+            return dc.GetEvaluations()
                 .Where(e => e.CourseId == courseId)
                 .Where(e => e.Application.SourceOrganizationId != AppSettings.Instance.OrganizationId)
                 .Where(e => e.EvaluationStatus == EvaluationStatus.Matched || e.EvaluationStatus == EvaluationStatus.NotMatched)

@@ -2,6 +2,7 @@
 
 using LinqToDB;
 
+using TransferLogger.Dal.DataModels;
 using TransferLogger.Dal.DataModels.Applications;
 
 namespace TransferLogger.Dal
@@ -26,6 +27,19 @@ namespace TransferLogger.Dal
                 .ThenLoad(e => e.MatchedCourse)
                 .LoadWith(a => a.Attachments)
                 .First();
+        }
+
+        public static IQueryable<Evaluation> GetEvaluations(this Dc dc)
+        {
+            return dc.Evaluations
+                .LoadWith(e => e.Application)
+                .LoadWith(e => e.Application.Student)
+                .LoadWith(e => e.Application.SourceOrganization)
+                .LoadWith(e => e.Application.TargetProgram)
+                .LoadWith(e => e.Course)
+                .LoadWith(e => e.SuggestedCourse)
+                .LoadWith(e => e.MatchedCourse)
+                .LoadWith(e => e.Instructor);
         }
     }
 }

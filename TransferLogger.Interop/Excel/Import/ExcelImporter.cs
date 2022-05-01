@@ -67,8 +67,11 @@ namespace TransferLogger.Interop.Excel.Import
 
                         if (TryParseColumn(column, out var importColumn))
                         {
-                            tableRowIdx                         = rowIdx;
-                            tableColIndexes[importColumn.Value] = colIdx;
+                            if (tableRowIdx <= 0)
+                                tableRowIdx = rowIdx;
+
+                            if (!tableColIndexes.ContainsKey(importColumn.Value))
+                                tableColIndexes[importColumn.Value] = colIdx;
                         }
                     }
                 }
@@ -80,6 +83,8 @@ namespace TransferLogger.Interop.Excel.Import
                     for (var rowIdx = tableRowIdx + 1; rowIdx <= sheet.UsedRange.Rows.Count; rowIdx++)
                     {
                         var import = new EvaluationImport();
+
+                        import.EvaluationStatus = EvaluationStatus.InProcess;
 
                         foreach (var (importColumn, colIdx) in tableColIndexes)
                         {
@@ -94,10 +99,9 @@ namespace TransferLogger.Interop.Excel.Import
                             }
                             else if (importColumn == ImportColumn.Transfer)
                             {
-                                string value = cell.Value.ToString()
+                                string value = cell.Value
+                                    .ToString()
                                     .Replace(" ", string.Empty);
-
-                                import.EvaluationStatus = EvaluationStatus.InProcess;
 
                                 if (value.Contains("Yes", StringComparison.OrdinalIgnoreCase))
                                     import.EvaluationStatus = EvaluationStatus.Matched;

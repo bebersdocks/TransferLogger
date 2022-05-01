@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Linq;
 
-using LinqToDB;
-
 using TransferLogger.Dal;
 using TransferLogger.Dal.DataModels;
 
@@ -15,13 +13,10 @@ namespace TransferLogger.Interop.Excel.Import
         public string           AlternativeCourse { get; set; }
         public string           Comment           { get; set; }
 
-        /// <returns>False only if user used alternative course code for transfer and this course was not found in the database.</returns>
-        public bool TryConvert(Dc dc, out Evaluation evaluation)
+        public Evaluation Convert(Dc dc)
         {
-            evaluation = dc.Evaluations
-                .Where(e => e.EvaluationId == EvaluationId)
-                .LoadWith(e => e.Application)
-                .First();
+            var evaluation = dc.GetEvaluations()
+                .First(e => e.EvaluationId == EvaluationId);
 
             evaluation.EvaluationStatus = EvaluationStatus;
             evaluation.Comment          = Comment;
@@ -35,17 +30,17 @@ namespace TransferLogger.Interop.Excel.Import
                     throw new Exception($"Evaluation {evaluation.EvaluationId} was detected as matched, but matched course is not set.");
                 }
 
-                return true;
+                return evaluation;
             }
             else if (string.IsNullOrEmpty(AlternativeCourse) || EvaluationStatus == EvaluationStatus.NotMatched)
             {
-                return true;
+                return evaluation;
             }
             else
             {
-                var appId = evaluation.Application.TargetProgramId;
+                var tagetProgramId = evaluation.Application.TargetProgramId;
 
-                var course = dc.Courses.FirstOrDefault(c => c.ProgramId == appId && c.CourseCode == AlternativeCourse);
+                var course = dc.Courses.FirstOrDefault(c => c.ProgramId == tagetProgramId && c.CourseCode == AlternativeCourse);
 
                 // This is the case when user put another course code in Transfer column and course is already in database,
                 // then we automatically set evaluation as matched with this course.
@@ -54,11 +49,14 @@ namespace TransferLogger.Interop.Excel.Import
                     evaluation.MatchedCourseId  = course.CourseId;
                     evaluation.EvaluationStatus = EvaluationStatus.Matched;
 
-                    return true;
+                    return evaluation;
                 }
                 else
                 {
-                    return false;
+                    throw new Exception(
+                        $"Evaluation {evaluation.EvaluationId} alternative transfer course " +
+                        $"{AlternativeCourse} is not presented in the database for " +
+                        $"target program {evaluation.Application.TargetProgram.DisplayString}.");
                 }
             }
         }

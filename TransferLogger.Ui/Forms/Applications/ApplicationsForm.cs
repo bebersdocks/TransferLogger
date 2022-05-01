@@ -177,23 +177,40 @@ namespace TransferLogger.Ui.Forms.Applications
 
             using var dc = new Dc();
 
-            var evaluations = dc.Evaluations
-                .LoadWith(e => e.Application)
-                .ThenLoad(a => a.TargetProgram)
+            var evaluations = dc.GetEvaluations()
                 .Where(e => imports.Any(i => i.EvaluationId == e.EvaluationId))
                 .Where(e => e.LinkedEvaluationId == null)
                 .ToList();
 
+            var evaluationsIds = evaluations
+                .Select(e => e.EvaluationId)
+                .ToHashSet();
+
             if (evaluations.Any())
             {
-                var targetProgramId = evaluations
-                    .Select(e => e.Application.TargetProgramId)
-                    .ToHashSet()
-                    .Single();
+                var appIds = evaluations
+                    .Select(e => e.ApplicationId)
+                    .ToHashSet();
+
+                if (appIds.Count > 1)
+                {
+                    MessageDialog.Show("Evaluations do not belong to the same application.", "Import Error");
+
+                    return;
+                }
+
+                var importEvaluations = imports
+                    .Where(i => evaluationsIds.Contains(i.EvaluationId))
+                    .Select(i => i.Convert(dc))
+                    .ToList();
+
+                using var form = new ApplicationImportForm(appIds.Single(), evaluations, importEvaluations);
+
+                form.ShowDialog();
             }
             else
             {
-                MessageDialog.Show("There were no available imports detected.", "No imports");
+                MessageDialog.Show("There were no evaluations detected for import.", "No Evaluations Detected");
             }
         }
 
