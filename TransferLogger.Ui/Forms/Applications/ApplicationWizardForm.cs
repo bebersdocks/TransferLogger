@@ -122,7 +122,7 @@ namespace TransferLogger.Ui.Forms.Applications
         {
             var appId = _appBuild.Insert();
 
-            await InteropActions.SendEmail(this, appId, true);
+            await InteropActions.SendEmail(this, appId, true, true);
 
             DialogResult = DialogResult.OK;
 

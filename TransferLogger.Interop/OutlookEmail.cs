@@ -18,14 +18,14 @@ namespace TransferLogger.Interop
         private readonly List<string>   _emails;
         private readonly MailItem       _mailItem;
 
-        public OutlookEmail(DalApplication application, List<string> emails)
+        public OutlookEmail(DalApplication application, List<string> emails, bool saveExcel = false)
         {
             _application = application;
             _emails      = emails;
-            _mailItem    = PrepareEmail();
+            _mailItem    = PrepareEmail(saveExcel);
         }
 
-        private MailItem PrepareEmail()
+        private MailItem PrepareEmail(bool saveExcel)
         {
             var to       = _emails.First();
             var ccEmails = string.Join(";", _emails.Skip(1));
@@ -40,13 +40,17 @@ namespace TransferLogger.Interop
             mailItem.CC      = ccEmails;
 
             var excelExporter = new ExcelExporter(_application);
-            var excelLocation = excelExporter.Export();
+            var excelPath     = excelExporter.Export(!saveExcel);
 
-            mailItem.Attachments.Add(excelLocation, OlAttachmentType.olByValue, 1, Path.GetFileName(excelLocation));
+            var excelFileName = _application.ExcelLocation;
+            if (string.IsNullOrEmpty(excelFileName))
+                excelFileName = $"transfer_application_{_application.ApplicationId}.xlsx";
+
+            mailItem.Attachments.Add(excelPath, OlAttachmentType.olByValue, 1, Path.GetFileName(excelFileName));
 
             // In case if it was temporary created file - delete it.
-            if (string.IsNullOrEmpty(_application.ExcelLocation))
-                File.Delete(excelLocation);
+            if (!saveExcel)
+                File.Delete(excelPath);
 
             for (var i = 0; i < _application.Attachments.Count(); i++)
             {

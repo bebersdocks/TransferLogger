@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 using Microsoft.Office.Interop.Excel;
@@ -85,9 +86,9 @@ namespace TransferLogger.Interop.Excel
                 {
                     cell.Value = evaluation.EvaluationStatus switch
                     {
-                        EvaluationStatus.MatchedByHistory    => "[Historical]",
-                        EvaluationStatus.NotMatchedByHistory => "[Historical]",
-                        _                                    => evaluation.Comment
+                        EvaluationStatus.MatchedByHistory  => "[Historical]",
+                        EvaluationStatus.RejectedByHistory => "[Historical]",
+                        _                                  => evaluation.Comment
                     };
                 }
             }
@@ -186,10 +187,13 @@ namespace TransferLogger.Interop.Excel
             }
         }
 
-        public string Export()
+        public string Export(bool temporaryFile = false)
         {
             var exportPath = _application.ExcelLocation;
-            if (string.IsNullOrEmpty(exportPath))
+
+            if (temporaryFile)
+                exportPath = $"{Path.GetTempFileName()}.xlsx";
+            else if (string.IsNullOrEmpty(exportPath))
                 exportPath = $"{AppSettings.Instance.ExcelExportsDir}\\transfer_application_{_application.ApplicationId}.xlsx";
 
             Export(exportPath);
