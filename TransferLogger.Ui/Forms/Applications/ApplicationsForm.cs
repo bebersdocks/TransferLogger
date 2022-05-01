@@ -7,6 +7,7 @@ using LinqToDB;
 
 using TransferLogger.BusinessLogic;
 using TransferLogger.BusinessLogic.Intefaces;
+using TransferLogger.BusinessLogic.Utils;
 using TransferLogger.BusinessLogic.ViewModels;
 using TransferLogger.Dal;
 using TransferLogger.Dal.DataModels.Applications;
@@ -44,14 +45,28 @@ namespace TransferLogger.Ui.Forms.Applications
         public void SetData()
         {
             if (_cbOrganizations.Items.Count == 0)
-                _cbOrganizations.FillLookups(_organizations);
+            {
+                _organizations.Insert(0, new Lookup(-1, "All"));
+
+                _cbOrganizations.FillLookups(_organizations, -1);
+            }
 
             if (_cbStatuses.Items.Count == 0)
-                _cbStatuses.FillLookups<ApplicationStatus>();
+            {
+                var statuses = EnumUtils.GetLookups<ApplicationStatus>();
+
+                statuses.Insert(0, new Lookup(-1, "All"));
+
+                _cbStatuses.FillLookups(statuses, -1);
+            }
 
             var apps = ApplicationViewModel.GetList(_tbSearchName.Text, _cbOrganizations.SelectedValue, _cbStatuses.SelectedValue, _dtFrom.Value, _dtTo.Value);
 
+            var index = _gridApps.CurrentRow?.Index ?? 0;
+
             _gridApps.DataSource = apps;
+
+            _gridApps.SelectRow(index);
 
             if (!apps.Any())
                 _gridAppEvaluations.DataSource = null;
@@ -174,6 +189,8 @@ namespace TransferLogger.Ui.Forms.Applications
         private async void _btnImportExcel_Click(object? sender, EventArgs e)
         {
             var imports = await InteropActions.ImportEvaluations(this);
+            if (imports == null)
+                return;
 
             using var dc = new Dc();
 
@@ -195,6 +212,18 @@ namespace TransferLogger.Ui.Forms.Applications
                 if (appIds.Count > 1)
                 {
                     MessageDialog.Show("Evaluations do not belong to the same application.", "Import Error");
+
+                    return;
+                }
+
+                var application = evaluations.First()
+                    .Application;
+
+                if (application.ApplicationStatus == ApplicationStatus.Completed)
+                {
+                    MessageDialog.Show(
+                        $"Application for {application.Student.DisplayString} is already completed.", 
+                        $"Import Denied (Application Id: {application.ApplicationId})");
 
                     return;
                 }

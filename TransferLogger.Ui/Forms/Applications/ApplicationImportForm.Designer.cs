@@ -79,9 +79,9 @@
             this._pnlNewState.Controls.Add(this._lHorizontalLineImportResults);
             this._pnlNewState.Controls.Add(this._lImportResults);
             this._pnlNewState.Controls.Add(this._gridImportResults);
-            this._pnlNewState.Location = new System.Drawing.Point(12, 347);
+            this._pnlNewState.Location = new System.Drawing.Point(24, 347);
             this._pnlNewState.Name = "_pnlNewState";
-            this._pnlNewState.Size = new System.Drawing.Size(1022, 180);
+            this._pnlNewState.Size = new System.Drawing.Size(995, 180);
             this._pnlNewState.TabIndex = 0;
             // 
             // _lHorizontalLineImportResults
@@ -90,7 +90,7 @@
             this._lHorizontalLineImportResults.Dock = System.Windows.Forms.DockStyle.Top;
             this._lHorizontalLineImportResults.Location = new System.Drawing.Point(0, 20);
             this._lHorizontalLineImportResults.Name = "_lHorizontalLineImportResults";
-            this._lHorizontalLineImportResults.Size = new System.Drawing.Size(1020, 1);
+            this._lHorizontalLineImportResults.Size = new System.Drawing.Size(993, 1);
             this._lHorizontalLineImportResults.TabIndex = 21;
             // 
             // _lImportResults
@@ -100,7 +100,7 @@
             this._lImportResults.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._lImportResults.Location = new System.Drawing.Point(0, 0);
             this._lImportResults.Name = "_lImportResults";
-            this._lImportResults.Size = new System.Drawing.Size(1020, 20);
+            this._lImportResults.Size = new System.Drawing.Size(993, 20);
             this._lImportResults.TabIndex = 20;
             this._lImportResults.Text = "Import Result";
             this._lImportResults.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -157,7 +157,7 @@
             this._gridImportResults.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this._gridImportResults.RowHeadersVisible = false;
             this._gridImportResults.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this._gridImportResults.Size = new System.Drawing.Size(1023, 159);
+            this._gridImportResults.Size = new System.Drawing.Size(996, 159);
             this._gridImportResults.TabIndex = 19;
             // 
             // Course2
@@ -213,9 +213,9 @@
             this._pnlCurrentEvaluations.Controls.Add(this._lHorizontalLineEvaluations);
             this._pnlCurrentEvaluations.Controls.Add(this._lEvaluations);
             this._pnlCurrentEvaluations.Controls.Add(this._gridEvaluations);
-            this._pnlCurrentEvaluations.Location = new System.Drawing.Point(12, 123);
+            this._pnlCurrentEvaluations.Location = new System.Drawing.Point(23, 123);
             this._pnlCurrentEvaluations.Name = "_pnlCurrentEvaluations";
-            this._pnlCurrentEvaluations.Size = new System.Drawing.Size(1022, 180);
+            this._pnlCurrentEvaluations.Size = new System.Drawing.Size(995, 180);
             this._pnlCurrentEvaluations.TabIndex = 1;
             // 
             // _lHorizontalLineEvaluations
@@ -224,7 +224,7 @@
             this._lHorizontalLineEvaluations.Dock = System.Windows.Forms.DockStyle.Top;
             this._lHorizontalLineEvaluations.Location = new System.Drawing.Point(0, 20);
             this._lHorizontalLineEvaluations.Name = "_lHorizontalLineEvaluations";
-            this._lHorizontalLineEvaluations.Size = new System.Drawing.Size(1020, 1);
+            this._lHorizontalLineEvaluations.Size = new System.Drawing.Size(993, 1);
             this._lHorizontalLineEvaluations.TabIndex = 21;
             // 
             // _lEvaluations
@@ -234,7 +234,7 @@
             this._lEvaluations.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._lEvaluations.Location = new System.Drawing.Point(0, 0);
             this._lEvaluations.Name = "_lEvaluations";
-            this._lEvaluations.Size = new System.Drawing.Size(1020, 20);
+            this._lEvaluations.Size = new System.Drawing.Size(993, 20);
             this._lEvaluations.TabIndex = 20;
             this._lEvaluations.Text = "Detected Evaluations";
             this._lEvaluations.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -291,7 +291,7 @@
             this._gridEvaluations.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this._gridEvaluations.RowHeadersVisible = false;
             this._gridEvaluations.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this._gridEvaluations.Size = new System.Drawing.Size(1023, 159);
+            this._gridEvaluations.Size = new System.Drawing.Size(996, 159);
             this._gridEvaluations.TabIndex = 19;
             // 
             // Course
@@ -367,7 +367,7 @@
             this._lCurrently.AutoSize = true;
             this._lCurrently.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._lCurrently.ForeColor = System.Drawing.Color.Black;
-            this._lCurrently.Location = new System.Drawing.Point(11, 93);
+            this._lCurrently.Location = new System.Drawing.Point(23, 92);
             this._lCurrently.Name = "_lCurrently";
             this._lCurrently.Size = new System.Drawing.Size(295, 17);
             this._lCurrently.TabIndex = 48;
@@ -439,7 +439,7 @@
             this._lAfter.AutoSize = true;
             this._lAfter.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this._lAfter.ForeColor = System.Drawing.Color.Black;
-            this._lAfter.Location = new System.Drawing.Point(11, 316);
+            this._lAfter.Location = new System.Drawing.Point(23, 317);
             this._lAfter.Name = "_lAfter";
             this._lAfter.Size = new System.Drawing.Size(231, 17);
             this._lAfter.TabIndex = 52;
@@ -454,7 +454,7 @@
             this._btnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
             this._btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnCancel.ForeColor = System.Drawing.Color.Black;
-            this._btnCancel.Location = new System.Drawing.Point(879, 545);
+            this._btnCancel.Location = new System.Drawing.Point(863, 545);
             this._btnCancel.Name = "_btnCancel";
             this._btnCancel.Size = new System.Drawing.Size(75, 29);
             this._btnCancel.TabIndex = 54;
@@ -470,7 +470,7 @@
             this._btnAccept.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
             this._btnAccept.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnAccept.ForeColor = System.Drawing.Color.Black;
-            this._btnAccept.Location = new System.Drawing.Point(960, 545);
+            this._btnAccept.Location = new System.Drawing.Point(944, 545);
             this._btnAccept.Name = "_btnAccept";
             this._btnAccept.Size = new System.Drawing.Size(75, 29);
             this._btnAccept.TabIndex = 53;

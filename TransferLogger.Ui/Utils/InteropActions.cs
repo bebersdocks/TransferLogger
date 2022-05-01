@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using TransferLogger.Dal;
-using TransferLogger.Dal.DataModels;
 using TransferLogger.Interop;
 using TransferLogger.Interop.Excel;
 using TransferLogger.Interop.Excel.Import;
@@ -16,14 +15,15 @@ namespace TransferLogger.Ui.Utils
 {
     public static class InteropActions
     {
-        public static async Task SendEmail(Form caller, int appId, bool silent = false)
+        public static async Task SendEmail(Form caller, int appId, bool saveExcel = false, bool silent = false)
         {
             using var dc = new Dc();
 
             var application = dc.GetApplication(appId);
 
+            // Do not send notifications to historical evaluators.
             var instructorIds = application.Evaluations
-                .Where(e => e.EvaluationStatus == EvaluationStatus.InProcess)
+                .Where(e => e.LinkedEvaluation == null)
                 .Select(e => e.InstructorId)
                 .ToHashSet();
 
@@ -36,13 +36,13 @@ namespace TransferLogger.Ui.Utils
             {
                 if (!silent)
                 {
-                    MessageDialog.Show("There are no instructors to send email to.", "Aborted");
+                    MessageDialog.Show("There are no instructors to notify to.", "Aborted");
                 }
 
                 return;
             }
 
-            var task = Task.Run(() => new OutlookEmail(application, emails));
+            var task = Task.Run(() => new OutlookEmail(application, emails, saveExcel));
 
             using var form = new LoadingForm("Email", "Preparing email...");
 
@@ -66,14 +66,14 @@ namespace TransferLogger.Ui.Utils
             new ExcelViewer(excelPath).Open();
         }
 
-        public static async Task<List<EvaluationImport>> ImportEvaluations(Form caller)
+        public static async Task<List<EvaluationImport>?> ImportEvaluations(Form caller)
         {
             using var fileDialog = new OpenFileDialog();
 
             fileDialog.CheckFileExists  = true;
             fileDialog.Filter           = "Excel Files (*.xlsx)|*.xlsx";
             fileDialog.RestoreDirectory = true;
-            fileDialog.Title            = "Select application excel";
+            fileDialog.Title            = "Select application excel file";
 
             if (fileDialog.ShowDialog() == DialogResult.OK)
             {
@@ -86,7 +86,7 @@ namespace TransferLogger.Ui.Utils
                 return await task;
             }
 
-            return await Task.FromResult<List<EvaluationImport>>(new());
+            return null;
         }
     }
 }

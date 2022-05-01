@@ -112,7 +112,9 @@ namespace TransferLogger.Interop.Excel.Import
                             }
                             else if (importColumn == ImportColumn.Comment)
                             {
-                                import.Comment = cell.Value.ToString();
+                                import.Comment = cell.Value
+                                    .ToString()
+                                    .Trim();
                             }
                         }
 

@@ -149,7 +149,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this._grid.DefaultCellStyle = dataGridViewCellStyle2;
             this._grid.EnableHeadersVisualStyles = false;
-            this._grid.Location = new System.Drawing.Point(0, 18);
+            this._grid.Location = new System.Drawing.Point(0, 19);
             this._grid.MultiSelect = false;
             this._grid.Name = "_grid";
             this._grid.ReadOnly = true;
@@ -163,7 +163,7 @@
             this._grid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this._grid.RowHeadersVisible = false;
             this._grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this._grid.Size = new System.Drawing.Size(1016, 279);
+            this._grid.Size = new System.Drawing.Size(1016, 278);
             this._grid.TabIndex = 6;
             // 
             // Course

@@ -84,7 +84,7 @@ namespace TransferLogger.BusinessLogic.ViewModels
         public static List<ApplicationViewModel> GetList(string studentName, object organizationIdObj, object statusObj, DateTime from, DateTime to)
         {
             ApplicationStatus? status = null;
-            if (statusObj != null)
+            if (Convert.ToInt32(statusObj) > 0)
                 status = (ApplicationStatus)statusObj;
 
             return GetList(studentName, organizationId: Convert.ToInt32(organizationIdObj), status, from, to);
