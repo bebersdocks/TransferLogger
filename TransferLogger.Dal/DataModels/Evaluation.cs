@@ -7,11 +7,11 @@ namespace TransferLogger.Dal.DataModels
 {
     public enum EvaluationStatus
     {
-        [StringValue("In Process")]             InProcess           = 1,
-        [StringValue("Matched")]                Matched             = 2,
-        [StringValue("Matched By History")]     MatchedByHistory    = 3,
-        [StringValue("Not Matched")]            NotMatched          = 4,
-        [StringValue("Not Matched By History")] NotMatchedByHistory = 5,
+        [StringValue("In Process")]          InProcess         = 1,
+        [StringValue("Matched")]             Matched           = 2,
+        [StringValue("Matched By History")]  MatchedByHistory  = 3,
+        [StringValue("Not Matched")]         NotMatched        = 4,
+        [StringValue("Rejected By History")] RejectedByHistory = 5,
     }
 
     [Table]

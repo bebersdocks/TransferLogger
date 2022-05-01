@@ -141,7 +141,7 @@ namespace TransferLogger.BusinessLogic
 
                     if (historical.EvaluationStatus == EvaluationStatus.NotMatched)
                     {
-                        newEvaluation.EvaluationStatus = EvaluationStatus.NotMatchedByHistory;
+                        newEvaluation.EvaluationStatus = EvaluationStatus.RejectedByHistory;
                     }
 
                     newEvaluation.CourseId           = evaluation.CourseId;
