@@ -173,7 +173,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
         {
             if (_appBuild.OrganizationId <= 0)
             {
-                MessageDialog.Show("You have to select organization.");
+                MessageDialog.Show("You have to select organization.", "Wizard Validation");
 
                 return false;
             }

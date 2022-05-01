@@ -258,7 +258,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
         {
             if (_appBuild.Evaluations.Values.Any(e => e.InstructorId <= 0 && e.HistoricalEvaluationId <= 0))
             {
-                MessageDialog.Show("You have to assign evaluator for each course.");
+                MessageDialog.Show("You have to assign evaluator for each course.", "Wizard Validation");
 
                 return false;
             }

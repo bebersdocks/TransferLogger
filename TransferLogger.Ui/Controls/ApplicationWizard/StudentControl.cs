@@ -80,7 +80,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
                 if (_appBuild.Student.StudentId <= 0)
                 {
-                    MessageDialog.Show("You have to select student.");
+                    MessageDialog.Show("You have to select student.", "Wizard Validation");
 
                     return false;
                 }

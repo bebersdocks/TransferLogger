@@ -41,7 +41,7 @@
             this._btnOk.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
             this._btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnOk.ForeColor = System.Drawing.Color.Black;
-            this._btnOk.Location = new System.Drawing.Point(155, 70);
+            this._btnOk.Location = new System.Drawing.Point(145, 70);
             this._btnOk.Name = "_btnOk";
             this._btnOk.Size = new System.Drawing.Size(75, 29);
             this._btnOk.TabIndex = 1;
@@ -59,7 +59,7 @@
             this._tbMessage.Multiline = true;
             this._tbMessage.Name = "_tbMessage";
             this._tbMessage.ReadOnly = true;
-            this._tbMessage.Size = new System.Drawing.Size(360, 38);
+            this._tbMessage.Size = new System.Drawing.Size(340, 38);
             this._tbMessage.TabIndex = 3;
             this._tbMessage.TabStop = false;
             this._tbMessage.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -69,14 +69,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(384, 111);
+            this.ClientSize = new System.Drawing.Size(364, 111);
             this.ControlBox = false;
             this.Controls.Add(this._tbMessage);
             this.Controls.Add(this._btnOk);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(400, 150);
-            this.MinimumSize = new System.Drawing.Size(400, 150);
+            this.MaximumSize = new System.Drawing.Size(380, 150);
+            this.MinimumSize = new System.Drawing.Size(380, 150);
             this.Name = "MessageDialog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Information";

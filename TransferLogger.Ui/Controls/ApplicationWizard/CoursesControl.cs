@@ -236,7 +236,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
         {
            if (!_appBuild.Evaluations.Any())
             {
-                MessageDialog.Show("You have to select at least 1 course.");
+                MessageDialog.Show("At least 1 course is required.", "Wizard Validation");
 
                 return false;
             }

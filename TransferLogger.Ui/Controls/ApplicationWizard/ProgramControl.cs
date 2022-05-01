@@ -161,7 +161,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
         {
             if (_appBuild.ProgramId <= 0)
             {
-                MessageDialog.Show("You have to select program.");
+                MessageDialog.Show("You have to select program.", "Wizard Validation");
 
                 return false;
             }
