@@ -32,9 +32,7 @@ namespace TransferLogger.Interop.Excel
 
                 workbook = excelApp.Workbooks.Open(_fileName);
 
-                // Brings window to front.
-                excelApp.WindowState = XlWindowState.xlMinimized;
-                excelApp.WindowState = XlWindowState.xlNormal;
+                WindowsNative.SetForegroundWindow(excelApp.Application.Hwnd);
             }
             catch (Exception)
             {

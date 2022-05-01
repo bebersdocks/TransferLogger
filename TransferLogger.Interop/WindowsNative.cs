@@ -11,6 +11,9 @@ namespace TransferLogger.Interop
         [DllImport("user32.dll")]
         private static extern uint GetWindowThreadProcessId(IntPtr hWnd, out uint lpdwProcessId);
 
+        [DllImport("user32.dll")]
+        public static extern int SetForegroundWindow(int hWnd);
+
         public static bool TryKillProcess(int hWnd)
         {
             GetWindowThreadProcessId((IntPtr)hWnd, out uint processId);
