@@ -233,7 +233,7 @@ namespace TransferLogger.Ui.Forms.Applications
             this._btnImportExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this._btnImportExcel.AutoSize = true;
             this._btnImportExcel.BackColor = System.Drawing.Color.White;
-            this._btnImportExcel.BackgroundImage = global::TransferLogger.Ui.Properties.Resources.merge_files;
+            this._btnImportExcel.BackgroundImage = global::TransferLogger.Ui.Properties.Resources.blockchain;
             this._btnImportExcel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this._btnImportExcel.Cursor = System.Windows.Forms.Cursors.Hand;
             this._btnImportExcel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));

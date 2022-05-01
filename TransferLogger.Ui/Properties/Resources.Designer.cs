@@ -63,6 +63,16 @@ namespace TransferLogger.Ui.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap blockchain {
+            get {
+                object obj = ResourceManager.GetObject("blockchain", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap collapse_arrow {
             get {
                 object obj = ResourceManager.GetObject("collapse_arrow", resourceCulture);
@@ -136,16 +146,6 @@ namespace TransferLogger.Ui.Properties {
         internal static System.Drawing.Bitmap mail {
             get {
                 object obj = ResourceManager.GetObject("mail", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap merge_files {
-            get {
-                object obj = ResourceManager.GetObject("merge_files", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
