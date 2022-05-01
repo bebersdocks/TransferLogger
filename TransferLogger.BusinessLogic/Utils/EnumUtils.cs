@@ -34,12 +34,19 @@ namespace TransferLogger.BusinessLogic.Utils
                 return value.ToString();
         }
 
-        public static List<Lookup> GetLookups<T>() where T : Enum
+        public static List<Lookup> GetLookups<T>(IEnumerable<T> values) where T : Enum
         {
-            return Enum.GetValues(typeof(T))
-                .Cast<T>()
+            return values
                 .Select(e => new Lookup(Convert.ToInt32(e), e.GetDisplayName()))
                 .ToList();
+        }
+
+        public static List<Lookup> GetLookups<T>() where T : Enum
+        {
+            var values = Enum.GetValues(typeof(T))
+                .Cast<T>();
+
+            return GetLookups(values);
         }
     }
 }
