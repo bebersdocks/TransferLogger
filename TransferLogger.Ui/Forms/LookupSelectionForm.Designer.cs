@@ -94,7 +94,7 @@ namespace TransferLogger.Ui.Forms
             this._grid.RowHeadersVisible = false;
             this._grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this._grid.Size = new System.Drawing.Size(474, 384);
-            this._grid.TabIndex = 2;
+            this._grid.TabIndex = 1;
             // 
             // Value
             // 
@@ -121,6 +121,7 @@ namespace TransferLogger.Ui.Forms
             this._tbSearchLookup.Name = "_tbSearchLookup";
             this._tbSearchLookup.Size = new System.Drawing.Size(474, 23);
             this._tbSearchLookup.TabIndex = 1;
+            this._tbSearchLookup.TabStop = false;
             // 
             // _btnOk
             // 
@@ -134,7 +135,7 @@ namespace TransferLogger.Ui.Forms
             this._btnOk.Location = new System.Drawing.Point(387, 420);
             this._btnOk.Name = "_btnOk";
             this._btnOk.Size = new System.Drawing.Size(75, 29);
-            this._btnOk.TabIndex = 3;
+            this._btnOk.TabIndex = 2;
             this._btnOk.Text = "Ok";
             this._btnOk.UseVisualStyleBackColor = false;
             // 
@@ -150,7 +151,7 @@ namespace TransferLogger.Ui.Forms
             this._btnClear.Location = new System.Drawing.Point(12, 420);
             this._btnClear.Name = "_btnClear";
             this._btnClear.Size = new System.Drawing.Size(75, 29);
-            this._btnClear.TabIndex = 5;
+            this._btnClear.TabIndex = 4;
             this._btnClear.Text = "Clear";
             this._btnClear.UseVisualStyleBackColor = false;
             // 
@@ -166,7 +167,7 @@ namespace TransferLogger.Ui.Forms
             this._btnCancel.Location = new System.Drawing.Point(306, 420);
             this._btnCancel.Name = "_btnCancel";
             this._btnCancel.Size = new System.Drawing.Size(75, 29);
-            this._btnCancel.TabIndex = 4;
+            this._btnCancel.TabIndex = 3;
             this._btnCancel.Text = "Cancel";
             this._btnCancel.UseVisualStyleBackColor = false;
             // 
