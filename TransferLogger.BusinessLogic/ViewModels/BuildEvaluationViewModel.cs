@@ -33,9 +33,9 @@ namespace TransferLogger.BusinessLogic.ViewModels
                     .LoadWith(e => e.MatchedCourse)
                     .First(e => e.EvaluationId == evaluation.HistoricalEvaluationId);
 
-                Status             = EvaluationStatus.MatchedByHistory;
+                Status             = historical.EvaluationStatus;
                 Instructor         = historical.Instructor.DisplayString;
-                SuggestedOrMatched = historical.MatchedCourse.DisplayString;
+                SuggestedOrMatched = historical.MatchedCourse?.DisplayString;
                 UseHistorical      = true;
             }
             else
