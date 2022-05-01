@@ -22,24 +22,31 @@ namespace TransferLogger.Ui.Controls
 
     public static class TlDropDownListExtensions
     {
-        public static void FillLookups(this TlDropDownList dropDownList, IEnumerable<Lookup> items)
+        public static void FillLookups(this TlDropDownList dropDownList, IList<Lookup> items, Lookup? defaultValue = null)
         {
+            if (defaultValue != null)
+            {
+                items = items.ToList(); // Use copy.
+
+                items.Insert(0, defaultValue);
+            }
+
             dropDownList.ValueMember   = nameof(Lookup.Value);
             dropDownList.DisplayMember = nameof(Lookup.DisplayName);
             dropDownList.DataSource    = items.ToList();
             dropDownList.SelectedIndex = -1;
         }
 
-        public static void FillLookups(this TlDropDownList dropDownList, IEnumerable<Lookup> items, int selectedValue)
+        public static void FillLookups(this TlDropDownList dropDownList, IList<Lookup> items, int selectedValue, Lookup? defaultValue = null)
         {
-            dropDownList.FillLookups(items);
+            dropDownList.FillLookups(items, defaultValue);
 
             dropDownList.SelectedValue = selectedValue;
         }
 
-        public static void FillLookups<T>(this TlDropDownList dropDownList, IEnumerable<Lookup> items, T selectedValue)
+        public static void FillLookups<T>(this TlDropDownList dropDownList, IList<Lookup> items, T selectedValue)
         {
-            dropDownList.FillLookups(items, Convert.ToInt32(selectedValue));
+            dropDownList.FillLookups(items, Convert.ToInt32(selectedValue), null);
         }
 
         public static void FillLookups<T>(this TlDropDownList dropDownList) where T : Enum
@@ -47,9 +54,9 @@ namespace TransferLogger.Ui.Controls
             dropDownList.FillLookups(EnumUtils.GetLookups<T>());
         }
 
-        public static void FillLookups<T>(this TlDropDownList dropDownList, int selectedValue) where T : Enum
+        public static void FillLookups<T>(this TlDropDownList dropDownList, int selectedValue, Lookup? defaultValue = null) where T : Enum
         {
-            dropDownList.FillLookups(EnumUtils.GetLookups<T>(), Convert.ToInt32(selectedValue));
+            dropDownList.FillLookups(EnumUtils.GetLookups<T>(), Convert.ToInt32(selectedValue), defaultValue);
         }
 
         public static void FillLookups<T>(this TlDropDownList dropDownList, T selectedValue) where T : Enum

@@ -7,7 +7,6 @@ using LinqToDB;
 
 using TransferLogger.BusinessLogic;
 using TransferLogger.BusinessLogic.Intefaces;
-using TransferLogger.BusinessLogic.Utils;
 using TransferLogger.BusinessLogic.ViewModels;
 using TransferLogger.Dal;
 using TransferLogger.Dal.DataModels.Applications;
@@ -45,20 +44,10 @@ namespace TransferLogger.Ui.Forms.Applications
         public void SetData()
         {
             if (_cbOrganizations.Items.Count == 0)
-            {
-                _organizations.Insert(0, new Lookup(-1, "All"));
-
-                _cbOrganizations.FillLookups(_organizations, -1);
-            }
+                _cbOrganizations.FillLookups(_organizations, -1, new Lookup(-1, "All"));
 
             if (_cbStatuses.Items.Count == 0)
-            {
-                var statuses = EnumUtils.GetLookups<ApplicationStatus>();
-
-                statuses.Insert(0, new Lookup(-1, "All"));
-
-                _cbStatuses.FillLookups(statuses, -1);
-            }
+                _cbStatuses.FillLookups<ApplicationStatus>(-1, new Lookup(-1, "All"));
 
             var apps = ApplicationViewModel.GetList(_tbSearchName.Text, _cbOrganizations.SelectedValue, _cbStatuses.SelectedValue, _dtFrom.Value, _dtTo.Value);
 

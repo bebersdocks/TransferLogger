@@ -104,9 +104,7 @@ namespace TransferLogger.Ui.Forms.Applications
                     .Select(c => new Lookup(c.CourseId, c.DisplayString))
                     .ToList();
 
-                courses.Insert(0, new Lookup(-1, "None"));
-
-                _cbMatchedCourses.FillLookups(courses);
+                _cbMatchedCourses.FillLookups(courses, new Lookup(-1, "None"));
 
                 SetEvaluation();
             }
