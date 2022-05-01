@@ -489,11 +489,11 @@
             // 
             this._lCompletedAt.AutoSize = true;
             this._lCompletedAt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lCompletedAt.Location = new System.Drawing.Point(501, 89);
+            this._lCompletedAt.Location = new System.Drawing.Point(498, 89);
             this._lCompletedAt.Name = "_lCompletedAt";
-            this._lCompletedAt.Size = new System.Drawing.Size(106, 17);
+            this._lCompletedAt.Size = new System.Drawing.Size(109, 17);
             this._lCompletedAt.TabIndex = 55;
-            this._lCompletedAt.Text = "Completed Date:";
+            this._lCompletedAt.Text = "Completion Date:";
             // 
             // _tbCreatedAt
             // 
@@ -512,11 +512,11 @@
             // 
             this._lCreatedAt.AutoSize = true;
             this._lCreatedAt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._lCreatedAt.Location = new System.Drawing.Point(519, 55);
+            this._lCreatedAt.Location = new System.Drawing.Point(501, 55);
             this._lCreatedAt.Name = "_lCreatedAt";
-            this._lCreatedAt.Size = new System.Drawing.Size(88, 17);
+            this._lCreatedAt.Size = new System.Drawing.Size(107, 17);
             this._lCreatedAt.TabIndex = 53;
-            this._lCreatedAt.Text = "Created Date:";
+            this._lCreatedAt.Text = "Application Date:";
             // 
             // _cbApplicationStatus
             // 

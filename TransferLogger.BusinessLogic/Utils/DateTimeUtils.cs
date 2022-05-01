@@ -8,8 +8,7 @@ namespace TransferLogger.BusinessLogic.Utils
         {
             return dt
                 .ToLocalTime()
-                .ToString("dd-MM-yyyy HH:mm")
-                ?? string.Empty;
+                .ToString("dd-MM-yyyy HH:mm") ?? string.Empty;
         }
     }
 }
