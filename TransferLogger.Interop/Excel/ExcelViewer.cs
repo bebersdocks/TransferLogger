@@ -41,6 +41,8 @@ namespace TransferLogger.Interop.Excel
                 workbook?.Close(false);
                 excelApp?.Quit();
 
+                WindowsNative.TryKillProcess(excelApp.Application.Hwnd);
+
                 throw;
             }
         }

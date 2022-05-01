@@ -173,7 +173,7 @@ namespace TransferLogger.Interop.Excel
                 }
 
                 sheet.UsedRange.Columns.AutoFit();
-
+                
                 workbook.SaveCopyAs(fileName);
             }
             catch (Exception) 
@@ -184,6 +184,8 @@ namespace TransferLogger.Interop.Excel
             {
                 workbook?.Close(false);
                 excelApp?.Quit();
+
+                WindowsNative.TryKillProcess(excelApp.Application.Hwnd);
             }
         }
 

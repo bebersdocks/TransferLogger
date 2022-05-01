@@ -1,0 +1,35 @@
+﻿using System;
+using System.Diagnostics;
+using System.Runtime.InteropServices;
+
+namespace TransferLogger.Interop
+{
+    // https://stackoverflow.com/questions/158706/how-do-i-properly-clean-up-excel-interop-objects
+    // nightcoder
+    public static class WindowsNative
+    {
+        [DllImport("user32.dll")]
+        private static extern uint GetWindowThreadProcessId(IntPtr hWnd, out uint lpdwProcessId);
+
+        public static bool TryKillProcess(int hWnd)
+        {
+            GetWindowThreadProcessId((IntPtr)hWnd, out uint processId);
+
+            if (processId == 0)
+            {
+                return false;
+            }
+
+            try
+            {
+                Process.GetProcessById((int)processId)?.Kill();
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+    }
+}

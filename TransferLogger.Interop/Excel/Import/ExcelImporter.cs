@@ -132,6 +132,8 @@ namespace TransferLogger.Interop.Excel.Import
             {
                 workbook?.Close(false);
                 excelApp?.Quit();
+
+                WindowsNative.TryKillProcess(excelApp.Application.Hwnd);
             }
         }
     }
