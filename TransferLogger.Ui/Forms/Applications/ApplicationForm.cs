@@ -4,6 +4,8 @@ using System.Data;
 using System.Linq;
 using System.Windows.Forms;
 
+using LinqToDB;
+
 using TransferLogger.BusinessLogic;
 using TransferLogger.BusinessLogic.Intefaces;
 using TransferLogger.BusinessLogic.Utils;
@@ -13,6 +15,7 @@ using TransferLogger.Dal.DataModels;
 using TransferLogger.Dal.DataModels.Applications;
 using TransferLogger.Ui.Controls;
 using TransferLogger.Ui.Forms.Courses;
+using TransferLogger.Ui.Forms.Dialogs;
 using TransferLogger.Ui.Utils;
 
 using DalApplication = TransferLogger.Dal.DataModels.Applications.Application;
@@ -23,9 +26,11 @@ namespace TransferLogger.Ui.Forms.Applications
     {
         private int _currentEvaluationId = 0;
 
-        private readonly DalApplication _application;
-        private readonly List<Lookup>   _courses;
-        private readonly bool           _readOnly;
+        private readonly DalApplication              _application;
+        private readonly Dictionary<int, Evaluation> _evaluations;
+        private readonly Dictionary<int, Course>     _courses;
+        private readonly List<Lookup>                _activeEvaluationStatuses;
+        private readonly bool                        _readOnly;
 
         public ApplicationForm(int appId, bool readOnly = false)
         {
@@ -34,12 +39,30 @@ namespace TransferLogger.Ui.Forms.Applications
             using var dc = new Dc();
 
             _application = dc.GetApplication(appId);
-            _courses     = LookupServices.GetCourses(_application.TargetOrganizationId, _application.TargetProgramId);
-            _readOnly    = readOnly;
+            _evaluations = _application.Evaluations.ToDictionary(e => e.EvaluationId);
 
-            _pnlApplicationDetails.Enabled = !readOnly;
+            _courses = dc.Courses
+                .Where(c => c.OrganizationId == _application.TargetOrganizationId && c.ProgramId == _application.TargetProgramId)
+                .ToDictionary(c => c.CourseId);
+
+            var evaluationStatuses = new HashSet<EvaluationStatus>
+            {
+                EvaluationStatus.InProcess,
+                EvaluationStatus.Matched,
+                EvaluationStatus.NotMatched,
+            };
+
+            _activeEvaluationStatuses = EnumUtils.GetLookups(evaluationStatuses);
+
+            _readOnly = readOnly || _application.ApplicationStatus == ApplicationStatus.Completed;
 
             Text = $"Transfer application for {_application.Student.DisplayString} (Id: {_application.ApplicationId})";
+
+            if (_readOnly)
+                _btnSave.Text = "Ok";
+
+            FormUtils.SetReadOnly(_btnSendEmail, _readOnly);
+            FormUtils.SetReadOnly(_btnExportExcel, _readOnly);
 
             SetData(true);
             SetEvents();
@@ -75,15 +98,49 @@ namespace TransferLogger.Ui.Forms.Applications
                     _lCompletedAt.Visible = _tbCompletedAt.Visible = false;
 
                 _cbApplicationStatus.FillLookups(_application.ApplicationStatus);
+                _cbEvaluationStatus.FillLookups<EvaluationStatus>();
+
+                var courses = _courses.Values
+                    .Select(c => new Lookup(c.CourseId, c.DisplayString))
+                    .ToList();
+
+                courses.Insert(0, new Lookup(-1, "None"));
+
+                _cbMatchedCourses.FillLookups(courses);
 
                 SetEvaluation();
             }
         }
 
+        private void SetEvaluationStatuses()
+        {
+            var evaluation = _evaluations[_currentEvaluationId];
+
+            _cbEvaluationStatus.SelectedValueChanged -= _cbEvaluationStatus_SelectedValueChanged;
+
+            if (evaluation.EvaluationStatus == EvaluationStatus.MatchedByHistory || evaluation.EvaluationStatus == EvaluationStatus.RejectedByHistory)
+            {
+                _cbEvaluationStatus.FillLookups(evaluation.EvaluationStatus);
+            }
+            else
+            {
+                var lookups = _activeEvaluationStatuses;
+
+                if ((evaluation.MatchedCourseId ?? 0) <= 0)
+                {
+                    lookups = lookups
+                        .Where(l => l.Value != (int)EvaluationStatus.Matched)
+                        .ToList();
+                }
+
+                _cbEvaluationStatus.FillLookups(lookups, Convert.ToInt32(evaluation.EvaluationStatus));
+            }
+
+            _cbEvaluationStatus.SelectedValueChanged += _cbEvaluationStatus_SelectedValueChanged;
+        }
+
         private void SetEvaluation()
         {
-            _pnlEvaluation.Enabled = !_readOnly || _application.ApplicationStatus == ApplicationStatus.InProcess;
-
             if (_grid.CurrentRow?.DataBoundItem is EvaluationViewModel viewModel)
             {
                 _currentEvaluationId = viewModel.Id;
@@ -93,19 +150,24 @@ namespace TransferLogger.Ui.Forms.Applications
                 _tbEvaluator.Text       = viewModel.Instructor;
                 _tbComment.Text         = viewModel.Comment;
 
-                _cbMatchedCourses.FillLookups(_courses, viewModel.MatchedCourseId);
+                _btnViewSuggestedCourse.Enabled = viewModel.SuggestedCourseId > 0;
+                _btnViewMatchedCourse.Enabled   = viewModel.MatchedCourseId > 0;
 
-                _btnViewSuggestedCourse.Enabled = (viewModel.SuggestedCourseId ?? 0) > 0;
-                _btnViewMatchedCourse.Enabled   = (viewModel.MatchedCourseId ?? 0) > 0;
+                _cbMatchedCourses.SelectedValueChanged -= _cbMatchedCourses_SelectedValueChanged;
 
-                if (_pnlEvaluation.Enabled)
-                {
-                    bool readOnly = viewModel.Status == EvaluationStatus.MatchedByHistory;
+                _cbMatchedCourses.SelectedValue = viewModel.MatchedCourseId ?? 0;
 
-                    _cbMatchedCourses.Enabled = !readOnly;
+                _cbMatchedCourses.SelectedValueChanged += _cbMatchedCourses_SelectedValueChanged;
 
-                    FormUtils.SetReadOnly(_tbComment, readOnly);
-                }
+                SetEvaluationStatuses();
+
+                var readOnly = _readOnly ||
+                    viewModel.Status == EvaluationStatus.MatchedByHistory ||
+                    viewModel.Status == EvaluationStatus.RejectedByHistory;
+
+                _cbEvaluationStatus.Enabled = _cbMatchedCourses.Enabled = !readOnly;
+
+                FormUtils.SetReadOnly(_tbComment, readOnly);
             }
         }
 
@@ -115,8 +177,7 @@ namespace TransferLogger.Ui.Forms.Applications
             _btnViewSuggestedCourse.Click += ViewCourse;
             _btnViewMatchedCourse.Click   += ViewCourse;
 
-            _cbMatchedCourses.SelectedValueChanged += _cbMatchedCourses_SelectedValueChanged;
-            _tbComment.TextChanged                 += _tbComment_TextChanged;
+            _tbComment.TextChanged += _tbComment_TextChanged;
 
             _btnSendEmail.Click   += _btnSendEmail_Click;
             _btnExportExcel.Click += _btnExportExcel_Click;
@@ -148,33 +209,67 @@ namespace TransferLogger.Ui.Forms.Applications
             SetEvaluation();
         }
 
-        private Evaluation? GetGridEvaluation()
+        private void _cbEvaluationStatus_SelectedValueChanged(object? sender, EventArgs e)
         {
             if (_grid.CurrentRow?.DataBoundItem is IIdentifiable identifiable)
             {
-                return _application.Evaluations.FirstOrDefault(e => e.EvaluationId == identifiable.Id);
-            }
+                var evaluation = _evaluations[identifiable.Id];
 
-            return null;
+                evaluation.EvaluationStatus = (EvaluationStatus)_cbEvaluationStatus.SelectedValue;
+
+                if (evaluation.EvaluationStatus == EvaluationStatus.InProcess || evaluation.EvaluationStatus == EvaluationStatus.NotMatched)
+                {
+                    evaluation.MatchedCourseId = null;
+                    evaluation.MatchedCourse   = null;
+
+                    _cbMatchedCourses.SelectedValueChanged -= _cbMatchedCourses_SelectedValueChanged;
+
+                    _cbMatchedCourses.SelectedValue = -1;
+
+                    _cbMatchedCourses.SelectedValueChanged += _cbMatchedCourses_SelectedValueChanged;
+                }
+
+                SetData();
+                SetEvaluationStatuses();
+            }
         }
 
         private void _cbMatchedCourses_SelectedValueChanged(object? sender, EventArgs e)
         {
-            if (GetGridEvaluation() is Evaluation evaluation)
+            if (_grid.CurrentRow?.DataBoundItem is IIdentifiable identifiable)
             {
-                evaluation.MatchedCourseId = Convert.ToInt32(_cbMatchedCourses.SelectedValue);
+                var evaluation = _evaluations[identifiable.Id];
 
-                _btnViewMatchedCourse.Enabled = (evaluation.MatchedCourseId ?? 0) > 0;
+                var matchedCourseId = Convert.ToInt32(_cbMatchedCourses.SelectedValue);
+                if (matchedCourseId > 0)
+                {
+                    evaluation.EvaluationStatus = EvaluationStatus.Matched;
+                    evaluation.MatchedCourseId  = matchedCourseId;
+                    evaluation.MatchedCourse    = _courses[matchedCourseId];
+
+                    _btnViewMatchedCourse.Enabled = true;
+                }
+                else
+                {
+                    evaluation.EvaluationStatus = EvaluationStatus.NotMatched;
+                    evaluation.MatchedCourseId  = null;
+                    evaluation.MatchedCourse    = null;
+
+                    _btnViewMatchedCourse.Enabled = false;
+                }
 
                 SetData();
+                SetEvaluationStatuses();
             }
         }
 
         private void _tbComment_TextChanged(object? sender, EventArgs e)
         {
-            if (GetGridEvaluation() is Evaluation evaluation)
+            if (_grid.CurrentRow?.DataBoundItem is IIdentifiable identifiable && _evaluations.ContainsKey(identifiable.Id))
             {
-                evaluation.Comment = _tbComment.Text;
+                var evaluation = _evaluations[identifiable.Id];
+
+                evaluation.Comment = _tbComment.Text.Trim();
 
                 SetData();
             }
@@ -192,7 +287,43 @@ namespace TransferLogger.Ui.Forms.Applications
 
         private void _btnSave_Click(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            if (_application.ApplicationStatus == ApplicationStatus.InProcess)
+            {
+                var complete = false;
+
+                if (!_application.Evaluations.Any(e => e.EvaluationStatus == EvaluationStatus.InProcess))
+                {
+                    using var confirmBox = new ConfirmBox(
+                        "Complete Application",
+                        $"Application is ready for completion, complete (application will become read-only)?");
+
+                    if (confirmBox.ShowDialog() == DialogResult.OK)
+                    {
+                        complete = true;
+                    }
+                }
+
+                using var dc = new Dc();
+                using var tr = dc.BeginTransaction();
+
+                if (complete)
+                {
+                    dc.Applications.Update(
+                        a => a.ApplicationId == _application.ApplicationId,
+                        a => new DalApplication { ApplicationStatus = ApplicationStatus.Completed });
+                }
+
+                var evaluations = _application.Evaluations.Where(e => e.LinkedEvaluation == null);
+
+                foreach (var evaluation in evaluations)
+                    dc.Update(evaluation);
+
+                tr.Commit();
+            }
+
+            DialogResult = DialogResult.OK;
+
+            Close();
         }
 
         private void _btnCancel_Click(object? sender, EventArgs e)
