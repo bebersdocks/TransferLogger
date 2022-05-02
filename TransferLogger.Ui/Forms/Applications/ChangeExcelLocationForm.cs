@@ -72,9 +72,7 @@ namespace TransferLogger.Ui.Forms.Applications
 
             using var dc = new Dc();
 
-            dc.Applications.Update(
-                a => a.ApplicationId == _appId, 
-                a => new DalApplication { ExcelLocation = newExcelLocation });
+            dc.Applications.Update(a => a.ApplicationId == _appId, a => new DalApplication { ExcelLocation = newExcelLocation });
 
             DialogResult = DialogResult.OK;
 
