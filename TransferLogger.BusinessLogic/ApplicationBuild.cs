@@ -71,31 +71,36 @@ namespace TransferLogger.BusinessLogic
 
         public BuildStep? GetNextStep()
         {
+            if (CurrentStep == BuildStep.Courses && AnyHistoricalEvaluations())
+                return BuildStep.HistoricalEvaluations;
+
             return CurrentStep switch
             {
-                BuildStep.Student => BuildStep.Program,
-                BuildStep.Program => BuildStep.Organization,
-                BuildStep.Organization => BuildStep.Courses,
-                BuildStep.Courses when AnyHistoricalEvaluations() => BuildStep.HistoricalEvaluations,
-                BuildStep.Courses or BuildStep.HistoricalEvaluations => BuildStep.Evaluators,
-                BuildStep.Evaluators => BuildStep.Attachments,
-                BuildStep.Attachments => BuildStep.Review,
-                _ => null
+                BuildStep.Student               => BuildStep.Program,
+                BuildStep.Program               => BuildStep.Organization,
+                BuildStep.Organization          => BuildStep.Courses,
+                BuildStep.Courses               => BuildStep.Evaluators,
+                BuildStep.HistoricalEvaluations => BuildStep.Evaluators,
+                BuildStep.Evaluators            => BuildStep.Attachments,
+                BuildStep.Attachments           => BuildStep.Review,
+                _                               => null
             };
         }
 
         public BuildStep GetPreviousStep()
         {
+            if (CurrentStep == BuildStep.Evaluators && AnyHistoricalEvaluations())
+                return BuildStep.HistoricalEvaluations;
+
             return CurrentStep switch
             {
-                BuildStep.Review => BuildStep.Attachments,
-                BuildStep.Attachments => BuildStep.Evaluators,
-                BuildStep.Evaluators when AnyHistoricalEvaluations() => BuildStep.HistoricalEvaluations,
-                BuildStep.Evaluators => BuildStep.Courses,
+                BuildStep.Review                => BuildStep.Attachments,
+                BuildStep.Attachments           => BuildStep.Evaluators,
+                BuildStep.Evaluators            => BuildStep.Courses,
                 BuildStep.HistoricalEvaluations => BuildStep.Courses,
-                BuildStep.Courses => BuildStep.Organization,
-                BuildStep.Organization => BuildStep.Program,
-                _ => BuildStep.Student
+                BuildStep.Courses               => BuildStep.Organization,
+                BuildStep.Organization          => BuildStep.Program,
+                _                               => BuildStep.Student
             };
         }
 

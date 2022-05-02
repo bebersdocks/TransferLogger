@@ -67,9 +67,7 @@ namespace TransferLogger.Ui.Forms
         private void Ok()
         {
             if (_grid.SelectedRows.Count == 1 && _grid.SelectedRows[0].DataBoundItem is Lookup lookup)
-            {
                 _selectedValue = lookup.Value;
-            }
 
             DialogResult = DialogResult.OK;
 

@@ -22,10 +22,10 @@ namespace TransferLogger.BusinessLogic.ViewModels
         public DateTime         ApplicationDt     { get; set; }
         public int              StudentId         { get; set; }
         public string           Student           { get; set; }
+        public string           Organization      { get; set; }
         public int              CourseId          { get; set; }
         public string           CourseCode        { get; set; }
         public string           Course            { get; set; }
-        public string           Organization      { get; set; }
         public int?             MatchedCourseId   { get; set; }
         public string           MatchedCourse     { get; set; }
         public int?             SuggestedCourseId { get; set; }
@@ -43,6 +43,7 @@ namespace TransferLogger.BusinessLogic.ViewModels
             ApplicationDt     = app.CreatedAt.ToLocalTime();
             StudentId         = app.Student.StudentId;
             Student           = app.Student.DisplayString;
+            Organization      = app.SourceOrganization.DisplayString;
             CourseId          = evaluation.CourseId;
             CourseCode        = evaluation.Course.CourseCode;
             Course            = evaluation.Course.DisplayString;
@@ -50,7 +51,6 @@ namespace TransferLogger.BusinessLogic.ViewModels
             MatchedCourse     = evaluation.MatchedCourse?.DisplayString ?? string.Empty;
             SuggestedCourseId = evaluation.SuggestedCourseId;
             SuggestedCourse   = evaluation.SuggestedCourse?.DisplayString ?? string.Empty;
-            Organization      = app.SourceOrganization.DisplayString;
             InstructorId      = evaluation.InstructorId;
             Instructor        = evaluation.Instructor.DisplayString;
             Comment           = evaluation.Comment;

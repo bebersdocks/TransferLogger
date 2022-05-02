@@ -200,8 +200,7 @@ namespace TransferLogger.Ui.Forms.Applications
 
                 if (appIds.Count > 1)
                 {
-                    MessageDialog.Show("Evaluations do not belong to the same application.", "Import Error");
-
+                    MessageDialog.Show("Evaluations do not belong to the same application.", "Import Error");               
                     return;
                 }
 
