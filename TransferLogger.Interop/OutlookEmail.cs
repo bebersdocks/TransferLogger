@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
 using Microsoft.Office.Interop.Outlook;
+using Microsoft.VisualStudio.OLE.Interop;
 
 using LinqToDB;
 
@@ -82,10 +84,11 @@ namespace TransferLogger.Interop
         {
             _mailItem.Display(false);
 
-            var inspector = _mailItem.GetInspector;
+            var oleWindow = _mailItem.GetInspector as IOleWindow;
 
-            inspector.WindowState = OlWindowState.olMinimized;
-            inspector.WindowState = OlWindowState.olNormalWindow;
+            oleWindow.GetWindow(out IntPtr hWnd);
+
+            WindowsNative.SetForegroundWindow((int)hWnd);
         }
     }
 }

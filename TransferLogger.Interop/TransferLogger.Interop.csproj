@@ -35,6 +35,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <PackageReference Include="Microsoft.VisualStudio.OLE.Interop" Version="17.1.32210.191" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<ProjectReference Include="..\TransferLogger.BusinessLogic\TransferLogger.BusinessLogic.csproj" />
 	</ItemGroup>
 
