@@ -23,20 +23,23 @@ namespace TransferLogger.Interop.Excel.Import
 
             if (EvaluationStatus == EvaluationStatus.Matched)
             {
-                evaluation.MatchedCourseId = evaluation.SuggestedCourseId;
-
-                if (evaluation.MatchedCourseId <= 0)
+                if ((evaluation.SuggestedCourseId ?? 0) <= 0)
                 {
-                    throw new Exception($"Evaluation {evaluation.EvaluationId} was detected as matched, but matched course is not set.");
+                    throw new Exception($"Evaluation {evaluation.EvaluationId} was detected as matched by suggestion, but suggested course is not set.");
                 }
+
+                evaluation.MatchedCourseId = evaluation.SuggestedCourseId;
 
                 return evaluation;
             }
             else if (string.IsNullOrEmpty(AlternativeCourse) || EvaluationStatus == EvaluationStatus.NotMatched)
             {
+                evaluation.MatchedCourseId = null;
+                evaluation.MatchedCourse   = null;
+
                 return evaluation;
             }
-            else
+            else // Case of matching by alternative course.
             {
                 var tagetProgramId = evaluation.Application.TargetProgramId;
 
@@ -46,8 +49,9 @@ namespace TransferLogger.Interop.Excel.Import
                 // then we automatically set evaluation as matched with this course.
                 if (course != null)
                 {
-                    evaluation.MatchedCourseId  = course.CourseId;
                     evaluation.EvaluationStatus = EvaluationStatus.Matched;
+                    evaluation.MatchedCourseId  = course.CourseId;
+                    evaluation.MatchedCourse    = course;
 
                     return evaluation;
                 }
