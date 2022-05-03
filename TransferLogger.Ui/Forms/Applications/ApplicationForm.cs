@@ -61,8 +61,8 @@ namespace TransferLogger.Ui.Forms.Applications
             if (_readOnly)
                 _btnSave.Text = "Ok";
 
-            FormUtils.SetReadOnly(_btnSendEmail, _readOnly);
-            FormUtils.SetReadOnly(_btnExportExcel, _readOnly);
+            FormUtils.SetReadOnly(_btnSendEmail, readOnly);
+            FormUtils.SetReadOnly(_btnExportExcel, readOnly);
 
             SetData(true);
             SetEvents();
@@ -292,7 +292,7 @@ namespace TransferLogger.Ui.Forms.Applications
                 if (!_application.Evaluations.Any(e => e.EvaluationStatus == EvaluationStatus.InProcess))
                 {
                     using var confirmBox = new ConfirmBox(
-                        "Complete Application",
+                        "Do you want to complete application?",
                         $"Application is ready for completion, complete (application will become read-only)?");
 
                     if (confirmBox.ShowDialog() == DialogResult.OK)
