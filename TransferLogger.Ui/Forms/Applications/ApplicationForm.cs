@@ -306,11 +306,9 @@ namespace TransferLogger.Ui.Forms.Applications
 
                 if (complete)
                 {
-                    dc.Applications.Update(a => a.ApplicationId == _application.ApplicationId, a => new DalApplication 
-                    { 
-                        ApplicationStatus = ApplicationStatus.Completed,
-                        CompletedAt       = DateTime.UtcNow
-                    });
+                    dc.Applications.Update(
+                        a => a.ApplicationId == _application.ApplicationId, 
+                        a => new DalApplication { ApplicationStatus = ApplicationStatus.Completed, CompletedAt = DateTime.UtcNow });
                 }
 
                 var evaluations = _application.Evaluations.Where(e => e.LinkedEvaluation == null);
