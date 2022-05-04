@@ -141,7 +141,7 @@ namespace TransferLogger.Interop.Excel
                         }
                         else if (_evaluationVars.Contains(variable))
                         {
-                            if (tableRowIdx < 0)
+                            if (tableRowIdx <= 0)
                                 tableRowIdx = rowIdx;
 
                             tableColIndexes.TryAdd(colIdx, variable);
