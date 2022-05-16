@@ -6,9 +6,9 @@ using TransferLogger.BusinessLogic.Utils;
 using TransferLogger.Dal;
 using TransferLogger.Dal.DataModels;
 
-namespace TransferLogger.BusinessLogic.ViewModels
+namespace TransferLogger.BusinessLogic.Models
 {
-    public class BuildEvaluationViewModel : ApplicationEvaluation
+    public class BuildEvaluationModel : ApplicationEvaluation
     {
         public string           Course             { get; set; }
         public EvaluationStatus Status             { get; set; }
@@ -17,7 +17,7 @@ namespace TransferLogger.BusinessLogic.ViewModels
         public string           SuggestedOrMatched { get; set; }
         public bool             UseHistorical      { get; set; }
 
-        public BuildEvaluationViewModel(Dc dc, ApplicationEvaluation evaluation)
+        public BuildEvaluationModel(Dc dc, ApplicationEvaluation evaluation)
         {
             CourseId          = evaluation.CourseId;
             InstructorId      = evaluation.InstructorId;

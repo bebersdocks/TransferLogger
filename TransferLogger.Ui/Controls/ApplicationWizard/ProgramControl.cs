@@ -6,7 +6,7 @@ using System.Windows.Forms;
 using TransferLogger.BusinessLogic;
 using TransferLogger.BusinessLogic.Intefaces;
 using TransferLogger.BusinessLogic.Settings;
-using TransferLogger.BusinessLogic.ViewModels.Programs;
+using TransferLogger.BusinessLogic.Models.Programs;
 using TransferLogger.Dal;
 using TransferLogger.Dal.Definitions;
 using TransferLogger.Ui.Forms.Dialogs;
@@ -64,7 +64,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
             _grid.SelectionChanged -= _grid_SelectionChanged;
 
-            _grid.DataSource = SelectableProgramViewModel.GetList(selectedIds,
+            _grid.DataSource = SelectableProgramModel.GetList(selectedIds,
                 _tbSearchName.Text, 
                 AppSettings.Instance.OrganizationId,
                 _cbCycles.SelectedValue);
@@ -95,7 +95,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
         private void UpdateSelectedRow()
         {
-            if (_grid.DataSource is List<SelectableProgramViewModel> programs)
+            if (_grid.DataSource is List<SelectableProgramModel> programs)
             {
                 foreach (var program in programs)
                 {
@@ -123,11 +123,11 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
         private void SetCurrentRowAsSelected()
         {
-            if (_grid.CurrentRow?.DataBoundItem is SelectableProgramViewModel viewModel)
+            if (_grid.CurrentRow?.DataBoundItem is SelectableProgramModel model)
             {
-                viewModel.Selected = !viewModel.Selected;
+                model.Selected = !model.Selected;
 
-                _appBuild.TargetProgramId = viewModel.Selected ? viewModel.Id : 0;
+                _appBuild.TargetProgramId = model.Selected ? model.Id : 0;
 
                 UpdateSelectedRow();
             }

@@ -10,9 +10,9 @@ using TransferLogger.Dal;
 using TransferLogger.Dal.DataModels;
 using TransferLogger.Dal.Definitions;
 
-namespace TransferLogger.BusinessLogic.ViewModels.Courses
+namespace TransferLogger.BusinessLogic.Models.Courses
 {
-    public class CourseViewModel : IIdentifiable
+    public class CourseModel : IIdentifiable
     {
         public int    Id           { get; set; }
         public string Name         { get; set; }
@@ -22,7 +22,7 @@ namespace TransferLogger.BusinessLogic.ViewModels.Courses
         public int    Credits      { get; set; }
         public int    WeeklyHours  { get; set; }
 
-        public CourseViewModel(Course course, Organization organization)
+        public CourseModel(Course course, Organization organization)
         {
             Id           = course.CourseId;
             Name         = course.DisplayString;
@@ -56,20 +56,19 @@ namespace TransferLogger.BusinessLogic.ViewModels.Courses
                 query = query.Where(c => c.ProgramId == programId);
 
             return query
-                .LoadWith(c => c.Program)
-                .ThenLoad(c => c.Organization);
+                .LoadWith(c => c.Program);
         }
 
-        public static List<CourseViewModel> GetList(string searchName = "", int organizationId = 0, Cycle? cycle = null, int programId = 0)
+        public static List<CourseModel> GetList(string searchName = "", int organizationId = 0, Cycle? cycle = null, int programId = 0)
         {
             using var dc = new Dc();
 
             return GetQuery(dc, searchName, organizationId, cycle, programId)
-                .Select(c => new CourseViewModel(c, c.Program.Organization))
+                .Select(c => new CourseModel(c, c.Program.Organization))
                 .ToList();
         }
 
-        public static List<CourseViewModel> GetList(string searchName, object organizationIdObj, object cycleObj, object programIdObj)
+        public static List<CourseModel> GetList(string searchName, object organizationIdObj, object cycleObj, object programIdObj)
         {
             Cycle? cycle = null;
             if (cycleObj != null)

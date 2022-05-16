@@ -7,7 +7,7 @@ using LinqToDB;
 
 using TransferLogger.BusinessLogic;
 using TransferLogger.BusinessLogic.Intefaces;
-using TransferLogger.BusinessLogic.ViewModels;
+using TransferLogger.BusinessLogic.Models;
 using TransferLogger.Dal;
 using TransferLogger.Dal.DataModels.Applications;
 using TransferLogger.Ui.Controls;
@@ -49,7 +49,7 @@ namespace TransferLogger.Ui.Forms.Applications
             if (_cbStatuses.Items.Count == 0)
                 _cbStatuses.FillLookups<ApplicationStatus>(new Lookup(-1, "All"));
 
-            var apps = ApplicationViewModel.GetList(_tbSearchName.Text, _cbOrganizations.SelectedValue, _cbStatuses.SelectedValue, _dtFrom.Value, _dtTo.Value);
+            var apps = ApplicationModel.GetList(_tbSearchName.Text, _cbOrganizations.SelectedValue, _cbStatuses.SelectedValue, _dtFrom.Value, _dtTo.Value);
 
             var index = _gridApps.CurrentRow?.Index ?? 0;
 
@@ -145,11 +145,11 @@ namespace TransferLogger.Ui.Forms.Applications
         
         private void _btnDelete_Click(object? sender, EventArgs e)
         {
-            if (_gridApps.CurrentRow?.DataBoundItem is ApplicationViewModel viewModel)
+            if (_gridApps.CurrentRow?.DataBoundItem is ApplicationModel model)
             {
                 using var confirmBox = new ConfirmBox(
                     "Confirm Deletion",
-                    $"Are you sure you want to delete application for {viewModel.Student} (Id: {viewModel.Id})?");
+                    $"Are you sure you want to delete application for {model.Student} (Id: {model.Id})?");
 
                 if (confirmBox.ShowDialog() == DialogResult.OK)
                 {
@@ -159,11 +159,11 @@ namespace TransferLogger.Ui.Forms.Applications
                     using var tr = dc.BeginTransaction();
 
                     dc.Evaluations
-                        .Where(a => a.ApplicationId == viewModel.Id)
+                        .Where(a => a.ApplicationId == model.Id)
                         .Delete();
 
                     dc.Applications
-                        .Where(a => a.ApplicationId == viewModel.Id)
+                        .Where(a => a.ApplicationId == model.Id)
                         .Delete();
 
                     tr.Commit();
@@ -280,11 +280,11 @@ namespace TransferLogger.Ui.Forms.Applications
 
         private void _gridApps_SelectionChanged(object? sender, EventArgs e)
         {
-            if (_gridApps.CurrentRow?.DataBoundItem is ApplicationViewModel viewModel)
+            if (_gridApps.CurrentRow?.DataBoundItem is ApplicationModel model)
             {
-                _gridAppEvaluations.DataSource = viewModel.Evaluations;
+                _gridAppEvaluations.DataSource = model.Evaluations;
 
-                _btnDelete.Enabled = viewModel.Status != ApplicationStatus.Completed;
+                _btnDelete.Enabled = model.Status != ApplicationStatus.Completed;
             }
         }
     }

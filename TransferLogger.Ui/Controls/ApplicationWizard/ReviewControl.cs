@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 using TransferLogger.BusinessLogic;
 using TransferLogger.Dal;
-using TransferLogger.BusinessLogic.ViewModels;
+using TransferLogger.BusinessLogic.Models;
 
 namespace TransferLogger.Ui.Controls.ApplicationWizard
 {
@@ -41,7 +41,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
                 .DisplayString;
 
             _grid.DataSource = _appBuild.Evaluations.Values
-                .Select(e => new BuildEvaluationViewModel(dc, e))
+                .Select(e => new BuildEvaluationModel(dc, e))
                 .OrderByDescending(e => e.Status)
                 .ToList();
         }

@@ -6,7 +6,7 @@ using System.Windows.Forms;
 using LinqToDB;
 
 using TransferLogger.BusinessLogic;
-using TransferLogger.BusinessLogic.ViewModels.Courses;
+using TransferLogger.BusinessLogic.Models.Courses;
 using TransferLogger.Dal;
 using TransferLogger.Dal.Definitions;
 using TransferLogger.Ui.Controls;
@@ -40,7 +40,7 @@ namespace TransferLogger.Ui.Forms.Courses
             if (_cbCycles.Items.Count == 0)
                 _cbCycles.FillLookups<Cycle>(Convert.ToInt32(cycle));
 
-            _grid.DataSource = CourseViewModel.GetList(_tbSearchName.Text, _cbOrganizations.SelectedValue, _cbCycles.SelectedValue, _cbPrograms.SelectedValue);
+            _grid.DataSource = CourseModel.GetList(_tbSearchName.Text, _cbOrganizations.SelectedValue, _cbCycles.SelectedValue, _cbPrograms.SelectedValue);
         }
 
         private void SetPrograms()
@@ -118,11 +118,11 @@ namespace TransferLogger.Ui.Forms.Courses
 
         private void _btnDelete_Click(object? sender, EventArgs e)
         {
-            if (_grid.CurrentRow?.DataBoundItem is CourseViewModel viewModel)
+            if (_grid.CurrentRow?.DataBoundItem is CourseModel model)
             {
                 using var confirmBox = new ConfirmBox(
                     "Confirm Deletion",
-                    $"Are you sure you want to delete {viewModel.Name} (Id: {viewModel.Id})?");
+                    $"Are you sure you want to delete {model.Name} (Id: {model.Id})?");
 
                 if (confirmBox.ShowDialog() == DialogResult.OK)
                 {
@@ -131,7 +131,7 @@ namespace TransferLogger.Ui.Forms.Courses
                     using var dc = new Dc();
 
                     dc.Courses
-                        .Where(c => c.CourseId == viewModel.Id)
+                        .Where(c => c.CourseId == model.Id)
                         .Delete();
 
                     SetData();

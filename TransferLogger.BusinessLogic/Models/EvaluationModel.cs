@@ -11,9 +11,9 @@ using TransferLogger.Dal;
 using TransferLogger.Dal.DataModels;
 using TransferLogger.Dal.DataModels.Applications;
 
-namespace TransferLogger.BusinessLogic.ViewModels
+namespace TransferLogger.BusinessLogic.Models
 {
-    public class EvaluationViewModel : IIdentifiable
+    public class EvaluationModel : IIdentifiable
     {
         public int              Id                { get; set; }
         public EvaluationStatus Status            { get; set; }
@@ -34,7 +34,7 @@ namespace TransferLogger.BusinessLogic.ViewModels
         public string           Instructor        { get; set; }
         public string           Comment           { get; set; }
 
-        public EvaluationViewModel(Evaluation evaluation, Application app)
+        public EvaluationModel(Evaluation evaluation, Application app)
         {
             Id                = evaluation.EvaluationId;
             Status            = evaluation.EvaluationStatus;
@@ -56,9 +56,9 @@ namespace TransferLogger.BusinessLogic.ViewModels
             Comment           = evaluation.Comment;
         }
 
-        public EvaluationViewModel(Evaluation evaluation) : this(evaluation, evaluation.Application) {}
+        public EvaluationModel(Evaluation evaluation) : this(evaluation, evaluation.Application) {}
 
-        public static List<EvaluationViewModel> GetHistoricalEvaluations(int courseId)
+        public static List<EvaluationModel> GetHistoricalEvaluations(int courseId)
         {
             using var dc = new Dc();
 
@@ -66,7 +66,7 @@ namespace TransferLogger.BusinessLogic.ViewModels
                 .Where(e => e.CourseId == courseId)
                 .Where(e => e.Application.SourceOrganizationId != AppSettings.Instance.OrganizationId)
                 .Where(e => e.EvaluationStatus == EvaluationStatus.Matched || e.EvaluationStatus == EvaluationStatus.NotMatched)
-                .Select(e => new EvaluationViewModel(e))
+                .Select(e => new EvaluationModel(e))
                 .ToList();
         }
     }

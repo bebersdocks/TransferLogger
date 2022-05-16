@@ -26,9 +26,9 @@ namespace TransferLogger.Ui.Utils
         {
             var itemId = 0;
 
-            if (grid.CurrentRow?.DataBoundItem is IIdentifiable viewModel)
+            if (grid.CurrentRow?.DataBoundItem is IIdentifiable identifiable)
             {
-                itemId = viewModel.Id;
+                itemId = identifiable.Id;
             }
 
             if (!isNew && itemId == 0)

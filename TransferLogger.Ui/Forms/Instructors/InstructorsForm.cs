@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 using LinqToDB;
 
-using TransferLogger.BusinessLogic.ViewModels;
+using TransferLogger.BusinessLogic.Models;
 using TransferLogger.Dal;
 using TransferLogger.Ui.Forms.Dialogs;
 using TransferLogger.Ui.Utils;
@@ -23,7 +23,7 @@ namespace TransferLogger.Ui.Forms.Instructors
 
         private void SetData()
         {
-            _grid.DataSource = InstructorViewModel.GetList(_tbSearchName.Text, _tbEmail.Text);
+            _grid.DataSource = InstructorModel.GetList(_tbSearchName.Text, _tbEmail.Text);
         }
 
         private void SetEvents()
@@ -45,11 +45,11 @@ namespace TransferLogger.Ui.Forms.Instructors
 
         private void _btnDelete_Click(object? sender, EventArgs e)
         {
-            if (_grid.CurrentRow?.DataBoundItem is InstructorViewModel viewModel)
+            if (_grid.CurrentRow?.DataBoundItem is InstructorModel model)
             {
                 using var confirmBox = new ConfirmBox(
                     "Confirm Deletion",
-                    $"Are you sure you want to delete {viewModel.Name} (Id: {viewModel.Id})?");
+                    $"Are you sure you want to delete {model.Name} (Id: {model.Id})?");
 
                 if (confirmBox.ShowDialog() == DialogResult.OK)
                 {
@@ -58,7 +58,7 @@ namespace TransferLogger.Ui.Forms.Instructors
                     using var dc = new Dc();
 
                     dc.Instructors
-                        .Where(i => i.InstructorId == viewModel.Id)
+                        .Where(i => i.InstructorId == model.Id)
                         .Delete();
 
                     SetData();

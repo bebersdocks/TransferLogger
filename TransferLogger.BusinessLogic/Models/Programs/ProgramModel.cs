@@ -8,9 +8,9 @@ using TransferLogger.Dal;
 using TransferLogger.Dal.DataModels;
 using TransferLogger.Dal.Definitions;
 
-namespace TransferLogger.BusinessLogic.ViewModels.Programs
+namespace TransferLogger.BusinessLogic.Models.Programs
 {
-    public class ProgramViewModel : IIdentifiable
+    public class ProgramModel : IIdentifiable
     {
         public int    Id           { get; set; }
         public string Name         { get; set; }
@@ -18,7 +18,7 @@ namespace TransferLogger.BusinessLogic.ViewModels.Programs
         public string Cycle        { get; set; }
         public int    Year         { get; set; }
 
-        public ProgramViewModel(Program program, Organization organization)
+        public ProgramModel(Program program, Organization organization)
         {
             Id           = program.ProgramId;
             Name         = program.Name;
@@ -43,16 +43,16 @@ namespace TransferLogger.BusinessLogic.ViewModels.Programs
             return query;
         }
 
-        public static List<ProgramViewModel> GetList(string searchName = "", int organizationId = 0, Cycle? cycle = null)
+        public static List<ProgramModel> GetList(string searchName = "", int organizationId = 0, Cycle? cycle = null)
         {
             using var dc = new Dc();
 
             return GetQuery(dc, searchName, organizationId, cycle)
-                .Select(p => new ProgramViewModel(p, p.Organization))
+                .Select(p => new ProgramModel(p, p.Organization))
                 .ToList();
         }
 
-        public static List<ProgramViewModel> GetList(string searchName, object organizationIdObj, object cycleObj)
+        public static List<ProgramModel> GetList(string searchName, object organizationIdObj, object cycleObj)
         {
             Cycle? cycle = null;
             if (cycleObj != null)

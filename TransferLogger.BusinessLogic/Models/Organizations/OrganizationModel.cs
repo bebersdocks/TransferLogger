@@ -7,9 +7,9 @@ using TransferLogger.Dal;
 using TransferLogger.Dal.DataModels;
 using TransferLogger.Dal.Definitions;
 
-namespace TransferLogger.BusinessLogic.ViewModels.Organizations
+namespace TransferLogger.BusinessLogic.Models.Organizations
 {
-    public class OrganizationViewModel : IIdentifiable
+    public class OrganizationModel : IIdentifiable
     {
         public int    Id      { get; set; }
         public string Type    { get; set; }
@@ -17,7 +17,7 @@ namespace TransferLogger.BusinessLogic.ViewModels.Organizations
         public string Country { get; set; }
         public string Url     { get; set; }
 
-        public OrganizationViewModel(Organization organization)
+        public OrganizationModel(Organization organization)
         {
             Id      = organization.OrganizationId;
             Type    = organization.OrganizationType.GetDisplayName();
@@ -46,16 +46,16 @@ namespace TransferLogger.BusinessLogic.ViewModels.Organizations
             return query;
         }
 
-        public static List<OrganizationViewModel> GetList(string searchName = "", OrganizationType? organizationType = null, Country? country = null)
+        public static List<OrganizationModel> GetList(string searchName = "", OrganizationType? organizationType = null, Country? country = null)
         {
             using var dc = new Dc();
 
             return GetQuery(dc, searchName, organizationType, country)
-                .Select(o => new OrganizationViewModel(o))
+                .Select(o => new OrganizationModel(o))
                 .ToList();
         }
 
-        public static List<OrganizationViewModel> GetList(string searchName, object organizationTypeObj, object countryObj)
+        public static List<OrganizationModel> GetList(string searchName, object organizationTypeObj, object countryObj)
         {
             Country? country = null;
             if (countryObj != null)

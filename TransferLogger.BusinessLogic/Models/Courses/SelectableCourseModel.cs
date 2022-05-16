@@ -8,19 +8,19 @@ using TransferLogger.Dal;
 using TransferLogger.Dal.DataModels;
 using TransferLogger.Dal.Definitions;
 
-namespace TransferLogger.BusinessLogic.ViewModels.Courses
+namespace TransferLogger.BusinessLogic.Models.Courses
 {
-    public class SelectableCourseViewModel : CourseViewModel
+    public class SelectableCourseModel : CourseModel
     {
         public bool Selected { get; set; }
 
-        public SelectableCourseViewModel(Course course, Organization organization, bool selected) 
+        public SelectableCourseModel(Course course, Organization organization, bool selected) 
             : base(course, organization)
         {
             Selected = selected;
         }
 
-        public static List<SelectableCourseViewModel> GetList(HashSet<int> selectedIds,
+        public static List<SelectableCourseModel> GetList(HashSet<int> selectedIds,
             string searchName = "",
             int organizationId = 0,
             Cycle? cycle = null, 
@@ -39,11 +39,11 @@ namespace TransferLogger.BusinessLogic.ViewModels.Courses
                 .AsEnumerable()
                 .Union(selectedCourses)
                 .OrderBy(c => c.CourseId)
-                .Select(c => new SelectableCourseViewModel(c, c.Program.Organization, selectedIds.Contains(c.CourseId)))
+                .Select(c => new SelectableCourseModel(c, c.Program.Organization, selectedIds.Contains(c.CourseId)))
                 .ToList();
         }
 
-        public static List<SelectableCourseViewModel> GetList(HashSet<int> selectedIds,
+        public static List<SelectableCourseModel> GetList(HashSet<int> selectedIds,
             string searchName,
             object organizationIdObj,
             object cycleObj, 

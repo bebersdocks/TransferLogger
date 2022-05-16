@@ -9,24 +9,24 @@ using TransferLogger.BusinessLogic.Utils;
 using TransferLogger.Dal;
 using TransferLogger.Dal.DataModels.Applications;
 
-namespace TransferLogger.BusinessLogic.ViewModels
+namespace TransferLogger.BusinessLogic.Models
 {
-    public class ApplicationViewModel : IIdentifiable
+    public class ApplicationModel : IIdentifiable
     {
-        public int                       Id                { get; set; }
-        public ApplicationStatus         Status            { get; set; }
-        public string                    StatusDisplayName { get; set; }
-        public string                    Student           { get; set; }
-        public string                    Organization      { get; set; }
-        public string                    TargetProgram     { get; set; }
-        public DateTime                  CreatedAt         { get; set; }
-        public DateTime?                 UpdatedAt         { get; set; }
-        public DateTime?                 CompletedAt       { get; set; }
-        public List<EvaluationViewModel> Evaluations       { get; set; }
+        public int                   Id                { get; set; }
+        public ApplicationStatus     Status            { get; set; }
+        public string                StatusDisplayName { get; set; }
+        public string                Student           { get; set; }
+        public string                Organization      { get; set; }
+        public string                TargetProgram     { get; set; }
+        public DateTime              CreatedAt         { get; set; }
+        public DateTime?             UpdatedAt         { get; set; }
+        public DateTime?             CompletedAt       { get; set; }
+        public List<EvaluationModel> Evaluations       { get; set; }
 
         public string CreatedAtDisplay => CreatedAt.ToDisplayString();
 
-        public ApplicationViewModel(Application app)
+        public ApplicationModel(Application app)
         {
             Id                = app.ApplicationId;
             Status            = app.ApplicationStatus;
@@ -39,11 +39,11 @@ namespace TransferLogger.BusinessLogic.ViewModels
             CompletedAt       = app.CompletedAt?.ToLocalTime() ?? null;
 
             Evaluations = app.Evaluations
-                .Select(e => new EvaluationViewModel(e, app))
+                .Select(e => new EvaluationModel(e, app))
                 .ToList();
         }
 
-        public static List<ApplicationViewModel> GetList(string studentName = "", int organizationId = 0, ApplicationStatus? status = null, DateTime? from = null, DateTime? to = null)
+        public static List<ApplicationModel> GetList(string studentName = "", int organizationId = 0, ApplicationStatus? status = null, DateTime? from = null, DateTime? to = null)
         {
             using var dc = new Dc();
 
@@ -77,11 +77,11 @@ namespace TransferLogger.BusinessLogic.ViewModels
                 .LoadWith(a => a.Evaluations)
                 .ThenLoad(e => e.Instructor)
                 .OrderByDescending(a => a.ApplicationId)
-                .Select(a => new ApplicationViewModel(a))
+                .Select(a => new ApplicationModel(a))
                 .ToList();
         }
 
-        public static List<ApplicationViewModel> GetList(string studentName, object organizationIdObj, object statusObj, DateTime from, DateTime to)
+        public static List<ApplicationModel> GetList(string studentName, object organizationIdObj, object statusObj, DateTime from, DateTime to)
         {
             ApplicationStatus? status = null;
             if (Convert.ToInt32(statusObj) > 0)

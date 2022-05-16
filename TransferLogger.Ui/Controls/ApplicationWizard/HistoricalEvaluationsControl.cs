@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 using TransferLogger.BusinessLogic;
 using TransferLogger.BusinessLogic.Intefaces;
-using TransferLogger.BusinessLogic.ViewModels;
+using TransferLogger.BusinessLogic.Models;
 using TransferLogger.Dal;
 using TransferLogger.Dal.DataModels;
 using TransferLogger.Ui.Forms.Applications;
@@ -58,7 +58,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
                 _gridCourses.DataSource = _appBuild.Evaluations.Values
                     .Where(e => courseIds.Contains(e.CourseId))
                     .OrderBy(e => e.CourseId)
-                    .Select(e => new BuildEvaluationViewModel(dc, e))
+                    .Select(e => new BuildEvaluationModel(dc, e))
                     .ToList();
 
                 _gridCourses.SelectRow<ApplicationEvaluation>(e => e.CourseId == _currentCourseId);
@@ -75,7 +75,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
             _gridHistoricalEvaluations.SelectionChanged -= _gridHistoricalEvaluations_SelectionChanged;
 
-            _gridHistoricalEvaluations.DataSource = EvaluationViewModel.GetHistoricalEvaluations(_currentCourseId);
+            _gridHistoricalEvaluations.DataSource = EvaluationModel.GetHistoricalEvaluations(_currentCourseId);
 
             if (evaluation.HistoricalEvaluationId > 0)
                 _gridHistoricalEvaluations.SelectRow<IIdentifiable>(i => i.Id == evaluation.HistoricalEvaluationId);
@@ -89,14 +89,14 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
         {
             _pnlEvaluationDetails.Enabled = _appBuild.Evaluations[_currentCourseId].HistoricalEvaluationId > 0;
 
-            if (_gridHistoricalEvaluations.CurrentRow?.DataBoundItem is EvaluationViewModel viewModel)
+            if (_gridHistoricalEvaluations.CurrentRow?.DataBoundItem is EvaluationModel model)
             {
-                _tbMatchedCourse.Text = viewModel.MatchedCourse;
-                _tbStudent.Text       = viewModel.Student;
-                _tbEvaluator.Text     = viewModel.Instructor;
-                _tbComment.Text       = viewModel.Comment;
+                _tbMatchedCourse.Text = model.MatchedCourse;
+                _tbStudent.Text       = model.Student;
+                _tbEvaluator.Text     = model.Instructor;
+                _tbComment.Text       = model.Comment;
 
-                _btnViewMatchedCourse.Enabled = viewModel.MatchedCourseId > 0;
+                _btnViewMatchedCourse.Enabled = model.MatchedCourseId > 0;
             }
             else
             {
@@ -116,7 +116,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
         // Refreshes the grid to display current value of UseHistorical checkbox.
         private void UpdateRowsHistoricalUsage()
         {
-            if (_gridCourses.DataSource is List<BuildEvaluationViewModel> evaluations)
+            if (_gridCourses.DataSource is List<BuildEvaluationModel> evaluations)
             {
                 foreach (var evaluation in evaluations)
                 {
@@ -129,16 +129,16 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
         private void SetCurrentRowHistoricalUsage(bool toggleHistoricalUsage = true)
         {
-            if (_gridCourses.CurrentRow?.DataBoundItem is BuildEvaluationViewModel viewModel)
+            if (_gridCourses.CurrentRow?.DataBoundItem is BuildEvaluationModel model)
             {
                 if (toggleHistoricalUsage)
                 {
-                    viewModel.UseHistorical = !viewModel.UseHistorical;
+                    model.UseHistorical = !model.UseHistorical;
                 }
 
-                var evaluation = _appBuild.Evaluations[viewModel.CourseId];
+                var evaluation = _appBuild.Evaluations[model.CourseId];
 
-                if (viewModel.UseHistorical && _gridHistoricalEvaluations.CurrentRow?.DataBoundItem is IIdentifiable identifiable)
+                if (model.UseHistorical && _gridHistoricalEvaluations.CurrentRow?.DataBoundItem is IIdentifiable identifiable)
                 {
                     evaluation.HistoricalEvaluationId = identifiable.Id;
                 }
@@ -155,9 +155,9 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
         private void _gridCourses_SelectionChanged(object? sender, EventArgs e)
         {
-            if (_gridCourses.CurrentRow?.DataBoundItem is BuildEvaluationViewModel viewModel)
+            if (_gridCourses.CurrentRow?.DataBoundItem is BuildEvaluationModel model)
             {
-                _currentCourseId = viewModel.CourseId;
+                _currentCourseId = model.CourseId;
 
                 SetHistoricalEvaluations();
             }
@@ -170,9 +170,9 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
         private void _btnViewMatchedCourse_Click(object? sender, EventArgs e)
         {
-            if (_gridHistoricalEvaluations.CurrentRow?.DataBoundItem is EvaluationViewModel viewModel && viewModel.MatchedCourseId.HasValue)
+            if (_gridHistoricalEvaluations.CurrentRow?.DataBoundItem is EvaluationModel model && model.MatchedCourseId.HasValue)
             {
-                using var form = new CourseForm(viewModel.MatchedCourseId.Value);
+                using var form = new CourseForm(model.MatchedCourseId.Value);
 
                 form.ShowDialog();
             }
@@ -180,9 +180,9 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
         private void _btnViewApplication_Click(object? sender, EventArgs e)
         {
-            if (_gridHistoricalEvaluations.CurrentRow?.DataBoundItem is EvaluationViewModel viewModel)
+            if (_gridHistoricalEvaluations.CurrentRow?.DataBoundItem is EvaluationModel model)
             {
-                using var form = new ApplicationForm(viewModel.ApplicationId, true);
+                using var form = new ApplicationForm(model.ApplicationId, true);
 
                 form.ShowDialog();
             }

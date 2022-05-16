@@ -4,7 +4,7 @@ using System.Linq;
 using System.Windows.Forms;
 
 using TransferLogger.BusinessLogic;
-using TransferLogger.BusinessLogic.ViewModels.Courses;
+using TransferLogger.BusinessLogic.Models.Courses;
 using TransferLogger.Dal;
 using TransferLogger.Dal.Definitions;
 using TransferLogger.Ui.Forms;
@@ -47,7 +47,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
             _grid.SelectionChanged -= _grid_SelectionChanged;
 
-            _grid.DataSource = SelectableCourseViewModel.GetList(_appBuild.CourseIds,
+            _grid.DataSource = SelectableCourseModel.GetList(_appBuild.CourseIds,
                 _tbSearchName.Text, 
                 _appBuild.SourceOrganizationId, 
                 _cbCycles.SelectedValue, 
@@ -108,7 +108,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
         private void UpdateSelectedRows()
         {
-            if (_grid.DataSource is List<SelectableCourseViewModel> courses)
+            if (_grid.DataSource is List<SelectableCourseModel> courses)
             {
                 foreach (var course in courses)
                 {
@@ -121,25 +121,25 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
         private void SetCurrentRowAsSelected()
         {
-            if (_grid.CurrentRow?.DataBoundItem is SelectableCourseViewModel viewModel)
+            if (_grid.CurrentRow?.DataBoundItem is SelectableCourseModel model)
             {
-                viewModel.Selected = !viewModel.Selected;
+                model.Selected = !model.Selected;
 
-                if (viewModel.Selected)
+                if (model.Selected)
                 {
-                    if (!_appBuild.Evaluations.ContainsKey(viewModel.Id))
+                    if (!_appBuild.Evaluations.ContainsKey(model.Id))
                     {
                         var newEvaluation = new ApplicationEvaluation
                         {
-                            CourseId = viewModel.Id
+                            CourseId = model.Id
                         };
 
-                        _appBuild.Evaluations[viewModel.Id] = newEvaluation;
+                        _appBuild.Evaluations[model.Id] = newEvaluation;
                     }
                 }
                 else
                 {
-                    _appBuild.Evaluations.Remove(viewModel.Id);
+                    _appBuild.Evaluations.Remove(model.Id);
                 }
 
                 UpdateSelectedRows();

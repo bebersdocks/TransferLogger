@@ -5,9 +5,9 @@ using TransferLogger.BusinessLogic.Intefaces;
 using TransferLogger.Dal;
 using TransferLogger.Dal.DataModels;
 
-namespace TransferLogger.BusinessLogic.ViewModels
+namespace TransferLogger.BusinessLogic.Models
 {
-    public class StudentViewModel : IIdentifiable
+    public class StudentModel : IIdentifiable
     {
         public int    Id         { get; set; }
         public string Reference  { get; set; }
@@ -16,7 +16,7 @@ namespace TransferLogger.BusinessLogic.ViewModels
         public string Phone      { get; set; }
         public string Email      { get; set; }
 
-        public StudentViewModel(Student student)
+        public StudentModel(Student student)
         {
             Id         = student.StudentId;
             Reference  = student.Reference;
@@ -26,7 +26,7 @@ namespace TransferLogger.BusinessLogic.ViewModels
             Email      = student.Email;
         }
 
-        public static List<StudentViewModel> GetList(string searchName = "", string reference = "")
+        public static List<StudentModel> GetList(string searchName = "", string reference = "")
         {
             using var dc = new Dc();
 
@@ -43,7 +43,7 @@ namespace TransferLogger.BusinessLogic.ViewModels
                 query = query.Where(s => s.Reference.Contains(reference));
 
             return query
-                .Select(s => new StudentViewModel(s))
+                .Select(s => new StudentModel(s))
                 .ToList();
         }
     }

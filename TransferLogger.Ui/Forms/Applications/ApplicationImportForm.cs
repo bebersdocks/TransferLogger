@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 using LinqToDB;
 
-using TransferLogger.BusinessLogic.ViewModels;
+using TransferLogger.BusinessLogic.Models;
 using TransferLogger.Dal;
 using TransferLogger.Dal.DataModels;
 
@@ -42,11 +42,11 @@ namespace TransferLogger.Ui.Forms.Applications
             _tbTargetProgram.Text = _application.TargetProgram.DisplayString;
 
             _gridEvaluations.DataSource = _evaluations
-                .Select(e => new EvaluationViewModel(e, _application))
+                .Select(e => new EvaluationModel(e, _application))
                 .ToList();
 
             _gridImportResults.DataSource = _imports
-                .Select(e => new EvaluationViewModel(e, _application))
+                .Select(e => new EvaluationModel(e, _application))
                 .ToList();
         }
 

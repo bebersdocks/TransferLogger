@@ -7,19 +7,19 @@ using TransferLogger.Dal;
 using TransferLogger.Dal.DataModels;
 using TransferLogger.Dal.Definitions;
 
-namespace TransferLogger.BusinessLogic.ViewModels.Programs
+namespace TransferLogger.BusinessLogic.Models.Programs
 {
-    public class SelectableProgramViewModel : ProgramViewModel
+    public class SelectableProgramModel : ProgramModel
     {
         public bool Selected { get; set; }
 
-        public SelectableProgramViewModel(Program program, Organization organization, bool selected)
+        public SelectableProgramModel(Program program, Organization organization, bool selected)
             : base(program, organization)
         {
             Selected = selected;
         }
 
-        public static List<SelectableProgramViewModel> GetList(HashSet<int> selectedIds,
+        public static List<SelectableProgramModel> GetList(HashSet<int> selectedIds,
             string searchName = "", 
             int organizationId = 0, 
             Cycle? cycle = null)
@@ -37,11 +37,11 @@ namespace TransferLogger.BusinessLogic.ViewModels.Programs
                 .AsEnumerable()
                 .Union(selectedPrograms)
                 .OrderBy(p => p.ProgramId)
-                .Select(p => new SelectableProgramViewModel(p, p.Organization, selectedIds.Contains(p.ProgramId)))
+                .Select(p => new SelectableProgramModel(p, p.Organization, selectedIds.Contains(p.ProgramId)))
                 .ToList();
         }
 
-        public static List<SelectableProgramViewModel> GetList(HashSet<int> selectedIds, 
+        public static List<SelectableProgramModel> GetList(HashSet<int> selectedIds, 
             string searchName, 
             object organizationIdObj, 
             object cycleObj)

@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 using TransferLogger.BusinessLogic;
 using TransferLogger.BusinessLogic.Settings;
-using TransferLogger.BusinessLogic.ViewModels;
+using TransferLogger.BusinessLogic.Models;
 using TransferLogger.Dal;
 using TransferLogger.Ui.Forms;
 using TransferLogger.Ui.Forms.Courses;
@@ -59,7 +59,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             instructors.Insert(0, new Lookup(0, "Not assigned"));
 
             column.DataSource       = instructors;
-            column.DataPropertyName = nameof(BuildEvaluationViewModel.InstructorId);
+            column.DataPropertyName = nameof(BuildEvaluationModel.InstructorId);
             column.HeaderText       = "Evaluator";
             column.Name             = "Instructor";
         
@@ -75,7 +75,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             suggestedCourses.Insert(0, new Lookup(0, "None"));
 
             column.DataSource       = suggestedCourses;
-            column.DataPropertyName = nameof(BuildEvaluationViewModel.SuggestedCourseId);
+            column.DataPropertyName = nameof(BuildEvaluationModel.SuggestedCourseId);
             column.HeaderText       = "Suggested Course";
             column.Name             = "SuggestedCourse";
 
@@ -112,10 +112,10 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
             _grid.DataSource = _appBuild.Evaluations.Values
                 .Where(e => e.HistoricalEvaluationId <= 0)
-                .Select(e => new BuildEvaluationViewModel(dc, e))
+                .Select(e => new BuildEvaluationModel(dc, e))
                 .ToList();
 
-            _grid.SelectRow<BuildEvaluationViewModel>(i => i.CourseId == _currentCourseId);
+            _grid.SelectRow<BuildEvaluationModel>(i => i.CourseId == _currentCourseId);
 
             _grid.SelectionChanged += _grid_SelectionChanged;
 
@@ -137,7 +137,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
         // Updates values of both plain and grid drop down lists (synchronization).
         private void UpdateValues()
         {
-            if (_appBuild.Evaluations.TryGetValue(_currentCourseId, out var evaluation) && _grid.CurrentRow?.DataBoundItem is BuildEvaluationViewModel viewModel)
+            if (_appBuild.Evaluations.TryGetValue(_currentCourseId, out var evaluation) && _grid.CurrentRow?.DataBoundItem is BuildEvaluationModel model)
             {
                 _cbEvaluators.SelectedValueChanged       -= OnValuesChanges;
                 _cbSuggestedCourses.SelectedValueChanged -= OnValuesChanges;
@@ -145,8 +145,8 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
                 _cbEvaluators.SelectedValue       = evaluation.InstructorId;
                 _cbSuggestedCourses.SelectedValue = evaluation.SuggestedCourseId;
 
-                viewModel.InstructorId      = evaluation.InstructorId;
-                viewModel.SuggestedCourseId = evaluation.SuggestedCourseId;
+                model.InstructorId      = evaluation.InstructorId;
+                model.SuggestedCourseId = evaluation.SuggestedCourseId;
 
                 _grid.Refresh();
 
@@ -159,12 +159,12 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
         {
             _grid.CommitEdit(DataGridViewDataErrorContexts.Commit);
 
-            if (_grid.CurrentRow?.DataBoundItem is BuildEvaluationViewModel viewModel)
+            if (_grid.CurrentRow?.DataBoundItem is BuildEvaluationModel model)
             {
                 var evaluation = _appBuild.Evaluations[_currentCourseId];
 
-                evaluation.InstructorId = viewModel.InstructorId;
-                evaluation.SuggestedCourseId = viewModel.SuggestedCourseId;
+                evaluation.InstructorId = model.InstructorId;
+                evaluation.SuggestedCourseId = model.SuggestedCourseId;
             }
 
             UpdateValues();
@@ -172,9 +172,9 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
         private void _grid_SelectionChanged(object? sender, EventArgs e)
         {
-            if (_grid.CurrentRow?.DataBoundItem is BuildEvaluationViewModel viewModel)
+            if (_grid.CurrentRow?.DataBoundItem is BuildEvaluationModel model)
             {
-                _currentCourseId = viewModel.CourseId;
+                _currentCourseId = model.CourseId;
             }
 
             UpdateValues();

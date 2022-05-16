@@ -6,19 +6,19 @@ using TransferLogger.Dal;
 using TransferLogger.Dal.DataModels;
 using TransferLogger.Dal.Definitions;
 
-namespace TransferLogger.BusinessLogic.ViewModels.Organizations
+namespace TransferLogger.BusinessLogic.Models.Organizations
 {
-    public class SelectableOrganizationViewModel : OrganizationViewModel
+    public class SelectableOrganizationModel : OrganizationModel
     {
         public bool Selected { get; set; }
 
-        public SelectableOrganizationViewModel(Organization organization, bool selected) 
+        public SelectableOrganizationModel(Organization organization, bool selected) 
             : base(organization)
         {
             Selected = selected;
         }
 
-        public static List<SelectableOrganizationViewModel> GetList(HashSet<int> selectedIds,
+        public static List<SelectableOrganizationModel> GetList(HashSet<int> selectedIds,
             string searchName = "", 
             OrganizationType? organizationType = null, 
             Country? country = null)
@@ -35,11 +35,11 @@ namespace TransferLogger.BusinessLogic.ViewModels.Organizations
                 .AsEnumerable()
                 .Union(selectedOrganizations)
                 .OrderBy(o => o.OrganizationId)
-                .Select(o => new SelectableOrganizationViewModel(o, selectedIds.Contains(o.OrganizationId)))
+                .Select(o => new SelectableOrganizationModel(o, selectedIds.Contains(o.OrganizationId)))
                 .ToList();
         }
 
-        public static List<SelectableOrganizationViewModel> GetList(HashSet<int> selectedIds,
+        public static List<SelectableOrganizationModel> GetList(HashSet<int> selectedIds,
             string searchName, 
             object organizationTypeObj, 
             object countryObj)

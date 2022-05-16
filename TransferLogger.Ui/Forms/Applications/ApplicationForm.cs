@@ -9,7 +9,7 @@ using LinqToDB;
 using TransferLogger.BusinessLogic;
 using TransferLogger.BusinessLogic.Intefaces;
 using TransferLogger.BusinessLogic.Utils;
-using TransferLogger.BusinessLogic.ViewModels;
+using TransferLogger.BusinessLogic.Models;
 using TransferLogger.Dal;
 using TransferLogger.Dal.DataModels;
 using TransferLogger.Dal.DataModels.Applications;
@@ -77,7 +77,7 @@ namespace TransferLogger.Ui.Forms.Applications
             _grid.SelectionChanged -= _grid_SelectionChanged;
 
             _grid.DataSource = _application.Evaluations
-                .Select(e => new EvaluationViewModel(e, _application))
+                .Select(e => new EvaluationModel(e, _application))
                 .ToList();
 
             if (_currentEvaluationId > 0)
@@ -139,29 +139,29 @@ namespace TransferLogger.Ui.Forms.Applications
 
         private void SetEvaluation()
         {
-            if (_grid.CurrentRow?.DataBoundItem is EvaluationViewModel viewModel)
+            if (_grid.CurrentRow?.DataBoundItem is EvaluationModel model)
             {
-                _currentEvaluationId = viewModel.Id;
+                _currentEvaluationId = model.Id;
 
-                _tbCourse.Text          = viewModel.Course;
-                _tbSuggestedCourse.Text = viewModel.SuggestedCourse;
-                _tbEvaluator.Text       = viewModel.Instructor;
-                _tbComment.Text         = viewModel.Comment;
+                _tbCourse.Text          = model.Course;
+                _tbSuggestedCourse.Text = model.SuggestedCourse;
+                _tbEvaluator.Text       = model.Instructor;
+                _tbComment.Text         = model.Comment;
 
-                _btnViewSuggestedCourse.Enabled = viewModel.SuggestedCourseId > 0;
-                _btnViewMatchedCourse.Enabled   = viewModel.MatchedCourseId > 0;
+                _btnViewSuggestedCourse.Enabled = model.SuggestedCourseId > 0;
+                _btnViewMatchedCourse.Enabled   = model.MatchedCourseId > 0;
 
                 _cbMatchedCourses.SelectedValueChanged -= _cbMatchedCourses_SelectedValueChanged;
 
-                _cbMatchedCourses.SelectedValue = viewModel.MatchedCourseId ?? 0;
+                _cbMatchedCourses.SelectedValue = model.MatchedCourseId ?? 0;
 
                 _cbMatchedCourses.SelectedValueChanged += _cbMatchedCourses_SelectedValueChanged;
 
                 SetEvaluationStatuses();
 
                 var readOnly = _readOnly ||
-                    viewModel.Status == EvaluationStatus.MatchedByHistory ||
-                    viewModel.Status == EvaluationStatus.RejectedByHistory;
+                    model.Status == EvaluationStatus.MatchedByHistory ||
+                    model.Status == EvaluationStatus.RejectedByHistory;
 
                 _cbEvaluationStatus.Enabled = _cbMatchedCourses.Enabled = !readOnly;
 
@@ -185,16 +185,16 @@ namespace TransferLogger.Ui.Forms.Applications
 
         private void ViewCourse(object? sender, EventArgs e)
         {
-            if (_grid.CurrentRow?.DataBoundItem is EvaluationViewModel viewModel)
+            if (_grid.CurrentRow?.DataBoundItem is EvaluationModel model)
             {
                 int courseId = 0;
 
                 if (sender == _btnViewCourse)
-                    courseId = viewModel.CourseId;
+                    courseId = model.CourseId;
                 if (sender == _btnViewSuggestedCourse)
-                    courseId = viewModel.SuggestedCourseId ?? 0;
+                    courseId = model.SuggestedCourseId ?? 0;
                 else if (sender == _btnViewMatchedCourse)
-                    courseId = viewModel.MatchedCourseId ?? 0;
+                    courseId = model.MatchedCourseId ?? 0;
 
                 using var form = new CourseForm(courseId);
 

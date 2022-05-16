@@ -6,7 +6,7 @@ using System.Windows.Forms;
 using LinqToDB;
 
 using TransferLogger.BusinessLogic.Settings;
-using TransferLogger.BusinessLogic.ViewModels.Organizations;
+using TransferLogger.BusinessLogic.Models.Organizations;
 using TransferLogger.BusinessLogic.Utils;
 using TransferLogger.Dal;
 using TransferLogger.Dal.DataModels;
@@ -41,7 +41,7 @@ namespace TransferLogger.Ui.Forms.Organizations
             if (_cbCountries.Items.Count == 0)
                 _cbCountries.FillLookups(_countries, Convert.ToInt32(country));
 
-            _grid.DataSource =  OrganizationViewModel.GetList(_tbSearchName.Text, _cbOrganizationTypes.SelectedValue, _cbCountries.SelectedValue);
+            _grid.DataSource =  OrganizationModel.GetList(_tbSearchName.Text, _cbOrganizationTypes.SelectedValue, _cbCountries.SelectedValue);
         }
 
         private void SetEvents()
@@ -86,19 +86,19 @@ namespace TransferLogger.Ui.Forms.Organizations
 
         private void _grid_SelectionChanged(object? sender, EventArgs e)
         {
-            if (_grid.CurrentRow?.DataBoundItem is OrganizationViewModel viewModel)
+            if (_grid.CurrentRow?.DataBoundItem is OrganizationModel model)
             {
-                _btnDelete.Enabled = viewModel.Id != AppSettings.Instance.OrganizationId;
+                _btnDelete.Enabled = model.Id != AppSettings.Instance.OrganizationId;
             }
         }
 
         private void _btnDelete_Click(object? sender, EventArgs e)
         {
-            if (_grid.CurrentRow?.DataBoundItem is OrganizationViewModel viewModel)
+            if (_grid.CurrentRow?.DataBoundItem is OrganizationModel model)
             {
                 using var confirmBox = new ConfirmBox(
                     "Confirm Deletion",
-                    $"Are you sure you want to delete {viewModel.Name} (Id: {viewModel.Id})?");
+                    $"Are you sure you want to delete {model.Name} (Id: {model.Id})?");
 
                 if (confirmBox.ShowDialog() == DialogResult.OK)
                 {
@@ -107,7 +107,7 @@ namespace TransferLogger.Ui.Forms.Organizations
                     using var dc = new Dc();
 
                     dc.Organizations
-                        .Where(o => o.OrganizationId == viewModel.Id)
+                        .Where(o => o.OrganizationId == model.Id)
                         .Delete();
 
                     SetData();

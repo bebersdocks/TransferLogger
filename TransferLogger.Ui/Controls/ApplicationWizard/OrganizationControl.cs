@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 using TransferLogger.BusinessLogic;
 using TransferLogger.BusinessLogic.Intefaces;
-using TransferLogger.BusinessLogic.ViewModels.Organizations;
+using TransferLogger.BusinessLogic.Models.Organizations;
 using TransferLogger.BusinessLogic.Utils;
 using TransferLogger.Dal;
 using TransferLogger.Dal.DataModels;
@@ -54,7 +54,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
             _grid.SelectionChanged -= _grid_SelectionChanged;
 
-            _grid.DataSource = SelectableOrganizationViewModel.GetList(selectedIds,
+            _grid.DataSource = SelectableOrganizationModel.GetList(selectedIds,
                 _tbSearchName.Text, 
                 _cbOrganizationTypes.SelectedValue, 
                 _cbCountries.SelectedValue);
@@ -83,7 +83,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
         private void UpdateSelectedRow()
         {
-            if (_grid.DataSource is List<SelectableOrganizationViewModel> organizations)
+            if (_grid.DataSource is List<SelectableOrganizationModel> organizations)
             {
                 foreach (var organization in organizations)
                 {
@@ -111,11 +111,11 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
         private void SetCurrentRowAsSelected()
         {
-            if (_grid.CurrentRow?.DataBoundItem is SelectableOrganizationViewModel viewModel)
+            if (_grid.CurrentRow?.DataBoundItem is SelectableOrganizationModel model)
             {
-                viewModel.Selected = !viewModel.Selected;
+                model.Selected = !model.Selected;
 
-                _appBuild.SourceOrganizationId = viewModel.Selected ? viewModel.Id : 0;
+                _appBuild.SourceOrganizationId = model.Selected ? model.Id : 0;
 
                 UpdateSelectedRow();
             }

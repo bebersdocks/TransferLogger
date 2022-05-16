@@ -5,16 +5,16 @@ using TransferLogger.BusinessLogic.Intefaces;
 using TransferLogger.Dal;
 using TransferLogger.Dal.DataModels;
 
-namespace TransferLogger.BusinessLogic.ViewModels
+namespace TransferLogger.BusinessLogic.Models
 {
-    public class InstructorViewModel : IIdentifiable
+    public class InstructorModel : IIdentifiable
     {
         public int    Id    { get; set; }
         public string Name  { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
 
-        public InstructorViewModel(Instructor intructor)
+        public InstructorModel(Instructor intructor)
         {
             Id    = intructor.InstructorId;
             Name  = intructor.DisplayString;
@@ -22,7 +22,7 @@ namespace TransferLogger.BusinessLogic.ViewModels
             Email = intructor.Email;
         }
 
-        public static List<InstructorViewModel> GetList(string searchName = "", string email = "")
+        public static List<InstructorModel> GetList(string searchName = "", string email = "")
         {
             using var dc = new Dc();
 
@@ -39,7 +39,7 @@ namespace TransferLogger.BusinessLogic.ViewModels
                 query = query.Where(i => i.Email.Contains(email));
 
             return query
-                .Select(i => new InstructorViewModel(i))
+                .Select(i => new InstructorModel(i))
                 .ToList();
         }
     }
