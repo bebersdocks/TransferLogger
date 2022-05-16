@@ -22,11 +22,11 @@ namespace TransferLogger.BusinessLogic.Models.Courses
         public int    Credits      { get; set; }
         public int    WeeklyHours  { get; set; }
 
-        public CourseModel(Course course, Organization organization)
+        public CourseModel(Course course, Organization organization = null)
         {
             Id           = course.CourseId;
             Name         = course.DisplayString;
-            Organization = organization.DisplayString;
+            Organization = organization?.DisplayString;
             Program      = course.Program.DisplayString;
             Cycle        = course.Program.Cycle.GetDisplayName();
             Credits      = course.Credits;

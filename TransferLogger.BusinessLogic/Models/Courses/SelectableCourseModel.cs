@@ -14,8 +14,8 @@ namespace TransferLogger.BusinessLogic.Models.Courses
     {
         public bool Selected { get; set; }
 
-        public SelectableCourseModel(Course course, Organization organization, bool selected) 
-            : base(course, organization)
+        public SelectableCourseModel(Course course, bool selected) 
+            : base(course)
         {
             Selected = selected;
         }
@@ -30,7 +30,6 @@ namespace TransferLogger.BusinessLogic.Models.Courses
 
             var selectedCourses = dc.Courses
                 .LoadWith(c => c.Program)
-                .ThenLoad(p => p.Organization)
                 .Where(c => selectedIds.Contains(c.CourseId))
                 .AsEnumerable();
 
@@ -39,7 +38,7 @@ namespace TransferLogger.BusinessLogic.Models.Courses
                 .AsEnumerable()
                 .Union(selectedCourses)
                 .OrderBy(c => c.CourseId)
-                .Select(c => new SelectableCourseModel(c, c.Program.Organization, selectedIds.Contains(c.CourseId)))
+                .Select(c => new SelectableCourseModel(c, selectedIds.Contains(c.CourseId)))
                 .ToList();
         }
 
