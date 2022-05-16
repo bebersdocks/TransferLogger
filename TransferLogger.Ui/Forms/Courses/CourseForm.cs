@@ -70,8 +70,8 @@ namespace TransferLogger.Ui.Forms.Courses
                 _numericCredits.Value     = _course.Credits;
                 _numericWeeklyHours.Value = _course.WeeklyHours;
 
-                organizationId = _course.OrganizationId;
-                cycle          = _course.Program?.Cycle;
+                organizationId = _course.Program.OrganizationId;
+                cycle          = _course.Program.Cycle;
 
                 Text = $"{_course.CourseCode} - {_course.Name} (Id: {_course.CourseId})";
             }
@@ -178,13 +178,12 @@ namespace TransferLogger.Ui.Forms.Courses
                 return;
             }
 
-            _course.CourseCode     = _tbCode.Text.Trim();
-            _course.OrganizationId = (int)_cbOrganizations.SelectedValue;
-            _course.ProgramId      = (int)_cbPrograms.SelectedValue;
-            _course.Name           = _tbName.Text.Trim();
-            _course.Description    = _tbDescription.Text.Trim();
-            _course.Credits        = Convert.ToInt32(_numericCredits.Value);
-            _course.WeeklyHours    = Convert.ToInt32(_numericWeeklyHours.Value);
+            _course.CourseCode  = _tbCode.Text.Trim();
+            _course.ProgramId   = (int)_cbPrograms.SelectedValue;
+            _course.Name        = _tbName.Text.Trim();
+            _course.Description = _tbDescription.Text.Trim();
+            _course.Credits     = Convert.ToInt32(_numericCredits.Value);
+            _course.WeeklyHours = Convert.ToInt32(_numericWeeklyHours.Value);
 
             if (FormUtils.TryInsertOrReplace(_course, _course.CourseId))
             {

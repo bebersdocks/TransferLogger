@@ -14,8 +14,8 @@ namespace TransferLogger.BusinessLogic.ViewModels.Courses
     {
         public bool Selected { get; set; }
 
-        public SelectableCourseViewModel(Course course, bool selected) 
-            : base(course)
+        public SelectableCourseViewModel(Course course, Organization organization, bool selected) 
+            : base(course, organization)
         {
             Selected = selected;
         }
@@ -29,8 +29,8 @@ namespace TransferLogger.BusinessLogic.ViewModels.Courses
             using var dc = new Dc();
 
             var selectedCourses = dc.Courses
-                .LoadWith(c => c.Organization)
                 .LoadWith(c => c.Program)
+                .ThenLoad(p => p.Organization)
                 .Where(c => selectedIds.Contains(c.CourseId))
                 .AsEnumerable();
 
@@ -39,7 +39,7 @@ namespace TransferLogger.BusinessLogic.ViewModels.Courses
                 .AsEnumerable()
                 .Union(selectedCourses)
                 .OrderBy(c => c.CourseId)
-                .Select(c => new SelectableCourseViewModel(c, selectedIds.Contains(c.CourseId)))
+                .Select(c => new SelectableCourseViewModel(c, c.Program.Organization, selectedIds.Contains(c.CourseId)))
                 .ToList();
         }
 

@@ -50,7 +50,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             if (_cbCountries.Items.Count == 0)
                 _cbCountries.FillLookups(_countries);
 
-            var selectedIds = new HashSet<int> { _appBuild.OrganizationId };
+            var selectedIds = new HashSet<int> { _appBuild.SourceOrganizationId };
 
             _grid.SelectionChanged -= _grid_SelectionChanged;
 
@@ -59,8 +59,8 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
                 _cbOrganizationTypes.SelectedValue, 
                 _cbCountries.SelectedValue);
 
-            if (_appBuild.OrganizationId > 0)
-                _grid.SelectRow<IIdentifiable>(i => i.Id == _appBuild.OrganizationId);
+            if (_appBuild.SourceOrganizationId > 0)
+                _grid.SelectRow<IIdentifiable>(i => i.Id == _appBuild.SourceOrganizationId);
 
             _grid.SelectionChanged += _grid_SelectionChanged;
         }
@@ -87,7 +87,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             {
                 foreach (var organization in organizations)
                 {
-                    organization.Selected = organization.Id == _appBuild.OrganizationId;
+                    organization.Selected = organization.Id == _appBuild.SourceOrganizationId;
                 }
 
                 _grid.Refresh();
@@ -115,7 +115,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             {
                 viewModel.Selected = !viewModel.Selected;
 
-                _appBuild.OrganizationId = viewModel.Selected ? viewModel.Id : 0;
+                _appBuild.SourceOrganizationId = viewModel.Selected ? viewModel.Id : 0;
 
                 UpdateSelectedRow();
             }
@@ -153,8 +153,8 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             // Check if current selection was deleted.
             using var dc = new Dc();
 
-            if (!dc.Organizations.Any(o => o.OrganizationId == _appBuild.OrganizationId))
-                _appBuild.OrganizationId = 0;
+            if (!dc.Organizations.Any(o => o.OrganizationId == _appBuild.SourceOrganizationId))
+                _appBuild.SourceOrganizationId = 0;
 
             SetData();
         }
@@ -171,7 +171,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
         public bool Complete()
         {
-            if (_appBuild.OrganizationId <= 0)
+            if (_appBuild.SourceOrganizationId <= 0)
             {
                 MessageDialog.Show("You have to select organization.", "Wizard Validation");
 

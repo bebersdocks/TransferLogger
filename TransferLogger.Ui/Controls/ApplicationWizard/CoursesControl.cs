@@ -49,7 +49,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
             _grid.DataSource = SelectableCourseViewModel.GetList(_appBuild.CourseIds,
                 _tbSearchName.Text, 
-                _appBuild.OrganizationId, 
+                _appBuild.SourceOrganizationId, 
                 _cbCycles.SelectedValue, 
                 _cbPrograms.SelectedValue);
 
@@ -72,7 +72,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
                 _cbCycles.SelectedValueChanged += _cbCycles_SelectedValueChanged;
             }
 
-            var programs = LookupServices.GetPrograms(_appBuild.OrganizationId, _cbCycles.SelectedValue);
+            var programs = LookupServices.GetPrograms(_appBuild.SourceOrganizationId, _cbCycles.SelectedValue);
             if (programs.Any())
             {
                 programId ??= (int?)_cbPrograms.SelectedValue ?? -1;
@@ -180,7 +180,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
         {
             var (_, cycle) = GetSelectedValues();
 
-            using var form = new ProgramForm(0, _appBuild.OrganizationId, true, cycle);
+            using var form = new ProgramForm(0, _appBuild.SourceOrganizationId, true, cycle);
 
             if (form.ShowDialog() == DialogResult.OK)
                 SetPrograms(form.ProgramId);
@@ -190,7 +190,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
         {
             var (_, cycle) = GetSelectedValues();
 
-            using var form = new ProgramsForm(_appBuild.OrganizationId, cycle);
+            using var form = new ProgramsForm(_appBuild.SourceOrganizationId, cycle);
 
             form.ShowDialog();
 
@@ -203,7 +203,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
         {
             var (programId, cycle) = GetSelectedValues();
 
-            if (FormUtils.InsertOrReplace(_grid, id => new CourseForm(id, _appBuild.OrganizationId, true, programId, cycle), () => SetData(), true))
+            if (FormUtils.InsertOrReplace(_grid, id => new CourseForm(id, _appBuild.SourceOrganizationId, true, programId, cycle), () => SetData(), true))
                 SetCurrentRowAsSelected();
         }
 
@@ -211,7 +211,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
         {
             var (_, cycle) = GetSelectedValues();
 
-            using var form = new CoursesForm(_appBuild.OrganizationId, cycle);
+            using var form = new CoursesForm(_appBuild.SourceOrganizationId, cycle);
 
             form.ShowDialog();
 
@@ -222,7 +222,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
         private void _btnSelectProgram_Click(object? sender, EventArgs e)
         {
-            var programs = LookupServices.GetPrograms(_appBuild.OrganizationId, _cbCycles.SelectedValue);
+            var programs = LookupServices.GetPrograms(_appBuild.SourceOrganizationId, _cbCycles.SelectedValue);
 
             using var form = new LookupSelectionForm("Select Program", programs, _cbPrograms.SelectedValue);
 

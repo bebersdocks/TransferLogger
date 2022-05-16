@@ -33,10 +33,10 @@ namespace TransferLogger.BusinessLogic
 
     public class ApplicationBuild
     {
-        public int       ProgramId      { get; set; }
-        public int       OrganizationId { get; set; }
-        public string    ExcelLocation  { get; set; }
-        public BuildStep CurrentStep    { get; set; }
+        public int       TargetProgramId      { get; set; }
+        public int       SourceOrganizationId { get; set; }
+        public string    ExcelLocation        { get; set; }
+        public BuildStep CurrentStep          { get; set; }
 
         public readonly Student                                Student;
         public readonly Dictionary<int, ApplicationEvaluation> Evaluations;
@@ -108,8 +108,8 @@ namespace TransferLogger.BusinessLogic
         {
             using var dc = new Dc();
 
-            if (!dc.Programs.Any(p => p.ProgramId == ProgramId && p.OrganizationId == AppSettings.Instance.OrganizationId))
-                throw new ArgumentOutOfRangeException(nameof(ProgramId));
+            if (!dc.Programs.Any(p => p.ProgramId == TargetProgramId && p.OrganizationId == AppSettings.Instance.OrganizationId))
+                throw new ArgumentOutOfRangeException(nameof(TargetProgramId));
 
             using var tr = dc.BeginTransaction();
 
@@ -117,9 +117,8 @@ namespace TransferLogger.BusinessLogic
 
             app.ApplicationStatus    = ApplicationStatus.InProcess;
             app.StudentId            = Student.StudentId;
-            app.SourceOrganizationId = OrganizationId;
-            app.TargetOrganizationId = AppSettings.Instance.OrganizationId;
-            app.TargetProgramId      = ProgramId;
+            app.SourceOrganizationId = SourceOrganizationId;
+            app.TargetProgramId      = TargetProgramId;
             app.ExcelLocation        = ExcelLocation?.Trim() ?? string.Empty;
             app.CreatedAt            = DateTime.UtcNow;
 
@@ -183,12 +182,12 @@ namespace TransferLogger.BusinessLogic
             using var dc = new Dc();
 
             var organizationCourseIds = dc.Courses
-                .Where(c => c.OrganizationId == OrganizationId)
+                .Where(c => c.Program.OrganizationId == SourceOrganizationId)
                 .Select(c => c.CourseId)
                 .ToList();
 
             var programCourseIds = dc.Courses
-                .Where(c => c.ProgramId == ProgramId)
+                .Where(c => c.ProgramId == TargetProgramId)
                 .Select(c => c.CourseId)
                 .ToList();
 

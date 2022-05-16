@@ -45,11 +45,11 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             {
                 var cycle = Dal.Definitions.Cycle.Bachelor;
 
-                if (_appBuild.ProgramId > 0)
+                if (_appBuild.TargetProgramId > 0)
                 {
                     using var dc = new Dc();
 
-                    cycle = dc.Programs.First(p => p.ProgramId == _appBuild.ProgramId)
+                    cycle = dc.Programs.First(p => p.ProgramId == _appBuild.TargetProgramId)
                         .Cycle;
                 }
 
@@ -60,7 +60,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
                 _cbCycles.SelectedValueChanged += _cbCycles_SelectedValueChanged;
             }
 
-            var selectedIds = new HashSet<int> { _appBuild.ProgramId };
+            var selectedIds = new HashSet<int> { _appBuild.TargetProgramId };
 
             _grid.SelectionChanged -= _grid_SelectionChanged;
 
@@ -69,8 +69,8 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
                 AppSettings.Instance.OrganizationId,
                 _cbCycles.SelectedValue);
 
-            if (_appBuild.ProgramId > 0)
-                _grid.SelectRow<IIdentifiable>(i => i.Id == _appBuild.ProgramId);
+            if (_appBuild.TargetProgramId > 0)
+                _grid.SelectRow<IIdentifiable>(i => i.Id == _appBuild.TargetProgramId);
 
             _grid.SelectionChanged += _grid_SelectionChanged;
         }
@@ -99,7 +99,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             {
                 foreach (var program in programs)
                 {
-                    program.Selected = program.Id == _appBuild.ProgramId;
+                    program.Selected = program.Id == _appBuild.TargetProgramId;
                 }
 
                 _grid.Refresh();
@@ -127,7 +127,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             {
                 viewModel.Selected = !viewModel.Selected;
 
-                _appBuild.ProgramId = viewModel.Selected ? viewModel.Id : 0;
+                _appBuild.TargetProgramId = viewModel.Selected ? viewModel.Id : 0;
 
                 UpdateSelectedRow();
             }
@@ -151,15 +151,15 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
             using var dc = new Dc();
 
-            if (!dc.Programs.Any(p => p.ProgramId == _appBuild.ProgramId))
-                _appBuild.ProgramId = 0;
+            if (!dc.Programs.Any(p => p.ProgramId == _appBuild.TargetProgramId))
+                _appBuild.TargetProgramId = 0;
 
             SetData();
         }
 
         public bool Complete()
         {
-            if (_appBuild.ProgramId <= 0)
+            if (_appBuild.TargetProgramId <= 0)
             {
                 MessageDialog.Show("You have to select program.", "Wizard Validation");
 

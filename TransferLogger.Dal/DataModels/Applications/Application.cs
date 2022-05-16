@@ -20,7 +20,6 @@ namespace TransferLogger.Dal.DataModels.Applications
         [Column, NotNull]      public ApplicationStatus ApplicationStatus    { get; set; }
         [Column, NotNull]      public int               StudentId            { get; set; }
         [Column, NotNull]      public int               SourceOrganizationId { get; set; }
-        [Column, NotNull]      public int               TargetOrganizationId { get; set; }
         [Column, NotNull]      public int               TargetProgramId      { get; set; }
         [Column, Nullable]     public string            ExcelLocation        { get; set; }
         [Column, NotNull]      public DateTime          CreatedAt            { get; set; }
@@ -34,9 +33,6 @@ namespace TransferLogger.Dal.DataModels.Applications
 
         [Association(ThisKey = nameof(SourceOrganizationId), OtherKey = nameof(Organization.OrganizationId), Relationship = Relationship.ManyToOne, CanBeNull = false)]
         public Organization SourceOrganization { get; set; }
-
-        [Association(ThisKey = nameof(TargetOrganizationId), OtherKey = nameof(Organization.OrganizationId), Relationship = Relationship.ManyToOne, CanBeNull = false)]
-        public Organization TargetOrganization { get; set; }
 
         [Association(ThisKey = nameof(TargetProgramId), OtherKey = nameof(Program.ProgramId), Relationship = Relationship.ManyToOne, CanBeNull = false)]
         public Program TargetProgram { get; set; }

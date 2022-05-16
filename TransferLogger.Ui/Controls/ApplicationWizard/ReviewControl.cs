@@ -34,10 +34,10 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             _tbStudent.Text = dc.Students.First(s => s.StudentId == _appBuild.Student.StudentId)
                 .DisplayString;
 
-            _tbOrganization.Text = dc.Organizations.First(o => o.OrganizationId == _appBuild.OrganizationId)
+            _tbOrganization.Text = dc.Organizations.First(o => o.OrganizationId == _appBuild.SourceOrganizationId)
                 .DisplayString;
 
-            _tbTargetProgram.Text = dc.Programs.First(p => p.ProgramId == _appBuild.ProgramId)
+            _tbTargetProgram.Text = dc.Programs.First(p => p.ProgramId == _appBuild.TargetProgramId)
                 .DisplayString;
 
             _grid.DataSource = _appBuild.Evaluations.Values

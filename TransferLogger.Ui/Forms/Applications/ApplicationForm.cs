@@ -42,7 +42,7 @@ namespace TransferLogger.Ui.Forms.Applications
             _evaluations = _application.Evaluations.ToDictionary(e => e.EvaluationId);
 
             _courses = dc.Courses
-                .Where(c => c.OrganizationId == _application.TargetOrganizationId && c.ProgramId == _application.TargetProgramId)
+                .Where(c => c.ProgramId == _application.TargetProgramId)
                 .ToDictionary(c => c.CourseId);
 
             var evaluationStatuses = new HashSet<EvaluationStatus>

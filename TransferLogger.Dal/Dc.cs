@@ -20,7 +20,7 @@ namespace TransferLogger.Dal
         public ITable<Application>           Applications           => GetTable<Application>();
         public ITable<ApplicationAttachment> ApplicationAttachments => GetTable<ApplicationAttachment>();
         public ITable<Evaluation>            Evaluations            => GetTable<Evaluation>();
-        public ITable<DbInfo>                DbInfos                => GetTable<DbInfo>();
+        public ITable<DbInfo>                DbInfo                 => GetTable<DbInfo>();
 
         // This value can be anything - it is just internal identifier for configuration.
         private const string defaultConfigurationStr = "TransferLogger";
@@ -88,7 +88,7 @@ namespace TransferLogger.Dal
 
                     if (typeof(T) == typeof(DbInfo))
                     {
-                        DbInfos.Insert(() => new DbInfo { Version = 1.000M, UpdatedAt = DateTime.UtcNow });
+                        DbInfo.Insert(() => new DbInfo { Version = 1.000M, UpdatedAt = DateTime.UtcNow });
                     }
                 }
             }
@@ -101,7 +101,7 @@ namespace TransferLogger.Dal
             createTable(Applications);
             createTable(ApplicationAttachments);
             createTable(Evaluations);
-            createTable(DbInfos);
+            createTable(DbInfo);
         }
     }
 }

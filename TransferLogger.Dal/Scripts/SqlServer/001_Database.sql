@@ -32,8 +32,7 @@ ALTER TABLE Program ADD CONSTRAINT UC_Program UNIQUE (OrganizationId, Name, Cycl
 CREATE TABLE Course (
 	CourseId INT IDENTITY(1,1) NOT NULL,
 	CourseCode NVARCHAR(10) NOT NULL,
-	OrganizationId INT NOT NULL,
-	ProgramId INT NULL,
+	ProgramId INT NOT NULL,
 	Name NVARCHAR(100) NULL,
 	Description NVARCHAR(300) NULL,
 	Credits INT NULL,
@@ -41,7 +40,6 @@ CREATE TABLE Course (
 );
 
 ALTER TABLE Course ADD CONSTRAINT PK_Course PRIMARY KEY (CourseId);
-ALTER TABLE Course ADD CONSTRAINT FK_CourseOrganization FOREIGN KEY (OrganizationId) REFERENCES Organization(OrganizationId);
 ALTER TABLE Course ADD CONSTRAINT FK_CourseProgram FOREIGN KEY (ProgramId) REFERENCES Program(ProgramId);
 ALTER TABLE Course ADD CONSTRAINT UC_Course UNIQUE (CourseCode, ProgramId); 
 
@@ -75,7 +73,6 @@ CREATE TABLE Application (
 	ApplicationStatus INT NOT NULL,
 	StudentId INT NOT NULL,
 	SourceOrganizationId INT NOT NULL,
-	TargetOrganizationId INT NOT NULL,
 	TargetProgramId INT NOT NULL,
 	ExcelLocation NVARCHAR(180) NULL,
 	CreatedAt DATETIME NOT NULL,
@@ -86,7 +83,6 @@ CREATE TABLE Application (
 ALTER TABLE Application ADD CONSTRAINT PK_Application PRIMARY KEY (ApplicationId);
 ALTER TABLE Application ADD CONSTRAINT FK_ApplicationStudent FOREIGN KEY (StudentId) REFERENCES Student(StudentId);
 ALTER TABLE Application ADD CONSTRAINT FK_ApplicationSourceOrganization FOREIGN KEY (SourceOrganizationId) REFERENCES Organization(OrganizationId);
-ALTER TABLE Application ADD CONSTRAINT FK_ApplicationTargetOrganization FOREIGN KEY (TargetOrganizationId) REFERENCES Organization(OrganizationId);
 ALTER TABLE Application ADD CONSTRAINT FK_ApplicationTargetProgram FOREIGN KEY (TargetProgramId) REFERENCES Program(ProgramId);
 
 CREATE TABLE ApplicationAttachment (

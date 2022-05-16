@@ -22,11 +22,11 @@ namespace TransferLogger.BusinessLogic.ViewModels.Courses
         public int    Credits      { get; set; }
         public int    WeeklyHours  { get; set; }
 
-        public CourseViewModel(Course course)
+        public CourseViewModel(Course course, Organization organization)
         {
             Id           = course.CourseId;
             Name         = course.DisplayString;
-            Organization = course.Organization.DisplayString;
+            Organization = organization.DisplayString;
             Program      = course.Program.DisplayString;
             Cycle        = course.Program.Cycle.GetDisplayName();
             Credits      = course.Credits;
@@ -47,7 +47,7 @@ namespace TransferLogger.BusinessLogic.ViewModels.Courses
                     .Contains(searchName));
 
             if (organizationId > 0)
-                query = query.Where(c => c.OrganizationId == organizationId);
+                query = query.Where(c => c.Program.OrganizationId == organizationId);
 
             if (cycle.HasValue)
                 query = query.Where(c => c.Program.Cycle == cycle.Value);
@@ -56,8 +56,8 @@ namespace TransferLogger.BusinessLogic.ViewModels.Courses
                 query = query.Where(c => c.ProgramId == programId);
 
             return query
-                .LoadWith(c => c.Organization)
-                .LoadWith(c => c.Program);
+                .LoadWith(c => c.Program)
+                .ThenLoad(c => c.Organization);
         }
 
         public static List<CourseViewModel> GetList(string searchName = "", int organizationId = 0, Cycle? cycle = null, int programId = 0)
@@ -65,7 +65,7 @@ namespace TransferLogger.BusinessLogic.ViewModels.Courses
             using var dc = new Dc();
 
             return GetQuery(dc, searchName, organizationId, cycle, programId)
-                .Select(c => new CourseViewModel(c))
+                .Select(c => new CourseViewModel(c, c.Program.Organization))
                 .ToList();
         }
 
