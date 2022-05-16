@@ -53,14 +53,21 @@ namespace TransferLogger.Ui.Forms.Courses
 
             _course = dc.Courses
                 .LoadWith(c => c.Program)
+                .LoadWith(c => c.Evaluations)
                 .FirstOrDefault(c => c.CourseId == courseId) ?? new();
 
-            SetData(organizationId, organizationsLocked, cycle);
+            var anyEvaluations = _course.Evaluations?.Any() ?? false;
+
+            SetData(organizationId, organizationsLocked || anyEvaluations, cycle);
             SetPrograms(_course.ProgramId > 0 ? _course.ProgramId : programId);
             SetEvents();
+
+            _cbCycles.Enabled         = !anyEvaluations;
+            _cbPrograms.Enabled       = !anyEvaluations;
+            _btnSelectProgram.Enabled = !anyEvaluations;
         }
 
-        private void SetData(int? organizationId = null, bool organizationsLocked = false, Cycle ? cycle = null)
+        private void SetData(int? organizationId = null, bool organizationsLocked = false, Cycle? cycle = null)
         {
             if (_course.CourseId > 0)
             {
@@ -94,7 +101,7 @@ namespace TransferLogger.Ui.Forms.Courses
             else
             {
                 _cbPrograms.DataSource = null;
-                _cbPrograms.Enabled    = _btnSelectProgram.Enabled = false;
+                _cbPrograms.Enabled = _btnSelectProgram.Enabled = false;
             }
         }
 

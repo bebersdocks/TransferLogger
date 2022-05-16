@@ -1,5 +1,8 @@
-﻿using LinqToDB.Mapping;
+﻿using System.Collections.Generic;
 
+using LinqToDB.Mapping;
+
+using TransferLogger.Dal.DataModels.Applications;
 using TransferLogger.Dal.Definitions;
 
 namespace TransferLogger.Dal.DataModels
@@ -20,6 +23,9 @@ namespace TransferLogger.Dal.DataModels
 
         [Association(ThisKey = nameof(OrganizationId), OtherKey = nameof(OrganizationId), Relationship = Relationship.ManyToOne, CanBeNull = false)]
         public Organization Organization { get; set; }
+
+        [Association(ThisKey = nameof(ProgramId), OtherKey = nameof(Application.TargetProgramId), Relationship = Relationship.OneToMany)]
+        public IEnumerable<Application> Applications { get; set; }
 
         #endregion
     }

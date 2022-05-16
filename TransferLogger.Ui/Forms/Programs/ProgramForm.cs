@@ -31,6 +31,9 @@ namespace TransferLogger.Ui.Forms.Programs
 
             _program = dc.Programs.FirstOrDefault(p => p.ProgramId == programId) ?? new();
 
+            if (programId > 0 && !organizationsLocked)
+                organizationsLocked = dc.Evaluations.Any(e => e.Course.ProgramId == programId);
+
             SetData(organizationId, organizationsLocked, cycle);
             SetEvents();
         }
