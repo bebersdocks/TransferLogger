@@ -22,11 +22,11 @@ namespace TransferLogger.BusinessLogic.Models.Courses
         public int    Credits      { get; set; }
         public int    WeeklyHours  { get; set; }
 
-        public CourseModel(Course course, Organization organization = null)
+        public CourseModel(Course course)
         {
             Id           = course.CourseId;
             Name         = course.DisplayString;
-            Organization = organization?.DisplayString;
+            Organization = course.Program.Organization.DisplayString;
             Program      = course.Program.DisplayString;
             Cycle        = course.Program.Cycle.GetDisplayName();
             Credits      = course.Credits;
@@ -35,7 +35,10 @@ namespace TransferLogger.BusinessLogic.Models.Courses
 
         protected static IQueryable<Course> GetQuery(Dc dc, string searchName = "", int organizationId = 0, Cycle? cycle = null, int programId = 0)
         {
-            var query = dc.Courses.AsQueryable();
+            var query = dc.Courses
+                .LoadWith(c => c.Program)
+                .LoadWith(c => c.Program.Organization)
+                .AsQueryable();
 
             searchName = searchName
                 .Replace("-", string.Empty)
@@ -54,9 +57,8 @@ namespace TransferLogger.BusinessLogic.Models.Courses
 
             if (programId > 0)
                 query = query.Where(c => c.ProgramId == programId);
-
-            return query
-                .LoadWith(c => c.Program);
+            
+            return query;
         }
 
         public static List<CourseModel> GetList(string searchName = "", int organizationId = 0, Cycle? cycle = null, int programId = 0)
@@ -64,7 +66,7 @@ namespace TransferLogger.BusinessLogic.Models.Courses
             using var dc = new Dc();
 
             return GetQuery(dc, searchName, organizationId, cycle, programId)
-                .Select(c => new CourseModel(c, c.Program.Organization))
+                .Select(c => new CourseModel(c))
                 .ToList();
         }
 
