@@ -30,6 +30,7 @@ namespace TransferLogger.BusinessLogic.Models.Courses
 
             var selectedCourses = dc.Courses
                 .LoadWith(c => c.Program)
+                .LoadWith(c => c.Program.Organization)
                 .Where(c => selectedIds.Contains(c.CourseId))
                 .AsEnumerable();
 
