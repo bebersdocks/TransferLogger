@@ -208,7 +208,7 @@ namespace TransferLogger.Ui.Forms.Programs
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(475, 255);
             this.Name = "ProgramForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "New Program";
             ((System.ComponentModel.ISupportInitialize)(this._numericYear)).EndInit();
             this.ResumeLayout(false);

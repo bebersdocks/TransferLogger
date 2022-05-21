@@ -201,7 +201,7 @@ namespace TransferLogger.Ui.Forms.Instructors
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(460, 295);
             this.Name = "InstructorForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "New Instructor";
             this.ResumeLayout(false);
             this.PerformLayout();

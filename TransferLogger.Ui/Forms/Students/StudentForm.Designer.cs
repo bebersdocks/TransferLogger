@@ -94,7 +94,7 @@ namespace TransferLogger.Ui.Forms.Students
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(485, 365);
             this.Name = "StudentForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "New Student";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -330,7 +330,7 @@ namespace TransferLogger.Ui.Forms.Courses
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(496, 445);
             this.Name = "CourseForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "New Course";
             ((System.ComponentModel.ISupportInitialize)(this._numericWeeklyHours)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._numericCredits)).EndInit();
