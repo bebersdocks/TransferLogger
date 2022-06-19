@@ -730,7 +730,7 @@ namespace TransferLogger.Ui.Forms.Applications
             this.ClientSize = new System.Drawing.Size(1234, 721);
             this.Controls.Add(this._splitContainerForm);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(1250, 760);
+            this.MinimumSize = new System.Drawing.Size(1190, 375);
             this.Name = "ApplicationsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Transfer Logger";

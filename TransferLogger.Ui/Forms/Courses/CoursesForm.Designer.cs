@@ -69,6 +69,7 @@ namespace TransferLogger.Ui.Forms.Courses
             | System.Windows.Forms.AnchorStyles.Right)));
             this._splitContainer.BackColor = System.Drawing.Color.GhostWhite;
             this._splitContainer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this._splitContainer.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this._splitContainer.IsSplitterFixed = true;
             this._splitContainer.Location = new System.Drawing.Point(0, 0);
             this._splitContainer.Name = "_splitContainer";
@@ -389,7 +390,7 @@ namespace TransferLogger.Ui.Forms.Courses
             this.ClientSize = new System.Drawing.Size(1119, 641);
             this.Controls.Add(this._splitContainer);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(1135, 680);
+            this.MinimumSize = new System.Drawing.Size(1050, 375);
             this.Name = "CoursesForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Courses";

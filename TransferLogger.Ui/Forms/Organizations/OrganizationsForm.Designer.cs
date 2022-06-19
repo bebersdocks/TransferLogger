@@ -66,6 +66,7 @@ namespace TransferLogger.Ui.Forms.Organizations
             | System.Windows.Forms.AnchorStyles.Right)));
             this._splitContainer.BackColor = System.Drawing.Color.GhostWhite;
             this._splitContainer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this._splitContainer.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this._splitContainer.IsSplitterFixed = true;
             this._splitContainer.Location = new System.Drawing.Point(0, 0);
             this._splitContainer.Name = "_splitContainer";
@@ -344,7 +345,7 @@ namespace TransferLogger.Ui.Forms.Organizations
             this.ClientSize = new System.Drawing.Size(1069, 636);
             this.Controls.Add(this._splitContainer);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(1085, 675);
+            this.MinimumSize = new System.Drawing.Size(1035, 375);
             this.Name = "OrganizationsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Organizations";

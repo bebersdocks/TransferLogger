@@ -289,7 +289,7 @@ namespace TransferLogger.Ui.Forms.Instructors
             this.ClientSize = new System.Drawing.Size(1069, 636);
             this.Controls.Add(this._splitContainer);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(1085, 675);
+            this.MinimumSize = new System.Drawing.Size(1035, 350);
             this.Name = "InstructorsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Instructors";
