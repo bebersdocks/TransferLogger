@@ -16,7 +16,7 @@
             {
                 if (UseWindowsAuthentication)
                 {
-                    return $"Integrated Security=SSPI;Server={Server};Database={Database};Connect Timeout=20";
+                    return $"Integrated Security=SSPI;Server={Server};Database={Database};Encrypt=false;Connect Timeout=20";
                 }
                 else
                 {

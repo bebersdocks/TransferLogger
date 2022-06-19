@@ -1,8 +1,10 @@
 ﻿using System;
-using System.Data.SqlClient;
 using System.Linq;
 
+using Microsoft.Data.SqlClient;
+
 using LinqToDB;
+using LinqToDB.Data;
 
 using TransferLogger.Dal.DataModels;
 using TransferLogger.Dal.DataModels.Applications;
@@ -12,15 +14,15 @@ namespace TransferLogger.Dal
 {
     public partial class Dc : LinqToDB.Data.DataConnection
     {
-        public ITable<Organization>          Organizations          => GetTable<Organization>();
-        public ITable<Program>               Programs               => GetTable<Program>();
-        public ITable<Course>                Courses                => GetTable<Course>();
-        public ITable<Instructor>            Instructors            => GetTable<Instructor>();
-        public ITable<Student>               Students               => GetTable<Student>();
-        public ITable<Application>           Applications           => GetTable<Application>();
-        public ITable<ApplicationAttachment> ApplicationAttachments => GetTable<ApplicationAttachment>();
-        public ITable<Evaluation>            Evaluations            => GetTable<Evaluation>();
-        public ITable<DbInfo>                DbInfo                 => GetTable<DbInfo>();
+        public ITable<Organization>          Organizations          => this.GetTable<Organization>();
+        public ITable<Program>               Programs               => this.GetTable<Program>();
+        public ITable<Course>                Courses                => this.GetTable<Course>();
+        public ITable<Instructor>            Instructors            => this.GetTable<Instructor>();
+        public ITable<Student>               Students               => this.GetTable<Student>();
+        public ITable<Application>           Applications           => this.GetTable<Application>();
+        public ITable<ApplicationAttachment> ApplicationAttachments => this.GetTable<ApplicationAttachment>();
+        public ITable<Evaluation>            Evaluations            => this.GetTable<Evaluation>();
+        public ITable<DbInfo>                DbInfo                 => this.GetTable<DbInfo>();
 
         // This value can be anything - it is just internal identifier for configuration.
         private const string defaultConfigurationStr = "TransferLogger";
@@ -49,9 +51,9 @@ namespace TransferLogger.Dal
                     // On newer versions of MS SQL server, caching feature might cause annoying jump of identity (ID) column by 1000.
                     // It seems to appear more often on personal machines when SQL server shuts down unexpectedly or crashes.
                     // https://www.sqlshack.com/learn-to-avoid-an-identity-jump-issue-identity_cache-with-the-help-of-trace-command-t272/ 
-                    Command.CommandText = "ALTER DATABASE SCOPED CONFIGURATION SET IDENTITY_CACHE = OFF";
+                    var commandInfo = new CommandInfo(this, "ALTER DATABASE SCOPED CONFIGURATION SET IDENTITY_CACHE = OFF");
 
-                    ExecuteNonQuery(Command);
+                    commandInfo.Execute();
                 }
                 catch (SqlException) {}
 
@@ -59,11 +61,11 @@ namespace TransferLogger.Dal
 
                 foreach (var dbScript in EmbeddedResources.DbScripts)
                 {
-                    var sql = EmbeddedResources.GetDbResourceStr(ProviderName.SqlServer, dbScript);
+                    var sqlScript = EmbeddedResources.GetDbResourceStr(ProviderName.SqlServer, dbScript);
 
-                    Command.CommandText = sql;
+                    var commandInfo = new CommandInfo(this, sqlScript);
 
-                    ExecuteNonQuery(Command);
+                    commandInfo.Execute();
                 }
 
                 tr.Commit();
