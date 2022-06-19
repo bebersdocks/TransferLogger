@@ -2,6 +2,8 @@
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 
+using Serilog;
+
 namespace TransferLogger.Interop
 {
     // https://stackoverflow.com/questions/158706/how-do-i-properly-clean-up-excel-interop-objects
@@ -19,9 +21,7 @@ namespace TransferLogger.Interop
             GetWindowThreadProcessId((IntPtr)hWnd, out uint processId);
 
             if (processId == 0)
-            {
                 return false;
-            }
 
             try
             {
@@ -29,8 +29,10 @@ namespace TransferLogger.Interop
 
                 return true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Log.Error(ex, "failed");
+
                 return false;
             }
         }
