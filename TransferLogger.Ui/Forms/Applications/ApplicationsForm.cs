@@ -41,7 +41,7 @@ namespace TransferLogger.Ui.Forms.Applications
             ToggleEvaluations(true);
         }
 
-        public void SetData()
+        private void SetData()
         {
             if (_cbOrganizations.Items.Count == 0)
                 _cbOrganizations.FillLookups(_organizations, new Lookup(-1, "All"));

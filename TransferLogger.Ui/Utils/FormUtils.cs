@@ -27,14 +27,10 @@ namespace TransferLogger.Ui.Utils
             var itemId = 0;
 
             if (grid.CurrentRow?.DataBoundItem is IIdentifiable identifiable)
-            {
                 itemId = identifiable.Id;
-            }
 
             if (!isNew && itemId == 0)
-            {
                 return false;
-            }
 
             using var form = getForm(isNew ? 0 : itemId);
 
@@ -43,13 +39,9 @@ namespace TransferLogger.Ui.Utils
                 setData();
 
                 if (!isNew)
-                {
                     grid.SelectRow<IIdentifiable>(vm => vm.Id == itemId);
-                }
                 else
-                {
                     grid.SelectRow(grid.Rows.Count - 1);
-                }
 
                 return true;
             }
