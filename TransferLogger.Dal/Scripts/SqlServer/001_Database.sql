@@ -17,6 +17,13 @@ CREATE TABLE Organization (
 ALTER TABLE Organization ADD CONSTRAINT PK_Organization PRIMARY KEY (OrganizationId);
 ALTER TABLE Organization ADD CONSTRAINT UC_Organization UNIQUE (OrganizationType, Name, Country); 
 
+SET IDENTITY_INSERT Organization ON;
+
+INSERT INTO Organization (OrganizationId, OrganizationType, Name, Country) 
+VALUES (1, 3, 'YourOrganization', 236);
+
+SET IDENTITY_INSERT Organization OFF;
+
 CREATE TABLE Program (
 	ProgramId INT IDENTITY(1,1) NOT NULL,
 	OrganizationId INT NOT NULL,

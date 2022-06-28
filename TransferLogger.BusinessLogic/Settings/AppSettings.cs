@@ -26,7 +26,7 @@ namespace TransferLogger.BusinessLogic.Settings
             }
         }
 
-        public int             OrganizationId    { get; set; }
+        public int             OrganizationId    { get; set; } = 1;
         public DbSettings      DbSettings        { get; set; }
         public LoggingSettings Logging           { get; set; }
         public string          ExcelTemplatePath { get; set; }
