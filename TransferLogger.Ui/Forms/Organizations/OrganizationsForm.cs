@@ -50,15 +50,12 @@ namespace TransferLogger.Ui.Forms.Organizations
             _cbOrganizationTypes.SelectedValueChanged += (s, e) => SetData();
             _cbCountries.SelectedValueChanged         += (s, e) => SetData();
 
-            _btnSelectCountry.Click += _btnSelectCountry_Click;
-
             _grid.DoubleClick += (s, e) => InsertOrReplace();
             _btnAdd.Click     += (s, e) => InsertOrReplace(true);
             _btnEdit.Click    += (s, e) => InsertOrReplace();
 
-            _grid.SelectionChanged += _grid_SelectionChanged;
-
-            _btnDelete.Click += _btnDelete_Click;
+            _btnDelete.Click        += _btnDelete_Click;
+            _btnSelectCountry.Click += _btnSelectCountry_Click;
         }
 
         private void _btnSelectCountry_Click(object? sender, EventArgs e)
@@ -84,18 +81,16 @@ namespace TransferLogger.Ui.Forms.Organizations
             FormUtils.InsertOrReplace(_grid, id => new OrganizationForm(id, organizationType, country), () => SetData(), isNew);
         }
 
-        private void _grid_SelectionChanged(object? sender, EventArgs e)
-        {
-            if (_grid.CurrentRow?.DataBoundItem is OrganizationModel model)
-            {
-                _btnDelete.Enabled = model.Id != AppSettings.Instance.OrganizationId;
-            }
-        }
-
         private void _btnDelete_Click(object? sender, EventArgs e)
         {
             if (_grid.CurrentRow?.DataBoundItem is OrganizationModel model)
             {
+                if (model.Id == AppSettings.Instance.OrganizationId)
+                {
+                    MessageDialog.Show("You can't delete your current organization.", "Aborted");
+                    return;
+                }
+
                 using var confirmBox = new ConfirmBox(
                     "Confirm Deletion",
                     $"Are you sure you want to delete {model.Name} (Id: {model.Id})?");
