@@ -1,6 +1,6 @@
 ﻿namespace TransferLogger.Ui.Forms.Utils
 {
-    partial class ExceptionInfo
+    partial class ExceptionForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExceptionForm));
             this._btnOk = new TransferLogger.Ui.Controls.TlButton();
             this._tbMessage = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
@@ -70,6 +71,7 @@
             this.ClientSize = new System.Drawing.Size(414, 261);
             this.Controls.Add(this._tbMessage);
             this.Controls.Add(this._btnOk);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(430, 300);
             this.Name = "ExceptionInfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -3,9 +3,9 @@ using System.Windows.Forms;
 
 namespace TransferLogger.Ui.Forms.Utils
 {
-    public partial class ExceptionInfo : Form
+    public partial class ExceptionForm : Form
     {
-        public ExceptionInfo(string message, string title)
+        public ExceptionForm(string message, string title)
         {
             InitializeComponent();
 
@@ -18,7 +18,7 @@ namespace TransferLogger.Ui.Forms.Utils
 
         public static void Show(Exception ex)
         {
-            using var errorDlg = new ExceptionInfo(ex.Message, ex.GetType().ToString());
+            using var errorDlg = new ExceptionForm(ex.Message, ex.GetType().ToString());
 
             errorDlg.ShowDialog();
         }

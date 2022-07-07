@@ -66,7 +66,7 @@ namespace TransferLogger.Ui.Utils
             {
                 Log.Error(ex, "failed");
 
-                ExceptionInfo.Show(ex);
+                ExceptionForm.Show(ex);
                 
                 return false;
             }

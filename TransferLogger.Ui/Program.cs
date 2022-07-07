@@ -48,7 +48,7 @@ namespace TransferLogger.Ui
             {
                 Log.Error($"{ex.Message}\n{ex.StackTrace}");
 
-                ExceptionInfo.Show(ex);
+                ExceptionForm.Show(ex);
             }
         }
 
@@ -57,7 +57,7 @@ namespace TransferLogger.Ui
         {
             Log.Error(t.Exception, "failed");
 
-            ExceptionInfo.Show(t.Exception);
+            ExceptionForm.Show(t.Exception);
         }
     }
 }
