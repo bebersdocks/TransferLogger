@@ -60,7 +60,9 @@ namespace TransferLogger.Ui.Forms.Applications
             if (!apps.Any())
                 _gridAppEvaluations.DataSource = null;
 
-            _btnImportExcel.Enabled =
+            _btnOpen.Enabled =
+                _btnDelete.Enabled =
+                _btnImportExcel.Enabled =
                 _btnSendEmail.Enabled =
                 _btnExportExcel.Enabled =
                 _btnChangeExcelLocation.Enabled = apps.Any();
