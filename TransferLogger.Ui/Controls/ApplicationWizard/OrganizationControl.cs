@@ -127,7 +127,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             var organizationType = _cbOrganizationTypes.GetSelectedValue<OrganizationType>();
             var country          = _cbCountries.GetSelectedValue<Country>();
 
-            if (FormUtils.InsertOrReplace(_grid, id => new OrganizationForm(id, organizationType, country), () => SetData(), true))
+            if (FormUtils.InsertOrReplace(_grid, id => new OrganizationForm(id, organizationType, country), SetData, true))
                 SetCurrentRowAsSelected();
         }
 

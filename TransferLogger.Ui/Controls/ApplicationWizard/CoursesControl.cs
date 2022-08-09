@@ -195,7 +195,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
         {
             var (programId, cycle) = (Convert.ToInt32(_cbPrograms.SelectedValue), _cbCycles.GetSelectedValue<Cycle>());
 
-            if (FormUtils.InsertOrReplace(_grid, id => new CourseForm(id, _appBuild.SourceOrganizationId, true, programId, cycle), () => SetData(), true))
+            if (FormUtils.InsertOrReplace(_grid, id => new CourseForm(id, _appBuild.SourceOrganizationId, true, programId, cycle), SetData, true))
                 SetCurrentRowAsSelected();
         }
 
