@@ -73,10 +73,7 @@ namespace TransferLogger.Ui.Forms.Programs
         private void InsertOrReplace(bool isNew = false)
         {
             var organizationId = Convert.ToInt32(_cbOrganizations.SelectedValue);
-
-            Cycle? cycle = null;
-            if (_cbCycles.SelectedValue != null)
-                cycle = (Cycle)_cbCycles.SelectedValue;
+            var cycle          = _cbCycles.GetSelectedValue<Cycle>();
 
             FormUtils.InsertOrReplace(_grid, id => new ProgramForm(id, organizationId, false, cycle), () => SetData(), isNew);
         }

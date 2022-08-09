@@ -136,7 +136,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
         private void _btnAdd_Click(object? sender, EventArgs e)
         {
-            var cycle = (Cycle)_cbCycles.SelectedValue;
+            var cycle = _cbCycles.GetSelectedValue<Cycle>();
 
             if (FormUtils.InsertOrReplace(_grid, id => new ProgramForm(id, AppSettings.Instance.OrganizationId, true, cycle), () => SetData(), true))
                 SetCurrentRowAsSelected();
@@ -144,7 +144,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
         private void _btnManage_Click(object? sender, EventArgs e)
         {
-            var cycle = (Cycle)_cbCycles.SelectedValue;
+            var cycle = _cbCycles.GetSelectedValue<Cycle>();
 
             using var form = new ProgramsForm(AppSettings.Instance.OrganizationId, cycle);
 

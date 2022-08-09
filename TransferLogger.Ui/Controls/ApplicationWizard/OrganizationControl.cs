@@ -122,22 +122,10 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             }
         }
 
-        private (OrganizationType? organizationType, Country? country) GetSelectedValues()
-        {
-            OrganizationType? organizationType = null;
-            if (_cbOrganizationTypes.SelectedValue != null)
-                organizationType = (OrganizationType)_cbOrganizationTypes.SelectedValue;
-
-            Country? country = null;
-            if (_cbCountries.SelectedValue != null)
-                country = (Country)_cbCountries.SelectedValue;
-
-            return (organizationType, country);
-        }
-
         private void _btnAdd_Click(object? sender, EventArgs e)
         {
-            var (organizationType, country) = GetSelectedValues();
+            var organizationType = _cbOrganizationTypes.GetSelectedValue<OrganizationType>();
+            var country          = _cbCountries.GetSelectedValue<Country>();
 
             if (FormUtils.InsertOrReplace(_grid, id => new OrganizationForm(id, organizationType, country), () => SetData(), true))
                 SetCurrentRowAsSelected();
@@ -145,7 +133,8 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
         private void _btnManage_Click(object? sender, EventArgs e)
         {
-            var (organizationType, country) = GetSelectedValues();
+            var organizationType = _cbOrganizationTypes.GetSelectedValue<OrganizationType>();
+            var country          = _cbCountries.GetSelectedValue<Country>();
 
             using var form = new OrganizationsForm(organizationType, country);
 

@@ -168,18 +168,9 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             SetPrograms();
         }
 
-        private (int programId, Cycle? cycle) GetSelectedValues()
-        {
-            Cycle? cycle = null;
-            if (_cbCycles.SelectedValue != null)
-                cycle = (Cycle)_cbCycles.SelectedValue;
-
-            return (Convert.ToInt32(_cbPrograms.SelectedValue), cycle);
-        }
-
         private void _btnAddProgram_Click(object? sender, EventArgs e)
         {
-            var (_, cycle) = GetSelectedValues();
+            var cycle = _cbCycles.GetSelectedValue<Cycle>();
 
             using var form = new ProgramForm(0, _appBuild.SourceOrganizationId, true, cycle);
 
@@ -189,7 +180,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
         private void _btnManagePrograms_Click(object? sender, EventArgs e)
         {
-            var (_, cycle) = GetSelectedValues();
+            var cycle = _cbCycles.GetSelectedValue<Cycle>();
 
             using var form = new ProgramsForm(_appBuild.SourceOrganizationId, cycle);
 
@@ -202,7 +193,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
         private void _btnAddCourse_Click(object? sender, EventArgs e)
         {
-            var (programId, cycle) = GetSelectedValues();
+            var (programId, cycle) = (Convert.ToInt32(_cbPrograms.SelectedValue), _cbCycles.GetSelectedValue<Cycle>());
 
             if (FormUtils.InsertOrReplace(_grid, id => new CourseForm(id, _appBuild.SourceOrganizationId, true, programId, cycle), () => SetData(), true))
                 SetCurrentRowAsSelected();
@@ -210,7 +201,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
         private void _btnManageCourses_Click(object? sender, EventArgs e)
         {
-            var (_, cycle) = GetSelectedValues();
+            var cycle = _cbCycles.GetSelectedValue<Cycle>();
 
             using var form = new CoursesForm(_appBuild.SourceOrganizationId, cycle);
 

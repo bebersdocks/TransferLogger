@@ -112,10 +112,7 @@ namespace TransferLogger.Ui.Forms.Courses
         {
             var organizationId = Convert.ToInt32(_cbOrganizations.SelectedValue);
             var programId      = Convert.ToInt32(_cbPrograms.SelectedValue);
-
-            Cycle? cycle = null;
-            if (_cbCycles.SelectedValue != null)
-                cycle = (Cycle)_cbCycles.SelectedValue;
+            var cycle          = _cbCycles.GetSelectedValue<Cycle>();
 
             FormUtils.InsertOrReplace(_grid, id => new CourseForm(id, organizationId, false, programId, cycle), () => SetData(), isNew);
         }
