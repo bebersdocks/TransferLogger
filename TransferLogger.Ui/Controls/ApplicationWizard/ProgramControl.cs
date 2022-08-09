@@ -64,10 +64,11 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
             _grid.SelectionChanged -= _grid_SelectionChanged;
 
-            _grid.DataSource = SelectableProgramModel.GetList(selectedIds,
-                _tbSearchName.Text, 
+            _grid.DataSource = SelectableProgramModel.GetList(
+                selectedIds,
+                _tbSearchName.Text,
                 AppSettings.Instance.OrganizationId,
-                _cbCycles.SelectedValue);
+                _cbCycles.GetSelectedValue<Cycle>());
 
             if (_appBuild.TargetProgramId > 0)
                 _grid.SelectRow<IIdentifiable>(i => i.Id == _appBuild.TargetProgramId);

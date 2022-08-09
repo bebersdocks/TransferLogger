@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 using TransferLogger.BusinessLogic.Intefaces;
@@ -50,15 +49,6 @@ namespace TransferLogger.BusinessLogic.Models.Programs
             return GetQuery(dc, searchName, organizationId, cycle)
                 .Select(p => new ProgramModel(p, p.Organization))
                 .ToList();
-        }
-
-        public static List<ProgramModel> GetList(string searchName, object organizationIdObj, object cycleObj)
-        {
-            Cycle? cycle = null;
-            if (cycleObj != null)
-                cycle = (Cycle)cycleObj;
-
-            return GetList(searchName, Convert.ToInt32(organizationIdObj), cycle);
         }
     }
 }

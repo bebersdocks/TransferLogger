@@ -80,14 +80,5 @@ namespace TransferLogger.BusinessLogic.Models
                 .Select(a => new ApplicationModel(a))
                 .ToList();
         }
-
-        public static List<ApplicationModel> GetList(string studentName, object organizationIdObj, object statusObj, DateTime from, DateTime to)
-        {
-            ApplicationStatus? status = null;
-            if (Convert.ToInt32(statusObj) > 0)
-                status = (ApplicationStatus)statusObj;
-
-            return GetList(studentName, organizationId: Convert.ToInt32(organizationIdObj), status, from, to);
-        }
     }
 }

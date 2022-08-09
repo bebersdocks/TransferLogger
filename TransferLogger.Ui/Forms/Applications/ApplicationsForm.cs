@@ -49,7 +49,12 @@ namespace TransferLogger.Ui.Forms.Applications
             if (_cbStatuses.Items.Count == 0)
                 _cbStatuses.FillLookups<ApplicationStatus>(new Lookup(-1, "All"));
 
-            var apps = ApplicationModel.GetList(_tbSearchName.Text, _cbOrganizations.SelectedValue, _cbStatuses.SelectedValue, _dtFrom.Value, _dtTo.Value);
+            var apps = ApplicationModel.GetList(
+                _tbSearchName.Text, 
+                Convert.ToInt32(_cbOrganizations.SelectedValue), 
+                _cbStatuses.GetSelectedValue<ApplicationStatus>(), 
+                _dtFrom.Value,
+                _dtTo.Value);
 
             var index = _gridApps.CurrentRow?.Index ?? 0;
 

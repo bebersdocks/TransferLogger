@@ -54,10 +54,11 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
             _grid.SelectionChanged -= _grid_SelectionChanged;
 
-            _grid.DataSource = SelectableOrganizationModel.GetList(selectedIds,
-                _tbSearchName.Text, 
-                _cbOrganizationTypes.SelectedValue, 
-                _cbCountries.SelectedValue);
+            _grid.DataSource = SelectableOrganizationModel.GetList(
+                selectedIds,
+                _tbSearchName.Text,
+                _cbOrganizationTypes.GetSelectedValue<OrganizationType>(),
+                _cbCountries.GetSelectedValue<Country>());
 
             if (_appBuild.SourceOrganizationId > 0)
                 _grid.SelectRow<IIdentifiable>(i => i.Id == _appBuild.SourceOrganizationId);

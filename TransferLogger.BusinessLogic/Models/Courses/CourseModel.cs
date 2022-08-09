@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 using LinqToDB;
@@ -68,15 +67,6 @@ namespace TransferLogger.BusinessLogic.Models.Courses
             return GetQuery(dc, searchName, organizationId, cycle, programId)
                 .Select(c => new CourseModel(c))
                 .ToList();
-        }
-
-        public static List<CourseModel> GetList(string searchName, object organizationIdObj, object cycleObj, object programIdObj)
-        {
-            Cycle? cycle = null;
-            if (cycleObj != null)
-                cycle = (Cycle)cycleObj;
-
-            return GetList(searchName, Convert.ToInt32(organizationIdObj), cycle, Convert.ToInt32(programIdObj));
         }
     }
 }

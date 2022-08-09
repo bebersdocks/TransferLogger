@@ -41,7 +41,10 @@ namespace TransferLogger.Ui.Forms.Organizations
             if (_cbCountries.Items.Count == 0)
                 _cbCountries.FillLookups(_countries, Convert.ToInt32(country));
 
-            _grid.DataSource =  OrganizationModel.GetList(_tbSearchName.Text, _cbOrganizationTypes.SelectedValue, _cbCountries.SelectedValue);
+            _grid.DataSource =  OrganizationModel.GetList(
+                _tbSearchName.Text, 
+                _cbOrganizationTypes.GetSelectedValue<OrganizationType>(), 
+                _cbCountries.GetSelectedValue<Country>());
         }
 
         private void SetEvents()

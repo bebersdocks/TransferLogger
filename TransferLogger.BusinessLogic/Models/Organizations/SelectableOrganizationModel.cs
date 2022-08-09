@@ -18,7 +18,8 @@ namespace TransferLogger.BusinessLogic.Models.Organizations
             Selected = selected;
         }
 
-        public static List<SelectableOrganizationModel> GetList(HashSet<int> selectedIds,
+        public static List<SelectableOrganizationModel> GetList(
+            HashSet<int> selectedIds,
             string searchName = "", 
             OrganizationType? organizationType = null, 
             Country? country = null)
@@ -37,22 +38,6 @@ namespace TransferLogger.BusinessLogic.Models.Organizations
                 .OrderBy(o => o.OrganizationId)
                 .Select(o => new SelectableOrganizationModel(o, selectedIds.Contains(o.OrganizationId)))
                 .ToList();
-        }
-
-        public static List<SelectableOrganizationModel> GetList(HashSet<int> selectedIds,
-            string searchName, 
-            object organizationTypeObj, 
-            object countryObj)
-        {
-            Country? country = null;
-            if (countryObj != null)
-                country = (Country)countryObj;
-
-            OrganizationType? organizationType = null;
-            if (organizationTypeObj != null)
-                organizationType = (OrganizationType)organizationTypeObj;
-
-            return GetList(selectedIds, searchName, organizationType, country);
         }
     }
 }

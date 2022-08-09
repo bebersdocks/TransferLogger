@@ -1,7 +1,7 @@
-﻿using LinqToDB;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+
+using LinqToDB;
 
 using TransferLogger.Dal;
 using TransferLogger.Dal.DataModels;
@@ -19,7 +19,8 @@ namespace TransferLogger.BusinessLogic.Models.Programs
             Selected = selected;
         }
 
-        public static List<SelectableProgramModel> GetList(HashSet<int> selectedIds,
+        public static List<SelectableProgramModel> GetList(
+            HashSet<int> selectedIds,
             string searchName = "", 
             int organizationId = 0, 
             Cycle? cycle = null)
@@ -39,18 +40,6 @@ namespace TransferLogger.BusinessLogic.Models.Programs
                 .OrderBy(p => p.ProgramId)
                 .Select(p => new SelectableProgramModel(p, p.Organization, selectedIds.Contains(p.ProgramId)))
                 .ToList();
-        }
-
-        public static List<SelectableProgramModel> GetList(HashSet<int> selectedIds, 
-            string searchName, 
-            object organizationIdObj, 
-            object cycleObj)
-        {
-            Cycle? cycle = null;
-            if (cycleObj != null)
-                cycle = (Cycle)cycleObj;
-
-            return GetList(selectedIds, searchName, Convert.ToInt32(organizationIdObj), cycle);
         }
     }
 }

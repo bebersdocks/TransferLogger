@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 using LinqToDB;
@@ -20,7 +19,8 @@ namespace TransferLogger.BusinessLogic.Models.Courses
             Selected = selected;
         }
 
-        public static List<SelectableCourseModel> GetList(HashSet<int> selectedIds,
+        public static List<SelectableCourseModel> GetList(
+            HashSet<int> selectedIds,
             string searchName = "",
             int organizationId = 0,
             Cycle? cycle = null, 
@@ -41,19 +41,6 @@ namespace TransferLogger.BusinessLogic.Models.Courses
                 .OrderBy(c => c.CourseId)
                 .Select(c => new SelectableCourseModel(c, selectedIds.Contains(c.CourseId)))
                 .ToList();
-        }
-
-        public static List<SelectableCourseModel> GetList(HashSet<int> selectedIds,
-            string searchName,
-            object organizationIdObj,
-            object cycleObj, 
-            object programIdObj)
-        {
-            Cycle? cycle = null;
-            if (cycleObj != null)
-                cycle = (Cycle)cycleObj;
-
-            return GetList(selectedIds, searchName, Convert.ToInt32(organizationIdObj), cycle, Convert.ToInt32(programIdObj));
         }
     }
 }

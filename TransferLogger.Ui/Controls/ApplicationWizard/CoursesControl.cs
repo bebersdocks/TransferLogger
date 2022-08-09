@@ -47,11 +47,12 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
             _grid.SelectionChanged -= _grid_SelectionChanged;
 
-            _grid.DataSource = SelectableCourseModel.GetList(_appBuild.CourseIds,
-                _tbSearchName.Text, 
-                _appBuild.SourceOrganizationId, 
-                _cbCycles.SelectedValue, 
-                _cbPrograms.SelectedValue);
+            _grid.DataSource = SelectableCourseModel.GetList(
+                _appBuild.CourseIds,
+                _tbSearchName.Text,
+                _appBuild.SourceOrganizationId,
+                _cbCycles.GetSelectedValue<Cycle>(),
+                Convert.ToInt32(_cbPrograms.SelectedValue));
 
             _grid.SelectionChanged += _grid_SelectionChanged;
         }

@@ -54,18 +54,5 @@ namespace TransferLogger.BusinessLogic.Models.Organizations
                 .Select(o => new OrganizationModel(o))
                 .ToList();
         }
-
-        public static List<OrganizationModel> GetList(string searchName, object organizationTypeObj, object countryObj)
-        {
-            Country? country = null;
-            if (countryObj != null)
-                country = (Country)countryObj;
-
-            OrganizationType? organizationType = null;
-            if (organizationTypeObj != null)
-                organizationType = (OrganizationType)organizationTypeObj;
-
-            return GetList(searchName, organizationType, country);
-        }
     }
 }

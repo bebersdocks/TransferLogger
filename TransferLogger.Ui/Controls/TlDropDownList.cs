@@ -63,5 +63,13 @@ namespace TransferLogger.Ui.Controls
         {
             dropDownList.FillLookups<T>(Convert.ToInt32(selectedValue));
         }
+
+        public static T? GetSelectedValue<T>(this TlDropDownList dropDownList) where T : struct
+        {
+            if (dropDownList.SelectedValue is not null && Enum.IsDefined(typeof(T), dropDownList.SelectedValue))
+                return (T)dropDownList.SelectedValue;
+
+            return null;
+        }
     }
 }

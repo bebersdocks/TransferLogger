@@ -40,7 +40,11 @@ namespace TransferLogger.Ui.Forms.Courses
             if (_cbCycles.Items.Count == 0)
                 _cbCycles.FillLookups<Cycle>(Convert.ToInt32(cycle));
 
-            _grid.DataSource = CourseModel.GetList(_tbSearchName.Text, _cbOrganizations.SelectedValue, _cbCycles.SelectedValue, _cbPrograms.SelectedValue);
+            _grid.DataSource = CourseModel.GetList(
+                _tbSearchName.Text,
+                Convert.ToInt32(_cbOrganizations.SelectedValue),
+                _cbCycles.GetSelectedValue<Cycle>(),
+                Convert.ToInt32(_cbPrograms.SelectedValue));
         }
 
         private void SetPrograms()
