@@ -12,7 +12,7 @@ namespace TransferLogger.Dal.DataModels.Applications
 
         #region Associations
 
-        [Association(ThisKey = nameof(ApplicationId), OtherKey = nameof(ApplicationId), Relationship = Relationship.ManyToOne, CanBeNull = false)]
+        [Association(ThisKey = nameof(ApplicationId), OtherKey = nameof(ApplicationId), CanBeNull = false)]
         public Application Application { get; set; }
 
         #endregion

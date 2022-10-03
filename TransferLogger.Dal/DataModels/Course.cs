@@ -20,10 +20,10 @@ namespace TransferLogger.Dal.DataModels
 
         #region Associations
 
-        [Association(ThisKey = nameof(ProgramId), OtherKey = nameof(ProgramId), Relationship = Relationship.ManyToOne, CanBeNull = false)]
+        [Association(ThisKey = nameof(ProgramId), OtherKey = nameof(ProgramId), CanBeNull = false)]
         public Program Program { get; set; }
 
-        [Association(ThisKey = nameof(CourseId), OtherKey = nameof(CourseId), Relationship = Relationship.OneToMany)]
+        [Association(ThisKey = nameof(CourseId), OtherKey = nameof(CourseId))]
         public IEnumerable<Evaluation> Evaluations { get; set; }
 
         #endregion

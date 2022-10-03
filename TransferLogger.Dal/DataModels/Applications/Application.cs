@@ -28,19 +28,19 @@ namespace TransferLogger.Dal.DataModels.Applications
 
         #region Associations
 
-        [Association(ThisKey = nameof(StudentId), OtherKey = nameof(StudentId), Relationship = Relationship.ManyToOne, CanBeNull = false)]
+        [Association(ThisKey = nameof(StudentId), OtherKey = nameof(StudentId), CanBeNull = false)]
         public Student Student { get; set; }
 
-        [Association(ThisKey = nameof(SourceOrganizationId), OtherKey = nameof(Organization.OrganizationId), Relationship = Relationship.ManyToOne, CanBeNull = false)]
+        [Association(ThisKey = nameof(SourceOrganizationId), OtherKey = nameof(Organization.OrganizationId), CanBeNull = false)]
         public Organization SourceOrganization { get; set; }
 
-        [Association(ThisKey = nameof(TargetProgramId), OtherKey = nameof(Program.ProgramId), Relationship = Relationship.ManyToOne, CanBeNull = false)]
+        [Association(ThisKey = nameof(TargetProgramId), OtherKey = nameof(Program.ProgramId), CanBeNull = false)]
         public Program TargetProgram { get; set; }
 
-        [Association(ThisKey = nameof(ApplicationId), OtherKey = nameof(ApplicationId), Relationship = Relationship.OneToMany)]
+        [Association(ThisKey = nameof(ApplicationId), OtherKey = nameof(ApplicationId))]
         public IEnumerable<Evaluation> Evaluations { get; set; }
 
-        [Association(ThisKey = nameof(ApplicationId), OtherKey = nameof(ApplicationAttachment.ApplicationId), Relationship = Relationship.OneToMany)]
+        [Association(ThisKey = nameof(ApplicationId), OtherKey = nameof(ApplicationAttachment.ApplicationId))]
         public IEnumerable<ApplicationAttachment> Attachments { get; set; }
 
         #endregion

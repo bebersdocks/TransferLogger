@@ -29,22 +29,22 @@ namespace TransferLogger.Dal.DataModels
 
         #region Associations 
 
-        [Association(ThisKey = nameof(ApplicationId), OtherKey = nameof(ApplicationId), Relationship = Relationship.ManyToOne, CanBeNull = false)]
+        [Association(ThisKey = nameof(ApplicationId), OtherKey = nameof(ApplicationId), CanBeNull = false)]
         public Application Application { get; set; }
 
-        [Association(ThisKey = nameof(CourseId), OtherKey = nameof(CourseId), Relationship = Relationship.ManyToOne, CanBeNull = false)]
+        [Association(ThisKey = nameof(CourseId), OtherKey = nameof(CourseId), CanBeNull = false)]
         public Course Course { get; set; }
 
-        [Association(ThisKey = nameof(InstructorId), OtherKey = nameof(InstructorId), Relationship = Relationship.ManyToOne, CanBeNull = false)]
+        [Association(ThisKey = nameof(InstructorId), OtherKey = nameof(InstructorId), CanBeNull = false)]
         public Instructor Instructor { get; set; }
 
-        [Association(ThisKey = nameof(SuggestedCourseId), OtherKey = nameof(CourseId), Relationship = Relationship.ManyToOne, CanBeNull = true)]
+        [Association(ThisKey = nameof(SuggestedCourseId), OtherKey = nameof(CourseId), CanBeNull = true)]
         public Course SuggestedCourse { get; set; }
 
-        [Association(ThisKey = nameof(MatchedCourseId), OtherKey = nameof(CourseId), Relationship = Relationship.ManyToOne, CanBeNull = true)]
+        [Association(ThisKey = nameof(MatchedCourseId), OtherKey = nameof(CourseId), CanBeNull = true)]
         public Course MatchedCourse { get; set; }
 
-        [Association(ThisKey = nameof(LinkedEvaluationId), OtherKey = nameof(EvaluationId), Relationship = Relationship.ManyToOne, CanBeNull = true)]
+        [Association(ThisKey = nameof(LinkedEvaluationId), OtherKey = nameof(EvaluationId), CanBeNull = true)]
         public Evaluation LinkedEvaluation { get; set; }
 
         #endregion

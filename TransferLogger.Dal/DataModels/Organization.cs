@@ -7,7 +7,6 @@ using TransferLogger.Dal.Definitions;
 
 namespace TransferLogger.Dal.DataModels
 {
-    // If you have existing db with data - add new types only to the end.
     public enum OrganizationType
     {
         School     = 1,
@@ -30,7 +29,7 @@ namespace TransferLogger.Dal.DataModels
 
         #region Associations 
 
-        [Association(ThisKey = nameof(OrganizationId), OtherKey = nameof(OrganizationId), Relationship = Relationship.OneToMany)]
+        [Association(ThisKey = nameof(OrganizationId), OtherKey = nameof(OrganizationId))]
         public IEnumerable<Application> Applications { get; set; }
 
         #endregion
