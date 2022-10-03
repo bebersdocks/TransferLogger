@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -11,13 +12,18 @@ using TransferLogger.Ui.Forms;
 using TransferLogger.Ui.Forms.Courses;
 using TransferLogger.Ui.Forms.Dialogs;
 using TransferLogger.Ui.Forms.Programs;
-using TransferLogger.Ui.Utils;
 
 namespace TransferLogger.Ui.Controls.ApplicationWizard
 {
     public partial class CoursesControl : UserControl, IWizardControl
     {
-        private readonly ApplicationBuild _appBuild;
+        private readonly ApplicationBuild  _appBuild;
+
+        private BindingList<SelectableCourseModel> _courses = new();
+        public HashSet<int> SelectedCourseIds => _courses
+            .Where(i => i.Selected)
+            .Select(i => i.Id)
+            .ToHashSet();
 
         public CoursesControl(ApplicationBuild appBuild)
         {
@@ -45,16 +51,16 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             if (_cbCycles.Items.Count == 0)
                 _cbCycles.FillLookups(Dal.Definitions.Cycle.Bachelor);
 
-            _grid.SelectionChanged -= _grid_SelectionChanged;
-
-            _grid.DataSource = SelectableCourseModel.GetList(
-                _appBuild.CourseIds,
+           var courses = SelectableCourseModel.GetList(
+                SelectedCourseIds,
                 _tbSearchName.Text,
                 _appBuild.SourceOrganizationId,
                 _cbCycles.GetSelectedValue<Cycle>(),
                 Convert.ToInt32(_cbPrograms.SelectedValue));
 
-            _grid.SelectionChanged += _grid_SelectionChanged;
+            _courses = new BindingList<SelectableCourseModel>(courses);
+
+            _grid.DataSource = _courses;
         }
 
         private void SetPrograms(int? programId = null)
@@ -79,12 +85,15 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
                 programId ??= (int?)_cbPrograms.SelectedValue ?? -1;
 
                 _cbPrograms.FillLookups(programs, programId);
-                _cbPrograms.Enabled = _btnSelectProgram.Enabled = true;
+
+                _btnSelectProgram.Enabled = true;
+                _cbPrograms.Enabled       = true;
             }
             else
             {
-                _cbPrograms.DataSource = null;
-                _cbPrograms.Enabled = _btnSelectProgram.Enabled = false;
+                _btnSelectProgram.Enabled = false;
+                _cbPrograms.DataSource    = null;
+                _cbPrograms.Enabled       = false;
             }
         }
 
@@ -93,73 +102,13 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             _tbSearchName.TextChanged        += (s, e) => SetData();
             _cbPrograms.SelectedValueChanged += (s, e) => SetData();
 
-            _grid.CellClick       += (s, e) => SetCurrentRowAsSelected();
-            _grid.CellDoubleClick += (s, e) => SetCurrentRowAsSelected();
-
-            _grid.KeyDown += _grid_KeyDown;
-
+            _btnAddCourse.Click            += _btnAddCourse_Click;
+            _btnManageCourses.Click        += _btnManageCourses_Click;
+            _btnAddProgram.Click           += _btnAddProgram_Click;
+            _btnManagePrograms.Click       += _btnManagePrograms_Click;
+            _btnSelectProgram.Click        += _btnSelectProgram_Click;
             _cbCycles.SelectedValueChanged += _cbCycles_SelectedValueChanged;
-
-            _btnAddCourse.Click      += _btnAddCourse_Click;
-            _btnManageCourses.Click  += _btnManageCourses_Click;
-            _btnAddProgram.Click     += _btnAddProgram_Click;
-            _btnManagePrograms.Click += _btnManagePrograms_Click;
-            _btnSelectProgram.Click  += _btnSelectProgram_Click;
-        }
-
-        private void UpdateSelectedRows()
-        {
-            if (_grid.DataSource is List<SelectableCourseModel> courses)
-            {
-                foreach (var course in courses)
-                {
-                    course.Selected = _appBuild.Evaluations.ContainsKey(course.Id);
-                }
-
-                _grid.Refresh();
-            }
-        }
-
-        private void SetCurrentRowAsSelected()
-        {
-            if (_grid.CurrentRow?.DataBoundItem is SelectableCourseModel model)
-            {
-                model.Selected = !model.Selected;
-
-                if (model.Selected)
-                {
-                    if (!_appBuild.Evaluations.ContainsKey(model.Id))
-                    {
-                        var newEvaluation = new ApplicationEvaluation
-                        {
-                            CourseId = model.Id
-                        };
-
-                        _appBuild.Evaluations[model.Id] = newEvaluation;
-                    }
-                }
-                else
-                {
-                    _appBuild.Evaluations.Remove(model.Id);
-                }
-
-                UpdateSelectedRows();
-            }
-        }
-
-        private void _grid_SelectionChanged(object? sender, EventArgs e)
-        {
-            UpdateSelectedRows();
-        }
-
-        private void _grid_KeyDown(object? sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                SetCurrentRowAsSelected();
-
-                e.SuppressKeyPress = true;
-            }
+            _grid.Click                    += _grid_Click;
         }
 
         private void _cbCycles_SelectedValueChanged(object? sender, EventArgs e)
@@ -195,8 +144,10 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
         {
             var (programId, cycle) = (Convert.ToInt32(_cbPrograms.SelectedValue), _cbCycles.GetSelectedValue<Cycle>());
 
-            if (FormUtils.InsertOrReplace(_grid, id => new CourseForm(id, _appBuild.SourceOrganizationId, true, programId, cycle), SetData, true))
-                SetCurrentRowAsSelected();
+            using var form = new CourseForm(0, _appBuild.SourceOrganizationId, true, programId, cycle);
+
+            if (form.ShowDialog() == DialogResult.OK)
+                SetData();
         }
 
         private void _btnManageCourses_Click(object? sender, EventArgs e)
@@ -219,18 +170,36 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             using var form = new LookupSelectionForm("Select Program", programs, _cbPrograms.SelectedValue);
 
             if (form.ShowDialog() == DialogResult.OK && form.SelectedValue.HasValue)
-            {
                 _cbPrograms.SelectedValue = form.SelectedValue.Value;
-            }
+        }
+
+        private void _grid_Click(object? sender, EventArgs e)
+        {
+            if (_grid.CurrentRow?.DataBoundItem is SelectableCourseModel course)
+                course.Selected = !course.Selected;
         }
 
         public bool Complete()
         {
-           if (!_appBuild.Evaluations.Any())
+           if (!SelectedCourseIds.Any())
             {
                 MessageDialog.Show("At least 1 course is required.", "Wizard Validation");
 
                 return false;
+            }
+
+            var preservedEvaluations = _appBuild.Evaluations.Values
+                .Where(i => SelectedCourseIds.Contains(i.CourseId))
+                .ToDictionary(i => i.CourseId);
+
+            _appBuild.Evaluations.Clear();
+
+            foreach (var courseId in SelectedCourseIds)
+            {
+                if (preservedEvaluations.TryGetValue(courseId, out var evaluation))
+                    _appBuild.Evaluations[courseId] = evaluation;
+                else
+                    _appBuild.Evaluations[courseId] = new() { CourseId = courseId };
             }
 
             return true;

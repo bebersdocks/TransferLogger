@@ -11,7 +11,7 @@ using TransferLogger.Dal.Definitions;
 
 namespace TransferLogger.BusinessLogic.Models.Courses
 {
-    public class CourseModel : IIdentifiable
+    public class CourseModel : ObservableItem, IIdentifiable
     {
         public int    Id           { get; set; }
         public string Name         { get; set; }
@@ -60,7 +60,7 @@ namespace TransferLogger.BusinessLogic.Models.Courses
             return query;
         }
 
-        public static List<CourseModel> GetList(string searchName = "", int organizationId = 0, Cycle? cycle = null, int programId = 0)
+        public static IList<CourseModel> GetList(string searchName = "", int organizationId = 0, Cycle? cycle = null, int programId = 0)
         {
             using var dc = new Dc();
 

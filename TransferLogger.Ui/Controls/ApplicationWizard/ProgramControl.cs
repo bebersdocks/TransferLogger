@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -17,6 +18,8 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 {
     public partial class ProgramControl : UserControl, IWizardControl
     {
+        private BindingList<SelectableProgramModel> _programs = new();
+
         private readonly ApplicationBuild _appBuild;
 
         public ProgramControl(ApplicationBuild appBuild)
@@ -60,33 +63,31 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
                 _cbCycles.SelectedValueChanged += _cbCycles_SelectedValueChanged;
             }
 
-            var selectedIds = new HashSet<int> { _appBuild.TargetProgramId };
+            var selectedIds = new HashSet<int>();
 
-            _grid.SelectionChanged -= _grid_SelectionChanged;
+            if (_programs.SingleOrDefault(i => i.Selected) is IIdentifiable identifiable)
+                selectedIds.Add(identifiable.Id);
 
-            _grid.DataSource = SelectableProgramModel.GetList(
+            var programs = SelectableProgramModel.GetList(
                 selectedIds,
                 _tbSearchName.Text,
                 AppSettings.Instance.OrganizationId,
                 _cbCycles.GetSelectedValue<Cycle>());
 
-            if (_appBuild.TargetProgramId > 0)
-                _grid.SelectRow<IIdentifiable>(i => i.Id == _appBuild.TargetProgramId);
+            _programs = new BindingList<SelectableProgramModel>(programs);
 
-            _grid.SelectionChanged += _grid_SelectionChanged;
+            _grid.DataSource = _programs;
         }
 
         private void SetEvents()
         {
             _tbSearchName.TextChanged += (s, e) => SetData();
-
-            _grid.CellClick       += (s, e) => SetCurrentRowAsSelected();
-            _grid.CellDoubleClick += (s, e) => SetCurrentRowAsSelected();
-
-            _grid.KeyDown += _grid_KeyDown;
+            _grid.CellClick           += (s, e) => SetCurrentRowAsSelected();
+            _grid.CellDoubleClick     += (s, e) => SetCurrentRowAsSelected();
 
             _btnAdd.Click    += _btnAdd_Click;
             _btnManage.Click += _btnManage_Click;
+            _grid.KeyDown    += _grid_KeyDown;
         }
 
         private void _cbCycles_SelectedValueChanged(object? sender, EventArgs e)
@@ -94,44 +95,10 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             SetData();
         }
 
-        private void UpdateSelectedRow()
-        {
-            if (_grid.DataSource is List<SelectableProgramModel> programs)
-            {
-                foreach (var program in programs)
-                {
-                    program.Selected = program.Id == _appBuild.TargetProgramId;
-                }
-
-                _grid.Refresh();
-            }
-        }
-
-        private void _grid_SelectionChanged(object? sender, EventArgs e)
-        {
-            UpdateSelectedRow();
-        }
-
-        private void _grid_KeyDown(object? sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                SetCurrentRowAsSelected();
-
-                e.SuppressKeyPress = true;
-            }
-        }
-
         private void SetCurrentRowAsSelected()
         {
-            if (_grid.CurrentRow?.DataBoundItem is SelectableProgramModel model)
-            {
-                model.Selected = !model.Selected;
-
-                _appBuild.TargetProgramId = model.Selected ? model.Id : 0;
-
-                UpdateSelectedRow();
-            }
+            if (_grid.CurrentRow?.DataBoundItem is SelectableProgramModel program)
+                program.Selected = !program.Selected;
         }
 
         private void _btnAdd_Click(object? sender, EventArgs e)
@@ -150,17 +117,22 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
             form.ShowDialog();
 
-            using var dc = new Dc();
-
-            if (!dc.Programs.Any(p => p.ProgramId == _appBuild.TargetProgramId))
-                _appBuild.TargetProgramId = 0;
-
             SetData();
+        }
+
+        private void _grid_KeyDown(object? sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SetCurrentRowAsSelected();
+
+                e.SuppressKeyPress = true;
+            }
         }
 
         public bool Complete()
         {
-            if (_appBuild.TargetProgramId <= 0)
+            if (_programs.SingleOrDefault(i => i.Selected) is not IIdentifiable identifiable)
             {
                 MessageDialog.Show("You have to select program.", "Wizard Validation");
 
@@ -168,6 +140,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             }
             else
             {
+                _appBuild.TargetProgramId = identifiable.Id;
                 _appBuild.CleanObsoleteResources();
 
                 return true;

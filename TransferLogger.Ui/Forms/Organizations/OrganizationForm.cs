@@ -18,6 +18,7 @@ namespace TransferLogger.Ui.Forms.Organizations
     public partial class OrganizationForm : Form
     {
         private readonly Organization _organization;
+
         private readonly List<Lookup> _countries = EnumUtils.GetLookups<Country>();
 
         public OrganizationForm(int organizationId = 0, OrganizationType? organizationType = null, Country? country = null)

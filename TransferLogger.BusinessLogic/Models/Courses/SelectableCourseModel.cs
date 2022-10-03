@@ -11,15 +11,16 @@ namespace TransferLogger.BusinessLogic.Models.Courses
 {
     public class SelectableCourseModel : CourseModel
     {
-        public bool Selected { get; set; }
+        private bool _selected;
+        public bool Selected { get => _selected; set => SetField(ref _selected, value); }
 
         public SelectableCourseModel(Course course, bool selected) 
             : base(course)
         {
-            Selected = selected;
+            _selected = selected;
         }
 
-        public static List<SelectableCourseModel> GetList(
+        public static IList<SelectableCourseModel> GetList(
             HashSet<int> selectedIds,
             string searchName = "",
             int organizationId = 0,

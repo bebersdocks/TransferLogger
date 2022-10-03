@@ -9,7 +9,7 @@ using TransferLogger.Dal.Definitions;
 
 namespace TransferLogger.BusinessLogic.Models.Programs
 {
-    public class ProgramModel : IIdentifiable
+    public class ProgramModel : ObservableItem, IIdentifiable
     {
         public int    Id           { get; set; }
         public string Name         { get; set; }
@@ -42,7 +42,7 @@ namespace TransferLogger.BusinessLogic.Models.Programs
             return query;
         }
 
-        public static List<ProgramModel> GetList(string searchName = "", int organizationId = 0, Cycle? cycle = null)
+        public static IList<ProgramModel> GetList(string searchName = "", int organizationId = 0, Cycle? cycle = null)
         {
             using var dc = new Dc();
 

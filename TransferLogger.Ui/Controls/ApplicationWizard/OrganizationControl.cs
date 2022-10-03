@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -7,7 +8,6 @@ using TransferLogger.BusinessLogic;
 using TransferLogger.BusinessLogic.Intefaces;
 using TransferLogger.BusinessLogic.Models.Organizations;
 using TransferLogger.BusinessLogic.Utils;
-using TransferLogger.Dal;
 using TransferLogger.Dal.DataModels;
 using TransferLogger.Dal.Definitions;
 using TransferLogger.Ui.Forms;
@@ -19,9 +19,10 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 {
     public partial class OrganizationControl : UserControl, IWizardControl
     {
+        private BindingList<SelectableOrganizationModel> _organizations = new();
+       
         private readonly ApplicationBuild _appBuild;
-
-        private readonly List<Lookup> _countries = EnumUtils.GetLookups<Country>();
+        private readonly List<Lookup>     _countries = EnumUtils.GetLookups<Country>();
 
         public OrganizationControl(ApplicationBuild appBuild)
         {
@@ -50,20 +51,20 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             if (_cbCountries.Items.Count == 0)
                 _cbCountries.FillLookups(_countries);
 
-            var selectedIds = new HashSet<int> { _appBuild.SourceOrganizationId };
+            var selectedIds = new HashSet<int>();
 
-            _grid.SelectionChanged -= _grid_SelectionChanged;
+            if (_organizations.SingleOrDefault(i => i.Selected) is IIdentifiable identifiable)
+                selectedIds.Add(identifiable.Id);
 
-            _grid.DataSource = SelectableOrganizationModel.GetList(
+            var organizations = SelectableOrganizationModel.GetList(
                 selectedIds,
                 _tbSearchName.Text,
                 _cbOrganizationTypes.GetSelectedValue<OrganizationType>(),
                 _cbCountries.GetSelectedValue<Country>());
 
-            if (_appBuild.SourceOrganizationId > 0)
-                _grid.SelectRow<IIdentifiable>(i => i.Id == _appBuild.SourceOrganizationId);
+            _organizations = new BindingList<SelectableOrganizationModel>(organizations);
 
-            _grid.SelectionChanged += _grid_SelectionChanged;
+            _grid.DataSource = _organizations;
         }
 
         private void SetEvents()
@@ -71,33 +72,13 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             _tbSearchName.TextChanged                 += (s, e) => SetData();
             _cbOrganizationTypes.SelectedValueChanged += (s, e) => SetData();
             _cbCountries.SelectedValueChanged         += (s, e) => SetData();
-
-            _grid.CellClick       += (s, e) => SetCurrentRowAsSelected();
-            _grid.CellDoubleClick += (s, e) => SetCurrentRowAsSelected();
-
-            _grid.KeyDown += _grid_KeyDown;
+            _grid.CellClick                           += (s, e) => SetCurrentRowAsSelected();
+            _grid.CellDoubleClick                     += (s, e) => SetCurrentRowAsSelected();
 
             _btnAdd.Click           += _btnAdd_Click;
             _btnManage.Click        += _btnManage_Click;
             _btnSelectCountry.Click += _btnSelectCountry_Click;
-        }
-
-        private void UpdateSelectedRow()
-        {
-            if (_grid.DataSource is List<SelectableOrganizationModel> organizations)
-            {
-                foreach (var organization in organizations)
-                {
-                    organization.Selected = organization.Id == _appBuild.SourceOrganizationId;
-                }
-
-                _grid.Refresh();
-            }
-        }
-
-        private void _grid_SelectionChanged(object? sender, EventArgs e)
-        {
-            UpdateSelectedRow();
+            _grid.KeyDown           += _grid_KeyDown;
         }
 
         private void _grid_KeyDown(object? sender, KeyEventArgs e)
@@ -112,14 +93,8 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
         private void SetCurrentRowAsSelected()
         {
-            if (_grid.CurrentRow?.DataBoundItem is SelectableOrganizationModel model)
-            {
-                model.Selected = !model.Selected;
-
-                _appBuild.SourceOrganizationId = model.Selected ? model.Id : 0;
-
-                UpdateSelectedRow();
-            }
+            if (_grid.CurrentRow?.DataBoundItem is SelectableOrganizationModel organization)
+                organization.Selected = !organization.Selected;
         }
 
         private void _btnAdd_Click(object? sender, EventArgs e)
@@ -127,8 +102,10 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             var organizationType = _cbOrganizationTypes.GetSelectedValue<OrganizationType>();
             var country          = _cbCountries.GetSelectedValue<Country>();
 
-            if (FormUtils.InsertOrReplace(_grid, id => new OrganizationForm(id, organizationType, country), SetData, true))
-                SetCurrentRowAsSelected();
+            using var form = new OrganizationForm(0, organizationType, country);
+
+            if (form.ShowDialog() == DialogResult.OK)
+                SetData();
         }
 
         private void _btnManage_Click(object? sender, EventArgs e)
@@ -140,12 +117,6 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
             form.ShowDialog();
 
-            // Check if current selection was deleted.
-            using var dc = new Dc();
-
-            if (!dc.Organizations.Any(o => o.OrganizationId == _appBuild.SourceOrganizationId))
-                _appBuild.SourceOrganizationId = 0;
-
             SetData();
         }
 
@@ -154,14 +125,12 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             using var form = new LookupSelectionForm("Select Country", _countries, _cbCountries.SelectedValue);
 
             if (form.ShowDialog() == DialogResult.OK && form.SelectedValue.HasValue)
-            {
                 _cbCountries.SelectedValue = form.SelectedValue.Value;
-            }
         }
 
         public bool Complete()
         {
-            if (_appBuild.SourceOrganizationId <= 0)
+            if (_organizations.SingleOrDefault(i => i.Selected) is not IIdentifiable identifiable)
             {
                 MessageDialog.Show("You have to select organization.", "Wizard Validation");
 
@@ -169,6 +138,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             }
             else
             {
+                _appBuild.SourceOrganizationId = identifiable.Id;
                 _appBuild.CleanObsoleteResources();
 
                 return true;

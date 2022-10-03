@@ -10,15 +10,16 @@ namespace TransferLogger.BusinessLogic.Models.Organizations
 {
     public class SelectableOrganizationModel : OrganizationModel
     {
-        public bool Selected { get; set; }
+        private bool _selected;
+        public bool Selected { get => _selected; set => SetField(ref _selected, value); }
 
         public SelectableOrganizationModel(Organization organization, bool selected) 
             : base(organization)
         {
-            Selected = selected;
+            _selected = selected;
         }
 
-        public static List<SelectableOrganizationModel> GetList(
+        public static IList<SelectableOrganizationModel> GetList(
             HashSet<int> selectedIds,
             string searchName = "", 
             OrganizationType? organizationType = null, 
