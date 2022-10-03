@@ -43,7 +43,7 @@
             this._btnNext.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
             this._btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnNext.ForeColor = System.Drawing.Color.Black;
-            this._btnNext.Location = new System.Drawing.Point(635, 483);
+            this._btnNext.Location = new System.Drawing.Point(812, 500);
             this._btnNext.Name = "_btnNext";
             this._btnNext.Size = new System.Drawing.Size(75, 29);
             this._btnNext.TabIndex = 2;
@@ -59,7 +59,7 @@
             this._btnBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
             this._btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnBack.ForeColor = System.Drawing.Color.Black;
-            this._btnBack.Location = new System.Drawing.Point(554, 483);
+            this._btnBack.Location = new System.Drawing.Point(731, 500);
             this._btnBack.Name = "_btnBack";
             this._btnBack.Size = new System.Drawing.Size(75, 29);
             this._btnBack.TabIndex = 3;
@@ -74,7 +74,7 @@
             this._pnlControl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this._pnlControl.Location = new System.Drawing.Point(-3, -4);
             this._pnlControl.Name = "_pnlControl";
-            this._pnlControl.Size = new System.Drawing.Size(728, 474);
+            this._pnlControl.Size = new System.Drawing.Size(905, 491);
             this._pnlControl.TabIndex = 1;
             this._pnlControl.TabStop = true;
             // 
@@ -83,12 +83,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(722, 524);
+            this.ClientSize = new System.Drawing.Size(899, 541);
             this.Controls.Add(this._pnlControl);
             this.Controls.Add(this._btnBack);
             this.Controls.Add(this._btnNext);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
+            this.MinimumSize = new System.Drawing.Size(715, 420);
             this.Name = "ApplicationWizardForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Application Wizard";

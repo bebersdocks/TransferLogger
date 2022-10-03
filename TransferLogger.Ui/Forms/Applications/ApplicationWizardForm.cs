@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Windows.Forms;
 
 using TransferLogger.BusinessLogic;
@@ -57,14 +56,6 @@ namespace TransferLogger.Ui.Forms.Applications
                 Back();
         }
 
-        private Size GetSize(BuildStep step)
-        {
-            return step switch
-            {
-                _ => new Size(935, 640)
-            };
-        }
-
         private void SetCurrentStep(BuildStep step, bool forward = true)
         {
             if (_wizardControls.TryGetValue(_appBuild.CurrentStep, out var wizardControl))
@@ -77,17 +68,11 @@ namespace TransferLogger.Ui.Forms.Applications
 
             _appBuild.CurrentStep = step;
 
-            Size = MinimumSize = GetSize(step);
-
             _btnBack.Visible = step != BuildStep.Student;
             _btnNext.Text    = step == BuildStep.Review ? "Create" : "Next";
 
             if (_wizardControls.TryGetValue(step, out wizardControl))
-            {
                 wizardControl.Activate();
-
-                CenterToScreen();
-            }
         }
 
         private void NextStep()
