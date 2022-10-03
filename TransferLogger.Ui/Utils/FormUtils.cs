@@ -6,9 +6,7 @@ using LinqToDB;
 
 using Serilog;
 
-using TransferLogger.BusinessLogic.Intefaces;
 using TransferLogger.Dal;
-using TransferLogger.Ui.Controls;
 using TransferLogger.Ui.Forms.Utils;
 
 using static System.Windows.Forms.Control;
@@ -17,38 +15,6 @@ namespace TransferLogger.Ui.Utils
 {
     public static class FormUtils
     {
-        /// <summary>
-        /// This method should be used only with homogenous data objects.
-        /// Correct: courses grid + form to create or update course, method will trigger update of the grid with new course.
-        /// Wrong: courses grid + form for creation of program.
-        /// </summary>
-        public static bool InsertOrReplace(TlDataGrid grid, Func<int, Form> getForm, Action setData, bool isNew = false)
-        {
-            var itemId = 0;
-
-            if (grid.CurrentRow?.DataBoundItem is IIdentifiable identifiable)
-                itemId = identifiable.Id;
-
-            if (!isNew && itemId == 0)
-                return false;
-
-            using var form = getForm(isNew ? 0 : itemId);
-
-            if (form.ShowDialog() == DialogResult.OK)
-            {
-                setData();
-
-                if (!isNew)
-                    grid.SelectRow<IIdentifiable>(vm => vm.Id == itemId);
-                else
-                    grid.SelectRow(grid.Rows.Count - 1);
-
-                return true;
-            }
-
-            return false;
-        }
-
         public static bool TryInsertOrReplace<T>(T obj, ref int id) where T : notnull
         {
             try

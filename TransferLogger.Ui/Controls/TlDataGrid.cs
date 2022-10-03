@@ -72,8 +72,11 @@ namespace TransferLogger.Ui.Controls
             RowHeadersDefaultCellStyle    = GetRowHeadersDefaultCellStyle();
         }
 
-        public bool SelectRow(int index)
+        public bool SelectRow(int? index)
         {
+            if (!index.HasValue)
+                return false;
+
             ClearSelection();
 
             if (index >= RowCount)

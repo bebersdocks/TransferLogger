@@ -11,7 +11,6 @@ using TransferLogger.BusinessLogic.Models.Programs;
 using TransferLogger.Dal;
 using TransferLogger.Dal.Definitions;
 using TransferLogger.Ui.Forms.Dialogs;
-using TransferLogger.Ui.Utils;
 using TransferLogger.Ui.Forms.Programs;
 
 namespace TransferLogger.Ui.Controls.ApplicationWizard
@@ -42,7 +41,7 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             _grid.Focus();
         }
 
-        private void SetData(bool refresh = false)
+        private void SetData(bool refresh = false, int? index = null)
         {
             if (refresh)
             {
@@ -63,6 +62,8 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
                 _cbCycles.SelectedValueChanged += _cbCycles_SelectedValueChanged;
             }
 
+            index ??= _grid.CurrentRow?.Index;
+
             var selectedIds = new HashSet<int>();
 
             if (_programs.SingleOrDefault(i => i.Selected) is IIdentifiable identifiable)
@@ -77,6 +78,8 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
             _programs = new BindingList<SelectableProgramModel>(programs);
 
             _grid.DataSource = _programs;
+
+            _grid.SelectRow(index);
         }
 
         private void SetEvents()
@@ -103,10 +106,17 @@ namespace TransferLogger.Ui.Controls.ApplicationWizard
 
         private void _btnAdd_Click(object? sender, EventArgs e)
         {
-            var cycle = _cbCycles.GetSelectedValue<Cycle>();
+            using var form = new ProgramForm(
+                0,
+                AppSettings.Instance.OrganizationId,
+                true,
+                _cbCycles.GetSelectedValue<Cycle>());
 
-            if (FormUtils.InsertOrReplace(_grid, id => new ProgramForm(id, AppSettings.Instance.OrganizationId, true, cycle), () => SetData(), true))
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                SetData(index: _grid.RowCount + 1);
                 SetCurrentRowAsSelected();
+            }
         }
 
         private void _btnManage_Click(object? sender, EventArgs e)
